@@ -11,19 +11,19 @@ const Dashboard = () => {
   return (
     <>
       <div className='bg-purpal-100'>
-        <div className='grid grid-cols-4 gap-0 w-full'>
-          <div className='col-span-3 w-[74%]'>
-            <div className='flex flex-row gap-3 w-[1348px]'>
+        <div className='flex flex-row gap-3  w-full'>
+          <div className='flex flex-col gap-3'>
+            <div className='flex flex-row gap-3 max-w-[1000px]'>
               {overview_box.map((data, index) => (
                 <Box key={index} data={data} />
               ))}
             </div>
-            <div className='w-[1348px]'>
+            <div className='max-w-[1000px]'>
 
             <Line_chart data={overview_linechart}/>
             </div>
           </div>
-          <div className='w-[26%] translate-x-[100px]'>
+          <div className='min-w-[385px] '>
 
           <Pie_chart data={overview_piechart} />
           </div>

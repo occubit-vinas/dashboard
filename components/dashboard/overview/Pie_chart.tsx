@@ -16,7 +16,7 @@ const Pie_chart = ({ data }) => {
   const isPositive = percentage > 0
 
   return (
-    <div className={`relative rounded-2xl p-[2px] bg-gradient-to-tl from-purple-900 to-purple-100 w-[395px] h-[565px] ${origin == 'overview'?"-translate-x-15":""}`}>
+    <div className={`relative rounded-2xl p-[2px] bg-gradient-to-tl from-purple-900 to-purple-100 w-full h-full `}>
       <div className="bg-white rounded-2xl p-6 flex flex-col items-center justify-between h-full">
 
         {/* Title */}

@@ -12,7 +12,7 @@ import {
 
 const Line_chart = ({ data }) => {
   return (
-    <div className="rounded-2xl p-[2px] mt-5 w-[1348] h-[415px]">
+    <div className="rounded-2xl p-[2px] mt-5 w-full h-[415px]">
       <div className="bg-white rounded-2xl px-6 py-4 h-full flex flex-col justify-between">
         
         {/* Header */}

@@ -3,21 +3,35 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Search } from 'lucide-react'
-
+import { usePathname } from "next/navigation";
 const Topbar = () => {
   const [active, setActive] = useState<number | null>(0)
+  const pathname = usePathname() ?? ""; // ensure it's never null
+const dashboardRoutes = [
+  "/dashboard",
+  "/sales",
+  "/products",
+  "/customers",
+  "/inventories",
+  "/insights"
+];
+
+// Check if current route ends with any of the above
+const isDashboard = dashboardRoutes.some(route => pathname.endsWith(route));
+
+
 
   const nav_links = [
     { path: '/dashboard', title: 'Overview' },
     { path: '/dashboard/sales', title: 'Sales' },
     { path: '/dashboard/customers', title: 'Customers' },
     { path: '/dashboard/products', title: 'Products' },
-    { path: '/dashboard/inventory', title: 'Inventory' },
+    { path: '/dashboard/inventories', title: 'Inventory' },
     { path: '/dashboard/insights', title: 'Insights' },
   ]
 
   return (
-    <div className="px-10 pt-4 min-w-8xl">
+    <div className="px-7 pt-4 min-w-8xl">
       {/* --- Fixed Top Navigation Bar --- */}
       <div className="w-full fixed top-0 left-20 right-0 h-16 bg-white shadow-md flex items-center justify-between px-6 z-50">
         {/* Left Section: Logo */}
@@ -33,7 +47,7 @@ const Topbar = () => {
 
         {/* Right Section: Search Bar */}
         <div className="relative -translate-x-20 flex flex-row gap-3">
-          <Image src='/dashboard/notification.svg' alt='img' height={35} width={35}/>
+          <Image src='/dashboard/notification.svg' alt='img' height={35} width={35} />
           <div className='relative'>
 
             <Search className="absolute left-3 top-2.5 text-gray-400 w-5 h-5" />
@@ -48,7 +62,7 @@ const Topbar = () => {
 
 
       {/* --- Page Header Section --- */}
-      <div className="mt-16 ml-20">
+      {isDashboard && <div className="mt-16 ml-20">
         <div className="flex flex-row justify-between items-center">
           {/* Left: Title and subtitle */}
           <div>
@@ -79,7 +93,7 @@ const Topbar = () => {
 
         {/* --- Centered Navigation Bar --- */}
         <div className="flex justify-center mt-6 w-full">
-          <div className="flex flex-row gap-4 bg-purple-700 rounded-xl px-2 py-1 shadow-sm">
+          <div className="flex flex-row gap-4 bg-purple-700 rounded-xl px-1 py-1 shadow-sm">
             {nav_links.map((cur, index) => (
               <Link
                 href={cur.path}
@@ -104,7 +118,7 @@ const Topbar = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div>}
     </div>
   )
 }
