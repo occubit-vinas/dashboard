@@ -12,10 +12,10 @@ export default function Sidebar() {
     { href: '/dashboard', icon: '/dashboard/sidebar/analytics.svg', label: 'Analytics' },
     { href: '/dashboard/category', icon: '/dashboard/sidebar/category.svg', label: 'Home' },
     { href: '/dashboard/product_mng', icon: '/dashboard/sidebar/product.svg', label: 'Calendar' },
-    { href: '/dashboard/tasks', icon: '/dashboard/sidebar/order.svg', label: 'Tasks' },
-    { href: '/dashboard/messages', icon: '/dashboard/sidebar/user.svg', label: 'Messages' },
+    { href: '/dashboard/order_mng', icon: '/dashboard/sidebar/order.svg', label: 'Tasks' },
+    { href: '/dashboard/customer_mng', icon: '/dashboard/sidebar/user.svg', label: 'Messages' },
     { href: '/dashboard/reports', icon: '/dashboard/sidebar/chart.svg', label: 'Reports' },
-    { href: '/dashboard/profile', icon: '/dashboard/sidebar/discount.svg', label: 'Profile' },
+    { href: '/dashboard/coupon_mng', icon: '/dashboard/sidebar/discount.svg', label: 'Profile' },
     { href: '/dashboard/notifications', icon: '/dashboard/sidebar/star.svg', label: 'Notifications' },
     { href: '/dashboard/notifications', icon: '/dashboard/sidebar/store.svg', label: 'Notifications' },
   ]

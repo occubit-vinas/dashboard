@@ -80,6 +80,21 @@ export const Cancel = ({onClick}) => {
   );
 };
 
+export const White_button = ({onClick,label}) => {
+  return (
+    <div className=" border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer" onClick={onClick}>
+      <p className="text-desc ">{label}</p>
+    </div>
+  );
+};
+export const Purple_button = ({onClick,label}) => {
+  return (
+    <div className=" border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer btn-clr text-white" onClick={onClick}>
+      
+      <p className="">{label}</p>
+    </div>
+  );
+};
 export const Create = ({onClick}) => {
   return (
     <div className=" border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer btn-clr text-white" onClick={onClick}>
@@ -99,7 +114,16 @@ export const Add_product = ({onClick}) => {
     </div>
   );
 };
+export const Add_Coupon = ({onClick}) => {
+      
 
+  return (
+    <div className="btn-clr border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer" onClick={onClick}>
+      <CiSquarePlus className='text-white'/> 
+      <p className="text-white ml-1">Add Coupon</p>
+    </div>
+  );
+};
 export const Export = () => {
   return (
     <div className=" border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer">
@@ -178,6 +202,34 @@ export const SortOrderButton = ({order,setOrder}) => {
         <>
           <BsArrowDownShort className="text-lg" />
           Descending
+        </>
+      )}
+    </button>
+  );
+};
+
+
+export const Old_new_sort = ({order,setOrder}) => {
+  
+
+  const toggleOrder = () => {
+    setOrder(order === 'Newest First' ? 'Oldest First' : 'Newest First');
+  };
+
+  return (
+    <button
+      onClick={toggleOrder}
+      className="flex items-center gap-2 bg-white border border-gray-300 rounded-sm px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 transition"
+    >
+      {order === 'Newest First' ? (
+        <>
+          <BsArrowUpShort className="text-lg" />
+          Newest First
+        </>
+      ) : (
+        <>
+          <BsArrowDownShort className="text-lg" />
+          Oldest First
         </>
       )}
     </button>

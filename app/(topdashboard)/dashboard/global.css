@@ -542,3 +542,42 @@
   letter-spacing: 0;
   color: #F59E0B;
 }
+.btn-text {
+  background: #6C6C80;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 26px;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+.order-card-title {
+  /* background: #1E1E2A; */
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #1E1E2A;
+
+}
+.order-card-second {
+  /* background: #1E1E2A; */
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #1E1E2A;
+
+}
+.order-card-second2 {
+  /* background: #1E1E2A; */
+  font-family: 'Inter', sans-serif;
+  font-weight: 500; /* Medium weight */
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #1E1E2A;
+}
