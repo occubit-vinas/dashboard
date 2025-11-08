@@ -143,10 +143,10 @@
 // export default Page;
 // page.tsx
 'use client';
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import Top_area from '@/components/sidebar/top_area';
+import Pagination from '../components/Pagination';
 import {
   Product_filter_bar,
   Clearfilter,
@@ -154,7 +154,6 @@ import {
 } from '../components/product_filter_bar';
 import {
   Export,
-  Filter,
   Showfilter,
   Hidefilter,
   Refresh,
@@ -172,7 +171,11 @@ const Page = () => {
   const [order, setOrder] = useState<'asc' | 'desc'>('asc');
   const router = useRouter();
 
-  // 🧠 Step 1: Define filter configurations
+  // Pagination State
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
+  // Filter Config
   const filtersConfig: FilterConfig[] = [
     {
       type: 'select',
@@ -220,7 +223,6 @@ const Page = () => {
     },
   ];
 
-  // 🧠 Step 2: Initialize selectedFilters based on config
   const initialFilters = filtersConfig.reduce((acc, config) => {
     acc[config.name] = config.defaultValue || '';
     return acc;
@@ -234,7 +236,7 @@ const Page = () => {
     maxPrice: '',
   });
 
-  // 🧠 Step 3: Product data
+  // Product Data
   const allData = [
     {
       Product: 'Printed Shirts',
@@ -276,11 +278,11 @@ const Page = () => {
       price: '₹499',
       stock: 'Out of Stock',
     },
+    // Add more if needed
   ];
 
   const [filteredData, setFilteredData] = useState(allData);
 
-  // 🧠 Step 4: Clear filters
   const clearFilters = () => {
     const resetFilters = filtersConfig.reduce((acc, config) => {
       acc[config.name] = config.defaultValue || '';
@@ -299,42 +301,27 @@ const Page = () => {
     setFilteredData(allData);
   };
 
-  // 🧠 Step 5: Apply filters
   const applyFilters = () => {
     let filtered = [...allData];
 
-    // Category filter
-    if (
-      selectedFilters.category &&
-      selectedFilters.category !== 'All Category'
-    ) {
-      filtered = filtered.filter(
-        (item) => item.categorie === selectedFilters.category
-      );
+    if (selectedFilters.category && selectedFilters.category !== 'All Category') {
+      filtered = filtered.filter(item => item.categorie === selectedFilters.category);
     }
 
-    // Stock filter
-    if (
-      selectedFilters.stock &&
-      selectedFilters.stock !== 'All Stock Levels'
-    ) {
+    if (selectedFilters.stock && selectedFilters.stock !== 'All Stock Levels') {
       if (selectedFilters.stock === 'In Stock') {
-        filtered = filtered.filter((item) => item.stock === 'In Stock');
+        filtered = filtered.filter(item => item.stock === 'In Stock');
       } else if (selectedFilters.stock === 'Out of Stock') {
-        filtered = filtered.filter((item) => item.stock === 'Out of Stock');
+        filtered = filtered.filter(item => item.stock === 'Out of Stock');
       }
     }
 
-    // Status filter
     if (selectedFilters.status && selectedFilters.status !== 'All Status') {
-      filtered = filtered.filter(
-        (item) => item.status === selectedFilters.status
-      );
+      filtered = filtered.filter(item => item.status === selectedFilters.status);
     }
 
-    // Date range filter
     if (selectedFilters.dateFrom && selectedFilters.dateTo) {
-      filtered = filtered.filter((item) => {
+      filtered = filtered.filter(item => {
         const itemDate = new Date(item.date);
         const from = new Date(selectedFilters.dateFrom);
         const to = new Date(selectedFilters.dateTo);
@@ -342,16 +329,11 @@ const Page = () => {
       });
     }
 
-    // Price range filter
     if (selectedFilters.minPrice || selectedFilters.maxPrice) {
-      filtered = filtered.filter((item) => {
+      filtered = filtered.filter(item => {
         const numericPrice = parseFloat(item.price.replace(/[₹,]/g, ''));
-        const min = selectedFilters.minPrice
-          ? parseFloat(selectedFilters.minPrice)
-          : 0;
-        const max = selectedFilters.maxPrice
-          ? parseFloat(selectedFilters.maxPrice)
-          : Infinity;
+        const min = selectedFilters.minPrice ? parseFloat(selectedFilters.minPrice) : 0;
+        const max = selectedFilters.maxPrice ? parseFloat(selectedFilters.maxPrice) : Infinity;
         return numericPrice >= min && numericPrice <= max;
       });
     }
@@ -359,16 +341,30 @@ const Page = () => {
     setFilteredData(filtered);
   };
 
-  // 🧠 Step 6: Reapply filters whenever selections change
+  // Reapply filters
   useEffect(() => {
     applyFilters();
+  }, [selectedFilters]);
+
+  // Reset page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
   }, [selectedFilters]);
 
   const onClick = () => {
     router.push('/dashboard/product_mng/Add_product/basic');
   };
 
-  // 🧠 Step 7: Render UI
+  // Pagination Logic
+  const totalFiltered = filteredData.length;
+  const totalPages = Math.max(1, Math.ceil(totalFiltered / itemsPerPage));
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  const visibleData = useMemo(() => {
+    return filteredData.slice(startIndex, endIndex);
+  }, [filteredData, startIndex, endIndex]);
+
   return (
     <div className="container my-10 flex flex-col gap-5">
       <Top_area
@@ -377,26 +373,22 @@ const Page = () => {
         components={[
           <Export key="1" />,
           showfilter ? (
-            <Hidefilter
-              key="2"
-              setshowfilter={setshowfilter}
-              showfilter={showfilter}
-            />
+            <Hidefilter key="2" setshowfilter={setshowfilter} showfilter={showfilter} />
           ) : (
-            <Showfilter
-              key="2"
-              setshowfilter={setshowfilter}
-              showfilter={showfilter}
-            />
+            <Showfilter key="2" setshowfilter={setshowfilter} showfilter={showfilter} />
           ),
           <Refresh key="3" />,
           <Add_product key="4" onClick={onClick} />,
         ]}
       />
 
-      <div className="bg-white rounded-xl shadow-xl p-4 flex flex-col gap-2 h-[550px]">
-        <div className="h-[450px] overflow-y-auto rounded-2xl">
-          {showfilter && <Clearfilter clearFilters={clearFilters} />}
+      <div className="bg-white rounded-xl shadow-xl p-4 flex flex-col gap-2 min-h-[600px]">
+        <div className="h-[550px] overflow-y-auto rounded-2xl">
+          {showfilter && (
+            <div className="w-full flex justify-end mb-3">
+              <Clearfilter clearFilters={clearFilters} />
+            </div>
+          )}
 
           <div className="w-full flex justify-between items-center my-4">
             <SearchBar />
@@ -442,10 +434,10 @@ const Page = () => {
             </thead>
 
             <tbody className="overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-              {filteredData.length > 0 ? (
-                filteredData.map((item, i) => (
+              {visibleData.length > 0 ? (
+                visibleData.map((item) => (
                   <tr
-                    key={i}
+                    key={item.Product} // Unique key
                     className="border-b border-gray-200 text-second hover:bg-[#F9F4FF] transition"
                   >
                     <td className="py-3 px-4 w-1/4">{item.Product}</td>
@@ -454,9 +446,7 @@ const Page = () => {
                     <td className="py-3 px-4">
                       <div
                         className={`flex items-center gap-2 ${
-                          item.stock === 'In Stock'
-                            ? 'text-green-700'
-                            : 'text-red-700'
+                          item.stock === 'In Stock' ? 'text-green-700' : 'text-red-700'
                         }`}
                       >
                         <Image
@@ -499,14 +489,6 @@ const Page = () => {
                             alt="Inactive"
                           />
                         )}
-                        {item.status === 'Cancelled' && (
-                          <Image
-                            src="/dashboard/info-circle.png"
-                            height={18}
-                            width={18}
-                            alt="Cancelled"
-                          />
-                        )}
                         <span>{item.status}</span>
                       </div>
                     </td>
@@ -539,10 +521,7 @@ const Page = () => {
                 ))
               ) : (
                 <tr>
-                  <td
-                    colSpan={7}
-                    className="text-center text-gray-500 py-6 italic"
-                  >
+                  <td colSpan={7} className="text-center text-gray-500 py-6 italic">
                     No results found for selected filters
                   </td>
                 </tr>
@@ -550,6 +529,17 @@ const Page = () => {
             </tbody>
           </table>
         </div>
+      </div>
+
+      {/* Pagination */}
+      <div className="mt-4">
+        <Pagination
+          totalItems={totalFiltered}
+          itemsPerPage={itemsPerPage}
+          currentPage={currentPage}
+          onPageChange={setCurrentPage}
+          maxVisiblePages={3}
+        />
       </div>
     </div>
   );

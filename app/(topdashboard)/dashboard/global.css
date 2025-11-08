@@ -491,7 +491,7 @@
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 500; /* Medium weight */
   font-style: normal; /* 'Medium' is a weight, not a style */
-  font-size: 20px;
+  font-size: 16px;
   line-height: 100%; /* same as 1 */
   letter-spacing: 0;
 }
@@ -502,7 +502,7 @@
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 400; /* Regular weight */
   font-style: normal; /* 'Regular' is not valid for font-style */
-  font-size: 16px;
+  font-size: 14px;
   line-height: 100%; /* same as 1 */
   letter-spacing: 0;
 }
@@ -512,7 +512,7 @@
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 300; /* Light */
   font-style: normal; /* 'Light' is a weight, not a style */
-  font-size: 14px;
+  font-size: 12px;
   line-height: 100%; /* same as 1 */
   letter-spacing: 0;
 }

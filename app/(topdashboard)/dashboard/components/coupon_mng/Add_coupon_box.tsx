@@ -55,7 +55,8 @@ export default function Add_coupon_box({onClick}) {
             onClick={onClick}
             className="text-gray-400 hover:text-gray-600 transition-colors"
           >
-            <X className="w-5 h-5" onClick={onClick}/>
+            {/* <X className="w-5 h-5" onClick={onClick}/> */}
+            <Image src='/dashboard/close-circle-black.png' className='w-5 h-5' alt='img' height={10} width={10} onClick={onClick}/>
           </button>
         </div>
 

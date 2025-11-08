@@ -7,6 +7,8 @@ import { CiSquarePlus } from "react-icons/ci";
 import { BiExport } from "react-icons/bi";
 import { IoChevronDown, IoChevronUp } from 'react-icons/io5';
 import { BsArrowDownShort, BsArrowUpShort } from 'react-icons/bs';
+import { CgViewGrid } from "react-icons/cg";
+import { PiListBold } from "react-icons/pi";
 import Image from 'next/image';
 export const SearchBar = () => {
   return (
@@ -79,19 +81,35 @@ export const Cancel = ({onClick}) => {
     </div>
   );
 };
-
-export const White_button = ({onClick,label}) => {
+export const Preview_btn = ({onClick,label}) => {
   return (
-    <div className=" border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer" onClick={onClick}>
+    <div className=" border border-gray-700 rounded-md flex flex-row justify-center items-center gap-1.5 px-3 py-2 cursor-pointer" onClick={onClick}>
+        <Image src='/dashboard/eye.png' alt='img' height={10} width={10} className='size-4'/>
       <p className="text-desc ">{label}</p>
     </div>
   );
 };
-export const Purple_button = ({onClick,label}) => {
+export const White_button = ({onClick,label,img=''}) => {
   return (
-    <div className=" border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer btn-clr text-white" onClick={onClick}>
-      
+    <div className=" border border-gray-700 rounded-md flex flex-row gap-1.5 justify-center items-center px-3 py-2 cursor-pointer" onClick={onClick}>
+      {img && <Image src={img} alt='img' height={10} width={10} className='size-4'/>}
+      <p className="text-desc ">{label}</p>
+    </div>
+  );
+};
+export const Purple_button = ({onClick,label,img=''}) => {
+  return (
+    <div className=" border border-gray-700 rounded-md flex flex-row gap-1.5 justify-center items-center px-3 py-1 cursor-pointer btn-clr text-white" onClick={onClick}>
+      {img && <Image src={img} alt='img' height={10} width={10} className='size-4'/>}
       <p className="">{label}</p>
+    </div>
+  );
+};
+export const Delete_button = ({onClick,label,img='/dashboard/trash.png'}) => {
+  return (
+    <div className=" border border-red-500 rounded-md flex flex-row gap-1.5 justify-center items-center px-3 py-1 cursor-pointer  text-white" onClick={onClick}>
+      {img && <Image src={img} alt='img' height={10} width={10} className='size-4'/>}
+      <p className="text-red-500">Delete</p>
     </div>
   );
 };
@@ -132,8 +150,44 @@ export const Export = () => {
     </div>
   );
 };
+interface ViewButtonProps {
+  bg_clr?: string;
+  text_clr?: string;
+  img_clr?: string;
+  view: string;
+  setview: (v: 'grid' | 'list') => void;
+}
+export const Grid_button = ({
+  bg_clr = 'bg-white',
+  text_clr = 'text-gray-600',
+  img_clr = 'text-gray-600',
+  view,
+  setview,
+}: ViewButtonProps) => (
+  <div
+    className={`${bg_clr} ${text_clr} border border-gray-700 rounded-md flex items-center justify-center px-3 py-1 cursor-pointer`}
+    onClick={() => view !== 'grid' && setview('grid')}
+  >
+    <CgViewGrid className={img_clr} />
+    <span className="ml-1">Grid</span>
+  </div>
+);
 
-
+export const List_button = ({
+  bg_clr = 'bg-white',
+  text_clr = 'text-gray-600',
+  img_clr = 'text-gray-600',
+  view,
+  setview,
+}: ViewButtonProps) => (
+  <div
+    className={`${bg_clr} ${text_clr} border border-gray-700 rounded-md flex items-center justify-center px-3 py-1 cursor-pointer`}
+    onClick={() => view !== 'list' && setview('list')}
+  >
+    <PiListBold className={img_clr} />
+    <span className="ml-1">List</span>
+  </div>
+);
 export const SortDropdown = ({setsortSelected,setsortOpen,sortselected,sortOpen}) => {
   
   const options = [

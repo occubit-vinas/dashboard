@@ -39,7 +39,7 @@ const Top_nav_bar: React.FC<TopNavBarProps> = ({
 
   return (
     <div className="flex justify-center mt-6 w-full">
-      <div className={`flex flex-row gap-4 ${bgColor} rounded-xl px-1 py-1 shadow-sm w-[5/4]`}>
+      <div className={`flex flex-row gap-4 ${bgColor} rounded-xl px-1 py-1 shadow-sm w-[5/4] `}>
         {links.map((cur, index) => (
           <Link
             href={cur.path}
