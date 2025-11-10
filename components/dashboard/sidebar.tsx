@@ -21,8 +21,8 @@ export default function Sidebar() {
   ]
 
   const bottomIcons = [
-    { href: '/dashboard/settings', icon: '/dashboard/sidebar/notification.svg', label: 'Settings' },
-    { href: '/logout', icon: '/dashboard/sidebar/setting.svg', label: 'Logout' },
+    { href: '/dashboard/setting', icon: '/dashboard/sidebar/setting.svg', label: 'Settings' },
+    { href: '/logout', icon: '/dashboard/sidebar/notification.svg', label: 'Logout' },
   ]
 
   const accent = '#7E30ED'
@@ -96,29 +96,32 @@ export default function Sidebar() {
 
         {/* Single Toggle Button with toggleball.svg */}
         <button
-          type="button"
-          onClick={() => setIsToggled(!isToggled)}
-          className={`
-    relative inline-flex h-6 w-11 items-center rounded-full transition-colors
+  type="button"
+  onClick={() => setIsToggled(!isToggled)}
+  role="switch"
+  aria-checked={isToggled}
+  className={`
+    relative inline-flex h-6 w-11 items-center rounded-full 
+    transition-colors duration-200 focus:outline-none 
+    focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2
     ${isToggled ? 'bg-purple-600' : 'bg-gray-300'}
   `}
-        >
-          <span
-            className={`
-      pointer-events-none inline-flex items-center justify-center h-4 w-4 transform rounded-full bg-white shadow-md
-      transition-transform duration-200 ease-in-out
-      ${isToggled ? 'translate-x-6' : 'translate-x-1'}
+>
+  <span
+    className={`
+      pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow-md
+      transform transition-transform duration-200 ease-in-out
+      flex items-center justify-center
+      ${isToggled ? 'translate-x-5' : 'translate-x-0.5'}
     `}
-          >
-            <img
-              src="/dashboard/sidebar/buttonball.svg"
-              alt="toggle"
-              className="w-3 h-3"
-              height={5}
-              width={5}
-            />
-          </span>
-        </button>
+  >
+    <img
+      src="/dashboard/sidebar/buttonball.svg"
+      alt=""
+      className="h-3 w-3"
+    />
+  </span>
+</button>
       </div>
     </aside>
   )

@@ -289,3 +289,28 @@ export const Old_new_sort = ({order,setOrder}) => {
     </button>
   );
 };
+export const Toggle_btn = ({ isActive, onClick }: { isActive: boolean; onClick: () => void }) => {
+  return (
+    <button
+      onClick={onClick}
+      aria-pressed={isActive}
+      role="switch"
+      className={`
+        relative inline-flex h-5 w-9 items-center rounded-full 
+        transition-colors duration-300 ease-in-out 
+        focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-1
+        cursor-pointer select-none
+        ${isActive ? 'bg-black' : 'bg-gray-400'}
+      `}
+    >
+      {/* Smaller Sliding Knob */}
+      <span
+        className={`
+          inline-block h-4 w-4 rounded-full bg-white 
+          shadow-sm transform transition-transform duration-300 ease-in-out
+          ${isActive ? 'translate-x-4' : 'translate-x-0.5'}
+        `}
+      />
+    </button>
+  );
+};

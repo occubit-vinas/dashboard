@@ -581,3 +581,29 @@
   letter-spacing: 0;
   color: #1E1E2A;
 }
+
+.my-title {
+  color: #1E1E2A;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-style: normal; /* 'bold' isn't valid here — weight handles boldness */
+  font-size: 20px;
+  line-height: 100%; /* equivalent to line-height: 1 */
+  letter-spacing: 0;
+}
+
+.in-field {
+  padding: 0.375rem;
+  /*p-1.5→6px(1.5*4px)*/background-color: #f5f3ff;
+  /*bg-purple-50*/border-width: 3px;
+  /*border-2*/border-color: #f3f4f6;
+  /*border-gray-100*/border-style: solid;
+  border-radius: 0.400rem;
+  /*rounded-sm→2px*/width: 100%;
+  /*w-full*/outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  -webkit-border-radius: 0.400rem;
+  -moz-border-radius: 0.400rem;
+  -ms-border-radius: 0.400rem;
+  -o-border-radius: 0.400rem;
+}
