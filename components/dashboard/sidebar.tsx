@@ -21,7 +21,7 @@ export default function Sidebar() {
   ]
 
   const bottomIcons = [
-    { href: '/dashboard/setting', icon: '/dashboard/sidebar/setting.svg', label: 'Settings' },
+    { href: '/dashboard/setting/Store', icon: '/dashboard/sidebar/setting.svg', label: 'Settings' },
     { href: '/logout', icon: '/dashboard/sidebar/notification.svg', label: 'Logout' },
   ]
 
@@ -78,8 +78,8 @@ export default function Sidebar() {
             className="group"
             onClick={() => setActiveItem(item.href)}
           >
-            <div className={`w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-200 group-hover:scale-105 ${activeItem === item.href ? 'bg-white' : 'hover:bg-white/20'
-              }`}>
+            <div className={`w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-200 group-hover:scale-105 
+              `}>
               <Image
                 src={item.icon}
                 alt={item.label}
@@ -96,32 +96,32 @@ export default function Sidebar() {
 
         {/* Single Toggle Button with toggleball.svg */}
         <button
-  type="button"
-  onClick={() => setIsToggled(!isToggled)}
-  role="switch"
-  aria-checked={isToggled}
-  className={`
+          type="button"
+          onClick={() => setIsToggled(!isToggled)}
+          role="switch"
+          aria-checked={isToggled}
+          className={`
     relative inline-flex h-6 w-11 items-center rounded-full 
     transition-colors duration-200 focus:outline-none 
     focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2
-    ${isToggled ? 'bg-purple-600' : 'bg-gray-300'}
+    ${isToggled ? 'bg-gray-600' : 'bg-white'}
   `}
->
-  <span
-    className={`
-      pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow-md
+        >
+          <span
+            className={`
+      pointer-events-none inline-block h-5 w-5 rounded-full bg-purple-600  shadow-md
       transform transition-transform duration-200 ease-in-out
       flex items-center justify-center
       ${isToggled ? 'translate-x-5' : 'translate-x-0.5'}
     `}
-  >
-    <img
-      src="/dashboard/sidebar/buttonball.svg"
-      alt=""
-      className="h-3 w-3"
-    />
-  </span>
-</button>
+          >
+            <img
+              src="/dashboard/sidebar/buttonball.svg"
+              alt=""
+              className="h-3 w-3"
+            />
+          </span>
+        </button>
       </div>
     </aside>
   )

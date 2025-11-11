@@ -1,9 +1,10 @@
 "use client";
-
 import { useState } from 'react';
 import { Upload, Filter, Settings } from 'lucide-react';
 import { Cancel, Create } from '../../components/top_buttons';
 import Top_area from '@/components/sidebar/top_area';
+import { IoIosArrowDown } from 'react-icons/io';
+
 export default function CategoryManagement() {
     const [formData, setFormData] = useState({
         name: '',
@@ -153,7 +154,7 @@ export default function CategoryManagement() {
                                 placeholder="Enter your description"
                                 value={formData.description}
                                 onChange={(e) => handleInputChange('description', e.target.value)}
-                                rows={4}
+                                rows={7}
                                 className="light-purple w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
                             />
                         </div>
@@ -164,7 +165,7 @@ export default function CategoryManagement() {
 
                             {filters.length === 0 ? (
                                 <div className="text-center py-8 text-gray-400">
-                                    <Filter className="w-12 h-12 mx-auto mb-2 opacity-50" />
+                                    <Filter className="w-12  mx-auto mb-2 opacity-50" />
                                     <p className="text-sm">No filters added yet</p>
                                     <p className="text-xs mt-1">Add filters to help customers narrow down products in this category</p>
                                 </div>
@@ -194,7 +195,7 @@ export default function CategoryManagement() {
 
                             {attributes.length === 0 ? (
                                 <div className="text-center py-8 text-gray-400">
-                                    <Settings className="w-12 h-12 mx-auto mb-2 opacity-50" />
+                                    <Settings className="w-12 h-20 mx-auto mb-2 opacity-50" />
                                     <p className="text-sm">No attributes added yet</p>
                                     <p className="text-xs mt-1">Add attributes to define product characteristics in this category</p>
                                 </div>
@@ -220,17 +221,20 @@ export default function CategoryManagement() {
                     </div>
 
                     {/* Right Column */}
-                    <div className="space-y-6">
+                    <div className="space-y-8">
 
                         {/* Parent Category */}
                         <label className="block text-first font-medium text-gray-700 mb-2">
                             Parent Category
                         </label>
-                        <div className="">
+                        <div className="relative w-full group">
+                            {/* Select */}
                             <select
                                 value={formData.parentCategory}
-                                onChange={(e) => handleInputChange('parentCategory', e.target.value)}
-                                className="light-purple w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                onChange={(e) =>
+                                    handleInputChange('parentCategory', e.target.value)
+                                }
+                                className="light-purple w-full pl-4 pr-12 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent appearance-none cursor-pointer"
                             >
                                 <option value="">No Parent (Root Category)</option>
                                 <option value="clothing">Clothing</option>
@@ -238,6 +242,14 @@ export default function CategoryManagement() {
                                 <option value="home">Home & Garden</option>
                                 <option value="sports">Sports</option>
                             </select>
+
+                            {/* Vertical line — full height, just left of arrow */}
+                            <div className="absolute top-0 bottom-0 right-10 w-[2px] bg-gray-300 rounded pointer-events-none" />
+
+                            {/* Arrow icon — flips on focus (no JS/state) */}
+                            <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none transition-transform duration-300 group-focus-within:rotate-180">
+                                <IoIosArrowDown size={20} className="text-gray-00" />
+                            </div>
                         </div>
 
                         {/* Status Toggles */}
@@ -246,7 +258,7 @@ export default function CategoryManagement() {
                         </label>
                         <div className="light-purple rounded-lg shadow p-6">
 
-                            <div className="space-y-4">
+                            <div className="space-y-8">
                                 <div className="flex items-center justify-between">
                                     <div>
                                         <p className="text-sm font-medium text-gray-900">Active Status</p>
@@ -284,7 +296,7 @@ export default function CategoryManagement() {
                         </div>
 
                         {/* Category Image */}
-                        <label className="block text-first font-medium text-gray-700 mb-2">
+                        <label className="block text-first font-medium text-gray-700 mb-2 mt-11">
                             Category Image
                         </label>
                         <div className="light-purple rounded-lg shadow p-6">
@@ -298,7 +310,7 @@ export default function CategoryManagement() {
                                     className="hidden"
                                 />
                                 <label htmlFor="image-upload" className="cursor-pointer">
-                                    <Upload className="w-10 h-10 mx-auto mb-2 text-gray-400" />
+                                    <Upload className="w-10 h-7 mx-auto mb-2 text-gray-400" />
                                     <p className="text-sm text-gray-600">
                                         {formData.categoryImage ? formData.categoryImage.name : 'Drop images here or click to browse'}
                                     </p>
@@ -311,7 +323,7 @@ export default function CategoryManagement() {
                         <h3 className="text-first font-semibold text-gray-900 mb-4">Add New Filter</h3>
                         <div className="light-purple rounded-lg shadow p-6">
 
-                            <div className="space-y-4">
+                            <div className="space-y-10">
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
                                         <label className="block text-xs font-medium text-gray-700 mb-1">Filter Name</label>
@@ -325,16 +337,27 @@ export default function CategoryManagement() {
                                     </div>
                                     <div>
                                         <label className="block text-xs font-medium text-gray-700 mb-1">Filter Type</label>
-                                        <select
-                                            value={newFilter.type}
-                                            onChange={(e) => setNewFilter({ ...newFilter, type: e.target.value })}
-                                            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                                        >
-                                            <option>Default Text</option>
-                                            <option>Dropdown</option>
-                                            <option>Checkbox</option>
-                                            <option>Radio</option>
-                                        </select>
+                                        <div className="relative w-full group">
+
+                                            <select
+                                                value={newFilter.type}
+                                                onChange={(e) =>
+                                                    setNewFilter({ ...newFilter, type: e.target.value })
+                                                }
+                                                className="w-full px-3 py-2 pr-12 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent appearance-none cursor-pointer"
+                                            >
+                                                <option>Default Text</option>
+                                                <option>Dropdown</option>
+                                                <option>Checkbox</option>
+                                                <option>Radio</option>
+                                            </select>
+
+                                            <div className="absolute top-0 bottom-0 right-9 w-[2px] bg-gray-300 rounded pointer-events-none" />
+
+                                            <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none transition-transform duration-300 group-focus-within:rotate-180">
+                                                <IoIosArrowDown size={18} className="text-gray-600" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -381,16 +404,29 @@ export default function CategoryManagement() {
                                     </div>
                                     <div>
                                         <label className="block text-xs font-medium text-gray-700 mb-1">Attribute Type</label>
-                                        <select
-                                            value={newAttribute.type}
-                                            onChange={(e) => setNewAttribute({ ...newAttribute, type: e.target.value })}
-                                            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                                        >
-                                            <option>Default Text</option>
-                                            <option>Number</option>
-                                            <option>Date</option>
-                                            <option>Boolean</option>
-                                        </select>
+                                        <div className="relative w-full group">
+                                            {/* Select */}
+                                            <select
+                                                value={newAttribute.type}
+                                                onChange={(e) =>
+                                                    setNewAttribute({ ...newAttribute, type: e.target.value })
+                                                }
+                                                className="w-full px-3 py-2 pr-12 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent appearance-none cursor-pointer"
+                                            >
+                                                <option>Default Text</option>
+                                                <option>Number</option>
+                                                <option>Date</option>
+                                                <option>Boolean</option>
+                                            </select>
+
+                                            {/* Gray vertical line (full height, left of arrow) */}
+                                            <div className="absolute top-0 bottom-0 right-9 w-[2px] bg-gray-300 rounded pointer-events-none" />
+
+                                            {/* Gray arrow icon (flips on focus/open) */}
+                                            <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none transition-transform duration-300 group-focus-within:rotate-180">
+                                                <IoIosArrowDown size={18} className="text-gray-600" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 

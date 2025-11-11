@@ -16,7 +16,7 @@ const RadialChart = ({data}) => {
         <h2 className="text-main">Sales by Category</h2>
         <p className="text-sm text-gray-500">Key performance indicators breakdown</p>
         {/* full-width border */}
-        <hr className="border-gray-200 mt-2 w-full" />
+        <hr className="border-gray-600 border-1 mt-2 w-full" />
       </div>
 
       {/* Chart + Legend Side by Side */}

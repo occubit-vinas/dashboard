@@ -142,6 +142,8 @@
 
 // export default Page;
 // page.tsx
+
+
 'use client';
 import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
@@ -325,7 +327,7 @@ const Page = () => {
         const itemDate = new Date(item.date);
         const from = new Date(selectedFilters.dateFrom);
         const to = new Date(selectedFilters.dateTo);
-        return itemDate >= from && itemDate <= to;
+        return itemDate >= from && itemDate <= to;     
       });
     }
 
@@ -334,7 +336,7 @@ const Page = () => {
         const numericPrice = parseFloat(item.price.replace(/[₹,]/g, ''));
         const min = selectedFilters.minPrice ? parseFloat(selectedFilters.minPrice) : 0;
         const max = selectedFilters.maxPrice ? parseFloat(selectedFilters.maxPrice) : Infinity;
-        return numericPrice >= min && numericPrice <= max;
+        return numericPrice >= min && numericPrice <= max;   
       });
     }
 
@@ -382,8 +384,8 @@ const Page = () => {
         ]}
       />
 
-      <div className="bg-white rounded-xl shadow-xl p-4 flex flex-col gap-2 min-h-[600px]">
-        <div className="h-[550px] overflow-y-auto rounded-2xl">
+      <div className={`bg-white rounded-xl shadow-sm p-4 flex flex-col gap-2 ${!showfilter ? 'min-h-[200px]':'min-h-[300px]'}`}>
+        <div className={`${!showfilter ? 'h-[350px]':'h-[450px]'}  overflow-y-auto rounded-2xl`}>
           {showfilter && (
             <div className="w-full flex justify-end mb-3">
               <Clearfilter clearFilters={clearFilters} />
@@ -545,4 +547,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Page;    

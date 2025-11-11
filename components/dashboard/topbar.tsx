@@ -93,7 +93,7 @@ const isDashboard = dashboardRoutes.some(route => pathname.endsWith(route));
 
         {/* --- Centered Navigation Bar --- */}
         <div className="flex justify-center mt-6 w-full">
-          <div className="flex flex-row gap-4 bg-purple-700 rounded-xl px-1 py-1 shadow-sm">
+          <div className="flex flex-row gap-4 bg-[#7E30ED] rounded-xl px-1 py-1 shadow-sm">
             {nav_links.map((cur, index) => (
               <Link
                 href={cur.path}

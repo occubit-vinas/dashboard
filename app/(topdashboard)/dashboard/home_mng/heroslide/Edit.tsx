@@ -17,9 +17,9 @@ interface FormData {
   currentImage?: string; // For preview
 }
 
-const Edit = ({setopenedit}) => {
+const Edit = ({ setopenedit }) => {
   const [activeTab, setActiveTab] = useState<'Slide Details' | 'Appearance'>('Slide Details');
-  
+
   const [formData, setFormData] = useState<FormData>({
     title: 'Diwali Sale 2025',
     btn_text: 'Shop Now',
@@ -56,7 +56,7 @@ const Edit = ({setopenedit}) => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-sm flex flex-col gap-4 w-xl min-h-[630px] mx-auto fixed top-17 left-1/2">
+    <div className="bg-white p-4 rounded-lg shadow-sm flex flex-col gap-4 w-xl min-h-[630px] mx-auto fixed top-17 left-1/3">
       {/* Header */}
       <div className="flex justify-between items-center">
         <h2 className="text-title font-bold text-xl">Edit Hero Slide</h2>
@@ -67,7 +67,7 @@ const Edit = ({setopenedit}) => {
             width={20}
             height={20}
             className="w-5 h-5"
-            onClick={()=>setopenedit(false)}
+            onClick={() => setopenedit(false)}
           />
         </button>
       </div>
@@ -78,11 +78,10 @@ const Edit = ({setopenedit}) => {
           <button
             key={tab}
             onClick={toggleTab}
-            className={`flex-1 py-1 rounded-lg text-lg font-bold transition-all duration-200 ${
-              activeTab === tab
+            className={`flex-1 py-1 rounded-lg text-lg font-bold transition-all duration-200 ${activeTab === tab
                 ? 'bg-white text-black shadow-sm'
                 : 'text-white hover:text-black'
-            }`}
+              }`}
           >
             {tab}
           </button>
@@ -172,14 +171,12 @@ const Edit = ({setopenedit}) => {
               <span className="text-first font-medium">Active</span>
               <button
                 onClick={() => handleInputChange('order_active', !formData.order_active)}
-                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  formData.order_active ? 'bg-black' : 'bg-gray-400'
-                }`}
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${formData.order_active ? 'bg-black' : 'bg-gray-400'
+                  }`}
               >
                 <span
-                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                    formData.order_active ? 'translate-x-6' : 'translate-x-1'
-                  }`}
+                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${formData.order_active ? 'translate-x-6' : 'translate-x-1'
+                    }`}
                 />
               </button>
             </div>
@@ -187,7 +184,7 @@ const Edit = ({setopenedit}) => {
 
           {/* Buttons */}
           <div className="flex justify-center gap-3 pt-4">
-            <White_button label="Cancel" onClick={()=>setopenedit(false)}/>
+            <White_button label="Cancel" onClick={() => setopenedit(false)} />
             <Purple_button label="Update Slide" />
           </div>
         </div>

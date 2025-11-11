@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
+import { White_button } from '@/app/(topdashboard)/dashboard/components/top_buttons'
 
 const Line_chart = ({ data }) => {
   return (
@@ -18,13 +19,7 @@ const Line_chart = ({ data }) => {
         {/* Header */}
         <div className="flex justify-between items-center">
           <h2 className="text-main">Sales Trend</h2>
-          <Image
-            src="/dashboard/topbar/export.png"
-            alt="Export"
-            width={80}
-            height={30}
-            className="cursor-pointer hover:opacity-80 transition"
-          />
+          <White_button label='Export'/>
         </div>
 
         {/* Legend */}

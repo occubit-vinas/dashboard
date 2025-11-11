@@ -8,7 +8,7 @@ import ProductCategory from "@/components/dashboard/products/product_category";
 import ProductRating from "@/components/dashboard/products/product_rating";
 const Products = () => {
     return (
-        <div className="w-full p-4 rounded-2xl  flex flex-col gap-4">
+        <div className="container mx-auto w-full p-4 rounded-2xl  flex flex-col gap-4">
             <div className="bg-white p-4 rounded-2xl box-shadow-2xl shadow">
                 {/* Header */}
                 <div className="w-full flex flex-row justify-between items-start ">
@@ -16,7 +16,7 @@ const Products = () => {
                         <h1 className="text-main">
                             Top Selling Products
                         </h1>
-                        <p className="text-gray-600 text-sm">
+                        <p className="text-gray-600 text-sm pb-3">
                             Best performing products by sales volume
                         </p>
                     </div>
@@ -42,7 +42,7 @@ const Products = () => {
                 </div>
 
                 {/* Table Header */}
-                <div className="flex justify-between text-sm font-semibold text-gray-800 border-b border-gray-200 pb-2 text-center">
+                <div className="flex justify-between text-xl pt-1 border-b text-gray-900 border-gray-200 pb-2 text-center bg-purple-100 rounded-full ">
                     <h1 className="w-1/4">Product</h1>
                     <h1 className="w-1/4">Category</h1>
                     <h1 className="w-1/4 text-center">Product Sold</h1>
@@ -54,21 +54,21 @@ const Products = () => {
                     {Products_topselling.map((cur, index) => (
                         <div
                             key={index}
-                            className="flex flex-row items-center justify-between text-sm gap-2"
+                            className="flex flex-row items-center justify-between text-sm gap-2 border-b-1 border-gray-600"
                         >
                             {/* Product */}
-                            <div className="w-1/4 bg-[#F4E9FF] rounded-xl px-3 py-2">
+                            <div className="w-1/4  rounded-xl px-3 py-2">
                                 <h1 className="font-semibold text-gray-900">{cur.id}</h1>
                                 <p className="text-gray-600">{cur.name}</p>
                             </div>
 
                             {/* Category */}
-                            <div className="w-1/4 bg-[#F4E9FF] text-center rounded-xl px-3 py-4.5 text-gray-700">
+                            <div className="w-1/4 text-center rounded-xl px-3 py-4.5 text-gray-700">
                                 {cur.cat}
                             </div>
 
                             {/* Product Sold */}
-                            <div className="w-1/4 bg-[#F4E9FF] rounded-xl px-3 py-4.5 text-gray-700 text-center">
+                            <div className="w-1/4  rounded-xl px-3 py-4.5 text-gray-700 text-center">
                                 {cur.sold}
                             </div>
 

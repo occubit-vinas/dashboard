@@ -96,7 +96,7 @@ export default function CustomerGeography() {
       <div className="mb-4">
         <h2 className="text-main">Customer Demographics</h2>
         <p className="text-sm text-gray-500">Geographic sales distribution by country</p>
-        <hr className="border-gray-200 mt-2 w-full" />
+        <hr className="border-gray-700 border-1 mt-2 w-full" />
       </div>
 
       {/* Map Container */}

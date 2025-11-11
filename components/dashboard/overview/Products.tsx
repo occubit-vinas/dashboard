@@ -12,7 +12,7 @@ const Products = ({ data }) => {
                 {data.map((cur, index) => (
                     <div
                         key={index}
-                        className="flex justify-between items-center py-3 border-b border-gray-200 hover:bg-gray-50 transition px-2"
+                        className="flex justify-between items-center py-3 border-b-2 border-gray-400 hover:bg-gray-50 transition px-2"
                     >
                         {/* Product Details */}
                         <div className="flex flex-col">

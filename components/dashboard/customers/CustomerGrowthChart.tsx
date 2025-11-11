@@ -55,12 +55,12 @@ const CustomerGrowthChart = () => {
         </div>
 
         {/* Timeframe Selector */}
-        <div className="flex bg-purple-100 rounded-md overflow-hidden text-sm font-medium">
+        <div className="flex bg-purple-100 rounded-full overflow-hidden text-sm font-medium">
           {["month", "year"].map((option) => (
             <button
               key={option}
               onClick={() => setTimeframe(option as "month" | "year")}
-              className={`px-3 py-1.5 capitalize transition-colors ${
+              className={`px-3 py-1.5 capitalize transition-colors rounded-full ${
                 timeframe === option
                   ? "bg-purple-700 text-white"
                   : "text-gray-700 hover:bg-purple-200"

@@ -62,12 +62,12 @@ const Sales_linechart = () => {
         </div>
 
         {/* Timeframe Selector */}
-        <div className="flex bg-purple-100 rounded-lg overflow-hidden">
+        <div className="flex bg-purple-100 rounded-full overflow-hidden">
           {["day", "week", "month", "year"].map((tf) => (
             <button
               key={tf}
               onClick={() => setTimeframe(tf as any)}
-              className={`px-3 py-1 text-sm capitalize transition-colors ${
+              className={`px-3 py-2 text-sm capitalize transition-colors rounded-full ${
                 timeframe === tf
                   ? "bg-purple-700 text-white"
                   : "text-purple-700 hover:bg-purple-200"

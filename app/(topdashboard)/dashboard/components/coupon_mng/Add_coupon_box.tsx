@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { X, Percent, DollarSign, Truck, Calendar } from 'lucide-react';
 import styles from './page.module.css';
 import { White_button,Purple_button } from '../top_buttons';
+import Image from 'next/image';
 export default function Add_coupon_box({onClick}) {
   
   const [formData, setFormData] = useState({
@@ -296,7 +297,7 @@ export default function Add_coupon_box({onClick}) {
         </div>
 
         {/* Footer */}
-        <div className="sticky bottom-0 bg-white border-t border-gray-200 p-6 flex justify-end gap-3">
+        <div className="sticky bottom-0 bg-white border-t border-gray-200 p-6 flex justify-center gap-3">
           <White_button
             onClick={onClick}
             label='Close'

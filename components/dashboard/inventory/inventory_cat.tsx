@@ -70,14 +70,14 @@ const Inventory_cat = () => {
         </div>
 
         {/* Timeframe Selector */}
-        <div className="flex bg-purple-100 rounded-md overflow-hidden text-sm font-medium">
+        <div className="flex bg-purple-100 rounded-full overflow-hidden text-sm font-medium">
           {["day", "week", "month", "year"].map((option) => (
             <button
               key={option}
               onClick={() => setTimeframe(option as any)}
               className={`px-3 py-1.5 capitalize transition-colors ${
                 timeframe === option
-                  ? "bg-purple-700 text-white"
+                  ? "bg-purple-700 text-white rounded-full"
                   : "text-gray-700 hover:bg-purple-200"
               }`}
             >

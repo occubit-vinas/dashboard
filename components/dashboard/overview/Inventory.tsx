@@ -4,7 +4,7 @@ const Inventory = () => {
     return (
         <div className='w-full mt-5 bg-white rounded-2xl p-2 flex flex-col gap-2'>
             <div className='flex flex-row gap-1'>
-                <Image src='/dashboard/alert.png' height={20} width={25} alt='image' />
+                <Image src='/dashboard/alert.png' height={10} width={10} alt='image' className='size-8'/>
                 <p className='text-main'>Inventory Status</p>
             </div>
             <div className='w-full flex flex-row gap-3'>

@@ -66,7 +66,7 @@ const Page = () => {
   const closeForm = () => setOpenFormIndex(null);
 
   return (
-    <div className="mt-6 bg-white shadow-sm rounded-sm flex flex-col gap-6 p-3">
+    <div className="mt-6 bg-white shadow-sm rounded-sm flex flex-col gap-6 p-3 ">
       <h1 className="my-title  mb-2">Payment Methods</h1>
 
       <div className="flex flex-row justify-between gap-1.5 item-start h-auto ">

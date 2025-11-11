@@ -3,16 +3,16 @@ import React from 'react'
 import Image from 'next/image'
 
 const Box = ({ data }) => {
-  const { title, img, price = '', percentage = 0, text = '', number = '' } = data
+  const { title, img, price = '', percentage = 0, text = '', number = '',origin } = data
 
   const isPositive = percentage > 0
   const hasPercentage = percentage !== 0
 
   return (
     // Outer gradient border
-    <div className="relative rounded-xl p-[1.5px] bg-gradient-to-tl from-purple-900 to-purple-100 w-1/4">
+    <div className="animated-border w-1/4">
       {/* Inner white box */}
-      <div className="bg-white rounded-xl p-3 flex flex-row justify-between items-center">
+      <div className="animated-border-inner p-3 flex flex-row justify-between items-center">
 
         {/* Left Section */}
         <div className="flex flex-col gap-1.5 max-w-[85%]">
@@ -43,33 +43,27 @@ const Box = ({ data }) => {
           </div>
 
           {/* Percentage (if available) */}
-          <div className="flex flex-wrap items-center gap-2">
+          <p className="box-label text-sm font-medium">
             {hasPercentage && (
-              <div className="flex items-center gap-1">
+              <>
                 <Image
-                  src={
-                    isPositive
-                      ? '/dashboard/box/up.png'
-                      : '/dashboard/box/down.png'
-                  }
+                  src={isPositive ? '/dashboard/box/up.png' : '/dashboard/box/down.png'}
                   alt={isPositive ? 'Up' : 'Down'}
-                  width={14}
-                  height={14}
+                  width={10}
+                  height={10}
+                  className="inline-block align-baseline mr-1 size-3"
                 />
-                <p
-                  className={`text-xs font-medium ${isPositive ? 'text-green-600' : 'text-red-600'
-                    }`}
+                <span
+                  className={`text-xs font-medium align-baseline ${isPositive ? 'text-green-600' : 'text-red-600'
+                    } mr-1`}
                 >
                   {percentage}%
-                </p>
-              </div>
+                </span>
+              </>
             )}
+            <span className="align-baseline">{text}</span>
+          </p>
 
-            {/* Text (always shown, wraps if long) */}
-            <p className="box-label">
-              {text}
-            </p>
-          </div>
         </div>
 
         {/* Right Section (Image) */}
@@ -77,9 +71,10 @@ const Box = ({ data }) => {
           <Image
             src={`/dashboard/box/${img}`}
             alt="image"
-            width={45}
-            height={45}
-            className="object-contain mb-15"
+            width={25}
+            height={25}
+           className={`object-contain ${origin === 'sales' ? 'w-6 h-6 mt-0 mb-12' : 'w-[40px] h-[40px] mt-0 mb-12'}`}
+
           />
         </div>
       </div>

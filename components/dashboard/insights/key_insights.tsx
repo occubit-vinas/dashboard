@@ -9,7 +9,7 @@ const insights = [
     title: "Revenue Growth",
     description:
       "Revenue is up +17.6% compared to last period. Keep up the great work!",
-    image: "/dashboard/box/trend.png",
+    image: "/dashboard/trend2.png",
     bg: "bg-[#4A3AFF1A]",
     color:'#4A3AFF'
   },
@@ -18,7 +18,7 @@ const insights = [
     title: "Customer Retention",
     description:
       "Customer retention rate is 50%. Focus on satisfaction to improve retention.",
-    image: "/dashboard/box/person.png",
+    image: "/dashboard/profile-2user.png",
     bg: "bg-[#3DDC971A]",
     color:'#3DDC97'
   },
@@ -43,13 +43,13 @@ const KeyInsights = () => {
             className={`${item.bg} flex flex-row items-center gap-3 p-3 rounded-xl`}
           >
             {/* Left: Icon / Image */}
-            <div className="flex-shrink-0">
+            <div className="">
               <Image
                 src={item.image}
                 alt={item.title}
-                width={60}
+                width={35}
                 height={60}
-                className="rounded-md object-cover"
+                className="rounded-md "
               />
             </div>
 

@@ -257,8 +257,8 @@ const CustomersPage: React.FC = () => {
             const q = (selectedFilters.search || '').toLowerCase().trim();
             const matchesSearch = q
                 ? c.name.toLowerCase().includes(q) ||
-                  c.email.toLowerCase().includes(q) ||
-                  c.id.toLowerCase().includes(q)
+                c.email.toLowerCase().includes(q) ||
+                c.id.toLowerCase().includes(q)
                 : true;
             return matchesStatus && matchesCity && matchesSearch;
         });
@@ -295,8 +295,8 @@ const CustomersPage: React.FC = () => {
                 ]}
             />
 
-            <div className="bg-white rounded-xl shadow-xl p-4 flex flex-col gap-2 min-h-[450px]">
-                <div className="h-[400px] overflow-y-auto rounded-2xl">
+            <div className={`bg-white rounded-xl shadow-xl p-4 flex flex-col gap-2 ${!showfilter ? 'min-h-[450px]' : 'min-h-[550px]'}`}>
+                <div className={`${!showfilter ? 'h-[400px]' : 'h-[500px]'} overflow-y-auto rounded-2xl`}>
                     {showfilter && (
                         <div className="w-full flex flex-row justify-between items-center mb-3">
                             <h1 className="text-first text-lg font-semibold">All customers</h1>

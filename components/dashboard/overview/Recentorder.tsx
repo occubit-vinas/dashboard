@@ -20,7 +20,7 @@ const Recentorder = ({ data }) => {
         {data.map((cur, index) => (
           <div
             key={index}
-            className="grid grid-cols-6 text-sm items-center py-2 px-2 border-b border-gray-200 hover:bg-gray-50 transition"
+            className="grid grid-cols-6 text-sm items-center py-2 px-2 border-b-2 border-gray-400 hover:bg-gray-50 transition"
           >
             <p className="col-span-2 text-gray-700 truncate">{cur.email}</p>
             <p className="text-gray-700 pl-5">{cur.products}</p>

@@ -165,8 +165,8 @@ const OrdersPage = () => {
                 ]}
             />
 
-            <div className="bg-white rounded-xl shadow-xl p-4 flex flex-col gap-2 min-h-[600px]">
-                <div className="h-[550px] overflow-y-auto rounded-2xl [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div className={`bg-white rounded-xl shadow-sm p-4 flex flex-col gap-2 ${!showfilter ? 'min-h-[400px]':'min-h-[500px]'} `}>
+                <div className={`${!showfilter ? 'h-[350px]':'h-[450px]'} overflow-y-auto rounded-2xl [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
                     {showfilter && (
                         <div className='w-full flex flex-row justify-between mb-3'>
                             <h1 className='text-first text-lg font-semibold'>All orders</h1>
@@ -205,7 +205,7 @@ const OrdersPage = () => {
                                 <th className="text-first py-3 px-4 border-gray-300">Payment</th>
                                 <th className="text-first py-3 px-4 border-gray-300">Date Created</th>
                                 <th className="text-first py-3 px-4 border-gray-300">Status</th>
-                                <th className="text-first py-3 px-4 border-gray-300 rounded-r-2xl">Action</th>
+                                <th className="text-first py-3 pl-8 border-gray-300 rounded-r-2xl">Action</th>
                             </tr>
                         </thead>
                         <tbody>

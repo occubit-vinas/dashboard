@@ -2,7 +2,9 @@
 import React, { useState } from 'react'
 import { Purple_button, Toggle_btn, White_button } from '../../components/top_buttons';
 import { IoIosArrowDown } from "react-icons/io";
-const page = () => {
+
+const Page = () => {
+    // Email notification states
     const [notifications, setNotifications] = useState({
         newOrder: false,
         customerReview: false,
@@ -11,22 +13,74 @@ const page = () => {
         paymentReceived: false,
         systemUpdates: false,
     });
+
+    // SMS notification states
     const [smsSettings, setSmsSettings] = useState({
         ssl: false,
         cookies: false,
         csrf: false,
     });
+
+    // Push notification states
     const [pushSettings, setPushSettings] = useState({
         newOrder: false,
         inventoryAlerts: false,
         customerMessage: false,
     });
+
+    // Email configuration states
+    const [emailConfig, setEmailConfig] = useState({
+        fromName: '',
+        fromEmail: '',
+        replyToEmail: '',
+        smtpHost: '',
+        smtpPort: '',
+        smtpUsername: '',
+        smtpPassword: '',
+    });
+
+    // Other states
     const [encryption, setEncryption] = useState('none');
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [notificationFrequency, setNotificationFrequency] = useState("immediate");
     const [dropdownOpen2, setDropdownOpen2] = useState(false);
     const [quietHours, setQuietHours] = useState(false);
 
+    // Handle input changes for email configuration
+    const handleEmailConfigChange = (field: string, value: string) => {
+        setEmailConfig(prev => ({
+            ...prev,
+            [field]: value
+        }));
+    };
+
+    // Handle form submission
+    const handleSaveSettings = () => {
+        const allSettings = {
+            emailNotifications: notifications,
+            smsNotifications: smsSettings,
+            pushNotifications: pushSettings,
+            emailConfiguration: emailConfig,
+            encryption,
+            notificationPreferences: {
+                frequency: notificationFrequency,
+                quietHours
+            }
+        };
+        
+        console.log('All Settings:', allSettings);
+        // Here you would typically send this data to your backend
+        // Example: await saveSettingsToAPI(allSettings);
+        
+        alert('Settings saved successfully!');
+    };
+
+    // Handle test email
+    const handleSendTestEmail = () => {
+        console.log('Sending test email with config:', emailConfig);
+        // Here you would typically call your email service
+        alert('Test email sent!');
+    };
 
     return (
         <div className='p-6 flex flex-col gap-6 mt-8 bg-white rounded-sm'>
@@ -134,6 +188,7 @@ const page = () => {
                     />
                 </div>
             </div>
+
             {/* SMS Notifications Section */}
             <p className="my-title">SMS Notifications</p>
 
@@ -181,6 +236,7 @@ const page = () => {
                     />
                 </div>
             </div>
+
             {/* Push Notifications Section */}
             <p className="my-title">Push Notifications</p>
 
@@ -234,6 +290,7 @@ const page = () => {
                     />
                 </div>
             </div>
+
             {/* Email Configuration Section */}
             <p className="my-title">Email Configuration</p>
 
@@ -245,6 +302,8 @@ const page = () => {
                         type="text"
                         className="in-field text-third"
                         placeholder="Enter sender name"
+                        value={emailConfig.fromName}
+                        onChange={(e) => handleEmailConfigChange('fromName', e.target.value)}
                     />
                 </div>
 
@@ -254,11 +313,11 @@ const page = () => {
                         type="email"
                         className="in-field text-third"
                         placeholder="Enter sender email"
+                        value={emailConfig.fromEmail}
+                        onChange={(e) => handleEmailConfigChange('fromEmail', e.target.value)}
                     />
                 </div>
             </div>
-
-            {/* Second Header */}
 
             {/* Row 2: Reply To Email & SMTP Host */}
             <div className="flex flex-row flex-wrap gap-6 w-full">
@@ -268,6 +327,8 @@ const page = () => {
                         type="email"
                         className="in-field text-third"
                         placeholder="Enter reply-to email"
+                        value={emailConfig.replyToEmail}
+                        onChange={(e) => handleEmailConfigChange('replyToEmail', e.target.value)}
                     />
                 </div>
 
@@ -277,6 +338,8 @@ const page = () => {
                         type="text"
                         className="in-field text-third"
                         placeholder="Enter SMTP host (e.g., smtp.gmail.com)"
+                        value={emailConfig.smtpHost}
+                        onChange={(e) => handleEmailConfigChange('smtpHost', e.target.value)}
                     />
                 </div>
             </div>
@@ -290,13 +353,14 @@ const page = () => {
                         type="number"
                         className="in-field text-third"
                         placeholder="Enter SMTP port (e.g. 587)"
+                        value={emailConfig.smtpPort}
+                        onChange={(e) => handleEmailConfigChange('smtpPort', e.target.value)}
                     />
                 </div>
 
                 {/* Encryption Dropdown */}
                 <div className="flex flex-col gap-1.5 flex-1 min-w-[300px] relative">
                     <p className="text-first">Encryption</p>
-
                     <div className="relative">
                         <select
                             className="in-field text-third appearance-none cursor-pointer pr-10"
@@ -309,8 +373,6 @@ const page = () => {
                             <option value="tls">TLS</option>
                             <option value="ssl">SSL</option>
                         </select>
-
-                        {/* Arrow Icon */}
                         <IoIosArrowDown
                             className={`absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''
                                 }`}
@@ -318,6 +380,7 @@ const page = () => {
                     </div>
                 </div>
             </div>
+
             {/* Row 4: SMTP Username & SMTP Password */}
             <div className="flex flex-row flex-wrap gap-6 w-full mt-6">
                 {/* SMTP Username */}
@@ -327,6 +390,8 @@ const page = () => {
                         type="text"
                         className="in-field text-third"
                         placeholder="Enter SMTP username"
+                        value={emailConfig.smtpUsername}
+                        onChange={(e) => handleEmailConfigChange('smtpUsername', e.target.value)}
                     />
                 </div>
 
@@ -337,12 +402,19 @@ const page = () => {
                         type="password"
                         className="in-field text-third pr-10"
                         placeholder="Enter SMTP password"
+                        value={emailConfig.smtpPassword}
+                        onChange={(e) => handleEmailConfigChange('smtpPassword', e.target.value)}
                     />
                 </div>
             </div>
+
             <div className='flex flex-row justify-end'>
-                <White_button label='Send Test Email' />
+                <White_button 
+                    label='Send Test Email' 
+                    onClick={handleSendTestEmail}
+                />
             </div>
+
             <p className='my-title'>Notification Preferences</p>
 
             {/* Row: Notification Frequency & Quiet Hours */}
@@ -362,7 +434,6 @@ const page = () => {
                             <option value="hourly">Hourly Digest</option>
                             <option value="daily">Daily Digest</option>
                         </select>
-
                         <IoIosArrowDown
                             className={`absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 transition-transform duration-200 ${dropdownOpen2 ? "rotate-180" : ""
                                 }`}
@@ -371,7 +442,7 @@ const page = () => {
                 </div>
 
                 {/* Enable Quiet Hours Toggle */}
-                <div className="flex flex-row justify-between items-center flex-1 min-w-[300px]  p-3">
+                <div className="flex flex-row justify-between items-center flex-1 min-w-[300px] p-3">
                     <div className="flex flex-col">
                         <p className="text-first font-medium">Enable Quiet Hours</p>
                         <p className="text-third text-sm">Mute notifications during off-hours</p>
@@ -382,11 +453,15 @@ const page = () => {
                     />
                 </div>
             </div>
+
             <div className='flex flex-row justify-end'>
-                <Purple_button label='Save Notification Settings' />
+                <Purple_button 
+                    label='Save Notification Settings' 
+                    onClick={handleSaveSettings}
+                />
             </div>
         </div>
     )
 }
 
-export default page
+export default Page

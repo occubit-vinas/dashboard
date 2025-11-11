@@ -71,9 +71,9 @@ const Page = () => {
             <div className='flex flex-col gap-1.5'>
                 <p>Minimum password length</p>
                 <input
-                type='number'
-                 className='in-field'
-                 placeholder='8'
+                    type='number'
+                    className='in-field'
+                    placeholder='8'
                 />
             </div>
             <div className="border border-gray-400 bg-white rounded-sm p-3 flex flex-row justify-between w-full gap-6">
@@ -134,54 +134,54 @@ const Page = () => {
 
             {/* Section 4 — Security Features */}
             <p className="my-title">Security Features</p>
-           <div className="border border-gray-400 bg-white rounded-sm p-3 flex flex-row gap-6 w-full">
-  {/* SSL Required */}
-  <div className="flex flex-row justify-between items-center flex-1">
-    <div className='flex flex-col gap-1.5'>
-      <p className="text-first font-medium">SSL Required</p>
-      <p className="text-third text-sm">Force HTTPS connections</p>
-    </div>
-    <Toggle_btn
-      isActive={securityFeatures.ssl}
-      onClick={() =>
-        setSecurityFeatures((prev) => ({ ...prev, ssl: !prev.ssl }))
-      }
-    />
-  </div>
+            <div className="border border-gray-400 bg-white rounded-sm p-3 flex flex-row gap-6 w-full">
+                {/* SSL Required */}
+                <div className="flex flex-row justify-between items-center flex-1">
+                    <div className='flex flex-col gap-1.5'>
+                        <p className="text-first font-medium">SSL Required</p>
+                        <p className="text-third text-sm">Force HTTPS connections</p>
+                    </div>
+                    <Toggle_btn
+                        isActive={securityFeatures.ssl}
+                        onClick={() =>
+                            setSecurityFeatures((prev) => ({ ...prev, ssl: !prev.ssl }))
+                        }
+                    />
+                </div>
 
-  {/* Secure Cookies */}
-  <div className="flex flex-row justify-between items-center flex-1">
-    <div className='flex flex-col gap-1.5'>
-      <p className="text-first font-medium">Secure Cookies</p>
-      <p className="text-third text-sm">Use Secure Cookie flag</p>
-    </div>
-    <Toggle_btn
-      isActive={securityFeatures.cookies}
-      onClick={() =>
-        setSecurityFeatures((prev) => ({
-          ...prev,
-          cookies: !prev.cookies,
-        }))
-      }
-    />
-  </div>
+                {/* Secure Cookies */}
+                <div className="flex flex-row justify-between items-center flex-1">
+                    <div className='flex flex-col gap-1.5'>
+                        <p className="text-first font-medium">Secure Cookies</p>
+                        <p className="text-third text-sm">Use Secure Cookie flag</p>
+                    </div>
+                    <Toggle_btn
+                        isActive={securityFeatures.cookies}
+                        onClick={() =>
+                            setSecurityFeatures((prev) => ({
+                                ...prev,
+                                cookies: !prev.cookies,
+                            }))
+                        }
+                    />
+                </div>
 
-  {/* CSRF Protection */}
-  <div className="flex flex-row justify-between items-center flex-1">
-    <div className='flex flex-col gap-1.5'>
-      <p className="text-first font-medium">CSRF Protection</p>
-      <p className="text-third text-sm">
-        Prevent cross-site request attacks
-      </p>
-    </div>
-    <Toggle_btn
-      isActive={securityFeatures.csrf}
-      onClick={() =>
-        setSecurityFeatures((prev) => ({ ...prev, csrf: !prev.csrf }))
-      }
-    />
-  </div>
-</div>
+                {/* CSRF Protection */}
+                <div className="flex flex-row justify-between items-center flex-1">
+                    <div className='flex flex-col gap-1.5'>
+                        <p className="text-first font-medium">CSRF Protection</p>
+                        <p className="text-third text-sm">
+                            Prevent cross-site request attacks
+                        </p>
+                    </div>
+                    <Toggle_btn
+                        isActive={securityFeatures.csrf}
+                        onClick={() =>
+                            setSecurityFeatures((prev) => ({ ...prev, csrf: !prev.csrf }))
+                        }
+                    />
+                </div>
+            </div>
 
 
             {/* Section 5 — IP Whitelist */}
