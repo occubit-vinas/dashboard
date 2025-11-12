@@ -8,7 +8,7 @@ const Page = () => {
     })
 
     return (
-        <div className='container my-10'>
+        <div className='container mx-auto my-10'>
             <div className='p-4 bg-white shadow-md rounded-xl flex flex-col gap-8 my-4'>
                 {/* --- Stock Section --- */}
                 <div className='flex flex-row gap-5'>
@@ -38,7 +38,7 @@ const Page = () => {
                     {/* Track Inventory */}
                     <div className='flex flex-row justify-between items-center gap-4'>
                         <div className='flex flex-col gap-1.5'>
-                            <h1 className='text-second'>Track Inventory</h1>
+                            <h1 className='text-first'>Track Inventory</h1>
                             <p
 
                                 style={{
@@ -77,7 +77,7 @@ const Page = () => {
                     {/* Allow Backorder */}
                     <div className='flex flex-row justify-between items-center gap-4'>
                         <div className='flex flex-col gap-1.5'>
-                            <h1 className='text-second'>Allow Backorder</h1>
+                            <h1 className='text-first'>Allow Backorder</h1>
                             <p
                                 style={{
                                     fontFamily: 'Inter, sans-serif',

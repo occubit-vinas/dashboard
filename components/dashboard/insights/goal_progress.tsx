@@ -22,7 +22,7 @@ const goals = [
 
 const GoalProgress = () => {
   return (
-    <div className="w-full bg-white border border-gray-200 rounded-lg shadow p-6 flex flex-col gap-6 relative h-[440px]">
+    <div className="w-full bg-white border border-gray-200 rounded-lg shadow p-6 flex flex-col gap-6 relative h-[450px]">
       {/* Header */}
       <div>
         <h2 className="text-main">Goal Progress</h2>

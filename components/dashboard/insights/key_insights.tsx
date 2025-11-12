@@ -30,7 +30,7 @@ const KeyInsights = () => {
       {/* Header */}
       <div>
         <h1 className="text-main">Key Insights</h1>
-        <p className="text-sm text-gray-500 border-b border-gray-200 pb-2">
+        <p className="text-sm text-gray-500 border-b-2 border-[#6C6C80] pb-2">
           Performance metrics and business highlights
         </p>
       </div>
@@ -54,7 +54,7 @@ const KeyInsights = () => {
             </div>
 
             {/* Right: Text */}
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-1.5">
               <h2 className={` insights-title `} style={{ color: item.color }}>
                 {item.title}
               </h2>

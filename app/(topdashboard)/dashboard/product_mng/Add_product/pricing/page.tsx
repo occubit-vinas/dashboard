@@ -2,12 +2,17 @@ import React from 'react'
 
 const page = () => {
     return (
-        <div className='container my-10'>
+        <div className='container mx-auto my-10'>
             <div className='p-4 bg-white shadow-md rounded-xl flex flex-col gap-8 my-4'>
-                <h1 className='text-first'>₹Pricing Information</h1>
+                <h1 className='text-first' style={{
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 700,
+              fontSize: '20px',
+              lineHeight: '100%',
+            }}>₹Pricing Information</h1>
                 <div className='flex flex-row gap-5'>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='field_text'>Selling Price</p>
+                        <p className='text_second2'>Selling Price</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'
@@ -15,7 +20,7 @@ const page = () => {
                         />
                     </div>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='field_text'>Compare At price</p>
+                        <p className='text_second2'>Compare At price</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'
@@ -23,7 +28,7 @@ const page = () => {
                         />
                     </div>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='field_text'>Cost Price</p>
+                        <p className='text_second2'>Cost Price</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'
@@ -31,9 +36,14 @@ const page = () => {
                         />
                     </div>
                 </div>
-                <h1 className='text-first'>Shipping Information</h1>
+                <h1 className='' style={{
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 700,
+              fontSize: '20px',
+              lineHeight: '100%',
+            }}>Shipping Information</h1>
                 <div className='flex flex-col gap-1 w-full'>
-                    <p className='field_text'>Weight (kg)</p>
+                    <p className='text_second2'>Weight (kg)</p>
                     <input
                         type='number'
                         placeholder='₹ 0.00'
@@ -41,10 +51,15 @@ const page = () => {
                     />
                     <p className='text-third'>product weight in kilogram</p>
                 </div>
-                <h1>Dimensions (cm)</h1>
+                <h1 style={{
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 700,
+              fontSize: '20px',
+              lineHeight: '100%',
+            }}>Dimensions (cm)</h1>
                 <div className='flex flex-row gap-5'>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='field_text'>Length</p>
+                        <p className='text_second2'>Length</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'
@@ -52,7 +67,7 @@ const page = () => {
                         />
                     </div>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='field_text'>Width</p>
+                        <p className='text_second2'>Width</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'
@@ -60,7 +75,7 @@ const page = () => {
                         />
                     </div>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='field_text'>Height</p>
+                        <p className='text_second2'>Height</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'

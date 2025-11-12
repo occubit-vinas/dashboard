@@ -19,7 +19,7 @@ const Page = () => {
     });
 
     return (
-        <div className="p-6 bg-white rounded-sm flex flex-col gap-6 mt-8">
+        <div className="container mx-auto p-6 bg-white rounded-sm flex flex-col gap-6 mt-8">
             {/* Section 1 — Two-Factor Authentication */}
             <p className="my-title">Authentication & Access</p>
             <div className="flex flex-row justify-between items-center border border-gray-100 rounded-sm p-3">

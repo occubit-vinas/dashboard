@@ -50,7 +50,7 @@ const Top_nav_bar: React.FC<TopNavBarProps> = ({
                 ? 'bg-white shadow text-black'
                 : 'text-white'
             }`}
-            style={{
+           style={{
               fontFamily: 'Inter, sans-serif',
               fontWeight: 700,
               fontSize: '20px',

@@ -4,7 +4,7 @@ import { Upload, Filter, Settings } from 'lucide-react';
 import { Cancel, Create } from '../../components/top_buttons';
 import Top_area from '@/components/sidebar/top_area';
 import { IoIosArrowDown } from 'react-icons/io';
-
+import { Purple_button } from '../../components/top_buttons';
 export default function CategoryManagement() {
     const [formData, setFormData] = useState({
         name: '',
@@ -376,12 +376,9 @@ export default function CategoryManagement() {
                                         </button>
                                         <span className="text-sm text-gray-700">Required Filter</span>
                                     </label>
-                                    <button
-                                        onClick={addFilter}
-                                        className="px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-lg hover:bg-purple-700 transition-colors"
-                                    >
-                                        Add Filter
-                                    </button>
+
+
+                                    <Purple_button label='Add Filter' onClick={addFilter} />
                                 </div>
                             </div>
                         </div>
@@ -456,19 +453,13 @@ export default function CategoryManagement() {
                                         </button>
                                         <span className="text-sm text-gray-700">Required Attributes</span>
                                     </label>
-                                    <button
-                                        onClick={addAttribute}
-                                        className="px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-lg hover:bg-purple-700 transition-colors"
-                                    >
-                                        Add Attributes
-                                    </button>
+
+                                    <Purple_button label='Add Attributes' onClick={addAttribute} />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     );

@@ -37,7 +37,7 @@ const page = () => {
     }
     return (
         <>
-            <div className='my-10'>
+            <div className='container mx-auto my-10'>
                 <div className='p-4 bg-white shadow-md rounded-xl flex flex-col gap-8 my-4'>
                     <h1 className='text-first'>Global Size Options</h1>
                     <div className='flex flex-row gap-15 items-center justify-between '>
@@ -46,7 +46,7 @@ const page = () => {
                             <div className='flex flex-row gap-1'>
 
                                 {colors.map((cur, index) => (
-                                    <div className='text-center light-purple rounded-sm border border-gray-200 h-10 w-22 pt-2.5 text-third' key={index}>{cur}</div>
+                                    <div className='text-center light-purple rounded-sm border border-gray-200 h-10 w-22 pt-3.5 text-third' key={index}>{cur}</div>
                                 ))}
                             </div>
                         </div>
@@ -55,7 +55,7 @@ const page = () => {
                             <div className='flex flex-row gap-1'>
 
                                 {sizes.map((cur, index) => (
-                                    <div className='text-center light-purple rounded-sm border border-gray-200 h-10 w-18 pt-2.5 text-third' key={index}>{cur}</div>
+                                    <div className='text-center light-purple rounded-sm border border-gray-200 h-10 w-18 pt-3.5 text-third' key={index}>{cur}</div>
                                 ))}
                             </div>
                         </div>

@@ -200,7 +200,7 @@ const CouponsPage: React.FC = () => {
   };
 
   return (
-    <div className="container my-10 flex flex-col gap-5">
+    <div className="container mx-auto my-10 flex flex-col gap-5">
       <Top_area
         title="Coupons & Discounts"
         desc="Create and manage discount codes for your store"
@@ -217,11 +217,11 @@ const CouponsPage: React.FC = () => {
       />
       {showcoupon && <Add_coupon_box onClick={close_coupon} />}
 
-      <div className="bg-white rounded-xl shadow-xl p-4 flex flex-col gap-2 min-h-[540px]">
+      <div className="bg-white rounded-xl shadow-sm p-4 flex flex-col gap-2 min-h-[540px]">
         <div className="h-[540px] overflow-y-auto rounded-2xl">
           {showfilter && (
             <div className="w-full flex flex-row justify-between items-center mb-3">
-              <h1 className="text-first text-lg font-semibold">All Coupons</h1>
+              <h1 className="my-title text-lg font-semibold translate-x-2">All Coupons</h1>
               <Clearfilter clearFilters={clearFilters} />
             </div>
           )}
@@ -281,7 +281,7 @@ const CouponsPage: React.FC = () => {
                       {/* Type & Value */}
                       <td className="py-3 px-4">
                         <div className="inline-flex items-center gap-2 border border-gray-300 px-2 py-1 rounded">
-                          <span className="text-sm font-medium text-green-600">{c.value} OFF</span>
+                          <span className="text-sm font-medium text-[#3DDC97]">{c.value} OFF</span>
                         </div>
                       </td>
 
@@ -293,7 +293,7 @@ const CouponsPage: React.FC = () => {
                         </div>
                         <div className="w-full h-2 rounded bg-purple-100 overflow-hidden">
                           <div
-                            className="h-2 bg-green-500 transition-all duration-300"
+                            className="h-2 bg-[#3DDC97] transition-all duration-300"
                             style={{ width: `${usagePercent}%` }}
                           />
                         </div>
@@ -366,7 +366,7 @@ const CouponsPage: React.FC = () => {
       </div>
 
       {/* Pagination */}
-      <div className="mt-4">
+      <div className="mx-8">
         <Pagination
           totalItems={totalFiltered}
           itemsPerPage={itemsPerPage}

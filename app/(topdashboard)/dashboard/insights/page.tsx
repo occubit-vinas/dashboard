@@ -6,7 +6,7 @@ import KeyInsights from '@/components/dashboard/insights/key_insights';
 import Recommendation from '@/components/dashboard/insights/recommandation';
 const Insights = () => {
   return (
-    <div className='flex flex-col gap-4 m-4'>
+    <div className='container mx-auto flex flex-col gap-4 m-4'>
         <div className='flex flex-row gap-4 w-full'>
             <div className='w-1/2 '>
 

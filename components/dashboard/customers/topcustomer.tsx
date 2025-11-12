@@ -28,7 +28,7 @@ const TopCustomer = ({ data }: { data: Customer[] }) => {
           >
             {/* Left: Info */}
             <div className="flex flex-col">
-              <p className="font-semibold text-gray-900 text-sm">{cur.id}</p>
+              <p className="text-second2">{cur.id}</p>
               <p className="text-gray-600 text-xs">{cur.email}</p>
             </div>
 

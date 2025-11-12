@@ -83,7 +83,7 @@ const Page = () => {
     };
 
     return (
-        <div className='p-6 flex flex-col gap-6 mt-8 bg-white rounded-sm'>
+        <div className='container mx-auto p-6 flex flex-col gap-6 mt-8 bg-white rounded-sm'>
             <p className='my-title'>Email notification</p>
             <div className="border border-gray-400 bg-white rounded-sm p-3 flex flex-wrap gap-6 w-full">
 

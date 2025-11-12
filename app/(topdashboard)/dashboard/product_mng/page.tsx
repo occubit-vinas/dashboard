@@ -368,7 +368,7 @@ const Page = () => {
   }, [filteredData, startIndex, endIndex]);
 
   return (
-    <div className="container my-10 flex flex-col gap-5">
+    <div className="container mx-auto my-10 flex flex-col gap-5">
       <Top_area
         title="Product Management"
         desc="Manage your store's product inventory"
@@ -534,7 +534,7 @@ const Page = () => {
       </div>
 
       {/* Pagination */}
-      <div className="mt-4">
+      <div className="mx-8">
         <Pagination
           totalItems={totalFiltered}
           itemsPerPage={itemsPerPage}

@@ -8,7 +8,7 @@ import RadialChart from '@/components/dashboard/sales/RadialChart';
 import CustomerGeography from '@/components/dashboard/sales/CustomerGeography';
 const Sales = () => {
     return (
-        <div className=' flex flex-col gap-4 p-4 rounded-2xl'>
+        <div className='container mx-auto flex flex-col gap-4 p-4 rounded-2xl'>
             <div className='flex flex-row gap-4'>
                 <div className='flex flex-col gap-4 '>
                     <div className='flex flex-row gap-4 w-[1000px]'>

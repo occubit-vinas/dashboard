@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Products_topselling } from "@/data/dashboard/data";
 import ProductCategory from "@/components/dashboard/products/product_category";
 import ProductRating from "@/components/dashboard/products/product_rating";
+import { Purple_button } from "../components/top_buttons";
 const Products = () => {
     return (
         <div className="container mx-auto w-full p-4 rounded-2xl  flex flex-col gap-4">
@@ -31,22 +32,23 @@ const Products = () => {
                                 className="pl-10 pr-4 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gray-300 text-gray-700 w-72"
                             />
                         </div>
-                        <Image
+                        {/* <Image
                             src="/dashboard/filter.png"
                             alt="Filter"
                             width={80}
                             height={20}
                             className="cursor-pointer"
-                        />
+                        /> */}
+                        <Purple_button img='/dashboard/whitefilter.svg' label='filter'/>
                     </div>
                 </div>
 
                 {/* Table Header */}
-                <div className="flex justify-between text-xl pt-1 border-b text-gray-900 border-gray-200 pb-2 text-center bg-purple-100 rounded-full ">
-                    <h1 className="w-1/4">Product</h1>
-                    <h1 className="w-1/4">Category</h1>
-                    <h1 className="w-1/4 text-center">Product Sold</h1>
-                    <h1 className="w-1/4 text-center">Review</h1>
+                <div className="flex justify-between text-xl py-2.5 border-b  border-gray-200  text-center bg-purple-100 rounded-full ">
+                    <h1 className="w-1/4 text-first  text-left pl-4 pt-1">Product</h1>
+                    <h1 className="w-1/4 text-first pt-1">Category</h1>
+                    <h1 className="w-1/4 text-center text-first pt-1">Product Sold</h1>
+                    <h1 className="w-1/4 text-center text-first pt-1">Review</h1>
                 </div>
 
                 {/* Product Rows */}
@@ -58,7 +60,7 @@ const Products = () => {
                         >
                             {/* Product */}
                             <div className="w-1/4  rounded-xl px-3 py-2">
-                                <h1 className="font-semibold text-gray-900">{cur.id}</h1>
+                                <h1 className="text-first">{cur.id}</h1>
                                 <p className="text-gray-600">{cur.name}</p>
                             </div>
 

@@ -280,7 +280,7 @@ const CustomersPage: React.FC = () => {
     }, [filtered, startIndex, endIndex]);
 
     return (
-        <div className="container my-10 flex flex-col gap-5">
+        <div className="container mx-auto my-10 flex flex-col gap-5">
             <Top_area
                 title="Customer Management"
                 desc="Manage your customer base and relationships"
@@ -295,11 +295,11 @@ const CustomersPage: React.FC = () => {
                 ]}
             />
 
-            <div className={`bg-white rounded-xl shadow-xl p-4 flex flex-col gap-2 ${!showfilter ? 'min-h-[450px]' : 'min-h-[550px]'}`}>
+            <div className={`bg-white rounded-xl shadow-sm p-4 flex flex-col gap-2 ${!showfilter ? 'min-h-[450px]' : 'min-h-[550px]'}`}>
                 <div className={`${!showfilter ? 'h-[400px]' : 'h-[500px]'} overflow-y-auto rounded-2xl`}>
                     {showfilter && (
                         <div className="w-full flex flex-row justify-between items-center mb-3">
-                            <h1 className="text-first text-lg font-semibold">All customers</h1>
+                            <h1 className="my-title text-lg font-semibold translate-x-2">All customers</h1>
                             <Clearfilter clearFilters={clearFilters} />
                         </div>
                     )}
@@ -327,9 +327,9 @@ const CustomersPage: React.FC = () => {
 
                     {/* TABLE */}
                     <table className="min-w-full text-left border-collapse">
-                        <thead className="sticky top-0 bg-[#F9F4FF]">
-                            <tr>
-                                <th className="text-first py-3 px-4 w-[15%] border-gray-300 rounded-l-2xl">Name</th>
+                        <thead className="sticky top-0 bg-[#F9F4FF] ">
+                            <tr className=''>
+                                <th className="text-first py-3 px-4 w-[15%] border-gray-300 rounded-l-2xl ">Name</th>
                                 <th className="text-first py-3 px-4 w-[15%] border-gray-300">Email</th>
                                 <th className="text-first py-3 px-4 w-[10%] border-gray-300">Orders</th>
                                 <th className="text-first py-3 px-4 border-gray-300">Total Spent</th>
@@ -344,7 +344,7 @@ const CustomersPage: React.FC = () => {
                             {visibleCustomers.map((c) => (
                                 <tr
                                     key={c.id}
-                                    className="border-b border-gray-200 text-second hover:bg-[#F9F4FF] transition"
+                                    className="border-b border-gray-300 text-second  transition"
                                 >
                                     {/* Name + Avatar */}
                                     <td className="py-3 px-4">
@@ -403,7 +403,7 @@ const CustomersPage: React.FC = () => {
                                         <div className="flex items-center gap-3">
                                             <button
                                                 onClick={() => setViewCustomer(c)}
-                                                className="p-0.5 rounded hover:bg-gray-100"
+                                                className="p-0.5 rounded  cursor-pointer"
                                                 title="View"
                                             >
                                                 <Image src="/dashboard/eye.png" alt="View" width={20} height={20} />
@@ -411,7 +411,7 @@ const CustomersPage: React.FC = () => {
 
                                             <button
                                                 onClick={() => setStatusModal(c)}
-                                                className="p-0.5 rounded hover:bg-gray-100"
+                                                className="p-0.5 rounded  cursor-pointer"
                                                 title="Status actions"
                                             >
                                                 <Image src="/dashboard/sms.png" alt="More" width={20} height={20} />
@@ -443,7 +443,7 @@ const CustomersPage: React.FC = () => {
             </div>
 
             {/* Pagination */}
-            <div className="mt-4">
+            <div className="mx-10">
                 <Pagination
                     totalItems={totalFiltered}
                     itemsPerPage={itemsPerPage}

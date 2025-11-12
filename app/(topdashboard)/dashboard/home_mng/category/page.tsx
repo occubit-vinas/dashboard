@@ -12,10 +12,10 @@ const page = () => {
       <Home_mng_layout topButtons={[
           <Refresh key='1'/>,
           <Preview_btn key='2' label='Preview Mode' />,
-          <Purple_button key='5' label='Add Trending Category' img='/dashboard/add-square.png'/>
+          <Purple_button key='5' label='Add Trending Category' img='/dashboard/add-square.svg'/>
         ]}>
 
-    <div className='container mt-8 bg-white rounded-sm shadow-md p-4 '>
+    <div className='container mx-auto mt-8 bg-white rounded-sm shadow-md p-4 '>
         {openedit && <Edit setopenedit={setopenedit}/>}
         
         <div className='grid grid-cols-3 gap-8 w-full'>

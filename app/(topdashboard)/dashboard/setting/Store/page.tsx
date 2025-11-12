@@ -61,7 +61,7 @@ const Page = () => {
   };
 
   return (
-    <div className="bg-white rounded-sm p-6 flex flex-col gap-6 mt-6 shadow-sm">
+    <div className="container mx-auto bg-white rounded-sm p-6 flex flex-col gap-6 mt-6 shadow-sm">
       {/* Section 1 — Basic Info */}
       <p className="my-title text-lg font-semibold text-gray-800">Basic Information</p>
 

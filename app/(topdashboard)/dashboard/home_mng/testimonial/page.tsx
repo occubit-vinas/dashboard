@@ -22,13 +22,13 @@ const Page = () => {
         <Purple_button
           key="5"
           label="Add Testimonial"
-          img="/dashboard/add-square.png"
+          img="/dashboard/add-square.svg"
           onClick={()=>setaddbox(true)}
         />,
       ]}
     >
       {addbox && <Test_box setaddbox={setaddbox}/>}
-      <div className="container mt-8  flex flex-col gap-2 w-full">
+      <div className="container mx-auto mt-8  flex flex-col gap-2 w-full">
             <p className='text-title'>Customer testimonials</p>
             <div className='w-full bg-white rounded-sm shadow-md p-4 min-h-[200px] flex flex-col items-center justify-center'>
                 {Testimonials == 0 && 

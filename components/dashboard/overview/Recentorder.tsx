@@ -7,10 +7,10 @@ const Recentorder = ({ data }) => {
       <p className="text-main mb-2">Recent Orders</p>
 
       {/* Table Header */}
-      <div className="grid grid-cols-6 text-sm font-semibold bg-purple-100 text-gray-800 py-2 px-2 rounded-xl">
+      <div className="grid grid-cols-6  bg-purple-100 text-second2 py-2 px-2 rounded-xl">
         <p className="col-span-2">Email</p>
-        <p>Total Products</p>
-        <p>Total Amount</p>
+        <p>Products</p>
+        <p>Amount</p>
         <p>Date</p>
         <p>Payment</p>
       </div>
@@ -20,7 +20,7 @@ const Recentorder = ({ data }) => {
         {data.map((cur, index) => (
           <div
             key={index}
-            className="grid grid-cols-6 text-sm items-center py-2 px-2 border-b-2 border-gray-400 hover:bg-gray-50 transition"
+            className="grid grid-cols-6 text-sm items-center py-2 px-2 border-b-1 border-gray-400 hover:bg-gray-50 transition"
           >
             <p className="col-span-2 text-gray-700 truncate">{cur.email}</p>
             <p className="text-gray-700 pl-5">{cur.products}</p>

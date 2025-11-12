@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Search } from 'lucide-react'
 import { usePathname } from "next/navigation";
+import { White_button ,Purple_button} from '@/app/(topdashboard)/dashboard/components/top_buttons'
 const Topbar = () => {
   const [active, setActive] = useState<number | null>(0)
   const pathname = usePathname() ?? ""; // ensure it's never null
@@ -65,7 +66,7 @@ const isDashboard = dashboardRoutes.some(route => pathname.endsWith(route));
       {isDashboard && <div className="mt-16 ml-20">
         <div className="flex flex-row justify-between items-center">
           {/* Left: Title and subtitle */}
-          <div>
+          <div className='flex flex-col gap-1.5'>
             <h1 className="text-title">Store Analysis</h1>
             <p className="text-sm text-gray-500">
               Track performance, analyze trends, and make data-driven decisions
@@ -74,20 +75,11 @@ const isDashboard = dashboardRoutes.some(route => pathname.endsWith(route));
 
           {/* Right: Buttons */}
           <div className="flex flex-row gap-4 items-center">
-            <Image
-              src="/dashboard/topbar/refresh1.svg"
-              alt="Refresh"
-              width={108}
-              height={44}
-              className="cursor-pointer hover:opacity-80 transition"
-            />
-            <Image
-              src="/dashboard/topbar/export1.svg"
-              alt="Export"
-              width={108}
-              height={44}
-              className="cursor-pointer hover:opacity-80 transition"
-            />
+            
+           <White_button label='Refresh' img='/dashboard/rotate-left.png'/>
+            
+           <Purple_button label='Export' img='/dashboard/whiteupload.svg'/>
+            
           </div>
         </div>
 
@@ -99,15 +91,15 @@ const isDashboard = dashboardRoutes.some(route => pathname.endsWith(route));
                 href={cur.path}
                 key={index}
                 onClick={() => setActive(index)}
-                className={`px-6 py-2 rounded-lg  transition-all duration-200 ${active === index
-                  ? 'bg-white shadow text-black-600'
+                className={`px-5 py-2 rounded-lg  transition-all duration-200 ${active === index
+                  ? 'bg-white shadow text-[#7E30ED]'
                   : 'text-white'
                   }`}
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontWeight: 700,
                   fontStyle: 'normal', // "Bold" is handled by fontWeight
-                  fontSize: '24px',
+                  fontSize: '18px',
                   lineHeight: '100%',
                   letterSpacing: '0px',
 

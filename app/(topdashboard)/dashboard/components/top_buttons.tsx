@@ -12,11 +12,11 @@ import { PiListBold } from "react-icons/pi";
 import Image from 'next/image';
 export const SearchBar = () => {
   return (
-    <div className="border border-gray-700 rounded-md flex flex-row items-center px-3 py-2">
+    <div className="border border-[#6C6C80] rounded-md flex flex-row items-center px-3 py-2">
       <input
         type="text"
         placeholder="Search..."
-        className="bg-transparent outline-none text-desc placeholder:text-gray-500"
+        className="bg-transparent outline-none text-second placeholder:text-gray-500"
       />
     </div>
   );
@@ -24,23 +24,23 @@ export const SearchBar = () => {
 
 export const Filter = () => {
   return (
-    <div className="border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer">
+    <div className="border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer">
       <BiFilterAlt />
-      <p className="text-desc ml-1">Filter</p>
+      <p className="text-second ml-1">Filter</p>
     </div>
   );
 };
 export const Showfilter = ({setshowfilter,showfilter}) => {
   return (
-    <div className="border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer" onClick={()=>setshowfilter(!showfilter)}>
+    <div className="border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer" onClick={()=>setshowfilter(!showfilter)}>
       <BiFilterAlt />
-      <p className="text-desc ml-1">Show Filter</p>
+      <p className="text-second ml-1">Show Filter</p>
     </div>
   );
 };
 export const Hidefilter = ({setshowfilter,showfilter}) => {
   return (
-    <div className="border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer btn-clr text-white" onClick={()=>setshowfilter(!showfilter)}>
+    <div className="border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer btn-clr text-white" onClick={()=>setshowfilter(!showfilter)}>
       <BiFilterAlt />
       <p className="text-white ml-1">Hide Filter</p>
     </div>
@@ -48,9 +48,9 @@ export const Hidefilter = ({setshowfilter,showfilter}) => {
 };
 export const Refresh = () => {
   return (
-    <div className=" border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer">
+    <div className=" border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer">
       <MdOutlineRefresh /> 
-      <p className="text-desc ml-1">Refresh</p>
+      <p className="text-second ml-1">Refresh</p>
     </div>
   );
 };
@@ -58,8 +58,10 @@ export const Add_cat = ({onClick}) => {
       
 
   return (
-    <div className="btn-clr border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer" onClick={onClick}>
-      <CiSquarePlus className='text-white'/> 
+    <div className="btn-clr border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer" onClick={onClick}>
+      {/* <CiSquarePlus className='text-white size-5'/>  */}
+             <Image src='/dashboard/add-square.svg' height={15} width={15}/> 
+
       <p className="text-white ml-1">Add Category</p>
     </div>
   );
@@ -67,8 +69,8 @@ export const Add_cat = ({onClick}) => {
 
 export const Add_color_varient = ({onClick}) => {
   return (
-    <div className="w-50 btn-clr border border-gray-700 rounded-md flex flex-row justify-center items-center gap-1 px-3 py-2 cursor-pointer" onClick={onClick}>
-       <Image src='/dashboard/add-square.png' height={15} width={15}/> 
+    <div className="w-50 btn-clr border border-[#6C6C80] rounded-md flex flex-row justify-center items-center gap-1 px-3 py-2 cursor-pointer" onClick={onClick}>
+       <Image src='/dashboard/add-square.svg' height={15} width={15}/> 
       <p className="text-white">Add Color Varients</p>
     </div>
   );
@@ -76,31 +78,31 @@ export const Add_color_varient = ({onClick}) => {
 
 export const Cancel = ({onClick}) => {
   return (
-    <div className=" border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer" onClick={onClick}>
-      <p className="text-desc ">Cancel</p>
+    <div className=" border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer" onClick={onClick}>
+      <p className="text-second ">Cancel</p>
     </div>
   );
 };
 export const Preview_btn = ({onClick,label}) => {
   return (
-    <div className=" border border-gray-700 rounded-md flex flex-row justify-center items-center gap-1.5 px-3 py-2 cursor-pointer" onClick={onClick}>
+    <div className=" border border-[#6C6C80] rounded-md flex flex-row justify-center items-center gap-1.5 px-3 py-2 cursor-pointer" onClick={onClick}>
         <Image src='/dashboard/eye.png' alt='img' height={10} width={10} className='size-4'/>
-      <p className="text-desc ">{label}</p>
+      <p className="text-second ">{label}</p>
     </div>
   );
 };
 export const White_button = ({onClick,label,img=''}) => {
   return (
-    <div className=" border border-gray-700 rounded-md flex flex-row gap-1.5 justify-center items-center px-3 py-2 cursor-pointer" onClick={onClick}>
+    <div className=" border border-[#6C6C80] rounded-md flex flex-row gap-1.5 justify-center items-center px-3 py-2 cursor-pointer" onClick={onClick}>
       {img && <Image src={img} alt='img' height={10} width={10} className='size-4'/>}
-      <p className="text-desc ">{label}</p>
+      <p className="text-second ">{label}</p>
     </div>
   );
 };
 export const Purple_button = ({onClick,label,img=''}) => {
   return (
-    <div className=" border border-gray-700 rounded-md flex flex-row gap-1.5 justify-center items-center px-3 py-1 cursor-pointer btn-clr text-white" onClick={onClick}>
-      {img && <Image src={img} alt='img' height={10} width={10} className='size-4'/>}
+    <div className="  rounded-md flex flex-row gap-1.5 justify-center items-center px-3 py-1 cursor-pointer btn-clr  text-white " onClick={onClick}>
+      {img && <Image src={img} alt='img' height={10} width={10} className='size-4 text-white'/>}
       <p className="">{label}</p>
     </div>
   );
@@ -115,7 +117,7 @@ export const Delete_button = ({onClick,label,img='/dashboard/trash.png'}) => {
 };
 export const Create = ({onClick}) => {
   return (
-    <div className=" border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer btn-clr text-white" onClick={onClick}>
+    <div className=" border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer btn-clr text-white" onClick={onClick}>
       
       <p className="">Create</p>
     </div>
@@ -126,8 +128,8 @@ export const Add_product = ({onClick}) => {
       
 
   return (
-    <div className="btn-clr border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer" onClick={onClick}>
-      <CiSquarePlus className='text-white'/> 
+    <div className="btn-clr border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer" onClick={onClick}>
+      <Image src='/dashboard/add-square.svg' height={15} width={15} alt='img'/> 
       <p className="text-white ml-1">Add Product</p>
     </div>
   );
@@ -136,17 +138,17 @@ export const Add_Coupon = ({onClick}) => {
       
 
   return (
-    <div className="btn-clr border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer" onClick={onClick}>
-      <CiSquarePlus className='text-white'/> 
+    <div className="btn-clr border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer" onClick={onClick}>
+      <Image src='/dashboard/add-square.svg' height={15} width={15}/> 
       <p className="text-white ml-1">Add Coupon</p>
     </div>
   );
 };
 export const Export = () => {
   return (
-    <div className=" border border-gray-700 rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer">
+    <div className=" border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer">
       <BiExport />
-      <p className="text-desc ml-1">Export</p>
+      <p className="text-second ml-1">Export</p>
     </div>
   );
 };
@@ -165,7 +167,7 @@ export const Grid_button = ({
   setview,
 }: ViewButtonProps) => (
   <div
-    className={`${bg_clr} ${text_clr} border border-gray-700 rounded-md flex items-center justify-center px-3 py-1 cursor-pointer`}
+    className={`${bg_clr} ${text_clr} border border-[#6C6C80] rounded-md flex items-center justify-center px-3 py-1 cursor-pointer`}
     onClick={() => view !== 'grid' && setview('grid')}
   >
     <CgViewGrid className={img_clr} />
@@ -181,7 +183,7 @@ export const List_button = ({
   setview,
 }: ViewButtonProps) => (
   <div
-    className={`${bg_clr} ${text_clr} border border-gray-700 rounded-md flex items-center justify-center px-3 py-1 cursor-pointer`}
+    className={`${bg_clr} ${text_clr} border border-[#6C6C80] rounded-md flex items-center justify-center px-3 py-1 cursor-pointer`}
     onClick={() => view !== 'list' && setview('list')}
   >
     <PiListBold className={img_clr} />
@@ -208,14 +210,14 @@ export const SortDropdown = ({setsortSelected,setsortOpen,sortselected,sortOpen}
     <div className="relative">
       <button
         onClick={() => setsortOpen(!sortOpen)}
-        className="flex items-center justify-between gap-2 bg-white border border-gray-300 rounded-sm px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 transition"
+        className="flex items-center justify-between gap-2 bg-white border border-[#6C6C80] rounded-sm px-6 py-2 text-second hover:bg-gray-100 transition"
       >
         {sortselected}
         {sortOpen ? <IoChevronUp /> : <IoChevronDown />}
       </button>
 
       {sortOpen && (
-        <div className="absolute left-0 mt-2 w-full bg-white border border-gray-300 rounded-sm shadow-md z-10">
+        <div className="absolute left-0 mt-2 w-full bg-white border border-[#6C6C80]300 rounded-sm shadow-md z-10">
           {options.map((option) => (
             <button
               key={option}
@@ -245,7 +247,7 @@ export const SortOrderButton = ({order,setOrder}) => {
   return (
     <button
       onClick={toggleOrder}
-      className="flex items-center gap-2 bg-white border border-gray-300 rounded-sm px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 transition"
+      className="flex items-center gap-2 bg-white border border-[#6C6C80] rounded-sm px-4 py-1 text-second hover:bg-gray-100 transition"
     >
       {order === 'asc' ? (
         <>
@@ -273,7 +275,7 @@ export const Old_new_sort = ({order,setOrder}) => {
   return (
     <button
       onClick={toggleOrder}
-      className="flex items-center gap-2 bg-white border border-gray-300 rounded-sm px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 transition"
+      className="flex items-center gap-2 bg-white border border-[#6C6C80] rounded-sm px-4 py-1 text-sm font-medium text-gray-800 hover:bg-gray-100 transition"
     >
       {order === 'Newest First' ? (
         <>
@@ -296,19 +298,19 @@ export const Toggle_btn = ({ isActive, onClick }: { isActive: boolean; onClick: 
       aria-pressed={isActive}
       role="switch"
       className={`
-        relative inline-flex h-5 w-9 items-center rounded-full 
-        transition-colors duration-300 ease-in-out 
-        focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-1
+        relative inline-flex h-6 w-11 items-center rounded-full 
+        transition-all duration-300 ease-in-out 
+        focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2
         cursor-pointer select-none
         ${isActive ? 'bg-black' : 'bg-gray-400'}
       `}
     >
-      {/* Smaller Sliding Knob */}
+      {/* Sliding Knob */}
       <span
         className={`
-          inline-block h-4 w-4 rounded-full bg-white 
-          shadow-sm transform transition-transform duration-300 ease-in-out
-          ${isActive ? 'translate-x-4' : 'translate-x-0.5'}
+          inline-block h-5 w-5 rounded-full bg-white 
+          shadow-md transform transition-transform duration-300 ease-in-out
+          ${isActive ? 'translate-x-5' : 'translate-x-0.5'}
         `}
       />
     </button>

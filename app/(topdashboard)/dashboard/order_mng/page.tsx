@@ -150,7 +150,7 @@ const OrdersPage = () => {
     }, [filteredData, startIndex, endIndex]);
 
     return (
-        <div className="container my-10 flex flex-col gap-5">
+        <div className="container mx-auto my-10 flex flex-col gap-5">
             <Top_area
                 title="Orders Management"
                 desc="Manage and track all your store orders"
@@ -165,11 +165,11 @@ const OrdersPage = () => {
                 ]}
             />
 
-            <div className={`bg-white rounded-xl shadow-sm p-4 flex flex-col gap-2 ${!showfilter ? 'min-h-[400px]':'min-h-[500px]'} `}>
-                <div className={`${!showfilter ? 'h-[350px]':'h-[450px]'} overflow-y-auto rounded-2xl [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
+            <div className={`bg-white rounded-xl shadow-sm p-4 flex flex-col gap-2 ${!showfilter ? 'min-h-[400px]' : 'min-h-[500px]'} `}>
+                <div className={`${!showfilter ? 'h-[350px]' : 'h-[450px]'} overflow-y-auto rounded-2xl [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
                     {showfilter && (
                         <div className='w-full flex flex-row justify-between mb-3'>
-                            <h1 className='text-first text-lg font-semibold'>All orders</h1>
+                            <h1 className='my-title text-xl font-bold ml-2'>All orders</h1>
                             <Clearfilter clearFilters={clearFilters} />
                         </div>
                     )}
@@ -213,7 +213,7 @@ const OrdersPage = () => {
                                 visibleData.map((item) => (
                                     <tr
                                         key={item.order}
-                                        className="border-b border-gray-200 text-second hover:bg-[#F9F4FF] transition"
+                                        className="border-b border-gray-200 text-second  transition"
                                     >
                                         <td className="py-3 px-4 font-medium">{item.order}</td>
                                         <td className="py-3 px-4">{item.customer}</td>
@@ -221,21 +221,20 @@ const OrdersPage = () => {
 
                                         <td className="py-3 px-4">
                                             <div
-                                                className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${
-                                                    item.payment === 'Paid'
+                                                className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${item.payment === 'Paid'
                                                         ? 'text-green-700'
                                                         : item.payment === 'Pending'
-                                                        ? 'text-yellow-700'
-                                                        : 'text-red-700'
-                                                }`}
+                                                            ? 'text-yellow-700'
+                                                            : 'text-red-700'
+                                                    }`}
                                             >
                                                 <Image
                                                     src={
                                                         item.payment === 'Paid'
                                                             ? '/dashboard/tick-circle.png'
                                                             : item.payment === 'Pending'
-                                                            ? '/dashboard/close-circle-yellow.png'
-                                                            : '/dashboard/close-circle.png'
+                                                                ? '/dashboard/close-circle-yellow.png'
+                                                                : '/dashboard/close-circle.png'
                                                     }
                                                     alt="payment"
                                                     width={16}
@@ -249,29 +248,28 @@ const OrdersPage = () => {
 
                                         <td className="py-3 px-4">
                                             <span
-                                                className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${
-                                                    item.status === 'Delivered'
+                                                className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${item.status === 'Delivered'
                                                         ? 'text-green-700'
                                                         : item.status === 'Shipped'
-                                                        ? 'text-red-700'
-                                                        : item.status === 'Confirmed'
-                                                        ? 'text-blue-700'
-                                                        : item.status === 'Pending'
-                                                        ? 'text-yellow-700'
-                                                        : 'text-gray-700'
-                                                }`}
+                                                            ? 'text-red-700'
+                                                            : item.status === 'Confirmed'
+                                                                ? 'text-blue-700'
+                                                                : item.status === 'Pending'
+                                                                    ? 'text-yellow-700'
+                                                                    : 'text-gray-700'
+                                                    }`}
                                             >
                                                 <Image
                                                     src={
                                                         item.status === 'Delivered'
                                                             ? '/dashboard/tick-circle.png'
                                                             : item.status === 'Shipped'
-                                                            ? '/dashboard/red-truck.png'
-                                                            : item.status === 'Confirmed'
-                                                            ? '/dashboard/info-circle-blue.png'
-                                                            : item.status === 'Pending'
-                                                            ? '/dashboard/yellow-clock.png'
-                                                            : '/dashboard/close-circle.png'
+                                                                ? '/dashboard/red-truck.png'
+                                                                : item.status === 'Confirmed'
+                                                                    ? '/dashboard/info-circle-blue.png'
+                                                                    : item.status === 'Pending'
+                                                                        ? '/dashboard/yellow-clock.png'
+                                                                        : '/dashboard/close-circle.png'
                                                     }
                                                     alt="status"
                                                     width={16}
@@ -323,7 +321,7 @@ const OrdersPage = () => {
             </div>
 
             {/* Pagination */}
-            <div className="mt-4">
+            <div className="mx-8">
                 <Pagination
                     totalItems={totalFiltered}
                     itemsPerPage={itemsPerPage}

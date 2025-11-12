@@ -11,7 +11,7 @@ const recommendations = [
       "Focus marketing efforts on your best-selling products to maximize revenue.",
     image: "/dashboard/ok.png",
     bg: "bg-[#3DDC971A]",
-    textColor: "text-[#0F9D58]", // dark green tone
+    textColor: "text-[#3DDC97]", // dark green tone
   },
   {
     id: 2,
@@ -20,14 +20,14 @@ const recommendations = [
       "Set up automated reorder points to prevent stock outs and maintain optimal inventory levels.",
     image: "/dashboard/info.png",
     bg: "bg-[#F59E0B1A]",
-    textColor: "text-[#B45309]", // darker amber tone
+    textColor: "text-[#F59E0B]", // darker amber tone
   },
   {
     id: 3,
     title: "Customer Engagement",
     description:
       "Implement loyalty programs and personalized marketing to increase customer retention.",
-    image: "/dashboard/info.png",
+    image: "/dashboard/blueinfo.svg",
     bg: "bg-[#4A3AFF1A]",
     textColor: "text-[#4A3AFF]", // deep purple tone
   },
@@ -39,7 +39,7 @@ const Recommendation = () => {
       {/* Header */}
       <div>
         <h1 className="text-main">Recommendations</h1>
-        <p className="text-sm text-gray-500 border-b border-gray-200 pb-2">
+        <p className="text-sm text-gray-500 border-b-2 border-[#6C6C80]  pb-2">
           Actionable insights for growth
         </p>
       </div>
@@ -63,7 +63,7 @@ const Recommendation = () => {
             </div>
 
             {/* Text Content */}
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-1.5">
               <h2
                 className={`insights-title ${item.textColor}`}
               >

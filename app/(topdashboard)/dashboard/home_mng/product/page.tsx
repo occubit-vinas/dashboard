@@ -23,11 +23,11 @@ const Page = () => {
         <Purple_button
           key="5"
           label="Add Product"
-          img="/dashboard/add-square.png"
+          img="/dashboard/add-square.svg"
         />,
       ]}
     >
-      <div className="container mt-8 bg-white rounded-sm shadow-md p-4">
+      <div className="container mx-auto mt-8 bg-white rounded-sm shadow-md p-4">
         {openedit && <Edit setopenedit={setopenedit} />}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">

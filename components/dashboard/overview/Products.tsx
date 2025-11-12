@@ -3,16 +3,16 @@ import Image from 'next/image'
 
 const Products = ({ data }) => {
     return (
-        <div className="w-1/2 bg-white rounded-2xl p-4 flex flex-col shadow-sm h-90 ">
+        <div className="w-1/2 bg-white rounded-2xl p-4 flex flex-col shadow-sm h-92 ">
             {/* Header */}
             <p className="text-main mb-2">Top Products</p>
 
             {/* Product List */}
-            <div className="overflow-y-auto max-h-[250px]">
+            <div className="overflow-y-auto max-h-[279px]">
                 {data.map((cur, index) => (
                     <div
                         key={index}
-                        className="flex justify-between items-center py-3 border-b-2 border-gray-400 hover:bg-gray-50 transition px-2"
+                        className="flex justify-between items-center py-1.5 border-b-1 border-gray-400 hover:bg-gray-50 transition px-2"
                     >
                         {/* Product Details */}
                         <div className="flex flex-col">

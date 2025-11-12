@@ -10,7 +10,7 @@ type WrapperProps = {
 const Top_area = ({ title, desc, components = [] }: WrapperProps) => {
   return (
     <div className="flex flex-row justify-between items-center">
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-2">
         <p className="text-title">{title}</p>
         <p className="text-desc">{desc}</p>
       </div>

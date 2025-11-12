@@ -36,7 +36,7 @@ const Category = () => {
     return data.slice(startIndex, endIndex);
   }, [data, startIndex, endIndex]);
   return (
-    <div className="container  my-10 flex flex-col gap-4 ">
+    <div className="container mx-auto my-10 flex flex-col gap-4 ">
       <Top_area
         title="Category Management"
         desc="Organize your products with categories and manage your inventory"
@@ -66,9 +66,9 @@ const Category = () => {
                     <span
                       className={`flex flex-row gap-1 px-2 py-1 rounded text-sm ${item.status === "Active" && " text-green-700"} ${item.status === "Inactive" && " text-red-700"} ${item.status === "Cancle" && " text-[#E8BD11]"}`}
                     >
-                      {item.status === 'Active' ? <Image src='/dashboard/tick-circle.png' height={10} width={18} alt='image' /> : ''}
-                      {item.status === 'Inactive' ? <Image src='/dashboard/close-circle.png' height={10} width={18} alt='image' /> : ''}
-                      {item.status === 'Cancle' ? <Image src='/dashboard/info-circle.png' height={10} width={18} alt='image' /> : ''}
+                      {item.status === 'Active' ? <Image src='/dashboard/tick-circle.png' height={10} width={20} alt='image' /> : ''}
+                      {item.status === 'Inactive' ? <Image src='/dashboard/close-circle.png' height={10} width={20} alt='image' /> : ''}
+                      {item.status === 'Cancle' ? <Image src='/dashboard/info-circle.png' height={10} width={20} alt='image' /> : ''}
                       {item.status}
                     </span>
                   </td>
@@ -84,17 +84,17 @@ const Category = () => {
             </tbody>
           </table>
         </div>
-        
+
       </div>
-<div className="mt-4">
-          <Pagination
-            totalItems={totalFiltered}
-            itemsPerPage={itemsPerPage}
-            currentPage={currentPage}
-            onPageChange={setCurrentPage}
-            maxVisiblePages={3}
-          />
-        </div>
+      <div className=" mx-8">
+        <Pagination
+          totalItems={totalFiltered}
+          itemsPerPage={itemsPerPage}
+          currentPage={currentPage}
+          onPageChange={setCurrentPage}
+          maxVisiblePages={3}
+        />
+      </div>
     </div>
   );
 };

@@ -81,7 +81,7 @@ const Order_status_card = ({ setstatuscard }) => {
                 />
             </div>}
             <div className='flex flex-row gap-2 justify-end'>
-                <White_button label='Cancel' />
+                <White_button label='Cancel' onClick={() => setstatuscard(false)}/>
                 <Purple_button label='Update-Status' />
             </div>
         </div>

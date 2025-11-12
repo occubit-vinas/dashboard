@@ -10,12 +10,12 @@ const Box = ({ data }) => {
 
   return (
     // Outer gradient border
-    <div className="animated-border w-1/4">
+    <div className="animated-border w-1/4 bg-white rounded-xl">
       {/* Inner white box */}
       <div className="animated-border-inner p-3 flex flex-row justify-between items-center">
 
         {/* Left Section */}
-        <div className="flex flex-col gap-1.5 max-w-[85%]">
+        <div className="flex flex-col gap-3 max-w-[85%]">
           {/* Title */}
           <p
             style={{

@@ -49,7 +49,7 @@ export default function Test_box({ setaddbox }: { setaddbox: (v: boolean) => voi
         >
           {/* Header */}
           <div className="flex justify-between items-center mb-5">
-            <h3 className="text-lg font-semibold">Add Testimonial</h3>
+            <h3 className="my-title">Add Testimonial</h3>
             <button onClick={() => setaddbox(false)}>
               <Image
                 src="/dashboard/close-circle-black.png"

@@ -17,7 +17,7 @@ const Page = () => {
   }
 
   return (
-    <div className="container my-10">
+    <div className="container mx-auto my-10">
       <div className="p-6 bg-white shadow-md rounded-xl flex flex-col gap-8">
         
         {/* SEO Title & Description */}

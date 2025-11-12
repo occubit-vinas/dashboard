@@ -12,7 +12,7 @@ const page = () => {
     <Home_mng_layout topButtons={[
         <Refresh key='1'/>,
        <Preview_btn key='2' label='Preview Mode' />,
-       <Purple_button key='5' label='Add Hero Slide' img='/dashboard/add-square.png'/>
+       <Purple_button key='5' label='Add Hero Slide' img='/dashboard/add-square.svg'/>
     ]}>
 
     <div className='container mt-8 bg-white rounded-sm shadow-md p-4 '>

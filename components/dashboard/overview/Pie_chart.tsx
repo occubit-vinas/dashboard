@@ -101,7 +101,7 @@ export const Round_Pie_chart = ({ data }) => {
   const isPositive = percentage > 0
 
   return (
-    <div className="relative rounded-2xl p-[2px] bg-gradient-to-tl from-purple-900 to-purple-100 w-full h-full">
+    <div className="relative rounded-2xl p-[2px]  w-full h-full">
       <div className="bg-white rounded-2xl p-6 flex flex-col h-full">
 
         {/* Title */}

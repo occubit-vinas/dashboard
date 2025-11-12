@@ -23,20 +23,24 @@ const LowStock = () => {
           >
             {/* Product Info */}
             <div className="flex flex-col gap-0.5">
-              <p className="font-semibold text-gray-900 text-sm">
+              <p className="font-normal text-gray-900 text-sm">
                 Wireless Headphone
               </p>
               <p className="text-xs text-gray-600">Only 3 left</p>
             </div>
 
             {/* Restock Icon */}
-            <Image
+            {/* <Image
               src="/dashboard/restock.png"
               alt="Restock"
               width={42}
               height={28}
               className="cursor-pointer w-[72px] h-[25px]"
-            />
+            /> */}
+            <div className='flex p-1.5 flex-row gap-1 border-1 border-[#6C6C80] rounded-sm'>
+              <Image src='whitetruck.svg' alt='img' height={15} width={15}/>
+              <p className='text-second'>Restock</p>
+            </div>
           </div>
         ))}
       </div>
