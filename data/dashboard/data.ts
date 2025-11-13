@@ -4,28 +4,28 @@ export const overview_box = [
         price: 990.00,
         percentage: 17.6,
         text: 'vs last period Monthly revenue',
-        img: 'rupee.png',
+        img: 'rupee.svg',
     },
     {
         title: 'Total orders',
         number: 99,
         percentage: -17.6,
         text: 'vs last period Monthly revenue',
-        img: 'cart.png',
+        img: 'cart.svg',
     },
     {
         title: 'Total customers',
         number: 990.00,
         percentage: -17.6,
         text: 'vs last period Monthly revenue',
-        img: 'person.png',
+        img: 'user.svg',
     },
     {
         title: 'Total products',
         price: 990.00,
         percentage: 17.6,
         text: 'vs last period Monthly revenue',
-        img: 'box.png',
+        img: 'box.svg',
     },
 ]
 
@@ -34,27 +34,27 @@ export const sales_box = [
         title: 'Total Revenue',
         price: 990.99,
         text: 'All time revenue',
-        img: 'rupee.png',
+        img: 'rupee.svg',
     },
     {
         title: 'Total Orders',
         // price:990.99,
         number: 90,
         text: 'All time orders',
-        img: 'cart.png',
+        img: 'cart.svg',
     },
     {
         title: 'Average order value',
         // price:741.43,
         number: '2.4%',
         text: 'visitors to customers',
-        img: 'trend.png',
+        img: 'trend.svg',
     },
     {
         title: 'Total Revenue',
         price: 990.99,
         text: 'All time revenue',
-        img: 'rupee.png',
+        img: 'rupee.svg',
     },
 ]
 
@@ -63,25 +63,25 @@ export const customer_box = [
         title: 'Total Customers',
         number: 21,
         text: 'All Region users',
-        img: 'person.png'
+        img: 'user.svg'
     },
     {
         title: 'Active Customers',
         number: 15,
         text: 'Active in last 30 days',
-        img: 'eye.png'
+        img: 'eye.svg'
     },
     {
         title: 'Repeat Customers',
         number: 12,
         text: 'Per order average',
-        img: 'heart.png'
+        img: 'heart.svg'
     },
     {
         title: 'Total Customers',
         number: '50%',
         text: 'Customer retantion',
-        img: 'rings.png'
+        img: 'rings.svg'
     },
 ]
 
@@ -90,25 +90,25 @@ export const inventory_box=[
         title:'Total Products',
         number:69,
         text:'All products',
-        img:'box.png'
+        img:'box.svg'
     },
     {
         title:'Total Stock',
         number:87099,
         text:'Units in inventory',
-        img:'graph.png'
+        img:'chart.svg'
     },
     {
         title:'inventory value',
         price:30162600.00,
         text:'total inventory worth',
-        img:'doller.png'
+        img:'doller.svg'
     },
     {
         title:'Average Price',
         price:462.20,
         text:'Per product average',
-        img:'rings.png'
+        img:'rings.svg'
     },
 ] 
 

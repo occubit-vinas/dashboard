@@ -16,7 +16,7 @@ export const Pie_chart = ({ data }) => {
   const isPositive = percentage > 0
 
   return (
-    <div className={`relative rounded-2xl p-[2px] bg-gradient-to-tl from-purple-900 to-purple-100 w-full h-full `}>
+    <div className={`relative rounded-2xl p-[2px]  w-full h-full shadow-sm`}>
       <div className="bg-white rounded-2xl p-6 flex flex-col items-center justify-between h-full">
 
         {/* Title */}
@@ -26,23 +26,25 @@ export const Pie_chart = ({ data }) => {
 
         {/* Pie Chart */}
         <div className="w-full h-[300px]">
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie
-                data={stats}
-                dataKey="value"
-                nameKey="name"
-                innerRadius={90}
-                outerRadius={120}
-                paddingAngle={2}
-              >
-                {stats.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip />
-            </PieChart>
-          </ResponsiveContainer>
+         <ResponsiveContainer width="100%" height="100%">
+  <PieChart>
+    <Pie
+      data={stats}
+      dataKey="value"
+      nameKey="name"
+      innerRadius={90}
+      outerRadius={120}
+      paddingAngle={2}
+      cornerRadius={5}   // ← add this
+    >
+      {stats.map((entry, index) => (
+        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+      ))}
+    </Pie>
+    <Tooltip />
+  </PieChart>
+</ResponsiveContainer>
+
 
           {/* Center Label */}
           <div className="absolute top-[42%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">

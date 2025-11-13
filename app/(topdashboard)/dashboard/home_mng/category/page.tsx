@@ -22,7 +22,7 @@ const page = () => {
             {Array.from({length:4}).map((_,index)=>(
                 <div className='h-140 bg-purple-50 rounded-sm border  p-2 flex flex-col gap-5' key={index}>
                     <Image src='/dashboard/category.png' height={60} width={50} alt='image' className='h-[80%] w-full'/>
-                    <p  className='font-bold text-lg text-gray-800 '>Straight</p>
+                    <p  className='font-bold text-lg text-gray-800 ml-2'>Straight</p>
                     <div className='mx-auto my-2 flex flex-row gap-2 mb-7 '>
                         <Purple_button label='Edit' img='/dashboard/white-edit.png' onClick={()=>setopenedit(true)}/>
                         

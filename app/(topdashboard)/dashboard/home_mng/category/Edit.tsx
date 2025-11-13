@@ -33,7 +33,7 @@ const Edit: React.FC<EditProps> = ({ setopenedit }) => {
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-lg rounded-sm p-6 w-full max-w-md z-50">
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-title font-bold text-lg">Edit Trending Category</h2>
+          <h2 className="my-title font-bold text-lg">Edit Trending Category</h2>
           <button
             onClick={() => setopenedit(false)}
             className="hover:opacity-70 transition"

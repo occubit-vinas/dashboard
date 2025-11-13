@@ -33,7 +33,7 @@ const ProductCategory = () => {
           Product Categories
         </h2>
         <p className="text-sm text-gray-500">Revenue by product category</p>
-        <hr className="border-gray-200 mt-2 w-full" />
+        <hr className="border-[#6C6C80] border-1.5 mt-2 w-full" />
       </div>
 
       {/* Chart */}
@@ -41,7 +41,7 @@ const ProductCategory = () => {
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
-            margin={{ top: 10, right: 30, left: 0, bottom: 10 }}
+            margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
           >
             {/* Dashed Grid */}
             <CartesianGrid strokeDasharray="4 4" stroke="#e5e7eb" />
@@ -69,7 +69,7 @@ const ProductCategory = () => {
             {/* Bars */}
             <Bar
               dataKey="revenue"
-              radius={[6, 6, 0, 0]}
+              radius={[4, 4, 0, 0]}
               onMouseEnter={(_, index) => setActiveIndex(index)}
               onMouseLeave={() => setActiveIndex(null)}
             >

@@ -9,7 +9,7 @@ import ProductRating from "@/components/dashboard/products/product_rating";
 import { Purple_button } from "../components/top_buttons";
 const Products = () => {
     return (
-        <div className="container mx-auto w-full p-4 rounded-2xl  flex flex-col gap-4">
+        <div className="container mx-auto w-full  rounded-2xl  flex flex-col gap-4">
             <div className="bg-white p-4 rounded-2xl box-shadow-2xl shadow">
                 {/* Header */}
                 <div className="w-full flex flex-row justify-between items-start ">

@@ -29,11 +29,11 @@ const ProductRating = () => {
   return (
     <div className="w-full bg-white rounded-lg shadow p-6 border-b border-gray-200 ]">
       {/* Header */}
-      <div className="mb-4">
+      <div className="mb-4 border-b pb-2 border-[#6C6C80] border-1.5">
         <h2 className="text-main">
           Products Ratings
         </h2>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-500 ">
           Distribution of product ratings
         </p>
       </div>
@@ -44,7 +44,7 @@ const ProductRating = () => {
           <BarChart
             data={data}
             layout="vertical"
-            margin={{ top: 10, right: 30, left: 50, bottom: 10 }}
+            margin={{ top: 10, right: 0, left: 0, bottom: 10 }}
           >
             {/* Vertical dashed lines at 25%, 50%, 75% */}
             <CartesianGrid
@@ -71,7 +71,7 @@ const ProductRating = () => {
               type="category"
               dataKey="name"
               tick={{ fill: "#6b7280", fontSize: 12 }}
-              width={70}
+              width={90}
               axisLine={false}
               tickLine={false}
             />

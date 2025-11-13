@@ -1,13 +1,13 @@
 'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
-
+import React, { useState, useEffect } from 'react'
+import { usePathname } from '@/node_modules/next/navigation'
 export default function Sidebar() {
   const [activeItem, setActiveItem] = useState('')
   const [isToggled, setIsToggled] = useState(false)
 
+  const pathname = usePathname();
   const topIcons = [
     { href: '/dashboard', icon: '/dashboard/sidebar/analytics.svg', label: 'Analytics' },
     { href: '/dashboard/category', icon: '/dashboard/sidebar/category.svg', label: 'Home' },
@@ -24,9 +24,18 @@ export default function Sidebar() {
     { href: '/dashboard/setting/Store', icon: '/dashboard/sidebar/setting.svg', label: 'Settings' },
     { href: '/logout', icon: '/dashboard/sidebar/notification.svg', label: 'Logout' },
   ]
+useEffect(() => {
+  const item = topIcons
+    .filter(cur => pathname.startsWith(cur.href))
+    .sort((a, b) => b.href.length - a.href.length)[0];
+
+  if (item) setActiveItem(item.href);
+  if(pathname.includes('home_mng')) setActiveItem('/dashboard/home_mng/heroslide');
+}, [pathname]);
+
 
   const accent = '#7E30ED'
-
+  console.log('index is',activeItem);
   return (
     <aside
       className="fixed top-0 left-0 h-screen w-20 flex flex-col justify-between items-center py-6 shadow-lg"
@@ -52,16 +61,27 @@ export default function Sidebar() {
             >
               <div className={`w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-200 group-hover:scale-105 ${activeItem === item.href ? '' : 'hover:bg-white/20'
                 }`}>
-                <Image
+                {/* <Image
                   src={item.icon}
                   alt={item.label}
                   width={24}
                   height={24}
                   className={`${activeItem === item.href
-                    ? 'filter brightness-0' // Black for active
-                    : 'filter brightness-0 invert' // White for inactive
+                      ? 'text-[#280865]'  // Active -> #280865
+                      : 'text-white'      // Inactive -> white
                     }`}
+
+                /> */}
+                <div
+                  className={`w-[25px] h-[25px] ${activeItem === item.href ? 'text-[#280865]' : 'text-white'
+                    }`}
+                  style={{
+                    backgroundColor: 'currentColor',
+                    mask: `url(${item.icon}) no-repeat center / contain`,
+                    WebkitMask: `url(${item.icon}) no-repeat center / contain`,
+                  }}
                 />
+
               </div>
             </Link>
           ))}
@@ -80,15 +100,24 @@ export default function Sidebar() {
           >
             <div className={`w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-200 group-hover:scale-105 
               `}>
-              <Image
+              {/* <Image
                 src={item.icon}
                 alt={item.label}
                 width={25}
                 height={25}
-                className={`${activeItem === item.href
+                className={` ${activeItem === item.href
                   ? 'filter brightness-0' // Black for active
                   : 'filter brightness-0 invert' // White for inactive
                   }`}
+              /> */}
+              <div
+                className={`w-[25px] h-[25px] ${activeItem === item.href ? 'text-[#280865]' : 'text-white'
+                  }`}
+                style={{
+                  backgroundColor: 'currentColor',
+                  mask: `url(${item.icon}) no-repeat center / contain`,
+                  WebkitMask: `url(${item.icon}) no-repeat center / contain`,
+                }}
               />
             </div>
           </Link>

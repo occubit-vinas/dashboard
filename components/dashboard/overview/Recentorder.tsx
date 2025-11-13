@@ -29,8 +29,8 @@ const Recentorder = ({ data }) => {
             <p
               className={`font-medium px-3 py-1 rounded-full text-center ${
                 cur.payment.toLowerCase() === 'pending'
-                  ? 'text-yellow-700 border border-yellow-500'
-                  : 'text-green-700 border border-green-500'
+                  ? 'text-[#E8BD11] border-[1px] border-[#E8BD11]'
+                  : 'text-[#4A3AFF] border-[1px] border-[#4A3AFF]'
               }`}
             >
               {cur.payment}

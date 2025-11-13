@@ -20,27 +20,19 @@ const Top_nav_bar: React.FC<TopNavBarProps> = ({
   const pathname = usePathname() ?? ''
   const [active, setActive] = useState<number | null>(0)
 
-  const defaultLinks: NavLink[] = [
-    { path: '/dashboard', title: 'Overview' },
-    { path: '/dashboard/sales', title: 'Sales' },
-    { path: '/dashboard/customers', title: 'Customers' },
-    { path: '/dashboard/products', title: 'Products' },
-    { path: '/dashboard/inventories', title: 'Inventory' },
-    { path: '/dashboard/insights', title: 'Insights' },
-  ]
 
-  const links = navLinks || defaultLinks
+  // const links = navLinks;
 
   // Auto-select active link based on current path
   useEffect(() => {
-    const foundIndex = links.findIndex(link => pathname.endsWith(link.path))
+    const foundIndex = navLinks.findIndex(link => pathname.endsWith(link.path))
     setActive(foundIndex >= 0 ? foundIndex : 0)
-  }, [pathname, links])
+  }, [pathname, navLinks])
 
   return (
     <div className="flex justify-center mt-6 w-full">
       <div className={`flex flex-row gap-4 ${bgColor} rounded-xl px-1 py-1 shadow-sm w-[5/4] `}>
-        {links.map((cur, index) => (
+        {navLinks.map((cur, index) => (
           <Link
             href={cur.path}
             key={index}

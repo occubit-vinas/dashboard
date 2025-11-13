@@ -43,40 +43,40 @@ const page = () => {
                     <div className='flex flex-row gap-15 items-center justify-between '>
                         <div className='flex flex-col gap-1 '>
                             <h1 className='field_text'>Color Name</h1>
-                            <div className='flex flex-row gap-1'>
+                            <div className='flex flex-row gap-1.5'>
 
                                 {colors.map((cur, index) => (
-                                    <div className='text-center light-purple rounded-sm border border-gray-200 h-10 w-22 pt-3.5 text-third' key={index}>{cur}</div>
+                                    <div className='text-center light-purple rounded-sm  h-10 w-20 pt-3.5 text-third shadow-[0_0_3px_0_rgba(108,108,128,0.35)]' key={index}>{cur}</div>
                                 ))}
                             </div>
                         </div>
                         <div className='flex flex-col gap-1 '>
                             <h1 className='field_text'>Selected Size</h1>
-                            <div className='flex flex-row gap-1'>
+                            <div className='flex flex-row gap-1.5'>
 
                                 {sizes.map((cur, index) => (
-                                    <div className='text-center light-purple rounded-sm border border-gray-200 h-10 w-18 pt-3.5 text-third' key={index}>{cur}</div>
+                                    <div className='text-center light-purple rounded-sm h-10 w-18 pt-3.5 text-third shadow-[0_0_3px_0_rgba(108,108,128,0.35)]' key={index}>{cur}</div>
                                 ))}
                             </div>
                         </div>
-                        <div className='flex flex-col gap-1 '>
+                        <div className='flex flex-col gap-1.5 '>
                             <h1 className='field_text'>Customize Size</h1>
                             <input
                                 type='text'
                                 placeholder='Add sizes'
-                                className='light-purple rounded-sm border border-gray-200 h-10 w-100 pl-2 text-third'
+                                className='light-purple rounded-sm  h-10 w-100 pl-2 text-third shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                             />
                         </div>
                     </div>
                     <div className='bg-[#6C6C80] w-full h-0.5'></div>
                     <Add_color_varient />
                     <h1 className='text-first'>Varient 1</h1>
-                    <div className='flex flex-col gap-1 '>
+                    <div className='flex flex-col gap-2 '>
                         <h1 className='text-second'>Color Name</h1>
                         <input
                             type='text'
                             placeholder='e.g., Midnight blue, Ocenblue,Sunset red'
-                            className='light-purple rounded-sm border border-gray-200 h-10 w-100 pl-2 text-third'
+                            className='light-purple rounded-sm  h-10 w-100 pl-2 text-third shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                     </div>
                     <div className='flex flex-row gap-8'>
@@ -153,7 +153,7 @@ const page = () => {
                                         onChange={e => setCustomSize(e.target.value)}
                                         onKeyDown={handleCustomSizeKeyDown}
                                         placeholder="Enter size and press Enter"
-                                        className="bg-white rounded-md border border-gray-300 h-10 w-full pl-2 text-third outline-none focus:ring-2 focus:ring-purple-500"
+                                        className="bg-white rounded-md  h-10 w-full pl-2 text-third outline-none focus:ring-2 focus:ring-purple-500 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]"
                                     />
                                 </div>
                             </div>

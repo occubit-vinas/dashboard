@@ -4,21 +4,22 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Search } from 'lucide-react'
 import { usePathname } from "next/navigation";
-import { White_button ,Purple_button} from '@/app/(topdashboard)/dashboard/components/top_buttons'
+import { White_button, Purple_button } from '@/app/(topdashboard)/dashboard/components/top_buttons'
+import Top_nav_bar from '@/app/(topdashboard)/dashboard/components/Top_nav_bar'
 const Topbar = () => {
   const [active, setActive] = useState<number | null>(0)
   const pathname = usePathname() ?? ""; // ensure it's never null
-const dashboardRoutes = [
-  "/dashboard",
-  "/sales",
-  "/products",
-  "/customers",
-  "/inventories",
-  "/insights"
-];
+  const dashboardRoutes = [
+    "/dashboard",
+    "/sales",
+    "/products",
+    "/customers",
+    "/inventories",
+    "/insights"
+  ];
 
-// Check if current route ends with any of the above
-const isDashboard = dashboardRoutes.some(route => pathname.endsWith(route));
+  // Check if current route ends with any of the above
+  const isDashboard = dashboardRoutes.some(route => pathname.endsWith(route));
 
 
 
@@ -75,16 +76,16 @@ const isDashboard = dashboardRoutes.some(route => pathname.endsWith(route));
 
           {/* Right: Buttons */}
           <div className="flex flex-row gap-4 items-center">
-            
-           <White_button label='Refresh' img='/dashboard/rotate-left.png'/>
-            
-           <Purple_button label='Export' img='/dashboard/whiteupload.svg'/>
-            
+
+            <White_button label='Refresh' img='/dashboard/rotate-left.png' />
+
+            <Purple_button label='Export' img='/dashboard/whiteupload.svg' />
+
           </div>
         </div>
 
         {/* --- Centered Navigation Bar --- */}
-        <div className="flex justify-center mt-6 w-full">
+        {/* <div className="flex justify-center mt-6 w-full">
           <div className="flex flex-row gap-4 bg-[#7E30ED] rounded-xl px-1 py-1 shadow-sm">
             {nav_links.map((cur, index) => (
               <Link
@@ -109,7 +110,19 @@ const isDashboard = dashboardRoutes.some(route => pathname.endsWith(route));
               </Link>
             ))}
           </div>
-        </div>
+        </div> */}
+        <Top_nav_bar
+          bgColor="nav_bar_color"
+          navLinks={[
+            { path: '/dashboard', title: 'Overview' },
+            { path: '/dashboard/sales', title: 'Sales' },
+            { path: '/dashboard/customers', title: 'Customers' },
+            { path: '/dashboard/products', title: 'Products' },
+            { path: '/dashboard/inventories', title: 'Inventory' },
+            { path: '/dashboard/insights', title: 'Insights' },
+          ]}
+        />
+
       </div>}
     </div>
   )

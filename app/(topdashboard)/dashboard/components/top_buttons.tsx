@@ -60,7 +60,7 @@ export const Add_cat = ({onClick}) => {
   return (
     <div className="btn-clr border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer" onClick={onClick}>
       {/* <CiSquarePlus className='text-white size-5'/>  */}
-             <Image src='/dashboard/add-square.svg' height={15} width={15}/> 
+             <Image src='/dashboard/add-square.svg' height={15} width={15} alt='image'/> 
 
       <p className="text-white ml-1">Add Category</p>
     </div>
@@ -70,7 +70,7 @@ export const Add_cat = ({onClick}) => {
 export const Add_color_varient = ({onClick}) => {
   return (
     <div className="w-50 btn-clr border border-[#6C6C80] rounded-md flex flex-row justify-center items-center gap-1 px-3 py-2 cursor-pointer" onClick={onClick}>
-       <Image src='/dashboard/add-square.svg' height={15} width={15}/> 
+       <Image src='/dashboard/add-square.svg' height={15} width={15} alt='image'/> 
       <p className="text-white">Add Color Varients</p>
     </div>
   );
@@ -139,7 +139,7 @@ export const Add_Coupon = ({onClick}) => {
 
   return (
     <div className="btn-clr border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer" onClick={onClick}>
-      <Image src='/dashboard/add-square.svg' height={15} width={15}/> 
+      <Image src='/dashboard/add-square.svg' height={15} width={15} alt='image'/> 
       <p className="text-white ml-1">Add Coupon</p>
     </div>
   );

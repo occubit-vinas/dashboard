@@ -59,7 +59,7 @@ const Edit = ({ setopenedit }) => {
     <div className="bg-white p-4 rounded-lg shadow-sm flex flex-col gap-4 w-xl min-h-[630px] mx-auto fixed top-17 left-1/3">
       {/* Header */}
       <div className="flex justify-between items-center">
-        <h2 className="text-title font-bold text-xl">Edit Hero Slide</h2>
+        <h2 className="my-title font-bold text-xl">Edit Hero Slide</h2>
         <button className="hover:opacity-70 transition">
           <Image
             src="/dashboard/close-circle-black.png"
@@ -90,7 +90,7 @@ const Edit = ({ setopenedit }) => {
 
       {/* Content */}
       {activeTab === 'Slide Details' ? (
-        <div className="space-y-5">
+        <div className="space-y-7">
           {/* Title & Button Text */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
@@ -155,7 +155,7 @@ const Edit = ({ setopenedit }) => {
           <div className="flex items-center justify-between">
             <div className="flex-1">
               <label className="block text-first font-medium mb-1">Display Order</label>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-col  gap-3">
                 <input
                   type="number"
                   value={formData.Display_order}

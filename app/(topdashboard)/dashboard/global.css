@@ -598,13 +598,18 @@
 
 .in-field {
   padding: 0.375rem;
-  /*p-1.5→6px(1.5*4px)*/background-color: #f5f3ff;
-  /*bg-purple-50*/border-width: 3px;
-  /*border-2*/border-color: #f3f4f6;
-  /*border-gray-100*/border-style: solid;
+  /*p-1.5→6px(1.5*4px)*/
+  background-color: #F9F8FF;
+  /*bg-purple-50*/
+  border-width: 0px;
+  /*border-2*/
+  border-color: #f3f4f6;
+  /*border-gray-100*/
+  border-style: solid;
   border-radius: 0.400rem;
   /*rounded-sm→2px*/width: 100%;
   /*w-full*/outline: none;
+   box-shadow: 0 0 3px 0 rgba(108, 108, 128, 0.35);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   -webkit-border-radius: 0.400rem;
   -moz-border-radius: 0.400rem;
@@ -729,3 +734,34 @@
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+.custom-box {
+  background: #E4CBFF;
+  border: 1px solid #FFFFFF;
+  
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 100%;
+
+  /* FIXED shadow rendering */
+  box-shadow:
+    /* INNER SHADOWS */
+    inset 2px 2px 4px rgba(178, 124, 255, 0.45),
+    inset -2px -2px 4px rgba(178, 124, 255, 0.8),
+
+    /* DROP SHADOWS (OUTER) — FIXED */
+    2px 2px 3px rgba(0, 0, 0, 0.06),
+    -2px -2px 3px rgba(0, 0, 0, 0.06);
+
+  /* Radius compatibility */
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
+

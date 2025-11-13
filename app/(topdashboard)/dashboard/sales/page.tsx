@@ -8,15 +8,15 @@ import RadialChart from '@/components/dashboard/sales/RadialChart';
 import CustomerGeography from '@/components/dashboard/sales/CustomerGeography';
 const Sales = () => {
     return (
-        <div className='container mx-auto flex flex-col gap-4 p-4 rounded-2xl'>
+        <div className='container mx-auto  flex flex-col gap-4  rounded-2xl '>
             <div className='flex flex-row gap-4'>
                 <div className='flex flex-col gap-4 '>
-                    <div className='flex flex-row gap-4 w-[1000px]'>
+                    <div className='flex flex-row gap-4 w-[1030px]'>
                         {sales_box.map((data, index) => (
                             <Box key={index} data={data} origin='sales'/>
                         ))}
                     </div>
-                    <div className='w-[1000px]'>
+                    <div className='w-[1030px]'>
                         <Sales_linechart/>
                     </div>
                 </div>

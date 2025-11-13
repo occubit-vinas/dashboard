@@ -18,20 +18,20 @@ const Page = () => {
 
   return (
     <div className="container mx-auto my-10">
-      <div className="p-6 bg-white shadow-md rounded-xl flex flex-col gap-8">
+      <div className="p-6 bg-white  rounded-xl flex flex-col gap-8">
         
         {/* SEO Title & Description */}
         <div className="flex flex-row gap-6">
           
           {/* SEO Title */}
           <div className="w-1/2 flex flex-col gap-2">
-            <h1 className="text-first">SEO Title</h1>
+            <h1 className="text-first ml-3">SEO Title</h1>
             <textarea
               rows={4}
               placeholder="Enter SEO title"
               value={title}
               onChange={handleTitleChange}
-              className="light-purple rounded-md border border-gray-200 p-2 resize-none outline-none"
+              className="light-purple rounded-md shadow-[0_0_3px_0_rgba(108,108,128,0.35)] p-2 resize-none outline-none"
             />
             <div className="flex flex-row justify-between text-sm">
               <p className="text-third">Recommended: 50–60 characters</p>
@@ -43,13 +43,13 @@ const Page = () => {
 
           {/* SEO Description */}
           <div className="w-1/2 flex flex-col gap-2">
-            <h1 className="text-first">SEO Description</h1>
+            <h1 className="text-first ml-3">SEO Description</h1>
             <textarea
               rows={4}
               placeholder="Enter SEO meta description"
               value={description}
               onChange={handleDescriptionChange}
-              className="light-purple rounded-md border border-gray-200 p-2 resize-none outline-none"
+              className="light-purple rounded-md shadow-[0_0_3px_0_rgba(108,108,128,0.35)] p-2 resize-none outline-none"
             />
             <div className="flex flex-row justify-between text-sm">
               <p className="text-third">Recommended: 150–160 characters</p>
@@ -61,13 +61,13 @@ const Page = () => {
 
         </div>
         <div className='flex flex-col gap-2'>
-            <p className='text-first'>SEO Keywords</p>
+            <p className='text-first ml-3'>SEO Keywords</p>
             <div className='flex flex-row gap-2 w-full h-10'>
                 <input
-                className='light-purple rounded-sm border h-full border-gray-200  flex items-center pl-3 w-26/27'
+                className='light-purple rounded-sm  h-full shadow-[0_0_3px_0_rgba(108,108,128,0.35)]  flex items-center pl-3 w-26/27'
                 placeholder='Add keywords'
                 />
-            <div className='border border-gray-200 rounded-sm flex items-center justify-center text-2xl text-gray-600 w-1/27 h-full'>+</div>
+            <div className='shadow-[0_0_3px_0_rgba(108,108,128,0.35)] rounded-sm flex items-center justify-center text-2xl text-gray-600 w-1/27 h-full border-2 border-gray-400'>+</div>
             </div>
         </div>
 
@@ -109,9 +109,9 @@ const Page = () => {
         </div>
 
         {/* SEO Tips */}
-        <div className="light-purple rounded-md p-4 border border-gray-200">
+        <div className="light-purple rounded-md p-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]">
           <h1 className="text-first mb-2">SEO Tips</h1>
-          <ol className="list-disc pl-6 text-second space-y-1">
+          <ol className="list-disc pl-6 text-second space-y-2">
             <li>Include your primary keyword in the title and description.</li>
             <li>Keep titles under 60 characters for optimal display.</li>
             <li>Write compelling descriptions that encourage clicks.</li>

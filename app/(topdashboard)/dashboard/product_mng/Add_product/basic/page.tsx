@@ -77,16 +77,14 @@ const Page = () => {
                             placeholder='Enter Product Name'
                             value={formData.name}
                             onChange={e => handleInputChange('name', e.target.value)}
-                            className='light-purple w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent'
+                            className='light-purple w-full px-4 py-2   rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                     </div>
 
                     <div className='w-1/3 relative'>
                         <label className='block text-first mb-2 ml-4'>Parent Category</label>
 
-                        <div className='relative'>
-                            {/* Left vertical line */}
-                            <div className='absolute left-0 top-0 bottom-0 w-px bg-gray-300'></div>
+                        <div className='relative '>
 
                             {/* Select */}
                             <select
@@ -95,7 +93,7 @@ const Page = () => {
                                 // onFocus={() => setIsParentOpen(true)}
                                 // onBlur={() => setIsParentOpen(false)}
                                 onClick={()=>setIsParentOpen(!isParentOpen)}
-                                className='light-purple w-full pl-4 pr-10 h-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent appearance-none bg-white'
+                                className='light-purple w-full pl-4 pr-10 h-10   rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent appearance-none bg-white shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                             >
                                 <option value=''>No Parent (Root Category)</option>
                                 <option value='clothing'>Clothing</option>
@@ -120,7 +118,7 @@ const Page = () => {
                             placeholder='Enter Your Brand'
                             value={formData.brand}
                             onChange={e => handleInputChange('brand', e.target.value)}
-                            className='light-purple w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent'
+                            className='light-purple w-full px-4 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                     </div>
                 </div>
@@ -134,7 +132,7 @@ const Page = () => {
                             placeholder='Enter Product SKU'
                             value={formData.sku}
                             onChange={e => handleInputChange('sku', e.target.value)}
-                            className='light-purple w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent'
+                            className='light-purple w-full px-4 py-2  rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                     </div>
 
@@ -145,7 +143,7 @@ const Page = () => {
                             placeholder='Enter GST Percentage (%)'
                             value={formData.gst}
                             onChange={e => handleInputChange('gst', e.target.value)}
-                            className='light-purple w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent'
+                            className='light-purple w-full px-4 py-2  rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                     </div>
 
@@ -156,7 +154,7 @@ const Page = () => {
                             placeholder='Enter HSN Code'
                             value={formData.hsn}
                             onChange={e => handleInputChange('hsn', e.target.value)}
-                            className='light-purple w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent'
+                            className='light-purple w-full px-4 py-2  rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                     </div>
                 </div>
@@ -170,13 +168,13 @@ const Page = () => {
                             value={formData.description}
                             onChange={e => handleInputChange('description', e.target.value)}
                             rows={8}
-                            className='light-purple w-full px-4 py-2   rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none'
+                            className='light-purple w-full px-4 py-2   rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                     </div>
 
                     <div className='w-1/2'>
                         <label className='block text-first mb-2 ml-4'>Category Image</label>
-                        <div className='light-purple rounded-lg shadow p-6'>
+                        <div className='light-purple rounded-lg shadow p-6 h-[207px]'>
                             <div className=' rounded-lg p-8 text-center hover:border-purple-400 transition-colors'>
                                 <input
                                     type='file'
@@ -186,7 +184,7 @@ const Page = () => {
                                     className='hidden'
                                 />
                                 <label htmlFor='image-upload ' className='cursor-pointer'>
-                                    <Upload className='w-10 h-10 mx-auto mb-2 text-gray-400' />
+                                    <Upload className='w-10 h-10 mx-auto  text-gray-400' />
                                     <Image src='/dashboard/whiteupload.svg' alt='img' height={10} width={10} className='size-5' />
                                     <p className='text-sm text-gray-600'>
                                         {formData.categoryImage
@@ -204,15 +202,15 @@ const Page = () => {
                 <div className='flex flex-row gap-4'>
                     <div className='w-1/2'>
                         <label className='block text-first mb-2 ml-6'>Tags</label>
-                        <div className='light-purple rounded-lg shadow p-6 flex flex-col gap-4'>
+                        <div className='light-purple rounded-lg  p-6 flex flex-col gap-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'>
                             <div className='flex flex-col gap-2'>
-                                <p className='text-second'>Tag Name</p>
+                                <p className='text-second ml-4'>Tag Name</p>
                                 <input
                                     type='text'
                                     placeholder='Enter Tag Name'
                                     value={formData.tagName}
                                     onChange={e => handleInputChange('tagName', e.target.value)}
-                                    className='bg-white w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent'
+                                    className='bg-white w-full px-4 py-2  rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                                 />
                             </div>
 
@@ -223,7 +221,7 @@ const Page = () => {
                                     placeholder='Tag value'
                                     value={formData.tagValue}
                                     onChange={e => handleInputChange('tagValue', e.target.value)}
-                                    className='bg-white w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent'
+                                    className='bg-white w-full px-4 py-2  rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                                 />
                             </div>
                         </div>
@@ -232,15 +230,15 @@ const Page = () => {
                     {/* Specification */}
                     <div className='w-1/2'>
                         <label className='block text-first mb-2 ml-6'>Specification</label>
-                        <div className='light-purple rounded-lg shadow p-6 flex flex-col gap-4'>
+                        <div className='light-purple rounded-lg  p-6 flex flex-col gap-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'>
                             <div className='flex flex-col gap-2'>
-                                <p className='text-second'>Specification Name</p>
+                                <p className='text-second ml-4'>Specification Name</p>
                                 <input
                                     type='text'
                                     placeholder='Specification Name'
                                     value={formData.specName}
                                     onChange={e => handleInputChange('specName', e.target.value)}
-                                    className='bg-white w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent'
+                                    className='bg-white w-full px-4 py-2  rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                                 />
                             </div>
 
@@ -251,7 +249,7 @@ const Page = () => {
                                     placeholder='Specification value'
                                     value={formData.specValue}
                                     onChange={e => handleInputChange('specValue', e.target.value)}
-                                    className='bg-white w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent'
+                                    className='bg-white w-full px-4 py-2  rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                                 />
                             </div>
                         </div>

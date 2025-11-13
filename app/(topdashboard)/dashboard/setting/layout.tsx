@@ -6,7 +6,7 @@ const Layout = ({children}) => {
   return (
     <div className='mt-8'>
         <Top_area
-        title='Store sttings'
+        title='Store settings'
         desc='Manage your store configration and preferences'
         components={[
             <White_button label='Refresh' img='/dashboard/rotate-left.png'/>

@@ -12,27 +12,27 @@ const page = () => {
             }}>₹Pricing Information</h1>
                 <div className='flex flex-row gap-5'>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='text_second2'>Selling Price</p>
+                        <p className='text_second2 ml-3'>Selling Price</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'
-                            className='light-purple rounded-sm items-center pl-2 text-third p-4'
+                            className='light-purple rounded-sm items-center pl-2 text-third p-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                     </div>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='text_second2'>Compare At price</p>
+                        <p className='text_second2 ml-3'>Compare At price</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'
-                            className='light-purple rounded-sm items-center pl-2 text-third p-4'
+                            className='light-purple rounded-sm items-center pl-2 text-third p-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                     </div>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='text_second2'>Cost Price</p>
+                        <p className='text_second2 ml-3'>Cost Price</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'
-                            className='light-purple rounded-sm items-center pl-2 text-third p-4'
+                            className='light-purple rounded-sm items-center pl-2 text-third p-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                     </div>
                 </div>
@@ -43,11 +43,11 @@ const page = () => {
               lineHeight: '100%',
             }}>Shipping Information</h1>
                 <div className='flex flex-col gap-1 w-full'>
-                    <p className='text_second2'>Weight (kg)</p>
+                    <p className='text_second2 ml-3'>Weight (kg)</p>
                     <input
                         type='number'
                         placeholder='₹ 0.00'
-                        className='bg-white border rounded-sm items-center pl-2 text-third p-4 w-[440px]'
+                        className='bg-white  rounded-sm items-center pl-2 text-third p-4 w-[440px] shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                     />
                     <p className='text-third'>product weight in kilogram</p>
                 </div>
@@ -59,27 +59,27 @@ const page = () => {
             }}>Dimensions (cm)</h1>
                 <div className='flex flex-row gap-5'>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='text_second2'>Length</p>
+                        <p className='text_second2 ml-3'>Length</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'
-                            className='light-purple rounded-sm items-center pl-2 text-third p-4'
+                            className='light-purple rounded-sm items-center pl-2 text-third p-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                     </div>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='text_second2'>Width</p>
+                        <p className='text_second2 ml-3'>Width</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'
-                            className='light-purple rounded-sm items-center pl-2 text-third p-4'
+                            className='light-purple rounded-sm items-center pl-2 text-third p-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                     </div>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='text_second2'>Height</p>
+                        <p className='text_second2 ml-3'>Height</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'
-                            className='light-purple rounded-sm items-center pl-2 text-third p-4'
+                            className='light-purple rounded-sm items-center pl-2 text-third p-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                     </div>
                 </div>

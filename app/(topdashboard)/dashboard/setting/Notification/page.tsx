@@ -363,7 +363,7 @@ const Page = () => {
                     <p className="text-first">Encryption</p>
                     <div className="relative">
                         <select
-                            className="in-field text-third appearance-none cursor-pointer pr-10"
+                            className="in-field text-third appearance-none cursor-pointer pr-10 py-1"
                             onChange={(e) => setEncryption(e.target.value)}
                             value={encryption}
                             onClick={() => setDropdownOpen((prev) => !prev)}

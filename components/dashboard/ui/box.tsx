@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 
 const Box = ({ data }) => {
-  const { title, img, price = '', percentage = 0, text = '', number = '',origin } = data
+  const { title, img, price = '', percentage = 0, text = '', number = '', origin } = data
 
   const isPositive = percentage > 0
   const hasPercentage = percentage !== 0
@@ -15,7 +15,7 @@ const Box = ({ data }) => {
       <div className="animated-border-inner p-3 flex flex-row justify-between items-center">
 
         {/* Left Section */}
-        <div className="flex flex-col gap-3 max-w-[85%]">
+        <div className="flex flex-col gap-3 w-[80%]">
           {/* Title */}
           <p
             style={{
@@ -67,15 +67,18 @@ const Box = ({ data }) => {
         </div>
 
         {/* Right Section (Image) */}
-        <div>
-          <Image
-            src={`/dashboard/box/${img}`}
-            alt="image"
-            width={25}
-            height={25}
-           className={`object-contain ${origin === 'sales' ? 'w-6 h-6 mt-0 mb-12' : 'w-[40px] h-[40px] mt-0 mb-12'}`}
+        <div className='w-[20%] h-full '>
+          <div className='custom-box'>
 
-          />
+            <Image
+              src={`/dashboard/box/${img}`}
+              alt="image"
+              width={15}
+              height={15}
+              // className={`object-contain ${origin === 'sales' ? 'w-6 h-6 mt-5 mb-0' : 'w-[40px] h-[40px] mt-0 mb-12'}`}
+              className={`object-contain w-[22px] h-[22px] `}
+            />
+          </div>
         </div>
       </div>
     </div>

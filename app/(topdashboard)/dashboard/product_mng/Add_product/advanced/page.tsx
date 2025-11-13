@@ -45,7 +45,7 @@ const Page = () => {
 
     return (
         <div className="container mx-auto my-10">
-            <div className="p-6 bg-white shadow-md rounded-xl flex flex-col gap-8">
+            <div className="p-6 bg-white  rounded-xl flex flex-col gap-8">
                 {/* ---------------- Product Visibility ---------------- */}
                 <div className="w-full">
                     <p className="text-first font-semibold text-lg mb-4">Product Visibility</p>
@@ -55,7 +55,7 @@ const Page = () => {
 
                         {/* Dropdown Box */}
                         <div
-                            className={`flex items-center justify-between border border-gray-300 rounded-lg px-4  cursor-pointer transition-colors ${isOpen ? 'bg-gray-100' : 'bg-white'
+                            className={`flex items-center justify-between shadow-[0_0_3px_0_rgba(108,108,128,0.35)] rounded-lg px-4  cursor-pointer transition-colors ${isOpen ? 'bg-gray-100' : 'bg-white'
                                 } hover:bg-gray-100`}
                             onClick={() => setIsOpen(!isOpen)}
                         >
@@ -108,7 +108,7 @@ const Page = () => {
                     <div className="bg-[#6C6C80] w-full h-0.5 my-5"></div>
 
                     {/* Active Status + Featured Toggles */}
-                    <div className="light-purple border border-gray-200 rounded-sm p-4 flex flex-col gap-6">
+                    <div className="light-purple shadow-[0_0_3px_0_rgba(108,108,128,0.35)] rounded-sm p-4 flex flex-col gap-6">
                         {/* Active Status */}
                         <div className="flex flex-row items-center justify-between">
                             <div className="flex flex-col gap-1">
@@ -160,7 +160,7 @@ const Page = () => {
                 </div>
 
                 {/* ---------------- Product Summary ---------------- */}
-                <div className="light-purple rounded-sm border border-gray-200 flex flex-col gap-4 p-4">
+                <div className="light-purple rounded-sm shadow-[0_0_3px_0_rgba(108,108,128,0.35)] flex flex-col gap-4 p-4">
                     <p className="text-first font-semibold text-lg">Product Summary</p>
 
                     <div className="flex flex-row w-full">
@@ -225,7 +225,7 @@ const Page = () => {
                 </div>
 
                 {/* ---------------- Technical Information ---------------- */}
-                <div className="light-purple rounded-sm border border-gray-200 flex flex-col gap-4 p-4 w-full">
+                <div className="light-purple rounded-sm shadow-[0_0_3px_0_rgba(108,108,128,0.35)] flex flex-col gap-4 p-4 w-full">
                     <p className="text-first font-semibold text-lg">Technical Information</p>
                     <div className='flex flex-row'>
 

@@ -21,7 +21,7 @@ const page = () => {
             {Array.from({length:4}).map((_,index)=>(
                 <div className='h-90 bg-purple-50 rounded-sm border  p-1.5 flex flex-col gap-3' key={index}>
                     <Image src='/dashboard/heroslide.png' height={30} width={50} alt='image' className='h-[60%] w-full'/>
-                    <p  className='text-first'>Diwali</p>
+                    <p  className='text-first  ml-2'>Diwali</p>
                     <p className='flex flex-row gap-1.5'><CiShare1 /><span className='text-third underline'>https://abc.com/shop/printed</span></p>
                     <div className='mx-auto my-2 flex flex-row gap-3'>
                         <Purple_button label='Edit' img='/dashboard/white-edit.png' onClick={()=>setopenedit(true)}/>

@@ -9,30 +9,30 @@ const Page = () => {
 
     return (
         <div className='container mx-auto my-10'>
-            <div className='p-4 bg-white shadow-md rounded-xl flex flex-col gap-8 my-4'>
+            <div className='p-4 bg-white  rounded-xl flex flex-col gap-8 my-4'>
                 {/* --- Stock Section --- */}
                 <div className='flex flex-row gap-5'>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='field_text'>Stock Quantity</p>
+                        <p className='field_text ml-3'>Stock Quantity</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'
-                            className='light-purple rounded-sm items-center pl-2 text-third p-4'
+                            className='light-purple rounded-sm items-center pl-2 text-third p-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                         <p className='text-third'>Base stock quantity for this product</p>
                     </div>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='field_text'>Low Stock Alert</p>
+                        <p className='field_text ml-3'>Low Stock Alert</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'
-                            className='light-purple rounded-sm items-center pl-2 text-third p-4'
+                            className='light-purple rounded-sm items-center pl-2 text-third p-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                     </div>
                 </div>
 
                 {/* Divider */}
-
+                <div className='bg-[#6C6C80] w-full h-0.5'></div>
                 {/* --- Inventory Toggles --- */}
                 <div className='flex flex-col gap-4'>
                     {/* Track Inventory */}
