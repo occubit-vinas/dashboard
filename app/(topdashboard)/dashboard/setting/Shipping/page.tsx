@@ -15,7 +15,7 @@ const Page = () => {
         
         <div className='flex flex-row justify-between'>
           <p className='my-title'>Shipping Zone</p>
-          <Purple_button label='Add shipping zone' onClick={() => setisopen(true)} />
+          {zones === true && <Purple_button label='Add shipping zone' onClick={() => setisopen(true)} />}
         </div>
 
         {/* Empty State */}

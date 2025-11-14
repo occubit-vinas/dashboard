@@ -39,49 +39,60 @@ const ProductCategory = () => {
       {/* Chart */}
       <div className="w-full h-[320px]">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            data={data}
-            margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
-          >
-            {/* Dashed Grid */}
-            <CartesianGrid strokeDasharray="4 4" stroke="#e5e7eb" />
+  <BarChart
+    data={data}
+    margin={{ top: 0, right: 0, left: 0, bottom: 0 }} // add spacing
+    barCategoryGap="25%"  // increase space between bars
+    barGap={8}            // extra gap between bars
+  >
+    {/* Horizontal Grid Only */}
+    <CartesianGrid
+      strokeDasharray="4 4"
+      stroke="#e5e7eb"
+      vertical={false}   // ❗ disables vertical lines
+    />
 
-            {/* X & Y Axes */}
-            <XAxis
-              dataKey="category"
-              tick={{ fill: "#6b7280", fontSize: 12 }}
-              axisLine={false}
-              tickLine={false}
-            />
-            <YAxis
-              tickFormatter={(val) => `${val}k`}
-              tick={{ fill: "#6b7280", fontSize: 12 }}
-              axisLine={false}
-              tickLine={false}
-            />
+    {/* X Axis */}
+    <XAxis
+      dataKey="category"
+      tick={{ fill: "#6b7280", fontSize: 12 }}
+      axisLine={false}
+      tickLine={false}
+      dy={10}           // ❗ moves labels downward (adds space)
+    />
 
-            {/* Tooltip */}
-            <Tooltip
-              formatter={(value: number) => [`${value}k`, "Revenue"]}
-              cursor={{ fill: "rgba(162,104,245,0.1)" }}
-            />
+    {/* Y Axis */}
+    <YAxis
+      tickFormatter={(v) => `${v}k`}
+      tick={{ fill: "#6b7280", fontSize: 12 }}
+      axisLine={false}
+      tickLine={false}
+      dx={-5}           // pulls labels closer to bars
+    />
 
-            {/* Bars */}
-            <Bar
-              dataKey="revenue"
-              radius={[4, 4, 0, 0]}
-              onMouseEnter={(_, index) => setActiveIndex(index)}
-              onMouseLeave={() => setActiveIndex(null)}
-            >
-              {data.map((_, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={activeIndex === index ? "#A268F5" : "#E3C9FF"}
-                />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
+    {/* Tooltip */}
+    <Tooltip
+      formatter={(value: number) => [`${value}k`, "Revenue"]}
+      cursor={{ fill: "rgba(162,104,245,0.1)" }}
+    />
+
+    {/* Bars */}
+    <Bar
+      dataKey="revenue"
+      radius={[4, 4, 0, 0]}
+      onMouseEnter={(_, index) => setActiveIndex(index)}
+      onMouseLeave={() => setActiveIndex(null)}
+    >
+      {data.map((_, index) => (
+        <Cell
+          key={`cell-${index}`}
+          fill={activeIndex === index ? "#A268F5" : "#E3C9FF"}
+        />
+      ))}
+    </Bar>
+  </BarChart>
+</ResponsiveContainer>
+
       </div>
     </div>
   );

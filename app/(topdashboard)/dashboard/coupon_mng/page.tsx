@@ -217,7 +217,7 @@ const CouponsPage: React.FC = () => {
       />
       {showcoupon && <Add_coupon_box onClick={close_coupon} />}
 
-      <div className="bg-white rounded-xl shadow-sm p-4 flex flex-col gap-2 min-h-[540px]">
+      <div className={`bg-white rounded-xl shadow-sm p-4 flex flex-col gap-2 ${showfilter ? 'h-[590px]':'h-[490px]'}`}>
         <div className="h-[540px] overflow-y-auto rounded-2xl">
           {showfilter && (
             <div className="w-full flex flex-row justify-between items-center mb-3">
@@ -251,13 +251,13 @@ const CouponsPage: React.FC = () => {
           <table className="min-w-full text-left border-collapse">
             <thead className="sticky top-0 bg-[#F9F4FF]">
               <tr>
-                <th className="py-3 px-4 border-gray-300 w-[18%] rounded-l-2xl">Coupon</th>
-                <th className="py-3 px-4 border-gray-300 w-[15%]">Type & Value</th>
-                <th className="py-3 px-4 border-gray-300 w-[30%]">Usage</th>
-                <th className="py-3 px-4 border-gray-300 w-[10%]">Valid Period</th>
-                <th className="py-3 px-4 border-gray-300 w-[15%]">Date Created</th>
-                <th className="py-3 px-4 border-gray-300 w-[5%]">Status</th>
-                <th className="py-3 px-4 border-gray-300 w-[10%] rounded-r-2xl">Action</th>
+                <th className="text-first py-3 px-4 border-gray-300 w-[18%] rounded-l-2xl">Coupon</th>
+                <th className="text-first py-3 px-4 border-gray-300 w-[15%]">Type & Value</th>
+                <th className="text-first py-3 px-4 border-gray-300 w-[30%]">Usage</th>
+                <th className="text-first py-3 px-4 border-gray-300 w-[15%]">Valid Period</th>
+                <th className="text-first py-3 px-4 border-gray-300 w-[10%]">Date Created</th>
+                <th className="text-first py-3 px-4 border-gray-300 w-[5%]">Status</th>
+                <th className="text-first py-3 px-4 border-gray-300 w-[10%] rounded-r-2xl">Action</th>
               </tr>
             </thead>
 
@@ -268,7 +268,7 @@ const CouponsPage: React.FC = () => {
                   return (
                     <tr
                       key={c.id}
-                      className="border-b border-gray-200 text-second hover:bg-[#F9F4FF] transition"
+                      className="border-b border-gray-200 text-second  transition"
                     >
                       {/* Coupon */}
                       <td className="py-3 px-4">
@@ -302,8 +302,8 @@ const CouponsPage: React.FC = () => {
                       {/* Valid Period */}
                       <td className="py-3 px-4">
                         <div className="text-sm text-gray-700 flex flex-col gap-0.5">
-                          <p>{c.validFrom}</p>
-                          <p>{c.validTo || 'No Expiry'}</p>
+                          <p>From: {c.validFrom}</p>
+                          <p>{c.validTo && 'To: '}{c.validTo || 'No Expiry'}</p>
                         </div>
                       </td>
 
@@ -313,13 +313,12 @@ const CouponsPage: React.FC = () => {
                       {/* Status - Fixed Icon Logic */}
                       <td className="py-3 px-4">
                         <span
-                          className={`inline-flex px-2 py-1 rounded-full text-xs font-medium ${
-                            c.status === 'Active'
+                          className={`inline-flex px-2 py-1 rounded-full text-xs font-medium ${c.status === 'Active'
                               ? 'text-green-700'
                               : c.status === 'Inactive'
-                              ? 'text-gray-700'
-                              : 'text-red-700'
-                          }`}
+                                ? 'text-gray-700'
+                                : 'text-red-700'
+                            }`}
                         >
                           <div className="flex items-center gap-1">
                             <Image
@@ -327,8 +326,8 @@ const CouponsPage: React.FC = () => {
                                 c.status === 'Active'
                                   ? '/dashboard/tick-circle.png'
                                   : c.status === 'Inactive'
-                                  ? '/dashboard/close-circle.png'
-                                  : '/dashboard/info-circle.png'
+                                    ? '/dashboard/close-circle.png'
+                                    : '/dashboard/info-circle.png'
                               }
                               alt={c.status}
                               width={16}
@@ -341,7 +340,7 @@ const CouponsPage: React.FC = () => {
 
                       {/* Action */}
                       <td className="py-3 px-4">
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-1">
                           <button className="p-1 rounded hover:bg-gray-100" title="View">
                             <Image src="/dashboard/eye.png" alt="View" width={20} height={20} />
                           </button>

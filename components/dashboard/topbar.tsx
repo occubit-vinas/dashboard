@@ -49,14 +49,13 @@ const Topbar = () => {
 
         {/* Right Section: Search Bar */}
         <div className="relative -translate-x-20 flex flex-row gap-3">
-          <Image src='/dashboard/notification.svg' alt='img' height={35} width={35} />
           <div className='relative'>
 
             <Search className="absolute left-3 top-2.5 text-gray-400 w-5 h-5" />
             <input
               type="text"
-              placeholder="Search products, orders, customers"
-              className="pl-10 pr-4 py-2 border border-gray-700 rounded-xl text-md focus:outline-none focus:ring-2 focus:ring-gray-300 text-gray-700 w-80"
+              placeholder="Search products..."
+              className="pl-10 pr-4 py-2 border border-gray-700 rounded-sm text-md focus:outline-none focus:ring-2 focus:ring-gray-300 text-gray-700 w-80"
             />
           </div>
         </div>

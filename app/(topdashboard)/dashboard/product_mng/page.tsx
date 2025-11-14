@@ -440,7 +440,7 @@ const Page = () => {
                 visibleData.map((item) => (
                   <tr
                     key={item.Product} // Unique key
-                    className="border-b border-gray-200 text-second hover:bg-[#F9F4FF] transition"
+                    className="border-b border-gray-200 text-second "
                   >
                     <td className="py-3 px-4 w-1/4">{item.Product}</td>
                     <td className="py-3 px-4">{item.categorie}</td>

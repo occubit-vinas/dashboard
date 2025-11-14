@@ -64,31 +64,31 @@ export default function Test_box({ setaddbox }: { setaddbox: (v: boolean) => voi
 
           {/* Customer Name */}
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1 ml-1.5">
               Customer Name
             </label>
             <input
               type="text"
               placeholder="Enter name"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="in-field bg-purple-50 w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
           {/* Testimonial Message */}
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1 ml-1.5">
               Testimonial Message
             </label>
             <textarea
               placeholder="Enter message"
               rows={3}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm resize-none focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="in-field w-full px-3 py-2 border border-gray-300 rounded-md text-sm resize-none focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
           {/* Image Upload */}
           <div className="mb-5">
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1 ml-1.5">
               Customer Photo <span className="text-gray-500">(optional)</span>
             </label>
 
@@ -98,10 +98,10 @@ export default function Test_box({ setaddbox }: { setaddbox: (v: boolean) => voi
               onDragLeave={onDragLeave}
               onClick={openFilePicker}
               className={`
-                h-32 bg-purple-50 rounded-lg flex flex-col items-center justify-center 
+               in-field h-32 bg-purple-50 rounded-lg flex flex-col items-center justify-center 
                 cursor-pointer transition-colors
                 ${dragActive ? 'bg-purple-100' : 'hover:bg-purple-75'}
-                border-2 border-dashed border-gray-300
+                
               `}
             >
               <input
@@ -138,13 +138,12 @@ export default function Test_box({ setaddbox }: { setaddbox: (v: boolean) => voi
                 </div>
               ) : (
                 <>
-                  <Upload className="w-7 h-7 mb-1" />
-                  <p className="text-sm  font-medium">
+                  {/* <Upload className="w-7 h-7 mb-1" /> */}
+                  <Image src='/dashboard/upload.png' alt='img' height={7} width={7} className='size-7 mb-2'/>
+                  <p className="text-third">
                     Drop image or click to browse
                   </p>
-                  <p className="text-xs  mt-1">
-                    PNG, JPG up to 5MB
-                  </p>
+                 
                 </>
               )}
             </div>

@@ -93,7 +93,7 @@ const Page = () => {
                                 // onFocus={() => setIsParentOpen(true)}
                                 // onBlur={() => setIsParentOpen(false)}
                                 onClick={()=>setIsParentOpen(!isParentOpen)}
-                                className='light-purple w-full pl-4 pr-10 h-10   rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent appearance-none bg-white shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
+                                className='appearance-none  rounded-sm light-purple w-full pl-4 pr-10 h-10  focus:ring-2 focus:ring-purple-500 focus:border-transparent  bg-white shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                             >
                                 <option value=''>No Parent (Root Category)</option>
                                 <option value='clothing'>Clothing</option>
@@ -175,7 +175,7 @@ const Page = () => {
                     <div className='w-1/2'>
                         <label className='block text-first mb-2 ml-4'>Category Image</label>
                         <div className='light-purple rounded-lg shadow p-6 h-[207px]'>
-                            <div className=' rounded-lg p-8 text-center hover:border-purple-400 transition-colors'>
+                            <div className=' rounded-lg p-8 text-center hover:border-purple-400 transition-colors flex flex-row justify-center items-center'>
                                 <input
                                     type='file'
                                     id='image-upload'
@@ -183,9 +183,9 @@ const Page = () => {
                                     onChange={handleImageUpload}
                                     className='hidden'
                                 />
-                                <label htmlFor='image-upload ' className='cursor-pointer'>
-                                    <Upload className='w-10 h-10 mx-auto  text-gray-400' />
-                                    <Image src='/dashboard/whiteupload.svg' alt='img' height={10} width={10} className='size-5' />
+                                <label htmlFor='image-upload ' className='cursor-pointer flex flex-col justify-center items-center'>
+                                    {/* <Upload className='w-10 h-10 mx-auto  text-gray-400' /> */}
+                                    <Image src='/dashboard/upload.png' alt='img' height={7} width={7} className='size-7 mb-2'/>
                                     <p className='text-sm text-gray-600'>
                                         {formData.categoryImage
                                             ? formData.categoryImage.name
@@ -202,7 +202,7 @@ const Page = () => {
                 <div className='flex flex-row gap-4'>
                     <div className='w-1/2'>
                         <label className='block text-first mb-2 ml-6'>Tags</label>
-                        <div className='light-purple rounded-lg  p-6 flex flex-col gap-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'>
+                        <div className='light-purple rounded-lg  p-4 flex flex-col gap-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'>
                             <div className='flex flex-col gap-2'>
                                 <p className='text-second ml-4'>Tag Name</p>
                                 <input
@@ -216,6 +216,7 @@ const Page = () => {
 
                             <div className='flex flex-col gap-2'>
                                 <p className='text-second ml-4'>Tag Value</p>
+                                <div className='flex flex-row gap-2'>
                                 <input
                                     type='text'
                                     placeholder='Tag value'
@@ -223,6 +224,9 @@ const Page = () => {
                                     onChange={e => handleInputChange('tagValue', e.target.value)}
                                     className='bg-white w-full px-4 py-2  rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                                 />
+                                <div className='shadow-[0_0_3px_0_rgba(108,108,128,0.35)] rounded-sm flex items-center justify-center text-2xl text-gray-600 w-2/27 h-[39px] border-2 border-gray-400'>+</div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -230,7 +234,7 @@ const Page = () => {
                     {/* Specification */}
                     <div className='w-1/2'>
                         <label className='block text-first mb-2 ml-6'>Specification</label>
-                        <div className='light-purple rounded-lg  p-6 flex flex-col gap-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'>
+                        <div className='light-purple rounded-lg  p-4 flex flex-col gap-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'>
                             <div className='flex flex-col gap-2'>
                                 <p className='text-second ml-4'>Specification Name</p>
                                 <input
@@ -244,6 +248,7 @@ const Page = () => {
 
                             <div className='flex flex-col gap-2'>
                                 <p className='text-second ml-4'>Specification Value</p>
+                                <div className='flex flex-row gap-2'>
                                 <input
                                     type='text'
                                     placeholder='Specification value'
@@ -251,6 +256,9 @@ const Page = () => {
                                     onChange={e => handleInputChange('specValue', e.target.value)}
                                     className='bg-white w-full px-4 py-2  rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                                 />
+                                <div className='shadow-[0_0_3px_0_rgba(108,108,128,0.35)] rounded-sm flex items-center justify-center text-2xl text-gray-600 w-2/27 h-[39px] border-2 border-gray-400'>+</div>
+
+                                </div>
                             </div>
                         </div>
                     </div>

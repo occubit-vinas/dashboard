@@ -50,10 +50,10 @@ const Category = () => {
             <thead className=" sticky top-0 light-purpul bg-[#F4E9FF] rounded-full">
               <tr>
                 <th className="text-first text-left py-3 px-4 w-1/3  border-gray-300">Category</th>
-                <th className="text-first text-left py-3 px-4  border-gray-300">Sub Category</th>
+                <th className="text-first text-left py-3 pl-20  border-gray-300">Sub Category</th>
                 <th className="text-first text-left py-3 px-4  border-gray-300">Status</th>
                 <th className="text-first text-left py-3 px-4  border-gray-300">Date Created</th>
-                <th className="text-first text-left py-3 pl-7  border-gray-300">Action</th>
+                <th className="text-first text-left py-3 pl-22  border-gray-300">Action</th>
               </tr>
             </thead>
 
@@ -61,8 +61,8 @@ const Category = () => {
               {visibleData.map((item, i) => (
                 <tr key={i} className="border-b border-gray-200 text-second">
                   <td className="py-3 px-4 w-1/3">{item.category}</td>
-                  <td className="py-3 px-4 flex flex-row gap-1 text-center"><FiBox />{item.sub}</td>
-                  <td className="py-3 px-4 text-center">
+                  <td className="py-3 pl-24 flex flex-row gap-1 text-center"><FiBox className='size-5 ' /><p className='pt-1'>{item.sub}</p></td>
+                  <td className="py-3  text-center">
                     <span
                       className={`flex flex-row gap-1 px-2 py-1 rounded text-sm ${item.status === "Active" && " text-green-700"} ${item.status === "Inactive" && " text-red-700"} ${item.status === "Cancle" && " text-[#E8BD11]"}`}
                     >
@@ -73,7 +73,7 @@ const Category = () => {
                     </span>
                   </td>
                   <td className="py-3 px-4">{item.date}</td>
-                  <td className="py-3 px-4 flex flex-row gap-2">
+                  <td className="py-3 pl-14 flex flex-row gap-2">
                     <Image src='/dashboard/eye.png' height={20} width={20} alt='img' />
                     <Image src='/dashboard/edit.png' height={20} width={20} alt='img' />
                     <Image src='/dashboard/box-add.jpg' height={20} width={20} alt='img' />

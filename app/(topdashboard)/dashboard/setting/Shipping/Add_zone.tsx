@@ -4,166 +4,185 @@ import Image from 'next/image';
 import { White_button, Purple_button } from '../../components/top_buttons';
 import { ChevronDown } from 'lucide-react';
 
-const Add_zone = ({ onClose, onAdd }) => {
+interface Zone {
+    zone: String,
+        country: String,
+        method: String,
+        cost: Number,
+        days: Number
+}
 
-  const countries = ['India', 'Italy', 'Japan', 'Canada'];
+interface AddZoneProps {
+    onClose:()=>void;
+    onAdd:(zone:Zone)=>void;
+}
 
-  const shippingMethods = [
-    "Standard Shipping",
-    "Express Shipping",
-    "Overnight Shipping",
-    "Free Shipping",
-    "Local Pickup"
-  ];
+const Add_zone:React.FC<AddZoneProps> = ({ onClose, onAdd }) => {
 
-  const [isCountryOpen, setIsCountryOpen] = useState(false);
-  const [isMethodOpen, setIsMethodOpen] = useState(false);
+    const countries = ['India', 'Italy', 'Japan', 'Canada'];
 
-  const [formData, setFormData] = useState({
-    zone: "",
-    country: "",
-    method: "",
-    cost: "",
-    days: ""
-  });
+    const shippingMethods = [
+        "Standard Shipping",
+        "Express Shipping",
+        "Overnight Shipping",
+        "Free Shipping",
+        "Local Pickup"
+    ];
 
-  const handleChange = (key, value) => {
-    setFormData({ ...formData, [key]: value });
-  };
+    const [isCountryOpen, setIsCountryOpen] = useState(false);
+    const [isMethodOpen, setIsMethodOpen] = useState(false);
 
-  return (
-    <div className='bg-white rounded-xl p-4 flex flex-col gap-4 shadow w-[500px] inset-0'>
+    const [formData, setFormData] = useState({
+        zone: "",
+        country: "",
+        method: "",
+        cost: "",
+        days: ""
+    });
 
-      <div className='flex flex-row justify-between'>
-        <p className='my-title'>Add Shipping Zone</p>
-        <Image
-          src='/dashboard/close-circle-black.png'
-          className='size-5 cursor-pointer'
-          height={20}
-          width={20}
-          onClick={onClose}
-          alt='close'
-        />
-      </div>
+    const handleChange = (key, value) => {
+        setFormData({ ...formData, [key]: value });
+    };
 
-      {/* Zone Name */}
-      <div className='flex flex-row gap-4 justify-between'>
-        <div className='flex flex-col gap-2 w-full'>
-          <p>Zone Name</p>
-          <input
-            type="text"
-            placeholder='e.g., North America, Europe, Asia'
-            className='in-field text-third border p-2 rounded-lg'
-            value={formData.zone}
-            onChange={(e) => handleChange("zone", e.target.value)}
-          />
+    return (
+        <div className='bg-white rounded-xl p-7 flex flex-col gap-7 shadow w-[600px] fixed top-1/4 right-2/5 z-20 bg-black/50'>
+
+            <div className='flex flex-row justify-between'>
+                <p className='box-title'>Add Shipping Zone</p>
+                <Image
+                    src='/dashboard/close-circle-black.png'
+                    className='size-6 cursor-pointer'
+                    height={20}
+                    width={20}
+                    onClick={onClose}
+                    alt='close'
+                />
+            </div>
+
+            {/* Zone Name */}
+            <div className='flex flex-row gap-4 justify-between'>
+                <div className='flex flex-col gap-2 w-full'>
+                    <p className='ml-2'>Zone Name</p>
+                    <input
+                        type="text"
+                        placeholder='e.g., North America, Europe, Asia'
+                        className='in-field border p-2 rounded-lg'
+                        value={formData.zone}
+                        onChange={(e) => handleChange("zone", e.target.value)}
+                    />
+                </div>
+
+                {/* Country Dropdown */}
+                <div className='flex flex-col gap-2 w-full'>
+                    <p className='ml-2'>Select Country</p>
+
+                    <div className='relative'>
+                        <button
+                            onClick={() => setIsCountryOpen(!isCountryOpen)}
+                            className='w-full  flex justify-between items-center rounded-sm light-purple shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
+                        >
+                            <p className='text-md text-gray-500 p-1.5'>{formData.country || "Select Country"}</p>
+                            <div className='border-l-2 border-gray-400 pl-1.5 h-[37px]'>
+
+                                <ChevronDown className={`${isCountryOpen ? "rotate-180" : ""} mr-2 translate-y-1.5`} />
+                            </div>
+                        </button>
+
+                        {isCountryOpen &&
+                            <div className='absolute w-full bg-white shadow rounded-lg mt-1 max-h-40 overflow-y-auto z-20'>
+                                {countries.map((c) => (
+                                    <p
+                                        key={c}
+                                        className='p-2 hover:bg-gray-100 cursor-pointer text-first'
+                                        onClick={() => {
+                                            handleChange("country", c);
+                                            setIsCountryOpen(false);
+                                        }}
+                                    >
+                                        {c}
+                                    </p>
+                                ))}
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <p className='my-title'>Shipping Rate</p>
+
+            {/* Shipping Method + Cost */}
+            <div className='flex flex-row justify-between gap-4'>
+                {/* Shipping Method */}
+                <div className='flex flex-col gap-2 w-full'>
+                    <p className='ml-2'>Shipping Method</p>
+
+                    <div className='relative'>
+                        <button
+                            onClick={() => setIsMethodOpen(!isMethodOpen)}
+                            className='w-full  flex justify-between items-center rounded-sm light-purple shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
+                        >
+                            <p className='text-md text-gray-500 p-1.5'>{formData.method || "Select Method"}</p>
+                            <div className='border-l-2 border-gray-400 pl-1.5 h-[37px]'>
+
+                                <ChevronDown className={`${isMethodOpen ? "rotate-180" : ""} mr-2 translate-y-1.5`} />
+                            </div>
+                        </button>
+
+                        {isMethodOpen &&
+                            <div className='absolute w-full bg-white shadow rounded-lg mt-1 max-h-40 overflow-y-auto z-20'>
+                                {shippingMethods.map((m) => (
+                                    <p
+                                        key={m}
+                                        className='p-2 hover:bg-gray-100 cursor-pointer text-first'
+                                        onClick={() => {
+                                            handleChange("method", m);
+                                            setIsMethodOpen(false);
+                                        }}
+                                    >
+                                        {m}
+                                    </p>
+                                ))}
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                {/* Cost Field */}
+                <div className='flex flex-col gap-2 w-full'>
+                    <p className='ml-2'>Cost ($)</p>
+                    <input
+                        type="number"
+                        placeholder='Enter Cost'
+                        className='in-field border p-2 rounded-lg'
+                        value={formData.cost}
+                        onChange={(e) => handleChange("cost", e.target.value)}
+                    />
+                </div>
+            </div>
+
+            {/* Estimated Days */}
+            <div className='flex flex-col gap-2'>
+                <p className='ml-2'>Estimated Days</p>
+                <input
+                    type="number"
+                    placeholder='Enter days'
+                    className='in-field border p-2 rounded-lg'
+                    value={formData.days}
+                    onChange={(e) => handleChange("days", e.target.value)}
+                />
+            </div>
+
+            {/* Buttons */}
+            <div className='flex flex-row justify-center gap-4 mt-4'>
+                <White_button label='Close' onClick={onClose} />
+                <Purple_button
+                    label='Add Zone'
+                    onClick={() => onAdd(formData)}
+                />
+            </div>
+
         </div>
-
-        {/* Country Dropdown */}
-        <div className='flex flex-col gap-2 w-full'>
-          <p>Select Country</p>
-
-          <div className='relative'>
-            <button
-              onClick={() => setIsCountryOpen(!isCountryOpen)}
-              className='w-full border p-2 flex justify-between items-center rounded-lg bg-white shadow'
-            >
-              {formData.country || "Select Country"}
-              <ChevronDown className={`${isCountryOpen ? "rotate-180" : ""}`} />
-            </button>
-
-            {isCountryOpen &&
-              <div className='absolute w-full bg-white shadow rounded-lg mt-1 max-h-40 overflow-y-auto z-20'>
-                {countries.map((c) => (
-                  <p
-                    key={c}
-                    className='p-2 hover:bg-gray-100 cursor-pointer text-first'
-                    onClick={() => {
-                      handleChange("country", c);
-                      setIsCountryOpen(false);
-                    }}
-                  >
-                    {c}
-                  </p>
-                ))}
-              </div>
-            }
-          </div>
-        </div>
-      </div>
-
-      <p className='text-title'>Shipping Rate</p>
-
-      {/* Shipping Method + Cost */}
-      <div className='flex flex-row justify-between gap-4'>
-        {/* Shipping Method */}
-        <div className='flex flex-col gap-2 w-full'>
-          <p>Shipping Method</p>
-
-          <div className='relative'>
-            <button
-              onClick={() => setIsMethodOpen(!isMethodOpen)}
-              className='w-full border p-2 flex justify-between items-center rounded-lg bg-white shadow'
-            >
-              {formData.method || "Select Method"}
-              <ChevronDown className={`${isMethodOpen ? "rotate-180" : ""}`} />
-            </button>
-
-            {isMethodOpen &&
-              <div className='absolute w-full bg-white shadow rounded-lg mt-1 max-h-40 overflow-y-auto z-20'>
-                {shippingMethods.map((m) => (
-                  <p
-                    key={m}
-                    className='p-2 hover:bg-gray-100 cursor-pointer text-first'
-                    onClick={() => {
-                      handleChange("method", m);
-                      setIsMethodOpen(false);
-                    }}
-                  >
-                    {m}
-                  </p>
-                ))}
-              </div>
-            }
-          </div>
-        </div>
-
-        {/* Cost Field */}
-        <div className='flex flex-col gap-2 w-full'>
-          <p>Cost ($)</p>
-          <input
-            type="number"
-            placeholder='Enter Cost'
-            className='in-field border p-2 rounded-lg'
-            value={formData.cost}
-            onChange={(e) => handleChange("cost", e.target.value)}
-          />
-        </div>
-      </div>
-
-      {/* Estimated Days */}
-      <div className='flex flex-col gap-2'>
-        <p>Estimated Days</p>
-        <input
-          type="number"
-          placeholder='Enter days'
-          className='in-field border p-2 rounded-lg'
-          value={formData.days}
-          onChange={(e) => handleChange("days", e.target.value)}
-        />
-      </div>
-
-      {/* Buttons */}
-      <div className='flex flex-row justify-center gap-4 mt-4'>
-        <White_button label='Close' onClick={onClose} />
-        <Purple_button
-          label='Add Zone'
-          onClick={() => onAdd(formData)}
-        />
-      </div>
-
-    </div>
-  );
+    );
 };
 
 export default Add_zone;

@@ -230,40 +230,31 @@ const Page = () => {
                 {/* Country */}
                 <div className="flex flex-col gap-1.5 w-1/4">
                     <p className="text-first font-medium ml-2">Country</p>
-                    <select
+                    <input
                         name="country"
+                        placeholder='india'
                         value={formData.country}
                         onChange={handleCountryChange}
                         className="in-field text-third cursor-pointer"
                     >
-                        <option value="">Select country</option>
-                        {Object.keys(countryStateData).map((c) => (
-                            <option key={c} value={c}>
-                                {c}
-                            </option>
-                        ))}
-                    </select>
+                        
+                    </input>
                 </div>
 
                 {/* State */}
                 <div className="flex flex-col gap-1.5 w-1/4">
                     <p className="text-first font-medium ml-2">State</p>
-                    <select
+                    <input
+                        type='text'
                         name="state"
                         value={formData.state}
                         onChange={handleChange}
+                        placeholder='Gujarat'
                         disabled={!availableStates.length}
                         className="in-field text-third cursor-pointer"
                     >
-                        <option value="">
-                            {availableStates.length ? 'Select state' : 'Select country first'}
-                        </option>
-                        {availableStates.map((s) => (
-                            <option key={s} value={s}>
-                                {s}
-                            </option>
-                        ))}
-                    </select>
+                      
+                    </input>
                 </div>
 
                 {/* Postal Code */}

@@ -14,28 +14,32 @@ export default function Sidebar() {
     { href: '/dashboard/product_mng', icon: '/dashboard/sidebar/product.svg', label: 'Calendar' },
     { href: '/dashboard/order_mng', icon: '/dashboard/sidebar/order.svg', label: 'Tasks' },
     { href: '/dashboard/customer_mng', icon: '/dashboard/sidebar/user.svg', label: 'Messages' },
-    { href: '/dashboard/reports', icon: '/dashboard/sidebar/chart.svg', label: 'Reports' },
+    { href: '/dashboard/reports/overview', icon: '/dashboard/sidebar/chart.svg', label: 'Reports' },
     { href: '/dashboard/coupon_mng', icon: '/dashboard/sidebar/discount.svg', label: 'Profile' },
     { href: '/dashboard/notifications', icon: '/dashboard/sidebar/star.svg', label: 'Notifications' },
     { href: '/dashboard/home_mng/heroslide', icon: '/dashboard/sidebar/store.svg', label: 'Notifications' },
-  ]
-
-  const bottomIcons = [
     { href: '/dashboard/setting/Store', icon: '/dashboard/sidebar/setting.svg', label: 'Settings' },
     { href: '/logout', icon: '/dashboard/sidebar/notification.svg', label: 'Logout' },
   ]
-useEffect(() => {
-  const item = topIcons
-    .filter(cur => pathname.startsWith(cur.href))
-    .sort((a, b) => b.href.length - a.href.length)[0];
 
-  if (item) setActiveItem(item.href);
-  if(pathname.includes('home_mng')) setActiveItem('/dashboard/home_mng/heroslide');
-}, [pathname]);
+  // const bottomIcons = [
+  //   { href: '/dashboard/setting/Store', icon: '/dashboard/sidebar/setting.svg', label: 'Settings' },
+  //   { href: '/logout', icon: '/dashboard/sidebar/notification.svg', label: 'Logout' },
+  // ]
+  useEffect(() => {
+    const item = topIcons
+      .filter(cur => pathname.startsWith(cur.href))
+      .sort((a, b) => b.href.length - a.href.length)[0];
+
+    if (item) setActiveItem(item.href);
+    if (pathname.includes('home_mng')) setActiveItem('/dashboard/home_mng/heroslide');
+    if (pathname.includes('setting')) setActiveItem('/dashboard/setting/Store');
+
+  }, [pathname]);
 
 
   const accent = '#7E30ED'
-  console.log('index is',activeItem);
+  console.log('index is', activeItem);
   return (
     <aside
       className="fixed top-0 left-0 h-screen w-20 flex flex-col justify-between items-center py-6 shadow-lg"
@@ -51,7 +55,7 @@ useEffect(() => {
 
         {/* Menu */}
         <nav className="flex flex-col items-center mt-4">
-          {topIcons.map((item, index) => (
+          {topIcons.slice(0, 9).map((item, index) => (
             <Link
               key={index}
               href={item.href}
@@ -90,7 +94,7 @@ useEffect(() => {
 
       {/* ===== BOTTOM SECTION ===== */}
       <div className="flex flex-col justify-center items-center gap-2 mb-2">
-        {bottomIcons.map((item, index) => (
+        {topIcons.slice(9).map((item, index) => (
           <Link
             key={index}
             href={item.href}
@@ -138,16 +142,16 @@ useEffect(() => {
         >
           <span
             className={`
-      pointer-events-none inline-block h-5 w-5 rounded-full bg-purple-600  shadow-md
+      pointer-events-none inline-block h-5 w-5 rounded-full bg-[#7E30ED]  shadow-md
       transform transition-transform duration-200 ease-in-out
       flex items-center justify-center
-      ${isToggled ? 'translate-x-5' : 'translate-x-0.5'}
+      ${isToggled ? 'translate-x-5' : 'translate-x-0.5 '}
     `}
           >
             <img
               src="/dashboard/sidebar/buttonball.svg"
               alt=""
-              className="h-3 w-3"
+              className="h-3 w-3 flex translate-y-1 translate-x-1"
             />
           </span>
         </button>

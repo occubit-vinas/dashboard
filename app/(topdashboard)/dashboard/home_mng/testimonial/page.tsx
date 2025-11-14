@@ -28,11 +28,11 @@ const Page = () => {
       ]}
     >
       {addbox && <Test_box setaddbox={setaddbox}/>}
-      <div className="container mx-auto mt-8  flex flex-col gap-2 w-full">
-            <p className='text-title'>Customer testimonials</p>
+      <div className="container mx-auto mt-8  flex flex-col gap-4 w-full">
+            <p className='my-title'>Customer testimonials</p>
             <div className='w-full bg-white rounded-sm shadow-md p-4 min-h-[200px] flex flex-col items-center justify-center'>
                 {Testimonials == 0 && 
-                    <div className='flex flex-col items-center justify-center w-full'>
+                    <div className='flex flex-col items-center justify-center w-full gap-3'>
                         <div className='flex flex-row justify-center'>
                             
                         <Image src='/dashboard/folder.png' alt='imag' height={20} width={20} className='size-8 flex flex-row justify-center'/>
