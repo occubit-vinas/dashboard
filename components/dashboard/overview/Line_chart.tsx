@@ -25,7 +25,7 @@ const Line_chart = ({ data }) => {
         {/* Legend */}
         <div className="flex gap-8">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-[#3DDC97]"></span>
             <p className="text-xs text-gray-600">Total Revenue</p>
           </div>
           <div className="flex items-center gap-2">
@@ -85,7 +85,7 @@ const Line_chart = ({ data }) => {
               <Line
                 type="monotone"
                 dataKey="revenue"
-                stroke="#22c55e"
+                stroke="#3DDC97"
                 strokeWidth={3}
                 dot={false}
               />

@@ -8,18 +8,24 @@ const Products = ({ data }) => {
             <p className="text-main mb-2">Top Products</p>
 
             {/* Product List */}
-            <div className="overflow-y-auto max-h-[279px]">
+            <div className="overflow-y-auto max-h-[279px] scroll-container">
                 {data.map((cur, index) => (
                     <div
                         key={index}
                         className="flex justify-between items-center py-1.5 border-b-1 border-gray-400 hover:bg-gray-50 transition px-2"
                     >
                         {/* Product Details */}
-                        <div className="flex flex-col">
-                            <p className="text-gray-800 font-medium">{cur.name}</p>
-                            <p className="text-gray-500 text-sm">
-                                Size: {cur.size}, Color: {cur.color}
-                            </p>
+                        <div className='flex flex-row gap-2.5'>
+                            <div className='flex items-center justify-center flex-row'>
+                                <Image src={cur.img} height={10} width={10} alt='img' className='size-6 bg-purple-400'/>
+                            </div>
+                            <div className="flex flex-col">
+                                <p className="text-gray-800 font-medium">{cur.name}</p>
+                                <p className="text-gray-500 text-sm">
+                                    Size: {cur.size}, Color: {cur.color}
+                                </p>
+                            </div>
+
                         </div>
 
                         {/* Star Rating */}

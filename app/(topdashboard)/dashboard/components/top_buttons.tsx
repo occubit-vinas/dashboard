@@ -93,7 +93,7 @@ export const Preview_btn = ({onClick,label}) => {
 };
 export const White_button = ({onClick,label,img=''}) => {
   return (
-    <div className=" border border-[#6C6C80] rounded-md flex flex-row gap-1.5 justify-center items-center px-3 py-2 cursor-pointer" onClick={onClick}>
+    <div className=" border border-[#6C6C80] rounded-sm flex flex-row gap-1.5 justify-center items-center px-3 py-2 cursor-pointer" onClick={onClick}>
       {img && <Image src={img} alt='img' height={10} width={10} className='size-4'/>}
       <p className="text-second ">{label}</p>
     </div>
@@ -103,7 +103,7 @@ export const Purple_button = ({onClick,label,img=''}) => {
   return (
     <div className="  rounded-md flex flex-row gap-1.5 justify-center items-center px-3 py-1 cursor-pointer btn-clr  text-white " onClick={onClick}>
       {img && <Image src={img} alt='img' height={10} width={10} className='size-4 text-white'/>}
-      <p className="">{label}</p>
+      <p className="purple-bt-text">{label}</p>
     </div>
   );
 };

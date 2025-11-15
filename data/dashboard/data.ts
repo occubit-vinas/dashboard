@@ -85,32 +85,32 @@ export const customer_box = [
     },
 ]
 
-export const inventory_box=[
+export const inventory_box = [
     {
-        title:'Total Products',
-        number:69,
-        text:'All products',
-        img:'box.svg'
+        title: 'Total Products',
+        number: 69,
+        text: 'All products',
+        img: 'box.svg'
     },
     {
-        title:'Total Stock',
-        number:87099,
-        text:'Units in inventory',
-        img:'chart.svg'
+        title: 'Total Stock',
+        number: 87099,
+        text: 'Units in inventory',
+        img: 'chart.svg'
     },
     {
-        title:'inventory value',
-        price:30162600.00,
-        text:'total inventory worth',
-        img:'doller.svg'
+        title: 'inventory value',
+        price: 30162600.00,
+        text: 'total inventory worth',
+        img: 'doller.svg'
     },
     {
-        title:'Average Price',
-        price:462.20,
-        text:'Per product average',
-        img:'rings.svg'
+        title: 'Average Price',
+        price: 462.20,
+        text: 'Per product average',
+        img: 'rings.svg'
     },
-] 
+]
 
 export const overview_piechart = {
     title: "Order Status Distribution",
@@ -162,49 +162,64 @@ export const overview_products = [
         name: 'T-shirt',
         size: 'XL',
         color: 'Blue',
-        star: 4
+        star: 4,
+        img: '/dashboard/grid.svg',
     },
     {
         name: 'T-shirt',
         size: 'XXL',
         color: 'Blue',
-        star: 3
+        star: 3,
+        img: '/dashboard/grid.svg',
+
     },
     {
         name: 'T-shirt',
         size: 'XL',
         color: 'Blue',
-        star: 5
+        star: 5,
+        img: '/dashboard/grid.svg',
+
     },
     {
         name: 'T-shirt',
         size: 'XL',
         color: 'Blue',
-        star: 2
+        star: 2,
+        img: '/dashboard/grid.svg',
+
     },
     {
         name: 'T-shirt',
         size: 'XL',
         color: 'Blue',
-        star: 4
+        star: 4,
+        img: '/dashboard/grid.svg',
+
     },
     {
         name: 'T-shirt',
         size: 'XL',
         color: 'Blue',
-        star: 4
+        star: 4,
+        img: '/dashboard/grid.svg',
+
     },
     {
         name: 'T-shirt',
         size: 'XL',
         color: 'Blue',
-        star: 4
+        star: 4,
+        img: '/dashboard/grid.svg',
+
     },
     {
         name: 'T-shirt',
         size: 'XL',
         color: 'Blue',
-        star: 4
+        star: 4,
+        img: '/dashboard/grid.svg',
+
     },
 ]
 
@@ -310,81 +325,81 @@ export const customer_radial_chart = [
     },
 ]
 
-export const Products_topselling=[
+export const Products_topselling = [
     {
-        id:'#12345',
-        name:"A-Line kurti",
-        cat:'kurti',
-        sold:'1200',
-        star:4
+        id: '#12345',
+        name: "A-Line kurti",
+        cat: 'kurti',
+        sold: '1200',
+        star: 4
     },
     {
-        id:'#12345',
-        name:"A-Line kurti",
-        cat:'kurti',
-        sold:'1200',
-        star:4
+        id: '#12345',
+        name: "A-Line kurti",
+        cat: 'kurti',
+        sold: '1200',
+        star: 4
     },
     {
-        id:'#12345',
-        name:"A-Line kurti",
-        cat:'kurti',
-        sold:'1200',
-        star:4
+        id: '#12345',
+        name: "A-Line kurti",
+        cat: 'kurti',
+        sold: '1200',
+        star: 4
     },
     {
-        id:'#12345',
-        name:"A-Line kurti",
-        cat:'kurti',
-        sold:'1200',
-        star:4
+        id: '#12345',
+        name: "A-Line kurti",
+        cat: 'kurti',
+        sold: '1200',
+        star: 4
     },
     {
-        id:'#12345',
-        name:" kurti",
-        cat:'kurti',
-        sold:'800',
-        star:5
+        id: '#12345',
+        name: " kurti",
+        cat: 'kurti',
+        sold: '800',
+        star: 5
     },
     {
-        id:'#12345',
-        name:"dress",
-        cat:'dress',
-        sold:'700',
-        star:5
+        id: '#12345',
+        name: "dress",
+        cat: 'dress',
+        sold: '700',
+        star: 5
     },
     {
-        id:'#12345',
-        name:"A-Line kurti",
-        cat:'kurti',
-        sold:'1200',
-        star:4
+        id: '#12345',
+        name: "A-Line kurti",
+        cat: 'kurti',
+        sold: '1200',
+        star: 4
     },
 ]
 
-export const performance_summary=[
+export const performance_summary = [
     {
-        img:'doller.png',
-        num:'₹12,540.00',
-        label:'Revenue',
-        percentage:15.2,
+        img: 'doller.png',
+        num: '₹12,540.00',
+        label: 'Revenue',
+        percentage: 15.2,
     },
     {
-        img:'cart.png',
-        num:'245',
-        label:'orders',
-        percentage:16.7,
+        img: 'cart.png',
+        num: '245',
+        label: 'orders',
+        percentage: 16.7,
     },
     {
-        img:'person.png',
-        num:'156',
-        label:'Customer',
-        percentage:20.0,
+        img: 'person.png',
+        num: '156',
+        label: 'Customer',
+        percentage: 20.0,
     },
     {
-        img:'trend.png',
-        num:'2.8%',
-        label:'Conversion',
-        percentage:-21.7,
+        img: 'trend.png',
+        num: '2.8%',
+        label: 'Conversion',
+        percentage: -21.7,
     },
 ]

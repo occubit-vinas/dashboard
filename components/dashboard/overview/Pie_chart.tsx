@@ -110,7 +110,7 @@ export const Round_Pie_chart = ({ data }) => {
         <h2 className="text-main font-semibold text-lg mb-2 text-center">{title}</h2>
 
         {/* Price + Percentage Row */}
-        <div className="flex items-center justify-between w-full mb-4">
+        <div className="flex items-center justify-between w-[285px] mb-4  mx-8">
           <p className="text-2xl  text-gray-600">₹{price}</p>
 
           {origin !== 'sales' && (
@@ -160,7 +160,7 @@ export const Round_Pie_chart = ({ data }) => {
           {stats.map((item, index) => (
             <div
               key={index}
-              className="flex justify-between items-center py-2 border-b border-gray-100"
+              className="flex justify-between items-center py-2 "
             >
               <div className="flex items-center gap-2">
                 <div

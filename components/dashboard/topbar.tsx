@@ -41,14 +41,15 @@ const Topbar = () => {
           <Image
             src="/dashboard/topbar/code.png"
             alt="Logo"
-            width={40}
-            height={40}
+            width={30}
+            height={30}
             className="object-contain"
           />
         </div>
 
         {/* Right Section: Search Bar */}
         <div className="relative -translate-x-20 flex flex-row gap-3">
+          <div></div>
           <div className='relative'>
 
             <Search className="absolute left-3 top-2.5 text-gray-400 w-5 h-5" />
@@ -74,7 +75,7 @@ const Topbar = () => {
           </div>
 
           {/* Right: Buttons */}
-          <div className="flex flex-row gap-4 items-center">
+          <div className="flex flex-row gap-2 items-center">
 
             <White_button label='Refresh' img='/dashboard/rotate-left.png' />
 

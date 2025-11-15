@@ -789,3 +789,42 @@ letter-spacing: 0%;
 
 
 
+.purple-bt-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-style: normal;     /* “Medium” = weight 500, not style */
+  font-size: 14px;
+  line-height: 26px;
+  letter-spacing: -0.02em; /* -2% = -0.02em */
+  text-align: center;
+}
+
+
+.scroll-container {
+      height: 300px;
+      overflow-y: auto;
+      /* padding: 1rem; */
+      background: white;
+      /* border: 1px solid #eee; */
+    }
+
+    /* WebKit Browsers (Chrome, Edge, Safari) */
+    .scroll-container::-webkit-scrollbar {
+      width: 5px; /* Scrollbar width */
+    }
+
+    .scroll-container::-webkit-scrollbar-track {
+      background: white;           /* Track = white */
+      border-radius: 10px;         /* Fully rounded track (5px width → 10px radius for pill shape) */
+    }
+
+    .scroll-container::-webkit-scrollbar-thumb {
+      background: #6C6C80;         /* Thumb = #6C6C80 */
+      border-radius: 10px;         /* Fully rounded thumb */
+    }
+
+    .scroll-container::-webkit-scrollbar-thumb:hover {
+      background: #5a5a70;         /* Optional: slightly darker on hover */
+    }
+
+   

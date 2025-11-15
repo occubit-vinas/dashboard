@@ -2,21 +2,21 @@ import React from 'react'
 
 const Recentorder = ({ data }) => {
   return (
-    <div className="w-1/2 bg-white rounded-2xl p-4 flex flex-col shadow-sm">
+    <div className="w-1/2 bg-white rounded-2xl p-4 flex flex-col shadow-sm h-[370px]">
       {/* Header */}
       <p className="text-main mb-2">Recent Orders</p>
 
       {/* Table Header */}
-      <div className="grid grid-cols-6  bg-purple-100 text-second2 py-2 px-2 rounded-xl">
+      <div className="grid grid-cols-6  bg-purple-100 inter text-sm py-2 px-2 rounded-xl">
         <p className="col-span-2">Email</p>
-        <p>Products</p>
-        <p>Amount</p>
-        <p>Date</p>
-        <p>Payment</p>
+        <p className='-translate-x-6'>Total Products</p>
+        <p className='-translate-x-3'>Total Amount</p>
+        <p className='translate-x-4'>Date</p>
+        <p className='translate-x-4'>Payment</p>
       </div>
 
       {/* Table Body */}
-      <div className="overflow-y-auto max-h-[250px] mt-2">
+      <div className="overflow-y-auto max-h-[240px] mt-2 scroll-container">
         {data.map((cur, index) => (
           <div
             key={index}

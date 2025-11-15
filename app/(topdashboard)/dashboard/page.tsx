@@ -10,10 +10,10 @@ import Inventory from '@/components/dashboard/overview/Inventory'
 const Dashboard = () => {
   return (
     <>
-      <div className='container mx-auto bg-[#F9F8FF] mt-0'>
+      <div className='container mx-auto bg-[#F9F8FF]'>
         <div className='flex flex-row gap-3  w-full'>
           <div className='flex flex-col gap-3'>
-            <div className='flex flex-row gap-6 max-w-[1000px]'>
+            <div className='flex flex-row gap-3 max-w-[1000px]'>
               {overview_box.map((data, index) => (
                 <Box key={index} data={data} />
               ))}
