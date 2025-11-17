@@ -7,30 +7,28 @@ import RadialChart from '@/components/dashboard/sales/RadialChart'
 import CustomerGeography from '@/components/dashboard/sales/CustomerGeography'
 const Customers = () => {
     return (
-        <div className='container mx-auto m-4 w-full flex flex-col gap-4 '>
-            <div className='flex flex-row gap-4 w-full '>
-                <div className='flex flex-col gap-4 w-[74%]'>
-                    <div className='flex flex-row gap-4'>
+        <div className='container mx-auto w-full flex flex-col gap-[15px]'>
+            <div className='flex flex-row gap-[15px] '>
+                <div className='flex flex-col gap-[15px]'>
+                    <div className='flex flex-row gap-[15px]'>
                         {customer_box.map((data, index) => (
                             <Box key={index} data={data} />
                         ))}
                     </div>
-                    <div>
+                    <div className='flex flex-row gap-[15px]'>
                         <CustomerGrowthChart />
+                        <RadialChart data={customer_radial_chart} origin='customer'/>
                     </div>
                 </div>
-                <div className='w-[26%]'>
+                <div className=''>
                     <TopCustomer data={customers_spending} />
                 </div>
             </div>
-            <div className='w-full flex flex-row gap-4'>
-                <div className='w-2/5'>
-                    <RadialChart data={customer_radial_chart} />
-                </div>
-                <div className='w-3/5'>
+            
+                <div className=''>
                     <CustomerGeography />
                 </div>
-            </div>
+            
         </div>
     )
 }

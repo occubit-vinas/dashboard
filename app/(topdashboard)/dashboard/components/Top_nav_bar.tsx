@@ -30,17 +30,17 @@ const Top_nav_bar: React.FC<TopNavBarProps> = ({
   }, [pathname, navLinks])
 
   return (
-    <div className="flex justify-center mt-6 w-full">
-      <div className={`flex flex-row gap-4 ${bgColor} rounded-xl px-1 py-1 shadow-sm w-[5/4] `}>
+    <div className="flex justify-center ml-[615px] mr-[506px] mt-[30px] h-[46px] w-[799px] ">
+      <div className={`flex flex-row gap-4 bg-white rounded-sm px-[4px] py-[4px] shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)]`}>
         {navLinks.map((cur, index) => (
           <Link
             href={cur.path}
             key={index}
             onClick={() => setActive(index)}
-            className={`px-11 py-2 rounded-lg transition-all duration-200 ${
+            className={`px-11 py-2 rounded-md transition-all duration-200 ${
               active === index
-                ? 'bg-white shadow text-black'
-                : 'text-white'
+                ? `${bgColor} shadow text-white`
+                : 'text-black'
             }`}
            style={{
               fontFamily: 'Inter, sans-serif',

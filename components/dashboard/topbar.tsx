@@ -21,8 +21,6 @@ const Topbar = () => {
   // Check if current route ends with any of the above
   const isDashboard = dashboardRoutes.some(route => pathname.endsWith(route));
 
-
-
   const nav_links = [
     { path: '/dashboard', title: 'Overview' },
     { path: '/dashboard/sales', title: 'Sales' },
@@ -31,41 +29,83 @@ const Topbar = () => {
     { path: '/dashboard/inventories', title: 'Inventory' },
     { path: '/dashboard/insights', title: 'Insights' },
   ]
-
+  const accent = '#7E30ED'
+  const [search, setSearch] = useState('');
   return (
     <div className="px-7 pt-4 min-w-8xl">
       {/* --- Fixed Top Navigation Bar --- */}
-      <div className="w-full fixed top-0 left-20 right-0 h-16 bg-white shadow-md flex items-center justify-between px-6 z-50">
-        {/* Left Section: Logo */}
-        <div className="flex items-center gap-4">
+      <header className="fixed inset-x-0 top-0 left-[110px] right-0 h-[50px] bg-white shadow-md flex items-center justify-between px-[25px] z-50">
+        {/* ---------- Left: Logo ---------- */}
+        <div className="flex items-center">
           <Image
             src="/dashboard/topbar/code.png"
-            alt="Logo"
+            alt="Dashboard logo"
             width={30}
             height={30}
             className="object-contain"
           />
         </div>
 
-        {/* Right Section: Search Bar */}
-        <div className="relative -translate-x-20 flex flex-row gap-3">
-          <div></div>
-          <div className='relative'>
+        {/* ---------- Right: Search + Icons ---------- */}
+        <div className="flex items-center gap-[10px]">
 
-            <Search className="absolute left-3 top-2.5 text-gray-400 w-5 h-5" />
+          {/* ---- Search Input ---- */}
+          <div className="relative">
             <input
               type="text"
               placeholder="Search products..."
-              className="pl-10 pr-4 py-2 border border-gray-700 rounded-sm text-md focus:outline-none focus:ring-2 focus:ring-gray-300 text-gray-700 w-80"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="h-[30px] w-56 pl-9 pr-3 rounded-md border border-gray-300
+                       text-sm text-gray-700 placeholder-gray-400
+                       focus:outline-none focus:ring-2 focus:ring-gray-400
+                       transition-shadow"
             />
+            {/* Magnifying glass (you can replace with an SVG) */}
+            <svg
+              className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </div>
+
+          {/* ---- Notification Icon ---- */}
+          <button className="relative  rounded-full  text-gray-600">
+            <Image
+              src="/dashboard/notification2.svg"
+              alt="Notifications"
+              width={10}
+              height={10}
+              className="size-[24px]"
+            />
+            {/* optional badge */}
+            {/* <span className="absolute top-0 right-0 block w-2 h-2 bg-red-500 rounded-full"></span> */}
+          </button>
+
+          {/* ---- User Avatar ---- */}
+          <div className="flex items-center justify-center w-9 h-9 rounded-full bg-[#7E30ED]">
+            <span
+              style={{ fontWeight: 700, fontSize: '1.125rem' }}
+              className="leading-none text-white"
+            >
+              A
+            </span>
           </div>
         </div>
-      </div>
+      </header>
 
 
       {/* --- Page Header Section --- */}
-      {isDashboard && <div className="mt-16 ml-20">
-        <div className="flex flex-row justify-between items-center">
+      {isDashboard && <div className="mt-[60px] ">
+        <div className="flex flex-row justify-between items-center ml-[115px] mr-[50px]">
           {/* Left: Title and subtitle */}
           <div className='flex flex-col gap-1.5'>
             <h1 className="text-title">Store Analysis</h1>

@@ -102,8 +102,9 @@ export const White_button = ({onClick,label,img=''}) => {
 export const Purple_button = ({onClick,label,img=''}) => {
   return (
     <div className="  rounded-md flex flex-row gap-1.5 justify-center items-center px-3 py-1 cursor-pointer btn-clr  text-white " onClick={onClick}>
-      {img && <Image src={img} alt='img' height={10} width={10} className='size-4 text-white'/>}
-      <p className="purple-bt-text">{label}</p>
+      {img && <Image src={img} alt='img' height={10} width={10} className='size-4'/>}
+      <p className="font-inter font-medium text-sm leading-[26px] tracking-tight
+          text-white">{label}</p>
     </div>
   );
 };

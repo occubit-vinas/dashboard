@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Products = ({ data }) => {
     return (
-        <div className="w-1/2 bg-white rounded-2xl p-4 flex flex-col shadow-sm h-92 ">
+        <div className=" bg-white rounded-2xl p-4 flex flex-col  h-[302px] min-w-[872px] shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)]">
             {/* Header */}
             <p className="text-main mb-2">Top Products</p>
 
@@ -29,7 +29,7 @@ const Products = ({ data }) => {
                         </div>
 
                         {/* Star Rating */}
-                        <div className="flex gap-1">
+                        <div className="flex gap-[8px]">
                             {Array.from({ length: 5 }, (_, i) => (
                                 <Image
                                     key={i}

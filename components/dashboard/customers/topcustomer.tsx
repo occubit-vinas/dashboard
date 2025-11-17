@@ -10,30 +10,34 @@ interface Customer {
 
 const TopCustomer = ({ data }: { data: Customer[] }) => {
   return (
-    <div className="w-full p-4 bg-white rounded-2xl flex flex-col gap-3 shadow-sm h-[577px]">
+    <div className="w-[388px] h-[458px] px-[20px] pt-[20px] bg-white rounded-2xl flex flex-col shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)]">
       {/* Header */}
       <div>
         <h1 className="text-main">Top Customers</h1>
-        <p className="text-sm text-gray-600 border-b border-gray-200 pb-1">
-          Highest spending customers
+        <p className="text-sm text-gray-600  pb-[20px]">
+          key performance indicators breakdown
         </p>
       </div>
 
       {/* Customer List */}
-      <div className="w-full h-full overflow-y-auto max-h-[500px] flex flex-col gap-2">
+      <div className=" overflow-y-auto  flex flex-col gap-[8px] scroll-container">
         {data.map((cur, index) => (
           <div
             key={index}
-            className="w-full bg-purple-50 hover:bg-purple-100 transition-colors duration-200 flex items-center justify-between p-3 rounded-lg"
+            className=" bg-[#F4E9FF] h-[53px] p-[8px] hover:bg-purple-100 transition-colors duration-200 flex items-center justify-between rounded-full"
           >
             {/* Left: Info */}
-            <div className="flex flex-col">
-              <p className="text-second2">{cur.id}</p>
-              <p className="text-gray-600 text-xs">{cur.email}</p>
+            <div className='flex flex-row gap-[8px] justify-center items-center'>
+              <Image src='/dashboard/edit.png' height={15} width={15} className='size-[30px]' alt='img'/>
+                <div className="flex flex-col">
+                   <p className="text-second2">{cur.id}</p>
+                  <p className="text-gray-600 text-xs">{cur.email}</p>
+              </div>
             </div>
+            
 
             {/* Right: Rating */}
-            <div className="flex gap-1">
+            <div className="flex flex-row gap-[5px]">
               {Array.from({ length: 5 }, (_, i) => (
                 <Image
                   key={i}

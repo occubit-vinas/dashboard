@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { TIMEFRAME } from "@/data/dashboard/constants";
 import {
   LineChart,
   Line,
@@ -53,7 +54,7 @@ const Sales_linechart = () => {
   const formatYAxis = (value: number) => `${value}k`;
 
   return (
-    <div className="w-full bg-white rounded-lg shadow p-6 h-[415px]">
+    <div className="w-[671px] bg-white rounded-lg shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)] p-[20px] h-[302px]">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div>
@@ -80,7 +81,7 @@ const Sales_linechart = () => {
       </div>
 
       {/* Chart */}
-      <div className="h-72">
+      <div className="h-[195.48px] w-[658px] -translate-x-7">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data}>
             <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" /> {/* light gray horizontal lines */}

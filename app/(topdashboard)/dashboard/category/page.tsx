@@ -9,6 +9,22 @@ import { MdDelete } from "react-icons/md";
 import { FiBox } from "react-icons/fi";
 import { useRouter } from "next/navigation";
 import Pagination from '../components/Pagination';
+import {
+  Active,
+  Cancel,
+  Inactive,
+  Electronics,
+  Home,
+  Fashion,
+  Books,
+  Beauty,
+  Phones,
+  Furniture,
+  Shoes,
+  Novels,
+  Makeup
+} from "../../../../data/dashboard/constants";
+
 const Category = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
@@ -18,12 +34,13 @@ const Category = () => {
   const addcatclick = () => {
     router.push('/dashboard/category/add_cat');
   }
+
   const data = [
-    { category: "Electronics", sub: "Phones", status: "Active", date: "2025-11-01" },
-    { category: "Home", sub: "Furniture", status: "Inactive", date: "2025-10-29" },
-    { category: "Fashion", sub: "Shoes", status: "Active", date: "2025-10-22" },
-    { category: "Books", sub: "Novels", status: "Active", date: "2025-09-15" },
-    { category: "Beauty", sub: "Makeup", status: "Cancle", date: "2025-09-10" },
+    { category: Electronics, sub: Phones, status: Active, date: "2025-11-01" },
+    { category: Home, sub: Furniture, status: Inactive, date: "2025-10-29" },
+    { category: Fashion, sub: Shoes, status: Active, date: "2025-10-22" },
+    { category: Books, sub: Novels, status: Active, date: "2025-09-15" },
+    { category: Beauty, sub: Makeup, status: Cancel, date: "2025-09-10" }
   ];
 
   // Pagination Logic
@@ -68,7 +85,7 @@ const Category = () => {
                     >
                       {item.status === 'Active' ? <Image src='/dashboard/tick-circle.png' height={10} width={20} alt='image' /> : ''}
                       {item.status === 'Inactive' ? <Image src='/dashboard/close-circle.png' height={10} width={20} alt='image' /> : ''}
-                      {item.status === 'Cancle' ? <Image src='/dashboard/info-circle.png' height={10} width={20} alt='image' /> : ''}
+                      {item.status === 'Cancel' ? <Image src='/dashboard/info-circle.png' height={10} width={20} alt='image' /> : ''}
                       {item.status}
                     </span>
                   </td>

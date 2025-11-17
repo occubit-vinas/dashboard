@@ -42,7 +42,7 @@ const CustomerGrowthChart = () => {
   const data = timeframe === "month" ? monthlyData : yearlyData;
 
   return (
-    <div className="w-full bg-white rounded-lg shadow p-6">
+    <div className="w-[671px] h-[302px] p-[20px] bg-white rounded-lg shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)]">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div>
@@ -73,33 +73,50 @@ const CustomerGrowthChart = () => {
       </div>
 
       {/* Chart */}
-      <div className="w-full h-[320px]">
-        <ResponsiveContainer width="100%" height="100%">
-          <LineChart
-            data={data}
-            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-          >
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-            <XAxis dataKey="name" tick={{ fontSize: 12, fill: "#6b7280" }} />
-            <YAxis
-              tickFormatter={(val) => `${val}k`}
-              tick={{ fontSize: 12, fill: "#6b7280" }}
-              domain={["auto", "auto"]}
-            />
-            <Tooltip
-              formatter={(value: number) => [`${value}k`, "New Customers"]}
-              cursor={{ stroke: "#a7f3d0", strokeWidth: 1 }}
-            />
-            <Line
-              type="monotone"
-              dataKey="customers"
-              stroke="#22c55e" // green line
-              strokeWidth={2.5}
-              dot={{ r: 4, fill: "#22c55e" }}
-              activeDot={{ r: 6 }}
-            />
-          </LineChart>
-        </ResponsiveContainer>
+      <div className="w-[690px] h-[210px] -translate-x-10">
+       <ResponsiveContainer width="100%" height="100%">
+  <LineChart
+    data={data}
+    margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+  >
+    {/* Horizontal grid lines only */}
+    <CartesianGrid 
+      strokeDasharray="3 3" 
+      stroke="#e5e7eb"
+      vertical={false} 
+    />
+
+    <XAxis
+      dataKey="name"
+      tick={{ fontSize: 12, fill: "#6b7280" }}
+      axisLine={false}
+      tickLine={false}
+    />
+
+    <YAxis
+      tickFormatter={(val) => `${val}k`}
+      tick={{ fontSize: 12, fill: "#6b7280" }}
+      domain={["auto", "auto"]}
+      axisLine={false}
+      tickLine={false}
+    />
+
+    <Tooltip
+      formatter={(value) => [`${value}k`, "New Customers"]}
+      cursor={{ stroke: "#a7f3d0", strokeWidth: 1 }}
+    />
+
+    <Line
+      type="monotone"
+      dataKey="customers"
+      stroke="#22c55e"
+      strokeWidth={2.5}
+      dot={{ r: 4, fill: "#22c55e" }}
+      activeDot={{ r: 6 }}
+    />
+  </LineChart>
+</ResponsiveContainer>
+
       </div>
     </div>
   );

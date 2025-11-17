@@ -2,13 +2,13 @@ import React from 'react'
 
 const Recentorder = ({ data }) => {
   return (
-    <div className="w-1/2 bg-white rounded-2xl p-4 flex flex-col shadow-sm h-[370px]">
+    <div className="min-w-[872px] bg-white rounded-2xl p-4 flex flex-col h-[302px] shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)]">
       {/* Header */}
       <p className="text-main mb-2">Recent Orders</p>
 
       {/* Table Header */}
       <div className="grid grid-cols-6  bg-purple-100 inter text-sm py-2 px-2 rounded-xl">
-        <p className="col-span-2">Email</p>
+        <p className="col-span-2 translate-x-2">Email</p>
         <p className='-translate-x-6'>Total Products</p>
         <p className='-translate-x-3'>Total Amount</p>
         <p className='translate-x-4'>Date</p>
@@ -27,11 +27,10 @@ const Recentorder = ({ data }) => {
             <p className="text-gray-700">{cur.amount}</p>
             <p className="text-gray-700">{cur.date}</p>
             <p
-              className={`font-medium px-3 py-1 rounded-full text-center ${
-                cur.payment.toLowerCase() === 'pending'
+              className={`font-medium px-1.5 py-1 rounded-full text-center ${cur.payment.toLowerCase() === 'pending'
                   ? 'text-[#E8BD11] border-[1px] border-[#E8BD11]'
                   : 'text-[#4A3AFF] border-[1px] border-[#4A3AFF]'
-              }`}
+                }`}
             >
               {cur.payment}
             </p>

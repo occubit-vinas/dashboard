@@ -42,19 +42,19 @@ export default function Sidebar() {
   console.log('index is', activeItem);
   return (
     <aside
-      className="fixed top-0 left-0 h-screen w-20 flex flex-col justify-between items-center py-6 shadow-lg"
+      className="fixed top-0 left-0 h-[1080px] w-[110px] flex flex-col justify-between items-center pl-[17px] pr-[18px] pt-[21px] pb-[35px] shadow-lg "
       style={{ backgroundColor: accent }}
     >
 
       {/* ===== TOP SECTION ===== */}
-      <div className="flex flex-col items-center gap-2">
+      <div className="flex flex-col items-center ">
         {/* Logo */}
-        <div className="bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md">
-          <span style={{ color: accent, fontWeight: 700, fontSize: 20 }}>A</span>
+        <div className="bg-white rounded-full w-[75px] h-[75px] flex items-center justify-center shadow-md">
+          <span style={{ color: accent, fontWeight: 700, fontSize: 50 }}>A</span>
         </div>
 
         {/* Menu */}
-        <nav className="flex flex-col items-center mt-4">
+        <nav className="flex flex-col items-center mt-4 gap-[25px] mt-[53px]">
           {topIcons.slice(0, 9).map((item, index) => (
             <Link
               key={index}
@@ -77,7 +77,7 @@ export default function Sidebar() {
 
                 /> */}
                 <div
-                  className={`w-[25px] h-[25px] ${activeItem === item.href ? 'text-[#280865]' : 'text-white'
+                  className={`w-[40px] h-[40px] ${activeItem === item.href ? 'text-[#280865]' : 'text-white'
                     }`}
                   style={{
                     backgroundColor: 'currentColor',
@@ -93,7 +93,7 @@ export default function Sidebar() {
       </div>
 
       {/* ===== BOTTOM SECTION ===== */}
-      <div className="flex flex-col justify-center items-center gap-2 mb-2">
+      <div className="flex flex-col justify-center items-center gap-[25px] mt-[168px]">
         {topIcons.slice(9).map((item, index) => (
           <Link
             key={index}
@@ -115,7 +115,7 @@ export default function Sidebar() {
                   }`}
               /> */}
               <div
-                className={`w-[25px] h-[25px] ${activeItem === item.href ? 'text-[#280865]' : 'text-white'
+                className={`w-[40px] h-[40px] ${activeItem === item.href ? 'text-[#280865]' : 'text-white'
                   }`}
                 style={{
                   backgroundColor: 'currentColor',
@@ -134,7 +134,7 @@ export default function Sidebar() {
           role="switch"
           aria-checked={isToggled}
           className={`
-    relative inline-flex h-6 w-11 items-center rounded-full 
+    relative inline-flex h-[42px] w-[75px] items-center rounded-full 
     transition-colors duration-200 focus:outline-none 
     focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2
     ${isToggled ? 'bg-gray-600' : 'bg-white'}
@@ -142,16 +142,16 @@ export default function Sidebar() {
         >
           <span
             className={`
-      pointer-events-none inline-block h-5 w-5 rounded-full bg-[#7E30ED]  shadow-md
+      pointer-events-none inline-block h-[32px] w-[32px] rounded-full bg-[#7E30ED]  shadow-md
       transform transition-transform duration-200 ease-in-out
       flex items-center justify-center
-      ${isToggled ? 'translate-x-5' : 'translate-x-0.5 '}
+      ${isToggled ? 'translate-x-9' : 'translate-x-1 '}
     `}
           >
             <img
               src="/dashboard/sidebar/buttonball.svg"
               alt=""
-              className="h-3 w-3 flex translate-y-1 translate-x-1"
+              className="h-[20px] w-[20px] flex translate-y-1.5 translate-x-1"
             />
           </span>
         </button>

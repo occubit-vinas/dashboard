@@ -11,32 +11,33 @@ const Dashboard = () => {
   return (
     <>
       <div className='container mx-auto bg-[#F9F8FF]'>
-        <div className='flex flex-row gap-3  w-full'>
-          <div className='flex flex-col gap-3'>
-            <div className='flex flex-row gap-3 max-w-[1000px]'>
-              {overview_box.map((data, index) => (
-                <Box key={index} data={data} />
-              ))}
-            </div>
-            <div className='max-w-[1000px]'>
+        <div className='flex flex-col gap-[15px]'>
+          <div className='flex flex-row gap-[15px]'>
+            <div className='flex flex-col gap-[15px]'>
 
-              <Line_chart data={overview_linechart} />
+              <div className='flex flex-row gap-[15px]'>
+                {overview_box.map((data, index) => (
+                  <Box key={index} data={data} />
+                ))}
+              </div>
+              <div className='flex flex-row gap-[15px]'>
+                <Line_chart data={overview_linechart} />
+                <Round_Pie_chart data={overview_piechart} />
+              </div>
+            </div>
+            <div className=''>
+              <Inventory />
+
             </div>
           </div>
-          <div className='min-w-[385px] '>
 
-            <Round_Pie_chart data={overview_piechart} />
+          <div className='flex flex-row items-center justify-between gap-[16px] w-full'>
+            <Recentorder data={overview_orders} />
+            <Products data={overview_products} />
+
           </div>
+        </div>
 
-        </div>
-        <div className='flex flex-row gap-5 items-center justify-between w-full mt-5'>
-          <Recentorder data={overview_orders} />
-          <Products data={overview_products} />
-
-        </div>
-        <div>
-          <Inventory />
-        </div>
       </div>
     </>
   )

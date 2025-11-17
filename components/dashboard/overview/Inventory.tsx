@@ -2,45 +2,57 @@ import React from 'react'
 import Image from 'next/image'
 const Inventory = () => {
     return (
-        <div className='w-full mt-5 bg-white rounded-2xl p-4 flex flex-col gap-2'>
+        <div className='w-[388px] h-[458px] bg-white rounded-2xl  flex flex-col px-[20px] py-[10px] shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)]'>
             <div className='flex flex-row gap-2.5'>
                 <Image src='/dashboard/alert.svg' height={10} width={10} alt='image' className='size-6 mt-1.5' />
                 <p className='text-main'>Inventory Status</p>
             </div>
-            <div className='w-full flex flex-row gap-3'>
-                <div className="flex w-full gap-4">
+            <div className='w-full flex flex-row gap-3 mt-[20px]'>
+                <div className="flex w-full gap-[15px] flex-col">
                     {/* Out of Stock */}
-                    <div className="w-1/3 p-[2px] rounded-2xl" style={{ background: 'linear-gradient(to bottom right, #FA1515, #FCA5A5)' }}>
-                        <div className="flex flex-row gap-3 bg-white rounded-2xl py-4 pl-6 h-full items-center ">
-                            <Image src="/dashboard/wrong.png" height={30} width={40} alt="out of stock" className='size-10'/>
-                            <div className="rotating-gradient-border">
-                                <p className="font-semibold text-[#FA1515]">Out of Stock</p>
-                                <p className="text-sm font-semibold text-gray-500">12</p>
+                    <div className="w-[348px] h-[115px] flex justify-center items-center rounded-2xl bg-white" style={{ background: 'linear-gradient(to bottom right, #FA1515, #FCA5A5)' }}>
+                        <div className='w-[345px] h-[111px] flex justify-center items-center bg-white rounded-2xl'>
+
+                            <div className="flex flex-row gap-3 bg-white rounded-2xl h-[53px] w-[276px] items-center ">
+                                <Image src="/dashboard/wrong.png" height={30} width={40} alt="out of stock" className='size-[50px]' />
+                                <div className="rotating-gradient-border h-[53px] flex flex-col justify-between ">
+                                    <p className="font-semibold text-[#FA1515] text-xl">Out of Stock</p>
+                                    <p className="text-md font-semibold text-gray-500">12</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Low Stock */}
-                    <div className="w-1/3 p-[2px] bg-gradient-to-br from-[#F59E0B] to-yellow-100 rounded-2xl">
-                        <div className="flex flex-row gap-3 bg-white rounded-2xl py-4 pl-6 h-full items-center ">
-                            <Image src="/dashboard/alert2.png" height={40} width={50} alt="low stock" className='size-10'/>
-                            <div className="">
-                                <p className="font-semibold text-[#F59E0B]">Low Stock</p>
-                                <p className="text-sm font-semibold text-gray-500 ">12</p>
+                   <div className="w-[348px] h-[115px] flex justify-center items-center rounded-2xl bg-white" style={{ background: 'linear-gradient(to bottom right, #F59E0B, #EAEAEA)' }}>
+                        <div className='w-[345px] h-[111px] flex justify-center items-center bg-white rounded-2xl'>
+
+                            <div className="flex flex-row gap-3 bg-white rounded-2xl h-[53px] w-[276px] items-center ">
+                                <Image src="/dashboard/alert2.png" height={30} width={40} alt="out of stock" className='size-[50px]' />
+                                <div className="rotating-gradient-border h-[53px] flex flex-col justify-between ">
+                                    <p className="font-semibold text-[#F59E0B] text-xl">Low Stock</p>
+                                    <p className="text-md font-semibold text-gray-500">12</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
+
                     {/* In Stock */}
-                    <div className="w-1/3 p-[2px] bg-gradient-to-br from-[#3DDC97] to-green-100 rounded-2xl">
-                        <div className="flex flex-row gap-3 bg-white rounded-2xl py-4 pl-6 h-full items-center ">
-                            <Image src="/dashboard/ok.png" height={40} width={50} alt="in stock" className='size-10'/>
-                            <div className="">
-                                <p className="font-semibold text-[#3DDC97]">In Stock</p>
-                                <p className="text-sm font-semibold text-gray-500 ">12</p>
+                   
+                   <div className="w-[348px] h-[115px] flex justify-center items-center rounded-2xl bg-white" style={{ background: 'linear-gradient(to bottom right, #3DDC97, #EAEAEA)' }}>
+                        <div className='w-[345px] h-[111px] flex justify-center items-center bg-white rounded-2xl'>
+
+                            <div className="flex flex-row gap-3 bg-white rounded-2xl h-[53px] w-[276px] items-center ">
+                                <Image src="/dashboard/ok.png" height={30} width={40} alt="out of stock" className='size-[50px]' />
+                                <div className="rotating-gradient-border h-[53px] flex flex-col justify-between ">
+                                    <p className="font-semibold text-[#3DDC97] text-xl">In Stock</p>
+                                    <p className="text-md font-semibold text-gray-500">12</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                     
                 </div>
 
             </div>
