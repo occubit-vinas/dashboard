@@ -7,18 +7,19 @@ import { Products_topselling } from "@/data/dashboard/data";
 import ProductCategory from "@/components/dashboard/products/product_category";
 import ProductRating from "@/components/dashboard/products/product_rating";
 import { Purple_button } from "../components/top_buttons";
+import { products_topselling } from "@/data/dashboard/constants";
 const Products = () => {
     return (
-        <div className="container mx-auto w-full  rounded-2xl  flex flex-col gap-4">
-            <div className="bg-white p-4 rounded-2xl box-shadow-2xl shadow">
+        <div className="container mx-auto w-full  rounded-2xl  flex flex-col gap-[15px]">
+            <div className="bg-white  rounded-2xl shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)] w-[1760px] h-[320px] p-[20px] ">
                 {/* Header */}
                 <div className="w-full flex flex-row justify-between items-start ">
                     <div>
                         <h1 className="text-main">
-                            Top Selling Products
+                            {products_topselling.TITLE}
                         </h1>
-                        <p className="text-gray-600 text-sm pb-3">
-                            Best performing products by sales volume
+                        <p className="text-gray-600 text-sm pb-[20px]">
+                            {products_topselling.DESC}
                         </p>
                     </div>
 
@@ -39,43 +40,52 @@ const Products = () => {
                             height={20}
                             className="cursor-pointer"
                         /> */}
-                        <Purple_button img='/dashboard/whitefilter.svg' label='filter'/>
+                        <Purple_button img='/dashboard/whitefilter.svg' label='filter' />
                     </div>
                 </div>
 
                 {/* Table Header */}
-                <div className="flex justify-between text-xl py-2.5 border-b  border-gray-200  text-center bg-purple-100 rounded-full ">
-                    <h1 className="w-1/4 text-first  text-left pl-4 pt-1">Product</h1>
-                    <h1 className="w-1/4 text-first pt-1">Category</h1>
-                    <h1 className="w-1/4 text-center text-first pt-1">Product Sold</h1>
-                    <h1 className="w-1/4 text-center text-first pt-1">Review</h1>
+                <div className="flex justify-between text-xl items-center h-[37px] border-b  border-gray-200  text-center bg-[#F4E9FF] rounded-full ">
+                    <h1 className="w-1/4 text-first pl-4 pt-1">{products_topselling.header.PRODUCT}</h1>
+                    <h1 className="w-1/4 text-first pt-1">{products_topselling.header.CATEGORY}</h1>
+                    <h1 className="w-1/4 text-center text-first pt-1">{products_topselling.header.SOLD}</h1>
+                    <h1 className="w-1/4 text-center text-first pt-1">{products_topselling.header.STOCK}</h1>
+                    <h1 className="w-1/4 text-center text-first pt-1">{products_topselling.header.REVIEW}</h1>
                 </div>
 
                 {/* Product Rows */}
-                <div className="flex flex-col gap-2 overflow-y-auto max-h-[300px]">
+                <div className="flex flex-col gap-2 max-h-[175px] scroll-container ">
                     {Products_topselling.map((cur, index) => (
                         <div
                             key={index}
-                            className="flex flex-row items-center justify-between text-sm gap-2 border-b-1 border-gray-600"
+                            className="flex flex-row items-center justify-between text-sm  border-b-[1px]  border-[#CACAD4] h-[57px] "
                         >
                             {/* Product */}
-                            <div className="w-1/4  rounded-xl px-3 py-2">
+                            <div className="w-1/5  rounded-xl px-3 py-[20px] flex flex-row gap-[8px]">
+                                <Image src='/dashboard/close-circle.png' height={20} width={20} alt='img' className='size-[30px]'/>
+                                <div>
+
                                 <h1 className="text-first">{cur.id}</h1>
                                 <p className="text-gray-600">{cur.name}</p>
+                                </div>
+
                             </div>
 
                             {/* Category */}
-                            <div className="w-1/4 text-center rounded-xl px-3 py-4.5 text-gray-700">
+                            <div className="w-1/5 text-center rounded-xl px-3 py-[20px] text-gray-700">
                                 {cur.cat}
                             </div>
 
                             {/* Product Sold */}
-                            <div className="w-1/4  rounded-xl px-3 py-4.5 text-gray-700 text-center">
+                            <div className="w-1/5  rounded-xl px-3 py-[20px] text-gray-700 text-center">
                                 {cur.sold}
+                            </div>
+                            <div className="w-1/5  rounded-xl px-3 py-[20px] text-gray-700 text-center">
+                                {cur.stock}
                             </div>
 
                             {/* Review Stars */}
-                            <div className="w-1/4 flex justify-center gap-1">
+                            <div className="w-1/5 flex justify-center gap-1">
                                 {Array.from({ length: 5 }, (_, i) => (
                                     <Image
                                         key={i}
@@ -94,12 +104,12 @@ const Products = () => {
                     ))}
                 </div>
             </div>
-            <div className="flex flex-row gap-4 w-full">
-                <div className="w-1/2">
-                    <ProductCategory/>
+            <div className="flex flex-row gap-[15px] w-full">
+                <div className="">
+                    <ProductCategory />
                 </div>
-                <div className="w-1/2">
-                    <ProductRating/>
+                <div className="">
+                    <ProductRating />
                 </div>
             </div>
         </div>

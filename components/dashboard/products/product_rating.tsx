@@ -12,14 +12,14 @@ import {
   Cell,
   ReferenceLine,
 } from "recharts";
-
+import { product_categorie_rating } from "@/data/dashboard/constants";
 // Example data
 const data = [
-  { name: "Kurti", rating: 80 },
-  { name: "A-line", rating: 65 },
-  { name: "Anarkali", rating: 90 },
-  { name: "Dress", rating: 75 },
-  { name: "T-shirt", rating: 55 },
+  { name: product_categorie_rating.category.ALINE, rating: 80 },
+  { name: product_categorie_rating.category.ANARKALI, rating: 65 },
+  { name: product_categorie_rating.category.DRESS, rating: 90 },
+  { name: product_categorie_rating.category.KURTI, rating: 75 },
+  { name: product_categorie_rating.category.LENGHA, rating: 55 },
 ];
 
 // Bar colors
@@ -27,24 +27,24 @@ const barColors = ["#E3C9FF", "#A268F5", "#7E30ED", "#5315B4", "#280865"];
 
 const ProductRating = () => {
   return (
-    <div className="w-full bg-white rounded-lg shadow p-6 border-b border-gray-200 ]">
+    <div className=" bg-white rounded-lg  p-[20px] shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)] h-[325px] w-[872px]">
       {/* Header */}
-      <div className="mb-4 border-b pb-2 border-[#6C6C80] border-1.5">
+      <div className="">
         <h2 className="text-main">
-          Products Ratings
+          {product_categorie_rating.TITLE2}
         </h2>
         <p className="text-sm text-gray-500 ">
-          Distribution of product ratings
+          {product_categorie_rating.DESC2}
         </p>
       </div>
 
       {/* Chart */}
-      <div className="w-full h-[325px]">
+      <div className=" h-[240px] -translate-x-8 w-[850px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
             layout="vertical"
-            margin={{ top: 10, right: 0, left: 0, bottom: 10 }}
+            margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
           >
             {/* Vertical dashed lines at 25%, 50%, 75% */}
             <CartesianGrid
@@ -62,15 +62,25 @@ const ProductRating = () => {
             <XAxis
               type="number"
               domain={[0, 100]}
-              tickFormatter={(val) => `${val}%`}
+              tickFormatter={(val) => {
+                const starMap = {
+                  0: "1 star",
+                  25: "2 star",
+                  50: "3 star",
+                  75: "4 star",
+                  100: "5 star",
+                };
+                return starMap[val] || "";
+              }}
               tick={{ fill: "#6b7280", fontSize: 12 }}
               axisLine={false}
               tickLine={false}
             />
+
             <YAxis
               type="category"
               dataKey="name"
-              tick={{ fill: "#6b7280", fontSize: 12 }}
+              tick={{ fill: "#6b7280", fontSize: 12 ,textAnchor:'start',dx:-50}}
               width={90}
               axisLine={false}
               tickLine={false}

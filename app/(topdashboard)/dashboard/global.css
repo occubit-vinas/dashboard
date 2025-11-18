@@ -317,7 +317,7 @@
 :root {
   --font-family-inter: 'Inter', sans-serif;
   --font-weight-medium: 500;
-  --font-size-large: 24px;
+  --font-size-large: 18px;
   --color-text-primary: #1E1E2A;
 }
 :root {
@@ -473,7 +473,7 @@
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-style: normal;   /* "Regular" → normal */
-  font-size: 24px;
+  font-size: 18px;
   line-height: 100%;
   letter-spacing: 0px;
   /* color: #1E1E2A; */

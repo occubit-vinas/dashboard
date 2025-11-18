@@ -23,7 +23,31 @@ import {
     products_topselling as TOPSELLING_TEXT,
     performance_summary as SUMMARY_TEXT
 } from "./constants";
+import { PRODUCT_MNG_CON } from './constants';
+const {
+  PRINTED_SHIRTS,
+  COTTON_KURTA,
+  ANARKALI_DRESS,
+  TUNIC_TOP,
+  OLD_STOCK,
 
+  WESTERN_WEAR,
+  ETHNIC_WEAR,
+  ANARKALI,
+  TOP_TUNIC,
+
+  ACTIVE,
+  INACTIVE,
+
+  IN_STOCK,
+  OUT_OF_STOCK,
+
+  PRICE_499,
+  PRICE_899,
+  PRICE_999,
+  PRICE_1299,
+  PRICE_1599,
+} = PRODUCT_MNG_CON;
 export const overview_box = [
     {
         title: OVERVIEW_TEXT.titles.TOTAL_REVENUE,
@@ -360,6 +384,7 @@ export const Products_topselling = [
         id: "#12345",
         name: TOPSELLING_TEXT.productNames.A_LINE_KURTI,
         cat: TOPSELLING_TEXT.categories.KURTI,
+        stock:TOPSELLING_TEXT.stock.LOW,
         sold: "1200",
         star: 4,
     },
@@ -367,6 +392,7 @@ export const Products_topselling = [
         id: "#12345",
         name: TOPSELLING_TEXT.productNames.A_LINE_KURTI,
         cat: TOPSELLING_TEXT.categories.KURTI,
+        stock:TOPSELLING_TEXT.stock.OUT,
         sold: "1200",
         star: 4,
     },
@@ -374,6 +400,7 @@ export const Products_topselling = [
         id: "#12345",
         name: TOPSELLING_TEXT.productNames.A_LINE_KURTI,
         cat: TOPSELLING_TEXT.categories.KURTI,
+        stock:TOPSELLING_TEXT.stock.LOW,
         sold: "1200",
         star: 4,
     },
@@ -381,6 +408,7 @@ export const Products_topselling = [
         id: "#12345",
         name: TOPSELLING_TEXT.productNames.A_LINE_KURTI,
         cat: TOPSELLING_TEXT.categories.KURTI,
+        stock:TOPSELLING_TEXT.stock.IN,
         sold: "1200",
         star: 4,
     },
@@ -388,6 +416,7 @@ export const Products_topselling = [
         id: "#12345",
         name: TOPSELLING_TEXT.productNames.KURTI,
         cat: TOPSELLING_TEXT.categories.KURTI,
+        stock:TOPSELLING_TEXT.stock.LOW,
         sold: "800",
         star: 5,
     },
@@ -395,6 +424,7 @@ export const Products_topselling = [
         id: "#12345",
         name: TOPSELLING_TEXT.productNames.DRESS,
         cat: TOPSELLING_TEXT.categories.DRESS,
+        stock:TOPSELLING_TEXT.stock.LOW,
         sold: "700",
         star: 5,
     },
@@ -402,6 +432,7 @@ export const Products_topselling = [
         id: "#12345",
         name: TOPSELLING_TEXT.productNames.A_LINE_KURTI,
         cat: TOPSELLING_TEXT.categories.KURTI,
+        stock:TOPSELLING_TEXT.stock.LOW,    
         sold: "1200",
         star: 4,
     },
@@ -411,27 +442,70 @@ export const Products_topselling = [
 // ------------------- PERFORMANCE SUMMARY --------------------
 export const performance_summary = [
     {
-        img: "doller.png",
+        img: "doller.svg",
         num: "₹12,540.00",
         label: SUMMARY_TEXT.labels.REVENUE,
         percentage: 15.2,
     },
     {
-        img: "cart.png",
+        img: "cart.svg",
         num: "245",
         label: SUMMARY_TEXT.labels.ORDERS,
         percentage: 16.7,
     },
     {
-        img: "person.png",
+        img: "user.svg",
         num: "156",
         label: SUMMARY_TEXT.labels.CUSTOMER,
         percentage: 20.0,
     },
     {
-        img: "trend.png",
+        img: "trend.svg",
         num: "2.8%",
         label: SUMMARY_TEXT.labels.CONVERSION,
         percentage: -21.7,
     },
+];
+
+export const PRODUCT_MNG = [
+  {
+    Product: PRINTED_SHIRTS,
+    categorie: WESTERN_WEAR,
+    status: ACTIVE,
+    date: '2025-11-01',
+    price: PRICE_999,
+    stock: IN_STOCK,
+  },
+  {
+    Product: COTTON_KURTA,
+    categorie: ETHNIC_WEAR,
+    status: INACTIVE,
+    date: '2025-10-29',
+    price: PRICE_1299,
+    stock: OUT_OF_STOCK,
+  },
+  {
+    Product: ANARKALI_DRESS,
+    categorie: ANARKALI,
+    status: ACTIVE,
+    date: '2025-10-22',
+    price: PRICE_1599,
+    stock: IN_STOCK,
+  },
+  {
+    Product: TUNIC_TOP,
+    categorie: TOP_TUNIC,
+    status: ACTIVE,
+    date: '2025-09-15',
+    price: PRICE_899,
+    stock: IN_STOCK,
+  },
+  {
+    Product: OLD_STOCK,
+    categorie: WESTERN_WEAR,
+    status: INACTIVE,
+    date: '2025-09-10',
+    price: PRICE_499,
+    stock: OUT_OF_STOCK,
+  },
 ];

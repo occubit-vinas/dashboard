@@ -3,16 +3,19 @@ import { performance_summary } from '@/data/dashboard/data'
 import Box2 from './Box2'
 const Performance_insights = () => {
   return (
-    <div className='bg-white rounded-2xl p-4 flex flex-col gap-3'>
+    <div className='bg-white rounded-2xl p-[20px] flex flex-col  shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)] w-[872px] min-h-[260px] gap-[15px]'>
+      <div className='flex flex-col gap-[5px]'>
+
         <p className='text-main'>Performace insights</p>
-        <p className='text-gray-700 text-md'>Key Matrix compared to previous period</p>
-        <div className='mx-5 w-full flex flex-row gap-2'>
-            {performance_summary.map((cur,index)=>(
-                <div className='w-1/4' key={index}>
-                    <Box2 data={cur}/>
-                </div>
-            ))}
-        </div>
+        <p className='text-md text-gray-500 font-thin'>Key Matrix compared to previous period</p>
+      </div>
+      <div className=' flex flex-row gap-[15px]'>
+        {performance_summary.map((cur, index) => (
+          <div className='' key={index}>
+            <Box2 data={cur} />
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

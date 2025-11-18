@@ -5,6 +5,7 @@ import { Cancel, Create } from '../../components/top_buttons';
 import Top_area from '@/components/sidebar/top_area';
 import { IoIosArrowDown } from 'react-icons/io';
 import { Purple_button } from '../../components/top_buttons';
+import { ADD_CAT } from '@/data/dashboard/constants';
 export default function CategoryManagement() {
     const [formData, setFormData] = useState({
         name: '',
@@ -103,12 +104,12 @@ export default function CategoryManagement() {
 
                         {/* Name Field */}
                         <div className="">
-                            <label className="block text-first font-medium text-gray-700 mb-2">
-                                Name
+                            <label className="block text-first font-medium text-gray-700 mb-2 ml-3">
+                                {ADD_CAT.t1}
                             </label>
                             <input
                                 type="text"
-                                placeholder="Kurti"
+                                placeholder={ADD_CAT.d1}
                                 value={formData.name}
                                 onChange={(e) => handleInputChange('name', e.target.value)}
                                 className="light-purple w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
@@ -117,23 +118,23 @@ export default function CategoryManagement() {
 
                         {/* Slug Field */}
                         <div className="">
-                            <label className="block text-first font-medium text-gray-700 mb-2">
-                                Slug
+                            <label className="block text-first font-medium text-gray-700 mb-2 ml-3">
+                                {ADD_CAT.t2}
                             </label>
                             <input
                                 type="text"
-                                placeholder="kurti"
+                                placeholder={ADD_CAT.d2}
                                 value={formData.slug}
                                 onChange={(e) => handleInputChange('slug', e.target.value)}
                                 className="light-purple w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                             />
-                            <p className="text-xs text-gray-500 mt-2">URL-friendly identifier for the category</p>
+                            <p className="text-xs text-gray-500 mt-2">{ADD_CAT.des1}</p>
                         </div>
 
                         {/* Sort Order Field */}
                         <div className="">
-                            <label className="block text-first font-medium text-gray-700 mb-2">
-                                Sort Order
+                            <label className="block text-first font-medium text-gray-700 mb-2 ml-3">
+                                {ADD_CAT.t3}
                             </label>
                             <input
                                 type="number"
@@ -142,16 +143,16 @@ export default function CategoryManagement() {
                                 onChange={(e) => handleInputChange('sortOrder', e.target.value)}
                                 className="light-purple w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                             />
-                            <p className="text-xs text-gray-500 mt-2">Lower numbers appear first</p>
+                            <p className="text-xs text-gray-500 mt-2">{ADD_CAT.des2}</p>
                         </div>
 
                         {/* Description Field */}
                         <div className="">
-                            <label className="block text-first font-medium text-gray-700 mb-2">
-                                Description
+                            <label className="block text-first font-medium text-gray-700 mb-2 ml-3">
+                                {ADD_CAT.t4}
                             </label>
                             <textarea
-                                placeholder="Enter your description"
+                                placeholder={ADD_CAT.d4}
                                 value={formData.description}
                                 onChange={(e) => handleInputChange('description', e.target.value)}
                                 rows={7}
@@ -160,14 +161,14 @@ export default function CategoryManagement() {
                         </div>
 
                         {/* Category Filters */}
-                        <h3 className="text-first font-semibold text-gray-900 mb-4">Category Filters</h3>
+                        <h3 className="text-first font-semibold text-gray-900 mb-4 ml-3">{ADD_CAT.t5}</h3>
                         <div className="light-purple rounded-lg shadow p-6">
 
                             {filters.length === 0 ? (
                                 <div className="text-center py-8 text-gray-400">
                                     <Filter className="w-12  mx-auto mb-2 opacity-50" />
-                                    <p className="text-sm">No filters added yet</p>
-                                    <p className="text-xs mt-1">Add filters to help customers narrow down products in this category</p>
+                                    <p className="text-sm">{ADD_CAT.d51}</p>
+                                    <p className="text-xs mt-1">{ADD_CAT.d52}</p>
                                 </div>
                             ) : (
                                 <div className="space-y-2 mb-4">
@@ -190,14 +191,14 @@ export default function CategoryManagement() {
                         </div>
 
                         {/* Category Attributes */}
-                        <h3 className="text-first font-semibold text-gray-900 mb-4">Category Attributes</h3>
+                        <h3 className="text-first font-semibold text-gray-900 mb-4 ml-3">{ADD_CAT.t6}</h3>
                         <div className="light-purple rounded-lg shadow p-6">
 
                             {attributes.length === 0 ? (
                                 <div className="text-center py-8 text-gray-400">
                                     <Settings className="w-12 h-20 mx-auto mb-2 opacity-50" />
-                                    <p className="text-sm">No attributes added yet</p>
-                                    <p className="text-xs mt-1">Add attributes to define product characteristics in this category</p>
+                                    <p className="text-sm">{ADD_CAT.d61}</p>
+                                    <p className="text-xs mt-1">{ADD_CAT.d62}</p>
                                 </div>
                             ) : (
                                 <div className="space-y-2 mb-4">
@@ -224,8 +225,8 @@ export default function CategoryManagement() {
                     <div className="space-y-8">
 
                         {/* Parent Category */}
-                        <label className="block text-first font-medium text-gray-700 mb-2">
-                            Parent Category
+                        <label className="block text-first font-medium text-gray-700 mb-2 ml-3">
+                            {ADD_CAT.t7}
                         </label>
                         <div className="relative w-full group">
                             {/* Select */}
@@ -236,11 +237,11 @@ export default function CategoryManagement() {
                                 }
                                 className="light-purple w-full pl-4 pr-12 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent appearance-none cursor-pointer"
                             >
-                                <option value="">No Parent (Root Category)</option>
-                                <option value="clothing">Clothing</option>
-                                <option value="electronics">Electronics</option>
-                                <option value="home">Home & Garden</option>
-                                <option value="sports">Sports</option>
+                                <option value="">{ADD_CAT.d71}</option>
+                                <option value="clothing">{ADD_CAT.d72}</option>
+                                <option value="electronics">{ADD_CAT.d73}</option>
+                                <option value="home">{ADD_CAT.d74}</option>
+                                <option value="sports">{ADD_CAT.d75}</option>
                             </select>
 
                             {/* Vertical line — full height, just left of arrow */}
@@ -253,16 +254,16 @@ export default function CategoryManagement() {
                         </div>
 
                         {/* Status Toggles */}
-                        <label className="block text-first font-medium text-gray-700 mb-2">
-                            Status
+                        <label className="block text-first font-medium text-gray-700 mb-2 ml-3">
+                            {ADD_CAT.t8}
                         </label>
                         <div className="light-purple rounded-lg shadow p-6">
 
                             <div className="space-y-8">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-sm font-medium text-gray-900">Active Status</p>
-                                        <p className="text-xs text-gray-500">Make this category visible to customers</p>
+                                        <p className="text-sm font-medium text-gray-900">{ADD_CAT.d81}</p>
+                                        <p className="text-xs text-gray-500">{ADD_CAT.d811}</p>
                                     </div>
                                     <button
                                         onClick={() => handleInputChange('activeStatus', !formData.activeStatus)}
@@ -278,8 +279,8 @@ export default function CategoryManagement() {
 
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-sm font-medium text-gray-900">Primary Category</p>
-                                        <p className="text-xs text-gray-500">Mark as a main category</p>
+                                        <p className="text-sm font-medium text-gray-900">{ADD_CAT.d82}</p>
+                                        <p className="text-xs text-gray-500">{ADD_CAT.d821}</p>
                                     </div>
                                     <button
                                         onClick={() => handleInputChange('primaryCategory', !formData.primaryCategory)}
@@ -296,8 +297,8 @@ export default function CategoryManagement() {
                         </div>
 
                         {/* Category Image */}
-                        <label className="block text-first font-medium text-gray-700 mb-2 mt-11">
-                            Category Image
+                        <label className="block text-first font-medium text-gray-700 mb-2 mt-11 ml-3">
+                            {ADD_CAT.t9}
                         </label>
                         <div className="light-purple rounded-lg shadow p-6">
 
@@ -312,31 +313,30 @@ export default function CategoryManagement() {
                                 <label htmlFor="image-upload" className="cursor-pointer">
                                     <Upload className="w-10 h-7 mx-auto mb-2 text-gray-400" />
                                     <p className="text-sm text-gray-600">
-                                        {formData.categoryImage ? formData.categoryImage.name : 'Drop images here or click to browse'}
+                                        {`${formData.categoryImage} ? formData.categoryImage.name : ${ADD_CAT.d9}`}
                                     </p>
-                                    <p className="text-xs text-gray-400 mt-1">Supports: JPG, PNG, GIF (max 5MB)</p>
                                 </label>
                             </div>
                         </div>
 
                         {/* Add New Filter */}
-                        <h3 className="text-first font-semibold text-gray-900 mb-4">Add New Filter</h3>
+                        <h3 className="text-first font-semibold text-gray-900 mb-4 ml-3">{ADD_CAT.t10}</h3>
                         <div className="light-purple rounded-lg shadow p-6">
 
                             <div className="space-y-10">
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label className="block text-xs font-medium text-gray-700 mb-1">Filter Name</label>
+                                        <label className="block text-xs font-medium text-gray-700 mb-1">{ADD_CAT.d101}</label>
                                         <input
                                             type="text"
-                                            placeholder="e.g., color, size"
+                                            placeholder={ADD_CAT.d1011}
                                             value={newFilter.name}
                                             onChange={(e) => setNewFilter({ ...newFilter, name: e.target.value })}
                                             className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-xs font-medium text-gray-700 mb-1">Filter Type</label>
+                                        <label className="block text-xs font-medium text-gray-700 mb-1">{ADD_CAT.d102}</label>
                                         <div className="relative w-full group">
 
                                             <select
@@ -374,7 +374,7 @@ export default function CategoryManagement() {
                                                     }`}
                                             />
                                         </button>
-                                        <span className="text-sm text-gray-700">Required Filter</span>
+                                        <span className="text-sm text-gray-700">{ADD_CAT.d103}</span>
                                     </label>
 
 
@@ -384,23 +384,23 @@ export default function CategoryManagement() {
                         </div>
 
                         {/* Add New Attributes */}
-                        <h3 className="text-first font-semibold text-gray-900 mb-4">Add New Attributes</h3>
+                        <h3 className="text-first font-semibold text-gray-900 mb-4 ml-3">{ADD_CAT.t11}</h3>
                         <div className="light-purple bg-white rounded-lg shadow p-6">
 
                             <div className="space-y-4">
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label className="block text-xs font-medium text-gray-700 mb-1">Attribute Name</label>
+                                        <label className="block text-xs font-medium text-gray-700 mb-1">{ADD_CAT.d111}</label>
                                         <input
                                             type="text"
-                                            placeholder="e.g., material, weight"
+                                            placeholder={ADD_CAT.d1111}
                                             value={newAttribute.name}
                                             onChange={(e) => setNewAttribute({ ...newAttribute, name: e.target.value })}
                                             className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-xs font-medium text-gray-700 mb-1">Attribute Type</label>
+                                        <label className="block text-xs font-medium text-gray-700 mb-1">{ADD_CAT.d112}</label>
                                         <div className="relative w-full group">
                                             {/* Select */}
                                             <select
@@ -428,10 +428,10 @@ export default function CategoryManagement() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-xs font-medium text-gray-700 mb-1">Default Value (Optional)</label>
+                                    <label className="block text-xs font-medium text-gray-700 mb-1">{ADD_CAT.d113}</label>
                                     <input
                                         type="text"
-                                        placeholder="Enter default value"
+                                        placeholder={ADD_CAT.d1131}
                                         value={newAttribute.defaultValue}
                                         onChange={(e) => setNewAttribute({ ...newAttribute, defaultValue: e.target.value })}
                                         className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
@@ -451,7 +451,7 @@ export default function CategoryManagement() {
                                                     }`}
                                             />
                                         </button>
-                                        <span className="text-sm text-gray-700">Required Attributes</span>
+                                        <span className="text-sm text-gray-700">{ADD_CAT.d114}</span>
                                     </label>
 
                                     <Purple_button label='Add Attributes' onClick={addAttribute} />

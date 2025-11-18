@@ -4,12 +4,22 @@ const Box2 = ({ data }) => {
     const { percentage } = data;
     const isPositive = percentage > 0
     return (
-        <div className='relative animated-border rounded-xl p-[1.5px] w-full'>
-            <div className="bg-white animated-border-inner rounded-xl p-3 flex flex-col justify-center items-center gap-2">
-                <Image src={`/dashboard/box/${data.img}`} alt='img' height={50} width={50} />
-                <p className='text-xl font-semibold'>{data.num}</p>
-                <p className='text-gray-700'>{data.label}</p>
-                <div className={`flex items-center gap-1 p-2 ${isPositive ? 'border rounded-full  bg-green-200' : 'border rounded-full  bg-red-200'}`}>
+        <div className=' rounded-xl shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)] min-h-[166px] w-[197px] py-[20px] '>
+            <div className="bg-white  rounded-xl flex flex-col justify-center items-center gap-[10px]">
+                <div className='custom-box w-[40px] h-[40px] '>
+
+                    <Image
+                        src={`/dashboard/box/${data.img}`}
+                        alt="image"
+                        width={15}
+                        height={15}
+                        // className={`object-contain ${origin === 'sales' ? 'w-6 h-6 mt-5 mb-0' : 'w-[40px] h-[40px] mt-0 mb-12'}`}
+                        className={`object-contain size-[20px] `}
+                    />
+                </div>
+                <p className='inter size-[14px] font-mediam w-full flex justify-center '>{data.label}</p>
+                <p className='text-2xl'>{data.num}</p>
+                <div className={`flex items-center gap-1  ${isPositive ? ' rounded-full ' : 'rounded-full '}`}>
                     <Image
                         src={
                             isPositive

@@ -2,56 +2,59 @@
 
 import React from "react";
 import Image from "next/image";
-
+import { KEY_INSIGHTS } from "@/data/dashboard/constants";
 const insights = [
   {
     id: 1,
-    title: "Revenue Growth",
+    title: KEY_INSIGHTS.title1,
     description:
-      "Revenue is up +17.6% compared to last period. Keep up the great work!",
+      KEY_INSIGHTS.desc1,
     image: "/dashboard/trend2.png",
     bg: "bg-[#4A3AFF1A]",
-    color:'#4A3AFF'
+    color: '#4A3AFF'
   },
   {
     id: 2,
-    title: "Customer Retention",
+    title: KEY_INSIGHTS.title2,
     description:
-      "Customer retention rate is 50%. Focus on satisfaction to improve retention.",
+      KEY_INSIGHTS.desc2,
     image: "/dashboard/profile-2user.png",
     bg: "bg-[#3DDC971A]",
-    color:'#3DDC97'
+    color: '#3DDC97'
   },
 ];
 
 const KeyInsights = () => {
   return (
-    <div className="w-full bg-white p-5 rounded-2xl flex flex-col gap-4 shadow-sm">
+    <div className="min-h-[295px] w-[872px] p-[20px] bg-white  rounded-2xl flex flex-col gap-[20px] shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)]">
       {/* Header */}
       <div>
-        <h1 className="text-main">Key Insights</h1>
-        <p className="text-sm text-gray-500 border-b-2 border-[#6C6C80] pb-2">
-          Performance metrics and business highlights
+        <h1 className="text-main">{KEY_INSIGHTS.title}</h1>
+        <p className="text-md text-gray-500 font-thin">
+          {KEY_INSIGHTS.desc}
         </p>
       </div>
 
       {/* Insights List */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-[10px]">
         {insights.map((item) => (
           <div
             key={item.id}
-            className={`${item.bg} flex flex-row items-center gap-3 p-3 rounded-xl`}
+            className={`${item.bg} flex flex-row items-center gap-[10px] px-[20px] py-[10px] min-h-[59px] rounded-xl`}
           >
             {/* Left: Icon / Image */}
-            <div className="">
+            <div
+              className={`relative ${item.image === "trend.svg" ? "h-[12px] w-[20px]" : "h-[20px] w-[20px]"
+                }`}
+            >
               <Image
                 src={item.image}
                 alt={item.title}
-                width={35}
-                height={60}
-                className="rounded-md "
+                fill
+                className="object-contain rounded-md"
               />
             </div>
+
 
             {/* Right: Text */}
             <div className="flex flex-col gap-1.5">

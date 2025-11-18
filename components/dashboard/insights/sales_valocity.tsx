@@ -11,7 +11,7 @@ import {
   ResponsiveContainer,
   Cell,
 } from "recharts";
-
+import { INSIGHTS_SALES } from "@/data/dashboard/constants";
 // Example dataset
 const data = [
   { category: "1 oct", revenue: 45 },
@@ -20,31 +20,39 @@ const data = [
   { category: "4 oct", revenue: 30 },
   { category: "5 oct", revenue: 50 },
   { category: "6 oct", revenue: 27 },
+  { category: "7 oct", revenue: 27 },
+  { category: "8 oct", revenue: 27 },
+  { category: "9 oct", revenue: 27 },
+  { category: "10 oct", revenue: 27 },
 ];
 
 const Sales_valocity = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <div className="w-full bg-white rounded-lg shadow p-6 border border-gray-200">
+    <div className="bg-white rounded-lg shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)] min-w-[872px] max-h-[320px] p-[20px]">
       {/* Header */}
-      <div className="mb-4">
-        <h2 className="text-main">
-          Sales velocity
-        </h2>
-        <p className="text-sm text-gray-500">Daily Sales Performance Trend</p>
-        <hr className="border-gray-200 mt-2 w-full" />
+      <div>
+        <h2 className="text-main">{INSIGHTS_SALES.title}</h2>
+        <p className="text-md text-gray-500 font-thin">{INSIGHTS_SALES.desc}</p>
+        
       </div>
 
       {/* Chart */}
-      <div className="w-full h-[320px]">
+      <div className="w-[850px] h-[220px] -translate-x-7 translate-y-3">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
-            margin={{ top: 10, right: 30, left: 0, bottom: 10 }}
+            barCategoryGap={35}     // 👈 adds spacing between bars
+            margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
           >
-            {/* Dashed Grid */}
-            <CartesianGrid strokeDasharray="4 4" stroke="#e5e7eb" />
+            {/* Horizontal grid only */}
+            <CartesianGrid
+              vertical={false}       // 👈 remove vertical lines
+              horizontal={true}      // 👈 keep horizontal lines
+              stroke="#e5e7eb"
+              strokeDasharray="0"    // 👈 solid lines instead of dashed
+            />
 
             {/* X & Y Axes */}
             <XAxis
@@ -58,6 +66,7 @@ const Sales_valocity = () => {
               tick={{ fill: "#6b7280", fontSize: 12 }}
               axisLine={false}
               tickLine={false}
+               interval="preserveStartEnd"  
             />
 
             {/* Tooltip */}
@@ -69,13 +78,13 @@ const Sales_valocity = () => {
             {/* Bars */}
             <Bar
               dataKey="revenue"
-              radius={[6, 6, 0, 0]}
+              barSize={50}                   // 👈 optional: controls bar thickness
               onMouseEnter={(_, index) => setActiveIndex(index)}
               onMouseLeave={() => setActiveIndex(null)}
             >
               {data.map((_, index) => (
                 <Cell
-                  key={`cell-${index}`}
+                  key={index}
                   fill={activeIndex === index ? "#A268F5" : "#E3C9FF"}
                 />
               ))}
@@ -84,6 +93,7 @@ const Sales_valocity = () => {
         </ResponsiveContainer>
       </div>
     </div>
+
   );
 };
 

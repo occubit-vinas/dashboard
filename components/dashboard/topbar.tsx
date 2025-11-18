@@ -6,6 +6,7 @@ import { Search } from 'lucide-react'
 import { usePathname } from "next/navigation";
 import { White_button, Purple_button } from '@/app/(topdashboard)/dashboard/components/top_buttons'
 import Top_nav_bar from '@/app/(topdashboard)/dashboard/components/Top_nav_bar'
+import { NAVLINKS } from '@/data/dashboard/constants'
 const Topbar = () => {
   const [active, setActive] = useState<number | null>(0)
   const pathname = usePathname() ?? ""; // ensure it's never null
@@ -154,12 +155,12 @@ const Topbar = () => {
         <Top_nav_bar
           bgColor="nav_bar_color"
           navLinks={[
-            { path: '/dashboard', title: 'Overview' },
-            { path: '/dashboard/sales', title: 'Sales' },
-            { path: '/dashboard/customers', title: 'Customers' },
-            { path: '/dashboard/products', title: 'Products' },
-            { path: '/dashboard/inventories', title: 'Inventory' },
-            { path: '/dashboard/insights', title: 'Insights' },
+            { path: '/dashboard', title: NAVLINKS.OVERVIEW },
+            { path: '/dashboard/sales', title: NAVLINKS.SALES },
+            { path: '/dashboard/customers', title: NAVLINKS.CUSTOMER },
+            { path: '/dashboard/products', title: NAVLINKS.PRODUCT },
+            { path: '/dashboard/inventories', title: NAVLINKS.INVENTORY },
+            { path: '/dashboard/insights', title: NAVLINKS.INSIGHTS },
           ]}
         />
 

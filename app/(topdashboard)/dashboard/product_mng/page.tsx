@@ -149,6 +149,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import Top_area from '@/components/sidebar/top_area';
 import Pagination from '../components/Pagination';
+import { PRODUCT_MNG } from '@/data/dashboard/data';
 import {
   Product_filter_bar,
   Clearfilter,
@@ -165,7 +166,29 @@ import {
   SortOrderButton,
 } from '../components/top_buttons';
 import { useRouter } from 'next/navigation';
+import { PRODUCT_FILTER_CONSTANTS } from '@/data/dashboard/constants';
 
+const {
+  CATEGORY_ALL,
+  CATEGORY_WESTERN_WEAR,
+  CATEGORY_ETHNIC_WEAR,
+  CATEGORY_ANARKALI,
+  CATEGORY_TOP_TUNIC,
+
+  STOCK_ALL,
+  STOCK_IN,
+  STOCK_LOW,
+  STOCK_HIGH,
+  STOCK_OUT,
+
+  STATUS_ALL,
+  STATUS_ACTIVE,
+  STATUS_INACTIVE,
+
+  LABEL_DATE,
+  LABEL_PRICE,
+  CURRENCY_INR,
+} = PRODUCT_FILTER_CONSTANTS;
 const Page = () => {
   const [showfilter, setshowfilter] = useState(false);
   const [sortOpen, setsortOpen] = useState(false);
@@ -179,51 +202,51 @@ const Page = () => {
 
   // Filter Config
   const filtersConfig: FilterConfig[] = [
-    {
-      type: 'select',
-      name: 'category',
-      options: [
-        'All Category',
-        'Western Wear',
-        'Ethnic Wear',
-        'Anarkali',
-        'Top & Tunic',
-      ],
-      width: 'w-48',
-      defaultValue: 'All Category',
-    },
-    {
-      type: 'select',
-      name: 'stock',
-      options: [
-        'All Stock Levels',
-        'In Stock',
-        'Low Stock (<10)',
-        'High Stock (>100)',
-        'Out of Stock',
-      ],
-      width: 'w-56',
-      defaultValue: 'All Stock Levels',
-    },
-    {
-      type: 'select',
-      name: 'status',
-      options: ['All Status', 'Active', 'Inactive'],
-      width: 'w-40',
-      defaultValue: 'All Status',
-    },
-    {
-      type: 'dateRange',
-      name: 'date',
-      defaultValue: 'Date',
-    },
-    {
-      type: 'priceRange',
-      name: 'price',
-      defaultValue: 'Price',
-      currency: '₹',
-    },
-  ];
+  {
+    type: 'select',
+    name: 'category',
+    options: [
+      CATEGORY_ALL,
+      CATEGORY_WESTERN_WEAR,
+      CATEGORY_ETHNIC_WEAR,
+      CATEGORY_ANARKALI,
+      CATEGORY_TOP_TUNIC,
+    ],
+    width: 'w-48',
+    defaultValue: CATEGORY_ALL,
+  },
+  {
+    type: 'select',
+    name: 'stock',
+    options: [
+      STOCK_ALL,
+      STOCK_IN,
+      STOCK_LOW,
+      STOCK_HIGH,
+      STOCK_OUT,
+    ],
+    width: 'w-56',
+    defaultValue: STOCK_ALL,
+  },
+  {
+    type: 'select',
+    name: 'status',
+    options: [STATUS_ALL, STATUS_ACTIVE, STATUS_INACTIVE],
+    width: 'w-40',
+    defaultValue: STATUS_ALL,
+  },
+  {
+    type: 'dateRange',
+    name: 'date',
+    defaultValue: LABEL_DATE,
+  },
+  {
+    type: 'priceRange',
+    name: 'price',
+    defaultValue: LABEL_PRICE,
+    currency: CURRENCY_INR,
+  },
+];
 
   const initialFilters = filtersConfig.reduce((acc, config) => {
     acc[config.name] = config.defaultValue || '';
@@ -238,52 +261,8 @@ const Page = () => {
     maxPrice: '',
   });
 
-  // Product Data
-  const allData = [
-    {
-      Product: 'Printed Shirts',
-      categorie: 'Western Wear',
-      status: 'Active',
-      date: '2025-11-01',
-      price: '₹999',
-      stock: 'In Stock',
-    },
-    {
-      Product: 'Cotton Kurta',
-      categorie: 'Ethnic Wear',
-      status: 'Inactive',
-      date: '2025-10-29',
-      price: '₹1299',
-      stock: 'Out of Stock',
-    },
-    {
-      Product: 'Anarkali Dress',
-      categorie: 'Anarkali',
-      status: 'Active',
-      date: '2025-10-22',
-      price: '₹1599',
-      stock: 'In Stock',
-    },
-    {
-      Product: 'Tunic Top',
-      categorie: 'Top & Tunic',
-      status: 'Active',
-      date: '2025-09-15',
-      price: '₹899',
-      stock: 'In Stock',
-    },
-    {
-      Product: 'Old Stock',
-      categorie: 'Western Wear',
-      status: 'Inactive',
-      date: '2025-09-10',
-      price: '₹499',
-      stock: 'Out of Stock',
-    },
-    // Add more if needed
-  ];
 
-  const [filteredData, setFilteredData] = useState(allData);
+  const [filteredData, setFilteredData] = useState(PRODUCT_MNG);
 
   const clearFilters = () => {
     const resetFilters = filtersConfig.reduce((acc, config) => {
@@ -300,11 +279,11 @@ const Page = () => {
     };
 
     setSelectedFilters(reset);
-    setFilteredData(allData);
+    setFilteredData(PRODUCT_MNG);
   };
 
   const applyFilters = () => {
-    let filtered = [...allData];
+    let filtered = [...PRODUCT_MNG];
 
     if (selectedFilters.category && selectedFilters.category !== 'All Category') {
       filtered = filtered.filter(item => item.categorie === selectedFilters.category);

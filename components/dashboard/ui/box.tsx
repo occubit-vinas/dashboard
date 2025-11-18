@@ -16,7 +16,7 @@ shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)]">
       <div className=" flex flex-row justify-between items-center">
 
         {/* Left Section */}
-        <div className="flex flex-col gap-[10px] w-[80%]">
+        <div className="flex flex-col gap-[10px] w-[80%] justify-start -translate-y-2">
           {/* Title */}
           <p
             style={{

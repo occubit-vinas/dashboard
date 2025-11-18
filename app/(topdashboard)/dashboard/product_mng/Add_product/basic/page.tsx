@@ -64,7 +64,7 @@ const Page = () => {
 
     return (
 
-        <div className='container mx-auto my-10' onCreate={handleCreate} onCancel={handleCancel}>
+        <div className='container mx-auto my-10' >
 
 
             <div className='bg-white shadow-md rounded-xl flex flex-col gap-8 p-4 my-5'>

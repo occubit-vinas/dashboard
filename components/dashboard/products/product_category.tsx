@@ -11,33 +11,32 @@ import {
   ResponsiveContainer,
   Cell,
 } from "recharts";
-
+import { product_categorie_rating } from "@/data/dashboard/constants";
 // Example dataset
 const data = [
-  { category: "Kurti", revenue: 45 },
-  { category: "Gown", revenue: 38 },
-  { category: "Dress", revenue: 55 },
-  { category: "Saree", revenue: 30 },
-  { category: "Lehenga", revenue: 50 },
-  { category: "Top", revenue: 27 },
+  { category: product_categorie_rating.category.ALINE, revenue: 45 },
+  { category:  product_categorie_rating.category.ANARKALI, revenue: 38 },
+  { category:  product_categorie_rating.category.DRESS, revenue: 55 },
+  { category:  product_categorie_rating.category.GOWN, revenue: 30 },
+  { category:  product_categorie_rating.category.LENGHA, revenue: 50 },
+  { category:  product_categorie_rating.category.SAREE, revenue: 27 },
 ];
 
 const ProductCategory = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <div className="w-full bg-white rounded-lg  p-6 shadow">
+    <div className="bg-white rounded-lg h-[325px] w-[872px] p-[20px] shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)]">
       {/* Header */}
       <div className="mb-4">
         <h2 className="text-main">
-          Product Categories
+          {product_categorie_rating.TITLE1}
         </h2>
-        <p className="text-sm text-gray-500">Revenue by product category</p>
-        <hr className="border-[#6C6C80] border-1.5 mt-2 w-full" />
+        <p className="text-sm text-gray-500">{product_categorie_rating.DESC1}</p>
       </div>
 
       {/* Chart */}
-      <div className="w-full h-[320px]">
+      <div className="w-full h-[215px] -translate-x-6">
         <ResponsiveContainer width="100%" height="100%">
   <BarChart
     data={data}
