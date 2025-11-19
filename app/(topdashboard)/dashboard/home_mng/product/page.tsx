@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Home_mng_layout from '../Home_mng_layout';
 import Image from 'next/image';
+import {home_mng} from '@/data/dashboard/constants';
 import {
   Purple_button,
   Delete_button,
@@ -19,10 +20,10 @@ const Page = () => {
     <Home_mng_layout
       topButtons={[
         <Refresh key="1" />,
-        <Preview_btn key="2" label="Preview Mode" />,
+        <Preview_btn key="2" label={home_mng.pm} />,
         <Purple_button
           key="5"
-          label="Add Product"
+          label={home_mng.ap}
           img="/dashboard/add-square.svg"
         />,
       ]}

@@ -5,6 +5,7 @@ import { X, Percent, DollarSign, Truck, Calendar } from 'lucide-react';
 import styles from './page.module.css';
 import { White_button,Purple_button } from '../top_buttons';
 import Image from 'next/image';
+import {coupon_mng} from '@/data/dashboard/constants';
 export default function Add_coupon_box({onClick}) {
   
   const [formData, setFormData] = useState({
@@ -49,8 +50,8 @@ export default function Add_coupon_box({onClick}) {
         {/* Header */}
         <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
           <div>
-            <h2 className={styles.title}>Create New Coupon</h2>
-            <p className={`${styles.subtitle} mt-1`}>Create a new discount coupon to offer to your customers.</p>
+            <h2 className={styles.title}>{coupon_mng.NEW.cnc}</h2>
+            <p className={`${styles.subtitle} mt-1`}>{coupon_mng.NEW.can}</p>
           </div>
           <button
             onClick={onClick}
@@ -67,7 +68,7 @@ export default function Add_coupon_box({onClick}) {
           {/* Coupon Code */}
           <div>
             <label className={`block ${styles.sectionHeading} mb-2`}>
-              Coupon Code
+              {coupon_mng.NEW.cc}
             </label>
             <div className="flex gap-2">
               <input
@@ -79,7 +80,7 @@ export default function Add_coupon_box({onClick}) {
               />
               <Purple_button
                 onClick={generateCouponCode}
-                label='Generate'
+                label={coupon_mng.NEW.ge}
                 // className="px-6 py-2.5 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
               >
                 
@@ -90,12 +91,12 @@ export default function Add_coupon_box({onClick}) {
           {/* Description */}
           <div>
             <label className={`block  mb-2 ${styles.sectionHeading}`}>
-              Description
+              {coupon_mng.NEW.des}
             </label>
             <textarea
               value={formData.description}
               onChange={(e) => handleInputChange('description', e.target.value)}
-              placeholder="20% off on all items - limited time offer"
+              placeholder={coupon_mng.NEW.off20}
               rows={3}
               maxLength={200}
               className={`w-full px-4 py-2.5 bg-purple-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none ${styles.subtitle}`}
@@ -108,7 +109,7 @@ export default function Add_coupon_box({onClick}) {
             {/* Discount Type */}
             <div>
               <label className={`${styles.sectionHeading} block  mb-2`}>
-                Discount Type
+                {coupon_mng.NEW.dt}
               </label>
               <div className="relative">
                 <select
@@ -116,9 +117,9 @@ export default function Add_coupon_box({onClick}) {
                   onChange={(e) => handleInputChange('discountType', e.target.value)}
                   className={`w-full px-4 py-2.5 bg-purple-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent appearance-none text-gray-900 pr-10 ${styles.subtitle}`}
                 >
-                  <option value="percentage">% Percentage discount</option>
-                  <option value="fixed">Fixed amount discount</option>
-                  <option value="free-shipping">Free shipping</option>
+                  <option value="percentage">% {coupon_mng.NEW.pd}</option>
+                  <option value="fixed">{coupon_mng.NEW.fam}</option>
+                  <option value="free-shipping">{coupon_mng.NEW.fs}</option>
                 </select>
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                   {formData.discountType === 'percentage' && <Percent className="w-4 h-4 text-gray-500" />}
@@ -132,7 +133,7 @@ export default function Add_coupon_box({onClick}) {
             {formData.discountType === 'percentage' && (
               <div>
                 <label className={`${styles.sectionHeading} block  mb-2`}>
-                  Percentage (%)
+                  {coupon_mng.TYPE.PERCENTAGE} (%)
                 </label>
                 <div className="relative">
                   <input
@@ -153,7 +154,7 @@ export default function Add_coupon_box({onClick}) {
             {formData.discountType === 'fixed' && (
               <div>
                 <label className={`block  mb-2 ${styles.sectionHeading}`}>
-                  Fixed Amount ($)
+                  {coupon_mng.TYPE.FIXED_AMOUNT} ($)
                 </label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm">$</span>
@@ -167,7 +168,7 @@ export default function Add_coupon_box({onClick}) {
                     className="w-full pl-8 pr-4 py-2.5 bg-purple-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900"
                   />
                 </div>
-                <p className="text-xs text-gray-400 mt-1.5">Fixed discount amount for this coupon</p>
+                <p className="text-xs text-gray-400 mt-1.5">{coupon_mng.NEW.FAM}</p>
               </div>
             )}
 
@@ -175,7 +176,7 @@ export default function Add_coupon_box({onClick}) {
               <div className="flex items-center justify-center">
                 <div className="text-center py-4">
                   <Truck className="w-12 h-12 mx-auto text-purple-600 mb-2" />
-                  <p className="text-sm text-gray-500">Free shipping will be applied</p>
+                  <p className="text-sm text-gray-500">{coupon_mng.NEW.FS}</p>
                 </div>
               </div>
             )}
@@ -186,7 +187,7 @@ export default function Add_coupon_box({onClick}) {
             {/* Minimum Order Amount */}
             <div>
               <label className={` ${styles.sectionHeading} block  mb-2`}>
-                Minimum Order Amount ($)
+                {coupon_mng.NEW.moa} ($)
               </label>
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm">$</span>
@@ -205,7 +206,7 @@ export default function Add_coupon_box({onClick}) {
             {/* Maximum Discount Amount */}
             <div>
               <label className={`${styles.sectionHeading} block  mb-2`}>
-                Maximum Discount Amount ($)
+                {coupon_mng.NEW.mda} ($)
               </label>
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm">$</span>
@@ -227,7 +228,7 @@ export default function Add_coupon_box({onClick}) {
             {/* Usage Limit */}
             <div>
               <label className={`${styles.sectionHeading} block  mb-2`}>
-                Usage Limit
+                {coupon_mng.NEW.ul}
               </label>
               <input
                 type="number"
@@ -237,13 +238,13 @@ export default function Add_coupon_box({onClick}) {
                 min="0"
                 className={`w-full px-4 py-2.5 bg-purple-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent ${styles.subtitle}`}
               />
-              <p className="text-xs text-gray-400 mt-1.5">Leave empty for unlimited uses</p>
+              <p className="text-xs text-gray-400 mt-1.5">{coupon_mng.NEW.uu}</p>
             </div>
 
             {/* Start Date */}
             <div>
               <label className={`block  mb-2 ${styles.sectionHeading}`}>
-                Start Date
+                {coupon_mng.NEW.sd}
               </label>
               <div className="relative">
                 <input
@@ -254,13 +255,13 @@ export default function Add_coupon_box({onClick}) {
                 />
                 <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
               </div>
-              <p className="text-xs text-gray-400 mt-1.5">Leave empty for no expiration</p>
+              <p className="text-xs text-gray-400 mt-1.5">{coupon_mng.NEW.no}</p>
             </div>
 
             {/* End Date */}
             <div>
               <label className={`${styles.sectionHeading} block  mb-2`}>
-                End Date
+                {coupon_mng.NEW.ed}
               </label>
               <div className="relative">
                 <input
@@ -271,15 +272,15 @@ export default function Add_coupon_box({onClick}) {
                 />
                 <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
               </div>
-              <p className="text-xs text-gray-400 mt-1.5">Leave empty for no expiration</p>
+              <p className="text-xs text-gray-400 mt-1.5">{coupon_mng.NEW.no}</p>
             </div>
           </div>
 
           {/* Activate Coupon */}
           <div className="flex items-center justify-between p-4 bg-purple-50 rounded-lg">
             <div>
-              <p className="text-base font-medium text-gray-700">Activate Coupon</p>
-              <p className="text-xs text-gray-500 mt-1">Coupon will be immediately available for use</p>
+              <p className="text-base font-medium text-gray-700">{coupon_mng.NEW.ac}</p>
+              <p className="text-xs text-gray-500 mt-1">{coupon_mng.NEW.cwb}</p>
             </div>
             <button
               onClick={() => handleInputChange('isActive', !formData.isActive)}
@@ -303,14 +304,12 @@ export default function Add_coupon_box({onClick}) {
             label='Close'
             // className="px-6 py-2.5 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-purple-50 transition-colors"
           >
-            
           </White_button>
           <Purple_button
             onClick={handleSubmit}
             label=' Create Coupon'
             // className="px-6 py-2.5 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
           >
-           
           </Purple_button>
         </div>
       </div>

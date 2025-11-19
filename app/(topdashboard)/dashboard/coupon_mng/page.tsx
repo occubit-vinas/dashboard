@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Top_area from '@/components/sidebar/top_area';
 import Add_coupon_box from '../components/coupon_mng/Add_coupon_box';
 import Pagination from '../components/Pagination'; // Added
+import {coupon_mng} from '@/data/dashboard/constants';
 import {
   Product_filter_bar,
   Clearfilter,
@@ -46,24 +47,24 @@ const CouponsPage: React.FC = () => {
   const itemsPerPage = 5;
 
   // Filter configuration
-  const filtersConfig: FilterConfig[] = [
-    {
-      type: 'select',
-      name: 'status',
-      label: 'All Status',
-      options: ['All', 'Active', 'Inactive', 'Expired'],
-      width: 'w-56',
-      defaultValue: 'All',
-    },
-    {
-      type: 'select',
-      name: 'type',
-      label: 'All Type',
-      options: ['All', 'Percentage', 'Fixed Amount', 'Free Shipping'],
-      width: 'w-56',
-      defaultValue: 'All',
-    },
-  ];
+ const filtersConfig: FilterConfig[] = [
+  {
+    type: "select",
+    name: "status",
+    label: coupon_mng.FILTER_LABEL.STATUS,
+    options: Object.values(coupon_mng.STATUS),
+    width: "w-56",
+    defaultValue: coupon_mng.FILTER_DEFAULT.STATUS,
+  },
+  {
+    type: "select",
+    name: "type",
+    label: coupon_mng.FILTER_LABEL.TYPE,
+    options: Object.values(coupon_mng.TYPE),
+    width: "w-56",
+    defaultValue: coupon_mng.FILTER_DEFAULT.TYPE,
+  },
+];
 
   const initialFilters = filtersConfig.reduce((acc, config) => {
     acc[config.name] = config.defaultValue || '';
@@ -202,8 +203,8 @@ const CouponsPage: React.FC = () => {
   return (
     <div className="container mx-auto my-10 flex flex-col gap-5">
       <Top_area
-        title="Coupons & Discounts"
-        desc="Create and manage discount codes for your store"
+        title={coupon_mng.title}
+        desc={coupon_mng.desc}
         components={[
           <Export key="1" />,
           showfilter ? (
@@ -221,7 +222,7 @@ const CouponsPage: React.FC = () => {
         <div className="h-[540px] overflow-y-auto rounded-2xl">
           {showfilter && (
             <div className="w-full flex flex-row justify-between items-center mb-3">
-              <h1 className="my-title text-lg font-semibold translate-x-2">All Coupons</h1>
+              <h1 className="my-title text-lg font-semibold translate-x-2">{coupon_mng.aco}</h1>
               <Clearfilter clearFilters={clearFilters} />
             </div>
           )}
@@ -251,13 +252,13 @@ const CouponsPage: React.FC = () => {
           <table className="min-w-full text-left border-collapse">
             <thead className="sticky top-0 bg-[#F9F4FF]">
               <tr>
-                <th className="text-first py-3 px-4 border-gray-300 w-[18%] rounded-l-2xl">Coupon</th>
-                <th className="text-first py-3 px-4 border-gray-300 w-[15%]">Type & Value</th>
-                <th className="text-first py-3 px-4 border-gray-300 w-[30%]">Usage</th>
-                <th className="text-first py-3 px-4 border-gray-300 w-[15%]">Valid Period</th>
-                <th className="text-first py-3 px-4 border-gray-300 w-[10%]">Date Created</th>
-                <th className="text-first py-3 px-4 border-gray-300 w-[5%]">Status</th>
-                <th className="text-first py-3 px-4 border-gray-300 w-[10%] rounded-r-2xl">Action</th>
+                <th className="text-first py-3 px-4 border-gray-300 w-[18%] rounded-l-2xl">{coupon_mng.cou}</th>
+                <th className="text-first py-3 px-4 border-gray-300 w-[15%]">{coupon_mng.tnv}</th>
+                <th className="text-first py-3 px-4 border-gray-300 w-[30%]">{coupon_mng.usg}</th>
+                <th className="text-first py-3 px-4 border-gray-300 w-[15%]">{coupon_mng.vp}</th>
+                <th className="text-first py-3 px-4 border-gray-300 w-[10%]">{coupon_mng.dc}</th>
+                <th className="text-first py-3 px-4 border-gray-300 w-[5%]">{coupon_mng.st}</th>
+                <th className="text-first py-3 px-4 border-gray-300 w-[10%] rounded-r-2xl">{coupon_mng.ac}</th>
               </tr>
             </thead>
 
@@ -355,7 +356,7 @@ const CouponsPage: React.FC = () => {
               ) : (
                 <tr>
                   <td colSpan={7} className="py-6 px-4 text-center text-gray-500">
-                    No coupons found matching the filters.
+                    {coupon_mng.ncf}
                   </td>
                 </tr>
               )}

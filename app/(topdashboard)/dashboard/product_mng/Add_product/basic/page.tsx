@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect ,useRef} from 'react'
 import { Cancel, Create } from '../../../components/top_buttons'
 import Top_area from '@/components/sidebar/top_area'
 import Top_nav_bar from '../../../components/Top_nav_bar'
@@ -13,8 +13,9 @@ const Page = () => {
     const [isParentOpen, setIsParentOpen] = useState(false);
     // const router = useRouter();
     // ✅ Form data state
-    const [formData, setFormData] = useState({
-        name: '',
+    const fileInputRef = useRef<HTMLInputElement>(null);
+    const initialFormData={
+         name: '',
         parentCategory: '',
         brand: '',
         sku: '',
@@ -26,7 +27,8 @@ const Page = () => {
         tagValue: '',
         specName: '',
         specValue: '',
-    })
+    }
+    const [formData, setFormData] = useState(initialFormData)
     // ✅ Generic input change handler
     const handleInputChange = (field: string, value: string) => {
         setFormData(prev => ({ ...prev, [field]: value }))
@@ -41,6 +43,10 @@ const Page = () => {
     const handleCancel = () => {
         alert('form cancled');
         // router.back()
+        setFormData(initialFormData);
+        if(fileInputRef.current){
+            fileInputRef.current.value='';
+        }
     }
 
     // ✅ Create handler → log or submit form
@@ -178,6 +184,7 @@ const Page = () => {
                             <div className=' rounded-lg p-8 text-center hover:border-purple-400 transition-colors flex flex-row justify-center items-center'>
                                 <input
                                     type='file'
+                                    ref={fileInputRef}
                                     id='image-upload'
                                     accept='image/*'
                                     onChange={handleImageUpload}

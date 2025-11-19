@@ -8,7 +8,7 @@ import {
   Purple_button,
   White_button,
 } from '../../components/top_buttons';
-
+import {home_mng} from '@/data/dashboard/constants';
 interface EditProps {
   setopenedit: (v: boolean) => void;
 }
@@ -21,7 +21,7 @@ const Edit = ({ setopenedit }: EditProps) => {
       <div className="bg-white p-6 rounded-sm shadow-lg w-full max-w-[720px] max-h-[680px] overflow-y-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
-          <p className="text-title">Edit Trending product</p>
+          <p className="text-title">{home_mng.etp}</p>
           <Image
             src="/dashboard/close-circle-black.png"
             width={24}
@@ -36,14 +36,14 @@ const Edit = ({ setopenedit }: EditProps) => {
         <div className="grid grid-cols-1 md:grid-cols-2 ">
           {/* LEFT – product selector */}
           <div className="flex flex-col gap-3 pr-3">
-            <p className="text-first">Select Product</p>
+            <p className="text-first">{home_mng.sp}</p>
             <p className="text-third">
-              Choose a product to feature in the trending section
+              {home_mng.capt}
             </p>
 
             <input
               type="text"
-              placeholder="search product, order..."
+              placeholder={home_mng.spo}
               className="py-1 px-2 border border-gray-700 rounded-sm"
             />
 
@@ -86,9 +86,9 @@ const Edit = ({ setopenedit }: EditProps) => {
 
           {/* RIGHT – preview */}
           <div className="flex flex-col gap-3 border-l-4 border-gray-500 pl-3">
-            <p className="text-first">Selected Product</p>
+            <p className="text-first">{home_mng.sp}</p>
             <p className="text-third">
-              Review and configure the selected product
+              {home_mng.rac}
             </p>
 
             <Image
@@ -109,7 +109,7 @@ const Edit = ({ setopenedit }: EditProps) => {
         {/* Footer */}
         <div className="mt-6 flex justify-center gap-4">
           <White_button label="Cancel" onClick={() => setopenedit(false)} />
-          <Purple_button label="Update Product" />
+          <Purple_button label={home_mng.up} />
         </div>
       </div>
     </div>
@@ -128,7 +128,7 @@ const gridItems = [
       alt="product"
       className="w-full h-28 object-cover rounded-sm"
     />
-    <p className="text-second">Aline Ancer Printed Madhuri Kurtis</p>
+    <p className="text-second">{home_mng.aap}</p>
     <p className="text-first">$ 499</p>
   </>,
   <>
@@ -139,7 +139,7 @@ const gridItems = [
       alt="product"
       className="w-full h-28 object-cover rounded-sm"
     />
-    <p className="text-second">Aline Ancer Printed Madhuri Kurtis</p>
+    <p className="text-second">{home_mng.aap}</p>
     <p className="text-first">$ 499</p>
   </>,
 ];
@@ -154,7 +154,7 @@ const listItems = [
       className="w-14 h-14 object-cover rounded-sm"
     />
     <div>
-      <p className="text-second">Aline Ancer Printed Madhuri Kurtis</p>
+      <p className="text-second">{home_mng.aap}</p>
       <p className="text-first">$ 499</p>
     </div>
   </div>,
@@ -167,7 +167,7 @@ const listItems = [
       className="w-14 h-14 object-cover rounded-sm"
     />
     <div>
-      <p className="text-second">Aline Ancer Printed Madhuri Kurtis</p>
+      <p className="text-second">{home_mng.aap}</p>
       <p className="text-first">$ 499</p>
     </div>
   </div>,

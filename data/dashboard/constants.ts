@@ -33,7 +33,7 @@ export const overview_box = {
         VS_LAST_PERIOD4: 'vs last period Active Products',
 
     }
-};
+}as const;
 
 export const sales_box = {
     titles: {
@@ -46,7 +46,7 @@ export const sales_box = {
         ALL_TIME_ORDERS: 'All time orders',
         VISITOR_TO_CUSTOMER: 'visitors to customers',
     }
-};
+}as const;
 
 
 // constants.js
@@ -64,7 +64,7 @@ export const customer_box = {
         PER_ORDER_AVG: 'Per order average',
         CUSTOMER_RETENTION: 'Customer retantion',
     }
-};
+}as const;
 
 export const inventory_box = {
     titles: {
@@ -79,7 +79,7 @@ export const inventory_box = {
         TOTAL_INVENTORY_WORTH: 'total inventory worth',
         PER_PRODUCT_AVG: 'Per product average',
     }
-};
+}as const;
 
 // constants.js
 
@@ -90,7 +90,7 @@ export const overview_piechart = {
         PENDING: "Pending Orders",
         CANCELLED: "Cancelled Orders",
     },
-};
+}as const;
 
 export const sales_piechart = {
     title: "Payment Method",
@@ -99,7 +99,7 @@ export const sales_piechart = {
         UPI: "UPI Online Payment",
         CHEQUE: "cheak",
     },
-};
+}as const;
 
 // constants.js
 
@@ -108,7 +108,7 @@ export const overview_orders = {
         CONFIRMED: "Confirmed",
         PENDING: "Pending",
     }
-};
+}as const;
 
 // constants.js
 
@@ -123,7 +123,7 @@ export const overview_products = {
         XL: "XL",
         XXL: "XXL",
     }
-};
+}as const;
 
 export const sales_radial_chart = {
     productNames: {
@@ -135,7 +135,7 @@ export const sales_radial_chart = {
         TITLE:'Sales By Category',
         DESC:'Keep Performance Indicator Breakdown'
     }
-};
+}as const;
 
 // constants.js
 
@@ -148,7 +148,7 @@ export const customer_radial_chart = {
     title:{
         TITLE:'Devices'
     }
-};
+}as const;
 
 export const products_topselling = {
     productNames: {
@@ -174,7 +174,7 @@ export const products_topselling = {
     },
     TITLE:'Top Selling Products',
     DESC:'Best performing products by sales volume'
-};
+}as const;
 export const product_categorie_rating={
     TITLE1:'Product Categories',
     DESC1:'Revenue By Product categorie',
@@ -191,7 +191,7 @@ export const product_categorie_rating={
         SAREE:'Saree',
         TOP:'Top'
     }
-}
+}as const;
 
 export const performance_summary = {
     labels: {
@@ -217,14 +217,14 @@ export const NAVLINKS={
     PRODUCT:'Product',
     INVENTORY:'Inventory',
     INSIGHTS:'Insights'
-}
+}as const;
 
 export const inventory={
     title:'Low Stock Alert',
     desc:'Products that need to Restoking soon',
     title2:'Product by Category',
     desc2:'Inventory Distribution between category',
-}
+}as const;
 
 export const KEY_INSIGHTS={
     title:'Key Insights',
@@ -233,11 +233,11 @@ export const KEY_INSIGHTS={
     desc1:'Revenue is up +17.6% compared to last period. Keep up the great work!',
     title2:'Customer Retention',
     desc2:'Customer retention rate is 50%. Focus on satisfaction to improve retention.'
-}
+}as const;
 export const INSIGHTS_SALES={
     title:'Sales velocity',
     desc:"Daily Sales Performance Trend"
-}
+}as const;
 
 export const INSIGHTS_GOAL={
     title:'Goal Progress',
@@ -245,7 +245,7 @@ export const INSIGHTS_GOAL={
     t1:'order goal',
     t2:'customer goal',
     t3:'revenue goal'
-}
+} as const;
 
 export const ADD_CAT={
     t1:'Name',
@@ -289,7 +289,7 @@ export const ADD_CAT={
     d113:'Default Value(Optional)',
     d1131:"Enter default value",
     d114:'Required Attributes'
-}
+} as const;
 
 export const PRODUCT_MNG_CON = {
 
@@ -320,7 +320,7 @@ export const PRODUCT_MNG_CON = {
   PRICE_999: '₹999',
   PRICE_1299: '₹1299',
   PRICE_1599: '₹1599',
-};
+} as const;
 
 export const PRODUCT_FILTER_CONSTANTS = {
   // Category Filter
@@ -347,3 +347,347 @@ export const PRODUCT_FILTER_CONSTANTS = {
   LABEL_PRICE: 'Price',
   CURRENCY_INR: '₹',
 } as const;
+
+export const add_pro_var={
+    gso:'Global Size Options',
+    cn:'Color Name',
+    ss:'Selected Size',
+    cs:'Customise Size',
+    adv:'Add Color Varient',
+    mbob:"e.g., Midnight blue, Ocean blue, Sunset red",
+    pi:'Product Image',
+    dih:'Drop Images here or click to browse',
+    as:"Available Sizes",
+    s:'selected',
+    sa:"Selected All",
+    es:'Enter Size and press enter'
+} as const;
+
+export const add_pro_inve={
+    sq:'Stock Quantity',
+    lsa:'Low Stock Alert',
+    bsq:"Base stock quantity for this product",
+    ti:"Track Inventory",
+    msl:'Monitor stock level form this product',
+    ab:"Allow Backorder",
+    acw:"Accept orders when out of stock",
+    ss:'Stock Summary',
+    bs:'Base Stock:',
+    vs:"Varient Stock",
+    ta:"Total Available"
+}
+
+export const add_pro_seo={
+    st:"SEO Title",
+    est:'Enter SEO Title',
+    rc56:'Recommended: 50–60 characters',
+    sd:'SEO Description',
+    rc1516:"Recommended: 150–160 characters",
+    esm:'Enter SEO meta description',
+    sk:'SEO Keyword',
+    sp:'Search Preview',
+    ypt:"Your Product Title",
+    ex:'example.com/products/product-name',
+    pd:'Product description will appear here...',
+    st:'SEO Tips',
+    iyp:'Include your primary keyword in the title and description.',
+    ktu:'Keep titles under 60 characters for optimal display.',
+    wcd:'Write compelling descriptions that encourage clicks.',
+    urk:'Use relevant keywords naturally throughout your content.'
+}
+
+export const add_pro_adv={
+    pvt:'Public-Visible to everyone',
+    pov:'Private-Only visible to admin',
+    hnv:'Hidden-Not visible anywhere',
+    pv:'Product Visibility',
+    as:'Active Status',
+    mtp:"Make this product available for purchase",
+    fp:'featured product',
+    stp:'show this product in featured sections',
+    ps:'Product Summary',
+    pn:'Product name',
+    c:'Category',
+    pr:'Price',
+    sq:'Stock Quantity',
+    v:'Varients',
+    i:'Image',
+    s:'Status',
+    vi:'Visibility',
+    vs:'Varient Summary',
+    ti:'Technical Information',
+    pi:'product ID',
+    gr:'GST Rate',
+    hc:'HSN Code',
+    b:'Brand'
+}
+
+export const ORDER_MNG = {
+    ORDER_STATUS: {
+        ALL: 'All Status',
+        PENDING: 'Pending',
+        PROCESSING: 'Processing',
+        SHIPPED: 'Shipped',
+        DELIVERED: 'Delivered',
+        CANCELED: 'Canceled',
+        RETURNED: 'Returned',
+        CONFIRMED: 'Confirmed',
+        FAILED:'Failed',
+        REFUNDED:'Refunded',
+    },
+
+    PAYMENT_STATUS: {
+        ALL: 'All Payment Status',
+        PAID: 'Paid',
+        PENDING: 'Pending',
+        FAILED: 'Failed',
+        REFUNDED: 'Refunded',
+        PARTIALLY_REFUNDED: 'Partially Refunded'
+    },
+
+    LABELS: {
+        STATUS: 'Order Status',
+        PAYMENT: 'Payment Status',
+        DATE_RANGE: 'Date Range'
+    },
+
+    CURRENCY: '₹',
+    UOS:'Update order Status',
+    OS:'Order Status',
+    TN:'Traking Number',
+    ETN:'enter traking number',
+    TITLE:'Orders Management',
+    DESC:'Manage and track all your store orders',
+} as const;
+
+export const customer_mng = {
+  STATUS: {
+    ALL: "All",
+    ACTIVE: "Active",
+    INACTIVE: "Inactive",
+    VIP: "VIP",
+    BANNED: "Banned",
+    PROSPECT: "Prospect",
+  },
+
+  CITY: {
+    ALL: "All Cities",
+    MUMBAI: "Mumbai",
+    DELHI: "Delhi",
+    BENGALURU: "Bengaluru",
+    CHENNAI: "Chennai",
+    KOLKATA: "Kolkata",
+  },
+
+  LABELS: {
+    CUSTOMER_STATUS: "Customer Status",
+    CITY: "City",
+    LAST_ORDER_DATE: "Last Order Date",
+  },
+
+  DATE_RANGE_DEFAULT: "Date Range",
+  FILTER_LABEL: {
+    STATUS: "Customer Status",
+    CITY: "City",
+    DATE_RANGE: "Last Order Date",
+  },
+
+  FILTER_DEFAULT: {
+    STATUS: "All",
+    CITY: "All Cities",
+    DATE_RANGE: "Date Range",
+  },
+  CUSTOMER: {
+    CUST_001: {
+      NAME: "Anita Desai",
+      EMAIL: "anita.desai@example.com",
+      AVATAR: "/avatars/avatar1.png",
+    },
+    CUST_002: {
+      NAME: "Ravi Kumar",
+      EMAIL: "ravi.kumar@example.com",
+      AVATAR: "/avatars/avatar2.png",
+    },
+    CUST_003: {
+      NAME: "Meera Nair",
+      EMAIL: "meera.nair@example.com",
+      AVATAR: "/avatars/avatar3.png",
+    },
+    CUST_004: {
+      NAME: "Sanjay Patel",
+      EMAIL: "sanjay.patel@example.com",
+      AVATAR: "/avatars/avatar4.png",
+    },
+    CUST_005: {
+      NAME: "Priya Sharma",
+      EMAIL: "priya.sharma@example.com",
+      AVATAR: "/avatars/avatar5.png",
+    },
+    CUST_006: {
+      NAME: "Amit Verma",
+      EMAIL: "amit.verma@example.com",
+      AVATAR: "/avatars/avatar6.png",
+    },
+    CUST_007: {
+      NAME: "Neha Gupta",
+      EMAIL: "neha.gupta@example.com",
+      AVATAR: "/avatars/avatar7.png",
+    },
+    CUST_008: {
+      NAME: "Vikram Singh",
+      EMAIL: "vikram.singh@example.com",
+      AVATAR: "/avatars/avatar8.png",
+    },
+    CUST_009: {
+      NAME: "Kavya Reddy",
+      EMAIL: "kavya.reddy@example.com",
+      AVATAR: "/avatars/avatar9.png",
+    },
+    CUST_010: {
+      NAME: "Rohan Mehta",
+      EMAIL: "rohan.mehta@example.com",
+      AVATAR: "/avatars/avatar10.png",
+    },
+    CUST_011: {
+      NAME: "Sonia Kapoor",
+      EMAIL: "sonia.kapoor@example.com",
+      AVATAR: "/avatars/avatar11.png",
+    },
+    CUST_012: {
+      NAME: "Arjun Malhotra",
+      EMAIL: "arjun.malhotra@example.com",
+      AVATAR: "/avatars/avatar12.png",
+    },
+  },
+  NAME:'Name',
+  EMAIL:'Email',
+  ORDERS:'Orders',
+  TOTAL_SPENT:'Total Spent',
+  CITY_LB:'City',
+  LO:"Last Order",
+  STA:'Status',
+  ACT:'Action',
+};
+
+export const coupon_mng={
+    title:'Coupons & Discount',
+    desc:'Create and manage discount codes for your store',
+    cou:'Coupon',
+    tnv:"Type & Value",
+    usg:'Usage',
+    vp:'Valid Period',
+    dc:'Date Created',
+    st:'Status',
+    ac:'Action',
+    aco:'All Coupon',
+    ncf:'No Coupons found matching the filters.',
+    STATUS: {
+    ALL: "All",
+    ACTIVE: "Active",
+    INACTIVE: "Inactive",
+    EXPIRED: "Expired",
+  },
+
+  TYPE: {
+    ALL: "All",
+    PERCENTAGE: "Percentage",
+    FIXED_AMOUNT: "Fixed Amount",
+    FREE_SHIPPING: "Free Shipping",
+  },
+
+  FILTER_LABEL: {
+    STATUS: "All Status",
+    TYPE: "All Type",
+  },
+
+  FILTER_DEFAULT: {
+    STATUS: "All",
+    TYPE: "All",
+  },
+  NEW:{
+    cnc:'Create New Coupon',
+    can:'Create a new discount coupon to offer to your customers.',
+    cc:'Coupon code',
+    ge:'Generate',
+    des:'Description',
+    off20:"20% off on all items - limited time offer",
+    dt:'Discount Type',
+    per:'Percentage(%)',
+    ctm:"Cap the maximum discount for percentage-based coupons",
+    moa:'Minimum Order Amount($)',
+    mda:"Maximum Discount Amount",
+    ul:"Usage Limit",
+    sd:'Start Date',
+    ed:'End Date',
+    uu:'Unlimitde Usage',
+    no:"Leave empty for no expiration",
+    ac:"Active Coupon",
+    cwb:'Coupon will be immediately available for use',
+    pd:'percentage discount',
+    fam:'Fixed amount discount',
+    fs:"free-shipping",
+
+  }
+}
+
+export const home_mng={
+    title:"Homepage Management",
+    desc:"Manage Your stores's homepage content and layout",
+    h1:'Hero Slides',
+    h2:'Trending Categories',
+    h3:'Trending Products',
+    h4:'Testimonials',
+    pm:"Preview Mode",
+    ahs:"Add Hero Slide",
+    ed:'Edit',
+    dtr:'Drag To Reorder',
+
+    ehs:'Edit Hero Slide',
+    sd:'Slide Details',
+    app:'Appearnce',
+    tt:'Title',
+    bt:'Button Text',
+    sb:'Subtitle',
+    de:"description",
+    lurl:'Link URL',
+    do:'Display Order',
+    laf:'Lower numbers appear first',
+    can:'Cancel',
+    us:"Update Slide",
+    a:'Active',
+    si:'Slide Image',
+    dih:"Drop Image here or click to browse",
+    ci:'Current Image',
+    ch:'Change',
+    btd:"Back to Details",
+    us:'Update Slide',
+    pm:'Preview Mode',
+    atc:'Add Trending Category',
+    ed:'Edit',
+    edt:'Edit Trending Category',
+    up:'Update Category',
+    do:'Display Order',
+    ct:'Category',
+
+    c1:'Ethnic Wear',
+    c2:'Anarkali',
+    c3:'Western Wear',
+    c4:'Align',
+    c5:'Tunic',
+
+    ap:'Add Product',
+    etp:"Edit Trending Product",
+    sp:'Select Product',
+    capt:"Choose a product to feature in the trending section",
+    rac:'Review and configure the selected product',
+    up:'Update Product',
+    aap:'Aline Ancer Printed Madhuri Kurtis',
+    spo:'Search products,order...',
+    ntf:'No testimonial found Add customers testimonials to build Trust.',
+    ct:'Customer Testimonial',
+    at:'Add Testimonial',
+    cn:'Customer Name',
+    tm:'Testimonial Message',
+    cp:'Customer Photo',
+
+}

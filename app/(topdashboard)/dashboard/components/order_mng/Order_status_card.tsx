@@ -2,21 +2,22 @@
 import React, { useState } from 'react'
 import { MdOutlineCancel } from "react-icons/md";
 import { IoChevronDown } from 'react-icons/io5';
-
+import { ORDER_MNG } from '@/data/dashboard/constants';
 import { White_button, Purple_button } from '../top_buttons';
 const Order_status_card = ({ setstatuscard }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selected, setSelected] = useState('Select Status');
+
     const options = [
-        'Pending',
-        'Processing',
-        'Shipped',
-        'Delivered',
-        'Canceled',
-        'Failed',
-        'Refunded',
-        'Confirmed',
-        'Returned',
+        ORDER_MNG.ORDER_STATUS.PENDING,
+        ORDER_MNG.ORDER_STATUS.PROCESSING,
+        ORDER_MNG.ORDER_STATUS.SHIPPED,
+        ORDER_MNG.ORDER_STATUS.DELIVERED,
+        ORDER_MNG.ORDER_STATUS.CANCELED,
+        ORDER_MNG.ORDER_STATUS.FAILED,
+        ORDER_MNG.ORDER_STATUS.REFUNDED,
+        ORDER_MNG.ORDER_STATUS.CONFIRMED,
+        ORDER_MNG.ORDER_STATUS.RETURNED,
     ];
     const toggleDropdown = () => setIsOpen(!isOpen);
 
@@ -29,14 +30,14 @@ const Order_status_card = ({ setstatuscard }) => {
             <div className='flex flex-row justify-between'>
                 <div className='flex flex-col gap-2'>
 
-                    <p className='order-card-title'>Update order Status</p>
+                    <p className='order-card-title'>{ORDER_MNG.UOS}</p>
                     <p className='text-third'>Order #3DDC97</p>
                 </div>
                 <MdOutlineCancel className='size-6 cursor-pointer' onClick={() => setstatuscard(false)} />
             </div>
 
             <div className='flex flex-col gap-2'>
-                <p className='order-card-second'>Order Status</p>
+                <p className='order-card-second'>{ORDER_MNG.OS}</p>
                 <div className="relative inline-block ">
                     {/* Dropdown Button */}
                     <button
@@ -72,10 +73,10 @@ const Order_status_card = ({ setstatuscard }) => {
                     )}
                 </div>
             </div>
-           {(selected === 'Shipped' || selected === 'Delivered')  && <div className='flex flex-col gap-2'>
-                <p className='order-card-second'>Traking Number</p>
+           {(selected === ORDER_MNG.ORDER_STATUS.SHIPPED || selected === ORDER_MNG.ORDER_STATUS.DELIVERED)  && <div className='flex flex-col gap-2'>
+                <p className='order-card-second'>{ORDER_MNG.TN}</p>
                 <input
-                placeholder='Enter traking number'
+                placeholder={ORDER_MNG.ETN}
                 type='text'
                 className='w-full border rounded-sm border-gray-400 text-third p-1.5'
                 />
@@ -88,4 +89,4 @@ const Order_status_card = ({ setstatuscard }) => {
     )
 }
 
-export default Order_status_card
+export default Order_status_card;

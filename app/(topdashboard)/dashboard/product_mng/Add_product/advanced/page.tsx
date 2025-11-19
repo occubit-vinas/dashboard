@@ -1,7 +1,8 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Image from 'next/image'
 import { IoChevronDown, IoChevronUp } from 'react-icons/io5'
+import { add_pro_adv } from '@/data/dashboard/constants'
 const Page = () => {
     // ✅ Form and toggle states
     const [formData, setFormData] = useState({
@@ -13,25 +14,23 @@ const Page = () => {
         isFeatured: false,
     })
 
-
-
     const [isOpen, setIsOpen] = useState(false)
     const [selected, setSelected] = useState<string>('')
 
     const options = [
         {
             value: 'public',
-            label: 'Public - Visible to everyone',
+            label: add_pro_adv.pvt,
             icon: '/dashboard/eye.png',
         },
         {
             value: 'private',
-            label: 'Private - Only visible to admin',
+        label: add_pro_adv.pov,
             icon: '/dashboard/eye-slash.png',
         },
         {
             value: 'draft',
-            label: 'Draft - Not published yet',
+            label: add_pro_adv.hnv,
             icon: '/dashboard/eye-slash.png',
         },
     ]
@@ -40,15 +39,34 @@ const Page = () => {
         setSelected(value)
         setIsOpen(false)
     }
-
+    const handleCancel=()=>{
+        alert('canceled');
+        setInventorySettings({
+            isActive:true,
+            isFeatured:false,
+        })
+        setSelected('');
+    }
+    const handleCreate=()=>{
+        alert('submited');
+        console.log(setInventorySettings.isAcive,setInventorySettings.isFeatured,selected);
+    }
     const selectedOption = options.find(opt => opt.value === selected)
+    useEffect(() => {
+    window.addEventListener('addProductCancel', handleCancel)
+    window.addEventListener('addProductCreate', handleCreate)
 
+    return () => {
+      window.removeEventListener('addProductCancel', handleCancel)
+      window.removeEventListener('addProductCreate', handleCreate)
+    }
+  }, []) 
     return (
         <div className="container mx-auto my-10">
             <div className="p-6 bg-white  rounded-xl flex flex-col gap-8">
                 {/* ---------------- Product Visibility ---------------- */}
                 <div className="w-full">
-                    <p className="text-first font-semibold text-lg mb-4">Product Visibility</p>
+                    <p className="text-first font-semibold text-lg mb-4"></p>
 
                     {/* Parent Category Select */}
                     <div className="w-1/3 relative">
@@ -72,7 +90,7 @@ const Page = () => {
                                         <span className="text-second py-3">{selectedOption.label}</span>
                                     </>
                                 ) : (
-                                    <span className="text-gray-500">Select visibility</span>
+                                    <span className="text-gray-500">{add_pro_adv.pv}</span>
                                 )}
                             </div>
 
@@ -112,8 +130,8 @@ const Page = () => {
                         {/* Active Status */}
                         <div className="flex flex-row items-center justify-between">
                             <div className="flex flex-col gap-1">
-                                <p className="text-second font-medium">Active Status</p>
-                                <p className="text-third text-sm">Make this product available for purchase</p>
+                                <p className="text-second font-medium">{add_pro_adv.as}</p>
+                                <p className="text-third text-sm">{add_pro_adv.mtp}</p>
                             </div>
                             <button
                                 type="button"
@@ -136,8 +154,8 @@ const Page = () => {
                         {/* Featured Product */}
                         <div className="flex flex-row items-center justify-between">
                             <div className="flex flex-col gap-1">
-                                <p className="text-second font-medium">Featured Product</p>
-                                <p className="text-third text-sm">Show this product in featured sections</p>
+                                <p className="text-second font-medium">{add_pro_adv.fp}</p>
+                                <p className="text-third text-sm">{add_pro_adv.stp}</p>
                             </div>
                             <button
                                 type="button"
@@ -161,25 +179,25 @@ const Page = () => {
 
                 {/* ---------------- Product Summary ---------------- */}
                 <div className="light-purple rounded-sm shadow-[0_0_3px_0_rgba(108,108,128,0.35)] flex flex-col gap-4 p-4">
-                    <p className="text-first font-semibold text-lg">Product Summary</p>
+                    <p className="text-first font-semibold text-lg">{add_pro_adv.ps}</p>
 
                     <div className="flex flex-row w-full">
                         {/* Left column */}
                         <div className="w-1/2 flex flex-col gap-4.5">
                             <div className="flex flex-col gap-2">
-                                <p className="text-third">Product Name</p>
+                                <p className="text-third">{add_pro_adv.pn}</p>
                                 <p className="text-second">Not Set</p>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <p className="text-third">Price</p>
+                                <p className="text-third">{add_pro_adv.pr}</p>
                                 <p className="text-second">₹0.00</p>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <p className="text-third">Variants</p>
+                                <p className="text-third">{add_pro_adv.v}</p>
                                 <p className="text-second">None</p>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <p className="text-third">Status</p>
+                                <p className="text-third">{add_pro_adv.s}</p>
                                 <p className="text-second">
                                     {inventorySettings.isActive ? 'Active' : 'Inactive'}
                                 </p>
@@ -189,21 +207,21 @@ const Page = () => {
                         {/* Right column */}
                         <div className="w-1/2 flex flex-col gap-4.5">
                             <div className="flex flex-col gap-2">
-                                <p className="text-third">Category</p>
+                                <p className="text-third">{add_pro_adv.c}</p>
                                 <p className="text-second">
                                     {formData.parentCategory ? formData.parentCategory : 'Not Selected'}
                                 </p>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <p className="text-third">Stock Quantity</p>
+                                <p className="text-third">{add_pro_adv.sq}</p>
                                 <p className="text-second">0</p>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <p className="text-third">Image</p>
+                                <p className="text-third">{add_pro_adv.i}</p>
                                 <p className="text-second">None</p>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <p className="text-third">Visibility</p>
+                                <p className="text-third">{add_pro_adv.vi}</p>
                                 <p className="text-second">
                                     {formData.parentCategory || 'Not Selected'}
                                 </p>
@@ -215,7 +233,7 @@ const Page = () => {
                     <div className="flex flex-row justify-between gap-2 mt-3">
                         <div className='flex flex-col gap-2'>
 
-                            <p className="text-second">Variant Summary:</p>
+                            <p className="text-second">{add_pro_adv.vs}:</p>
                             <p className="text-second">1. Unnamed</p>
                         </div>
                         <div className='text-second'>
@@ -226,30 +244,30 @@ const Page = () => {
 
                 {/* ---------------- Technical Information ---------------- */}
                 <div className="light-purple rounded-sm shadow-[0_0_3px_0_rgba(108,108,128,0.35)] flex flex-col gap-4 p-4 w-full">
-                    <p className="text-first font-semibold text-lg">Technical Information</p>
+                    <p className="text-first font-semibold text-lg">{add_pro_adv.ti}</p>
                     <div className='flex flex-row'>
 
                         <div className='flex flex-col gap-4 w-1/2'>
 
                             <div className="flex flex-col gap-2">
-                                <p className="text-third">Product ID</p>
+                                <p className="text-third">{add_pro_adv.pi}</p>
                                 <p className="text-second">Not Set</p>
                             </div>
 
                             <div className="flex flex-col gap-2">
-                                <p className="text-third">GST Rate</p>
+                                <p className="text-third">{add_pro_adv.gr}</p>
                                 <p className="text-second">Not Set</p>
                             </div>
                         </div>
                         <div className='flex flex-col gap-4 w-1/2'>
 
                             <div className="flex flex-col gap-2">
-                                <p className="text-third">HSN</p>
+                                <p className="text-third">{add_pro_adv.hc}</p>
                                 <p className="text-second">Not Set</p>
                             </div>
 
                             <div className="flex flex-col gap-2">
-                                <p className="text-third">Brand</p>
+                                <p className="text-third">{add_pro_adv.b}</p>
                                 <p className="text-second">Not Set</p>
                             </div>
                         </div>

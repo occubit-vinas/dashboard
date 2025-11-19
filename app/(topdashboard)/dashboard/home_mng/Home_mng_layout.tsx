@@ -3,6 +3,7 @@
 
 import Top_area from '@/components/sidebar/top_area';
 import Top_nav_bar from '../components/Top_nav_bar';
+import {home_mng} from '@/data/dashboard/constants';
 // import { Refresh } from '../components/top_buttons';
 
 interface Props {
@@ -28,10 +29,10 @@ export default function Home_mng_layout({ children, topButtons }: Props) {
       <Top_nav_bar
         bgColor="nav_bar_color"
         navLinks={[
-          { path: '/dashboard/home_mng/heroslide/', title: 'Hero Slides' },
-          { path: '/dashboard/home_mng/category', title: 'Trending Categories' },
-          { path: '/dashboard/home_mng/product', title: 'Trending Products' },
-          { path: '/dashboard/home_mng/testimonial', title: 'Testimonials' },
+          { path: '/dashboard/home_mng/heroslide/', title:home_mng.h1  },
+          { path: '/dashboard/home_mng/category', title:home_mng.h2  },
+          { path: '/dashboard/home_mng/product', title: home_mng.h3 },
+          { path: '/dashboard/home_mng/testimonial', title: home_mng.h4 },
           ]}
       />
 

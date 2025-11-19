@@ -4,6 +4,7 @@ import React, { useState, ChangeEvent } from 'react';
 import Image from 'next/image';
 import { Upload } from 'lucide-react'; // Make sure lucide-react is installed
 import { Purple_button, White_button } from '../../components/top_buttons';
+import {home_mng} from '@/data/dashboard/constants';
 
 interface FormData {
   title: string;
@@ -59,7 +60,7 @@ const Edit = ({ setopenedit }) => {
     <div className="bg-white p-4 rounded-lg shadow-sm flex flex-col gap-4 w-xl min-h-[630px] mx-auto fixed top-17 left-1/3">
       {/* Header */}
       <div className="flex justify-between items-center">
-        <h2 className="my-title font-bold text-xl">Edit Hero Slide</h2>
+        <h2 className="my-title font-bold text-xl">{home_mng.ehs}</h2>
         <button className="hover:opacity-70 transition">
           <Image
             src="/dashboard/close-circle-black.png"
@@ -74,7 +75,7 @@ const Edit = ({ setopenedit }) => {
 
       {/* Tabs */}
       <div className="flex gap-2 bg-purple-700 rounded-xl p-1 shadow-sm">
-        {['Slide Details', 'Appearance'].map((tab) => (
+        {[home_mng.sd , home_mng.app].map((tab) => (
           <button
             key={tab}
             onClick={toggleTab}
@@ -94,7 +95,7 @@ const Edit = ({ setopenedit }) => {
           {/* Title & Button Text */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
-              <label className="block text-first font-medium mb-1">Title</label>
+              <label className="block text-first font-medium mb-1">{home_mng.tt}</label>
               <input
                 type="text"
                 value={formData.title}
@@ -104,7 +105,7 @@ const Edit = ({ setopenedit }) => {
               />
             </div>
             <div>
-              <label className="block text-first font-medium mb-1">Button Text</label>
+              <label className="block text-first font-medium mb-1">{home_mng.bt}</label>
               <input
                 type="text"
                 value={formData.btn_text}
@@ -117,7 +118,7 @@ const Edit = ({ setopenedit }) => {
 
           {/* Subtitle */}
           <div>
-            <label className="block text-first font-medium mb-1">Subtitle</label>
+            <label className="block text-first font-medium mb-1">{home_mng.sb}</label>
             <input
               type="text"
               value={formData.subtitle}
@@ -129,7 +130,7 @@ const Edit = ({ setopenedit }) => {
 
           {/* Description */}
           <div>
-            <label className="block text-first font-medium mb-1">Description</label>
+            <label className="block text-first font-medium mb-1">{home_mng.de}</label>
             <textarea
               value={formData.description}
               onChange={(e) => handleInputChange('description', e.target.value)}
@@ -141,7 +142,7 @@ const Edit = ({ setopenedit }) => {
 
           {/* Link URL */}
           <div>
-            <label className="block text-first font-medium mb-1">Link URL</label>
+            <label className="block text-first font-medium mb-1">{home_mng.lurl}</label>
             <input
               type="url"
               value={formData.Link_URL}
@@ -154,7 +155,7 @@ const Edit = ({ setopenedit }) => {
           {/* Display Order + Toggle */}
           <div className="flex items-center justify-between">
             <div className="flex-1">
-              <label className="block text-first font-medium mb-1">Display Order</label>
+              <label className="block text-first font-medium mb-1">{home_mng.do}</label>
               <div className="flex flex-col  gap-3">
                 <input
                   type="number"
@@ -163,12 +164,12 @@ const Edit = ({ setopenedit }) => {
                   min="1"
                   className="w-20 px-3 py-2 bg-purple-50 border border-gray-300 rounded-sm text-second focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
-                <span className="text-sm text-third">Lower numbers appear first</span>
+                <span className="text-sm text-third">{home_mng.laf}</span>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
-              <span className="text-first font-medium">Active</span>
+              <span className="text-first font-medium">{home_mng.a}</span>
               <button
                 onClick={() => handleInputChange('order_active', !formData.order_active)}
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${formData.order_active ? 'bg-black' : 'bg-gray-400'
@@ -184,15 +185,15 @@ const Edit = ({ setopenedit }) => {
 
           {/* Buttons */}
           <div className="flex justify-center gap-3 pt-4">
-            <White_button label="Cancel" onClick={() => setopenedit(false)} />
-            <Purple_button label="Update Slide" />
+            <White_button label={home_mng.can} onClick={() => setopenedit(false)} />
+            <Purple_button label={home_mng.us} />
           </div>
         </div>
       ) : (
         <div className="space-y-6">
           {/* Upload New Image */}
           <div>
-            <label className="block text-first font-medium mb-2">Upload New Slide Image</label>
+            <label className="block text-first font-medium mb-2">{home_mng.dih}</label>
             <div className="bg-purple-50 rounded-lg shadow-sm p-6">
               <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-purple-400 transition-colors cursor-pointer">
                 <input
@@ -215,9 +216,9 @@ const Edit = ({ setopenedit }) => {
           {/* Current Image */}
           <div>
             <div className="flex justify-between items-center mb-2">
-              <label className="text-first font-medium">Current Image</label>
+              <label className="text-first font-medium">{home_mng.ci}</label>
               <Purple_button
-                label="Change"
+                label={home_mng.ch}
                 img="/dashboard/refresh-2.png"
                 onClick={() => document.getElementById('image-upload')?.click()}
               />
@@ -234,8 +235,8 @@ const Edit = ({ setopenedit }) => {
 
           {/* Buttons */}
           <div className="flex justify-center gap-3 pt-4">
-            <White_button label="Back to Details" onClick={toggleTab} />
-            <Purple_button label="Update Slide" />
+            <White_button label={home_mng.btd} onClick={toggleTab} />
+            <Purple_button label={home_mng.us} />
           </div>
         </div>
       )}

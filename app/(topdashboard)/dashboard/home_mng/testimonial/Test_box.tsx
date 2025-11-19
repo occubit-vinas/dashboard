@@ -4,7 +4,7 @@ import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import { Upload } from 'lucide-react';
 import { Cancel, Purple_button } from '../../components/top_buttons';
-
+import {home_mng} from '@/data/dashboard/constants';
 export default function Test_box({ setaddbox }: { setaddbox: (v: boolean) => void }) {
   const [img, setImg] = useState<File | null>(null);
   const [dragActive, setDragActive] = useState(false);
@@ -49,7 +49,7 @@ export default function Test_box({ setaddbox }: { setaddbox: (v: boolean) => voi
         >
           {/* Header */}
           <div className="flex justify-between items-center mb-5">
-            <h3 className="my-title">Add Testimonial</h3>
+            <h3 className="my-title">{home_mng.at}</h3>
             <button onClick={() => setaddbox(false)}>
               <Image
                 src="/dashboard/close-circle-black.png"
@@ -65,7 +65,7 @@ export default function Test_box({ setaddbox }: { setaddbox: (v: boolean) => voi
           {/* Customer Name */}
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 mb-1 ml-1.5">
-              Customer Name
+              {home_mng.cn}
             </label>
             <input
               type="text"
@@ -77,7 +77,7 @@ export default function Test_box({ setaddbox }: { setaddbox: (v: boolean) => voi
           {/* Testimonial Message */}
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 mb-1 ml-1.5">
-              Testimonial Message
+              {home_mng.tm}
             </label>
             <textarea
               placeholder="Enter message"
@@ -89,7 +89,7 @@ export default function Test_box({ setaddbox }: { setaddbox: (v: boolean) => voi
           {/* Image Upload */}
           <div className="mb-5">
             <label className="block text-sm font-medium text-gray-700 mb-1 ml-1.5">
-              Customer Photo <span className="text-gray-500">(optional)</span>
+              {home_mng.cp} <span className="text-gray-500">(optional)</span>
             </label>
 
             <div
@@ -141,7 +141,7 @@ export default function Test_box({ setaddbox }: { setaddbox: (v: boolean) => voi
                   {/* <Upload className="w-7 h-7 mb-1" /> */}
                   <Image src='/dashboard/upload.png' alt='img' height={7} width={7} className='size-7 mb-2'/>
                   <p className="text-third">
-                    Drop image or click to browse
+                    {home_mng.dih}
                   </p>
                  
                 </>
@@ -152,7 +152,7 @@ export default function Test_box({ setaddbox }: { setaddbox: (v: boolean) => voi
           {/* Buttons */}
           <div className="flex justify-center gap-3">
             <Cancel onClick={() => setaddbox(false)} />
-            <Purple_button label="Create Testimonial" />
+            <Purple_button label={home_mng.ct} />
           </div>
         </div>
       </div>

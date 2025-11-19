@@ -1,31 +1,57 @@
 'use client'
-import React, { useState } from 'react'
-
+import React, { useState ,useEffect} from 'react'
+import { add_pro_inve } from '@/data/dashboard/constants'
 const Page = () => {
     const [inventorySettings, setInventorySettings] = useState({
         trackInventory: false,
         allowBackorder: false,
     })
+    const [quantity,setquantity]=useState<number>();
+    const [lowstock,setlowstock]=useState<number>();
+    const handleCancel=()=>{
+        alert('form canceled');
+        setquantity(0);
+        setlowstock(0);
+        setInventorySettings({
+            trackInventory: true,
+            allowBackorder: false,
+        });
+    }
+    const handleCreate=()=>{
+        alert('form submitted');
+        console.log(inventorySettings.trackInventory,inventorySettings.allowBackorder,quantity,lowstock);
+    }
+    useEffect(() => {
+        window.addEventListener('addProductCancel', handleCancel)
+        window.addEventListener('addProductCreate', handleCreate)
 
+        // cleanup on unmount
+        return () => {
+            window.removeEventListener('addProductCancel', handleCancel)
+            window.removeEventListener('addProductCreate', handleCreate)
+        }
+    }, [])
     return (
         <div className='container mx-auto my-10'>
             <div className='p-4 bg-white  rounded-xl flex flex-col gap-8 my-4'>
                 {/* --- Stock Section --- */}
                 <div className='flex flex-row gap-5'>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='field_text ml-3'>Stock Quantity</p>
+                        <p className='field_text ml-3'>{add_pro_inve.sq}</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'
+                            onChange={(e)=>setquantity(e.target.value)}
                             className='light-purple rounded-sm items-center pl-2 text-third p-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
-                        <p className='text-third'>Base stock quantity for this product</p>
+                        <p className='text-third'>{add_pro_inve.bsq}</p>
                     </div>
                     <div className='flex flex-col gap-1 w-full'>
-                        <p className='field_text ml-3'>Low Stock Alert</p>
+                        <p className='field_text ml-3'>{add_pro_inve.lsa}</p>
                         <input
                             type='number'
                             placeholder='₹ 0.00'
+                            onChange={(e)=>setlowstock(e.target.value)}
                             className='light-purple rounded-sm items-center pl-2 text-third p-4 shadow-[0_0_3px_0_rgba(108,108,128,0.35)]'
                         />
                     </div>
@@ -38,7 +64,7 @@ const Page = () => {
                     {/* Track Inventory */}
                     <div className='flex flex-row justify-between items-center gap-4'>
                         <div className='flex flex-col gap-1.5'>
-                            <h1 className='text-first'>Track Inventory</h1>
+                            <h1 className='text-first'>{add_pro_inve.ti}</h1>
                             <p
 
                                 style={{
@@ -52,7 +78,7 @@ const Page = () => {
 
                                 }}
                             >
-                                Monitor stock level for this product
+                                {add_pro_inve.msl}
                             </p>
 
                         </div>
@@ -77,7 +103,7 @@ const Page = () => {
                     {/* Allow Backorder */}
                     <div className='flex flex-row justify-between items-center gap-4'>
                         <div className='flex flex-col gap-1.5'>
-                            <h1 className='text-first'>Allow Backorder</h1>
+                            <h1 className='text-first'>{add_pro_inve.ab}</h1>
                             <p
                                 style={{
                                     fontFamily: 'Inter, sans-serif',
@@ -88,7 +114,7 @@ const Page = () => {
                                     letterSpacing: '0%',
                                     color: '#6C6C80',
 
-                                }}>Accept orders when out of stock</p>
+                                }}>{add_pro_inve.acw}</p>
                         </div>
                         <button
                             type="button"
@@ -111,13 +137,13 @@ const Page = () => {
 
                 {/* --- Stock Summary --- */}
                 <div className='flex flex-col gap-2'>
-                    <p className='text-second mb-1.5 size-[16px w-full]'>Stock Summary</p>
+                    <p className='text-second mb-1.5 size-[16px w-full]'>{add_pro_inve.ss}</p>
                     <div className='flex flex-row justify-between gap-2'>
-                        <p className='text-third'>Base Stock:</p>
+                        <p className='text-third'>{add_pro_inve.bs}</p>
                         <p className='text-third'>0</p>
                     </div>
                     <div className='flex flex-row justify-between gap-2'>
-                        <p className='text-third'>Variant Stock:</p>
+                        <p className='text-third'>{add_pro_inve.vs}</p>
                         <p className='text-third'>0</p>
                     </div>
                 </div>
@@ -125,7 +151,7 @@ const Page = () => {
                 <div className='bg-[#6C6C80] w-full h-0.5'></div>
 
                 <div className='flex flex-row justify-between gap-2'>
-                    <p className='text-second'>Total Available:</p>
+                    <p className='text-second'>{add_pro_inve.ta}</p>
                     <p className='text-second'>0</p>
                 </div>
             </div>

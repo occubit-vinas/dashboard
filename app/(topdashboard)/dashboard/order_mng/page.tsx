@@ -8,6 +8,7 @@ import { Export, Showfilter, Hidefilter, Refresh, SearchBar, SortDropdown, SortO
 import { useRouter } from 'next/navigation';
 import Order_card from '../components/order_mng/Order_card';
 import Order_status_card from '../components/order_mng/Order_status_card';
+import { ORDER_MNG } from '@/data/dashboard/constants'
 
 type Order = {
     order: string;
@@ -36,44 +37,45 @@ const OrdersPage = () => {
 
     // FILTER CONFIG
     const filtersConfig: FilterConfig[] = [
-        {
-            type: 'select',
-            name: 'status',
-            label: 'Order Status',
-            options: [
-                'All Status',
-                'Pending',
-                'Processing',
-                'Shipped',
-                'Delivered',
-                'Canceled',
-                'Returned',
-            ],
-            width: 'w-56',
-            defaultValue: 'All Status',
-        },
-        {
-            type: 'select',
-            name: 'payment',
-            label: 'Payment Status',
-            options: [
-                'All Payment Status',
-                'Paid',
-                'Pending',
-                'Failed',
-                'Refunded',
-                'Partially Refunded',
-            ],
-            width: 'w-60',
-            defaultValue: 'All Payment Status',
-        },
-        {
-            type: 'dateRange',
-            name: 'date',
-            label: 'Date Range',
-            defaultValue: 'Date Range',
-        },
-    ];
+    {
+        type: 'select',
+        name: 'status',
+        label: ORDER_MNG.LABELS.STATUS,
+        options: [
+            ORDER_MNG.ORDER_STATUS.ALL,
+            ORDER_MNG.ORDER_STATUS.PENDING,
+            ORDER_MNG.ORDER_STATUS.PROCESSING,
+            ORDER_MNG.ORDER_STATUS.SHIPPED,
+            ORDER_MNG.ORDER_STATUS.DELIVERED,
+            ORDER_MNG.ORDER_STATUS.CANCELED,
+            ORDER_MNG.ORDER_STATUS.RETURNED,
+        ],
+        width: 'w-56',
+        defaultValue: ORDER_MNG.ORDER_STATUS.ALL,
+    },
+    {
+        type: 'select',
+        name: 'payment',
+        label: ORDER_MNG.LABELS.PAYMENT,
+        options: [
+            ORDER_MNG.PAYMENT_STATUS.ALL,
+            ORDER_MNG.PAYMENT_STATUS.PAID,
+            ORDER_MNG.PAYMENT_STATUS.PENDING,
+            ORDER_MNG.PAYMENT_STATUS.FAILED,
+            ORDER_MNG.PAYMENT_STATUS.REFUNDED,
+            ORDER_MNG.PAYMENT_STATUS.PARTIALLY_REFUNDED,
+        ],
+        width: 'w-60',
+        defaultValue: ORDER_MNG.PAYMENT_STATUS.ALL,
+    },
+    {
+        type: 'dateRange',
+        name: 'date',
+        label: ORDER_MNG.LABELS.DATE_RANGE,
+        defaultValue: ORDER_MNG.LABELS.DATE_RANGE,
+    },
+];
+
 
     const initialFilters = filtersConfig.reduce((acc, config) => {
         acc[config.name] = config.defaultValue || '';
@@ -100,24 +102,128 @@ const OrdersPage = () => {
     };
 
     // MOCK DATA - Fixed Duplicates
-    const allData: Order[] = [
-        { order: '#ORD-001', customer: 'John Doe', total: '₹2,499', payment: 'Paid', date: '2025-11-05', status: 'Delivered' },
-        { order: '#ORD-002', customer: 'Jane Smith', total: '₹1,299', payment: 'Pending', date: '2025-11-04', status: 'Shipped' },
-        { order: '#ORD-003', customer: 'Alex Brown', total: '₹899', payment: 'Paid', date: '2025-11-03', status: 'Confirmed' },
-        { order: '#ORD-004', customer: 'Emma Wilson', total: '₹3,999', payment: 'Pending', date: '2025-11-02', status: 'Pending' },
-        { order: '#ORD-005', customer: 'Mike Lee', total: '₹1,799', payment: 'Paid', date: '2025-11-01', status: 'Delivered' },
-        { order: '#ORD-006', customer: 'Sara Khan', total: '₹599', payment: 'Failed', date: '2025-10-30', status: 'Canceled' },
-        { order: '#ORD-007', customer: 'Raj Patel', total: '₹2,199', payment: 'Paid', date: '2025-10-29', status: 'Shipped' },
-        { order: '#ORD-008', customer: 'Priya Sharma', total: '₹4,299', payment: 'Pending', date: '2025-10-28', status: 'Processing' },
-        { order: '#ORD-009', customer: 'Amit Verma', total: '₹799', payment: 'Paid', date: '2025-10-27', status: 'Delivered' },
-        { order: '#ORD-010', customer: 'Neha Gupta', total: '₹1,499', payment: 'Refunded', date: '2025-10-26', status: 'Returned' },
-        { order: '#ORD-011', customer: 'Vikram Singh', total: '₹999', payment: 'Paid', date: '2025-10-25', status: 'Delivered' },
-        { order: '#ORD-012', customer: 'Kavya Reddy', total: '₹2,599', payment: 'Pending', date: '2025-10-24', status: 'Pending' },
-        { order: '#ORD-013', customer: 'Rohan Mehta', total: '₹3,199', payment: 'Paid', date: '2025-10-23', status: 'Shipped' },
-        { order: '#ORD-014', customer: 'Sonia Kapoor', total: '₹1,099', payment: 'Failed', date: '2025-10-22', status: 'Canceled' },
-        { order: '#ORD-015', customer: 'Arjun Malhotra', total: '₹2,899', payment: 'Paid', date: '2025-10-21', status: 'Delivered' },
-    ];
-
+   const allData: Order[] = [
+    { 
+        order: '#ORD-001',
+        customer: 'John Doe',
+        total: `${ORDER_MNG.CURRENCY}2,499`,
+        payment: ORDER_MNG.PAYMENT_STATUS.PAID,
+        date: '2025-11-05',
+        status: ORDER_MNG.ORDER_STATUS.DELIVERED
+    },
+    { 
+        order: '#ORD-002',
+        customer: 'Jane Smith',
+        total: `${ORDER_MNG.CURRENCY}1,299`,
+        payment: ORDER_MNG.PAYMENT_STATUS.PENDING,
+        date: '2025-11-04',
+        status: ORDER_MNG.ORDER_STATUS.SHIPPED
+    },
+    { 
+        order: '#ORD-003',
+        customer: 'Alex Brown',
+        total: `${ORDER_MNG.CURRENCY}899`,
+        payment: ORDER_MNG.PAYMENT_STATUS.PAID,
+        date: '2025-11-03',
+        status: ORDER_MNG.ORDER_STATUS.CONFIRMED
+    },
+    { 
+        order: '#ORD-004',
+        customer: 'Emma Wilson',
+        total: `${ORDER_MNG.CURRENCY}3,999`,
+        payment: ORDER_MNG.PAYMENT_STATUS.PENDING,
+        date: '2025-11-02',
+        status: ORDER_MNG.ORDER_STATUS.PENDING
+    },
+    { 
+        order: '#ORD-005',
+        customer: 'Mike Lee',
+        total: `${ORDER_MNG.CURRENCY}1,799`,
+        payment: ORDER_MNG.PAYMENT_STATUS.PAID,
+        date: '2025-11-01',
+        status: ORDER_MNG.ORDER_STATUS.DELIVERED
+    },
+    { 
+        order: '#ORD-006',
+        customer: 'Sara Khan',
+        total: `${ORDER_MNG.CURRENCY}599`,
+        payment: ORDER_MNG.PAYMENT_STATUS.FAILED,
+        date: '2025-10-30',
+        status: ORDER_MNG.ORDER_STATUS.CANCELED
+    },
+    { 
+        order: '#ORD-007',
+        customer: 'Raj Patel',
+        total: `${ORDER_MNG.CURRENCY}2,199`,
+        payment: ORDER_MNG.PAYMENT_STATUS.PAID,
+        date: '2025-10-29',
+        status: ORDER_MNG.ORDER_STATUS.SHIPPED
+    },
+    { 
+        order: '#ORD-008',
+        customer: 'Priya Sharma',
+        total: `${ORDER_MNG.CURRENCY}4,299`,
+        payment: ORDER_MNG.PAYMENT_STATUS.PENDING,
+        date: '2025-10-28',
+        status: ORDER_MNG.ORDER_STATUS.PROCESSING
+    },
+    { 
+        order: '#ORD-009',
+        customer: 'Amit Verma',
+        total: `${ORDER_MNG.CURRENCY}799`,
+        payment: ORDER_MNG.PAYMENT_STATUS.PAID,
+        date: '2025-10-27',
+        status: ORDER_MNG.ORDER_STATUS.DELIVERED
+    },
+    { 
+        order: '#ORD-010',
+        customer: 'Neha Gupta',
+        total: `${ORDER_MNG.CURRENCY}1,499`,
+        payment: ORDER_MNG.PAYMENT_STATUS.REFUNDED,
+        date: '2025-10-26',
+        status: ORDER_MNG.ORDER_STATUS.RETURNED
+    },
+    { 
+        order: '#ORD-011',
+        customer: 'Vikram Singh',
+        total: `${ORDER_MNG.CURRENCY}999`,
+        payment: ORDER_MNG.PAYMENT_STATUS.PAID,
+        date: '2025-10-25',
+        status: ORDER_MNG.ORDER_STATUS.DELIVERED
+    },
+    { 
+        order: '#ORD-012',
+        customer: 'Kavya Reddy',
+        total: `${ORDER_MNG.CURRENCY}2,599`,
+        payment: ORDER_MNG.PAYMENT_STATUS.PENDING,
+        date: '2025-10-24',
+        status: ORDER_MNG.ORDER_STATUS.PENDING
+    },
+    { 
+        order: '#ORD-013',
+        customer: 'Rohan Mehta',
+        total: `${ORDER_MNG.CURRENCY}3,199`,
+        payment: ORDER_MNG.PAYMENT_STATUS.PAID,
+        date: '2025-10-23',
+        status: ORDER_MNG.ORDER_STATUS.SHIPPED
+    },
+    { 
+        order: '#ORD-014',
+        customer: 'Sonia Kapoor',
+        total: `${ORDER_MNG.CURRENCY}1,099`,
+        payment: ORDER_MNG.PAYMENT_STATUS.FAILED,
+        date: '2025-10-22',
+        status: ORDER_MNG.ORDER_STATUS.CANCELED
+    },
+    { 
+        order: '#ORD-015',
+        customer: 'Arjun Malhotra',
+        total: `${ORDER_MNG.CURRENCY}2,899`,
+        payment: ORDER_MNG.PAYMENT_STATUS.PAID,
+        date: '2025-10-21',
+        status: ORDER_MNG.ORDER_STATUS.DELIVERED
+    },
+];
     // Filter Logic
     const filteredData = useMemo(() => {
         return allData.filter(item => {
@@ -152,8 +258,8 @@ const OrdersPage = () => {
     return (
         <div className="container mx-auto my-10 flex flex-col gap-5">
             <Top_area
-                title="Orders Management"
-                desc="Manage and track all your store orders"
+                title={ORDER_MNG.TITLE}
+                desc={ORDER_MNG.DESC}
                 components={[
                     <Export key="1" />,
                     showfilter ? (

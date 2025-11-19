@@ -3,6 +3,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import Top_area from '@/components/sidebar/top_area';
 import Pagination from '../components/Pagination';
+import { customer_mng } from '@/data/dashboard/constants'
 import {
     Product_filter_bar,
     Clearfilter,
@@ -43,30 +44,31 @@ const CustomersPage: React.FC = () => {
     const itemsPerPage = 5;
 
     // FILTER CONFIG
-    const filtersConfig: FilterConfig[] = [
-        {
-            type: 'select',
-            name: 'status',
-            label: 'Customer Status',
-            options: ['All', 'Active', 'Inactive', 'VIP', 'Banned', 'Prospect'],
-            width: 'w-56',
-            defaultValue: 'All',
-        },
-        {
-            type: 'select',
-            name: 'city',
-            label: 'City',
-            options: ['All Cities', 'Mumbai', 'Delhi', 'Bengaluru', 'Chennai', 'Kolkata'],
-            width: 'w-60',
-            defaultValue: 'All Cities',
-        },
-        {
-            type: 'dateRange',
-            name: 'lastOrder',
-            label: 'Last Order Date',
-            defaultValue: 'Date Range',
-        },
-    ];
+   const filtersConfig: FilterConfig[] = [
+  {
+    type: "select",
+    name: "status",
+    label: customer_mng.FILTER_LABEL.STATUS,
+    options: Object.values(customer_mng.STATUS),
+    width: "w-56",
+    defaultValue: customer_mng.FILTER_DEFAULT.STATUS,
+  },
+  {
+    type: "select",
+    name: "city",
+    label: customer_mng.FILTER_LABEL.CITY,
+    options: Object.values(customer_mng.CITY),
+    width: "w-60",
+    defaultValue: customer_mng.FILTER_DEFAULT.CITY,
+  },
+  {
+    type: "dateRange",
+    name: "lastOrder",
+    label: customer_mng.FILTER_LABEL.DATE_RANGE,
+    defaultValue: customer_mng.FILTER_DEFAULT.DATE_RANGE,
+  },
+];
+
 
     const initialFilters = filtersConfig.reduce((acc, config) => {
         acc[config.name] = config.defaultValue || '';
@@ -94,140 +96,140 @@ const CustomersPage: React.FC = () => {
     };
 
     // MOCK DATA: 12 unique customers
-    const customers: Customer[] = [
-        {
-            id: 'CUST-001',
-            name: 'Anita Desai',
-            email: 'anita.desai@example.com',
-            orders: 12,
-            totalSpent: '₹45,200',
-            city: 'Mumbai',
-            lastOrder: '2025-11-02',
-            status: 'VIP',
-            avatar: '/avatars/avatar1.png',
-        },
-        {
-            id: 'CUST-002',
-            name: 'Ravi Kumar',
-            email: 'ravi.kumar@example.com',
-            orders: 3,
-            totalSpent: '₹4,599',
-            city: 'Bengaluru',
-            lastOrder: '2025-10-28',
-            status: 'Active',
-            avatar: '/avatars/avatar2.png',
-        },
-        {
-            id: 'CUST-003',
-            name: 'Meera Nair',
-            email: 'meera.nair@example.com',
-            orders: 0,
-            totalSpent: '₹0',
-            city: 'Chennai',
-            lastOrder: '—',
-            status: 'Prospect',
-            avatar: '/avatars/avatar3.png',
-        },
-        {
-            id: 'CUST-004',
-            name: 'Sanjay Patel',
-            email: 'sanjay.patel@example.com',
-            orders: 7,
-            totalSpent: '₹18,750',
-            city: 'Delhi',
-            lastOrder: '2025-10-30',
-            status: 'Inactive',
-            avatar: '/avatars/avatar4.png',
-        },
-        {
-            id: 'CUST-005',
-            name: 'Priya Sharma',
-            email: 'priya.sharma@example.com',
-            orders: 15,
-            totalSpent: '₹62,300',
-            city: 'Mumbai',
-            lastOrder: '2025-11-05',
-            status: 'VIP',
-            avatar: '/avatars/avatar5.png',
-        },
-        {
-            id: 'CUST-006',
-            name: 'Amit Verma',
-            email: 'amit.verma@example.com',
-            orders: 1,
-            totalSpent: '₹1,200',
-            city: 'Kolkata',
-            lastOrder: '2025-09-15',
-            status: 'Inactive',
-            avatar: '/avatars/avatar6.png',
-        },
-        {
-            id: 'CUST-007',
-            name: 'Neha Gupta',
-            email: 'neha.gupta@example.com',
-            orders: 5,
-            totalSpent: '₹9,800',
-            city: 'Bengaluru',
-            lastOrder: '2025-10-20',
-            status: 'Active',
-            avatar: '/avatars/avatar7.png',
-        },
-        {
-            id: 'CUST-008',
-            name: 'Vikram Singh',
-            email: 'vikram.singh@example.com',
-            orders: 0,
-            totalSpent: '₹0',
-            city: 'Delhi',
-            lastOrder: '—',
-            status: 'Prospect',
-            avatar: '/avatars/avatar8.png',
-        },
-        {
-            id: 'CUST-009',
-            name: 'Kavya Reddy',
-            email: 'kavya.reddy@example.com',
-            orders: 9,
-            totalSpent: '₹27,500',
-            city: 'Chennai',
-            lastOrder: '2025-11-01',
-            status: 'Active',
-            avatar: '/avatars/avatar9.png',
-        },
-        {
-            id: 'CUST-010',
-            name: 'Rohan Mehta',
-            email: 'rohan.mehta@example.com',
-            orders: 20,
-            totalSpent: '₹98,000',
-            city: 'Mumbai',
-            lastOrder: '2025-11-06',
-            status: 'VIP',
-            avatar: '/avatars/avatar10.png',
-        },
-        {
-            id: 'CUST-011',
-            name: 'Sonia Kapoor',
-            email: 'sonia.kapoor@example.com',
-            orders: 2,
-            totalSpent: '₹3,100',
-            city: 'Delhi',
-            lastOrder: '2025-08-10',
-            status: 'Inactive',
-            avatar: '/avatars/avatar11.png',
-        },
-        {
-            id: 'CUST-012',
-            name: 'Arjun Malhotra',
-            email: 'arjun.malhotra@example.com',
-            orders: 4,
-            totalSpent: '₹12,400',
-            city: 'Bengaluru',
-            lastOrder: '2025-10-25',
-            status: 'Active',
-            avatar: '/avatars/avatar12.png',
-        },
-    ];
+     const customers: Customer[] = [
+  {
+    id: "CUST-001",
+    name: customer_mng.CUSTOMER.CUST_001.NAME,
+    email: customer_mng.CUSTOMER.CUST_001.EMAIL,
+    orders: 12,
+    totalSpent: "₹45,200",
+    city: customer_mng.CITY.MUMBAI,
+    lastOrder: "2025-11-02",
+    status: customer_mng.STATUS.VIP,
+    avatar: customer_mng.CUSTOMER.CUST_001.AVATAR,
+  },
+  {
+    id: "CUST-002",
+    name: customer_mng.CUSTOMER.CUST_002.NAME,
+    email: customer_mng.CUSTOMER.CUST_002.EMAIL,
+    orders: 3,
+    totalSpent: "₹4,599",
+    city: customer_mng.CITY.BENGALURU,
+    lastOrder: "2025-10-28",
+    status: customer_mng.STATUS.ACTIVE,
+    avatar: customer_mng.CUSTOMER.CUST_002.AVATAR,
+  },
+  {
+    id: "CUST-003",
+    name: customer_mng.CUSTOMER.CUST_003.NAME,
+    email: customer_mng.CUSTOMER.CUST_003.EMAIL,
+    orders: 0,
+    totalSpent: "₹0",
+    city: customer_mng.CITY.CHENNAI,
+    lastOrder: "—",
+    status: customer_mng.STATUS.PROSPECT,
+    avatar: customer_mng.CUSTOMER.CUST_003.AVATAR,
+  },
+  {
+    id: "CUST-004",
+    name: customer_mng.CUSTOMER.CUST_004.NAME,
+    email: customer_mng.CUSTOMER.CUST_004.EMAIL,
+    orders: 7,
+    totalSpent: "₹18,750",
+    city: customer_mng.CITY.DELHI,
+    lastOrder: "2025-10-30",
+    status: customer_mng.STATUS.INACTIVE,
+    avatar: customer_mng.CUSTOMER.CUST_004.AVATAR,
+  },
+  {
+    id: "CUST-005",
+    name: customer_mng.CUSTOMER.CUST_005.NAME,
+    email: customer_mng.CUSTOMER.CUST_005.EMAIL,
+    orders: 15,
+    totalSpent: "₹62,300",
+    city: customer_mng.CITY.MUMBAI,
+    lastOrder: "2025-11-05",
+    status: customer_mng.STATUS.VIP,
+    avatar: customer_mng.CUSTOMER.CUST_005.AVATAR,
+  },
+  {
+    id: "CUST-006",
+    name: customer_mng.CUSTOMER.CUST_006.NAME,
+    email: customer_mng.CUSTOMER.CUST_006.EMAIL,
+    orders: 1,
+    totalSpent: "₹1,200",
+    city: customer_mng.CITY.KOLKATA,
+    lastOrder: "2025-09-15",
+    status: customer_mng.STATUS.INACTIVE,
+    avatar: customer_mng.CUSTOMER.CUST_006.AVATAR,
+  },
+  {
+    id: "CUST-007",
+    name: customer_mng.CUSTOMER.CUST_007.NAME,
+    email: customer_mng.CUSTOMER.CUST_007.EMAIL,
+    orders: 5,
+    totalSpent: "₹9,800",
+    city: customer_mng.CITY.BENGALURU,
+    lastOrder: "2025-10-20",
+    status: customer_mng.STATUS.ACTIVE,
+    avatar: customer_mng.CUSTOMER.CUST_007.AVATAR,
+  },
+  {
+    id: "CUST-008",
+    name: customer_mng.CUSTOMER.CUST_008.NAME,
+    email: customer_mng.CUSTOMER.CUST_008.EMAIL,
+    orders: 0,
+    totalSpent: "₹0",
+    city: customer_mng.CITY.DELHI,
+    lastOrder: "—",
+    status: customer_mng.STATUS.PROSPECT,
+    avatar: customer_mng.CUSTOMER.CUST_008.AVATAR,
+  },
+  {
+    id: "CUST-009",
+    name: customer_mng.CUSTOMER.CUST_009.NAME,
+    email: customer_mng.CUSTOMER.CUST_009.EMAIL,
+    orders: 9,
+    totalSpent: "₹27,500",
+    city: customer_mng.CITY.CHENNAI,
+    lastOrder: "2025-11-01",
+    status: customer_mng.STATUS.ACTIVE,
+    avatar: customer_mng.CUSTOMER.CUST_009.AVATAR,
+  },
+  {
+    id: "CUST-010",
+    name: customer_mng.CUSTOMER.CUST_010.NAME,
+    email: customer_mng.CUSTOMER.CUST_010.EMAIL,
+    orders: 20,
+    totalSpent: "₹98,000",
+    city: customer_mng.CITY.MUMBAI,
+    lastOrder: "2025-11-06",
+    status: customer_mng.STATUS.VIP,
+    avatar: customer_mng.CUSTOMER.CUST_010.AVATAR,
+  },
+  {
+    id: "CUST-011",
+    name: customer_mng.CUSTOMER.CUST_011.NAME,
+    email: customer_mng.CUSTOMER.CUST_011.EMAIL,
+    orders: 2,
+    totalSpent: "₹3,100",
+    city: customer_mng.CITY.DELHI,
+    lastOrder: "2025-08-10",
+    status: customer_mng.STATUS.INACTIVE,
+    avatar: customer_mng.CUSTOMER.CUST_011.AVATAR,
+  },
+  {
+    id: "CUST-012",
+    name: customer_mng.CUSTOMER.CUST_012.NAME,
+    email: customer_mng.CUSTOMER.CUST_012.EMAIL,
+    orders: 4,
+    totalSpent: "₹12,400",
+    city: customer_mng.CITY.BENGALURU,
+    lastOrder: "2025-10-25",
+    status: customer_mng.STATUS.ACTIVE,
+    avatar: customer_mng.CUSTOMER.CUST_012.AVATAR,
+  },
+];
 
     // Status badge helper
     const statusBadge = (status: Customer['status']) => {
@@ -329,14 +331,14 @@ const CustomersPage: React.FC = () => {
                     <table className="min-w-full text-left border-collapse">
                         <thead className="sticky top-0 bg-[#F9F4FF] ">
                             <tr className=''>
-                                <th className="text-first py-3 px-4 w-[15%] border-gray-300 rounded-l-2xl ">Name</th>
-                                <th className="text-first py-3 px-4 w-[15%] border-gray-300">Email</th>
-                                <th className="text-first py-3 px-4 w-[10%] border-gray-300">Orders</th>
-                                <th className="text-first py-3 px-4 border-gray-300">Total Spent</th>
-                                <th className="text-first py-3 px-4 border-gray-300">City</th>
-                                <th className="text-first py-3 px-4 border-gray-300">Last Order</th>
-                                <th className="text-first py-3 px-4 border-gray-300">Status</th>
-                                <th className="text-first py-3 px-4 border-gray-300 rounded-r-2xl">Action</th>
+                                <th className="text-first py-3 px-4 w-[15%] border-gray-300 rounded-l-2xl ">{customer_mng.NAME}</th>
+                                <th className="text-first py-3 px-4 w-[15%] border-gray-300">{customer_mng.EMAIL}</th>
+                                <th className="text-first py-3 px-4 w-[10%] border-gray-300">{customer_mng.ORDERS}</th>
+                                <th className="text-first py-3 px-4 border-gray-300">{customer_mng.TOTAL_SPENT}</th>
+                                <th className="text-first py-3 px-4 border-gray-300">{customer_mng.CITY_LB}</th>
+                                <th className="text-first py-3 px-4 border-gray-300">{customer_mng.LO}</th>
+                                <th className="text-first py-3 px-4 border-gray-300">{customer_mng.STA}</th>
+                                <th className="text-first py-3 px-4 border-gray-300 rounded-r-2xl">{customer_mng.ACT}</th>
                             </tr>
                         </thead>
 
