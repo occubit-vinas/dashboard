@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Image from 'next/image';
 import { White_button, Purple_button } from '../../components/top_buttons';
 import { ChevronDown } from 'lucide-react';
+import {shi_stg} from '@/data/dashboard/constants';
 
 interface Zone {
     zone: String,
@@ -22,11 +23,11 @@ const Add_zone:React.FC<AddZoneProps> = ({ onClose, onAdd }) => {
     const countries = ['India', 'Italy', 'Japan', 'Canada'];
 
     const shippingMethods = [
-        "Standard Shipping",
-        "Express Shipping",
-        "Overnight Shipping",
-        "Free Shipping",
-        "Local Pickup"
+        shi_stg.m1,
+        shi_stg.m2,
+        shi_stg.m3,
+        shi_stg.m4,
+        shi_stg.m5
     ];
 
     const [isCountryOpen, setIsCountryOpen] = useState(false);
@@ -48,7 +49,7 @@ const Add_zone:React.FC<AddZoneProps> = ({ onClose, onAdd }) => {
         <div className='bg-white rounded-xl p-7 flex flex-col gap-7 shadow w-[600px] fixed top-1/4 right-2/5 z-20 bg-black/50'>
 
             <div className='flex flex-row justify-between'>
-                <p className='box-title'>Add Shipping Zone</p>
+                <p className='box-title'>{shi_stg.asz}</p>
                 <Image
                     src='/dashboard/close-circle-black.png'
                     className='size-6 cursor-pointer'
@@ -62,7 +63,7 @@ const Add_zone:React.FC<AddZoneProps> = ({ onClose, onAdd }) => {
             {/* Zone Name */}
             <div className='flex flex-row gap-4 justify-between'>
                 <div className='flex flex-col gap-2 w-full'>
-                    <p className='ml-2'>Zone Name</p>
+                    <p className='ml-2'>{shi_stg.zn}</p>
                     <input
                         type="text"
                         placeholder='e.g., North America, Europe, Asia'
@@ -74,7 +75,7 @@ const Add_zone:React.FC<AddZoneProps> = ({ onClose, onAdd }) => {
 
                 {/* Country Dropdown */}
                 <div className='flex flex-col gap-2 w-full'>
-                    <p className='ml-2'>Select Country</p>
+                    <p className='ml-2'>{shi_stg.sc}</p>
 
                     <div className='relative'>
                         <button
@@ -108,13 +109,13 @@ const Add_zone:React.FC<AddZoneProps> = ({ onClose, onAdd }) => {
                 </div>
             </div>
 
-            <p className='my-title'>Shipping Rate</p>
+            <p className='my-title'>{shi_stg.sr}</p>
 
             {/* Shipping Method + Cost */}
             <div className='flex flex-row justify-between gap-4'>
                 {/* Shipping Method */}
                 <div className='flex flex-col gap-2 w-full'>
-                    <p className='ml-2'>Shipping Method</p>
+                    <p className='ml-2'>{shi_stg.sm}</p>
 
                     <div className='relative'>
                         <button
@@ -149,10 +150,10 @@ const Add_zone:React.FC<AddZoneProps> = ({ onClose, onAdd }) => {
 
                 {/* Cost Field */}
                 <div className='flex flex-col gap-2 w-full'>
-                    <p className='ml-2'>Cost ($)</p>
+                    <p className='ml-2'>{shi_stg.c} ($)</p>
                     <input
                         type="number"
-                        placeholder='Enter Cost'
+                        placeholder={shi_stg.ec}
                         className='in-field border p-2 rounded-lg'
                         value={formData.cost}
                         onChange={(e) => handleChange("cost", e.target.value)}
@@ -162,10 +163,10 @@ const Add_zone:React.FC<AddZoneProps> = ({ onClose, onAdd }) => {
 
             {/* Estimated Days */}
             <div className='flex flex-col gap-2'>
-                <p className='ml-2'>Estimated Days</p>
+                <p className='ml-2'>{shi_stg.ed}</p>
                 <input
                     type="number"
-                    placeholder='Enter days'
+                    placeholder={shi_stg.ed}
                     className='in-field border p-2 rounded-lg'
                     value={formData.days}
                     onChange={(e) => handleChange("days", e.target.value)}
@@ -174,9 +175,9 @@ const Add_zone:React.FC<AddZoneProps> = ({ onClose, onAdd }) => {
 
             {/* Buttons */}
             <div className='flex flex-row justify-center gap-4 mt-4'>
-                <White_button label='Close' onClick={onClose} />
+                <White_button label={shi_stg.c} onClick={onClose} />
                 <Purple_button
-                    label='Add Zone'
+                    label={shi_stg.az}
                     onClick={() => onAdd(formData)}
                 />
             </div>

@@ -6,37 +6,39 @@ import Paypalform from './Paypalform';
 import Bankform from './Bankform';
 import Cashform from './Cashform';
 import { Purple_button, Toggle_btn } from '../../components/top_buttons';
+import {pay_stg} from '@/data/dashboard/constants';
+
 const Page = () => {
 
   const defaultcard = [
     {
       img: '/dashboard/card.png',
-      title: 'Stripe',
-      desc: 'Accept credit and debit cards',
+      title: pay_stg.s,
+      desc: pay_stg.acc,
       active: true,
       setup: false,
       details: { Publishable_key: '', Secret_key: '' },
     },
     {
       img: '/dashboard/paypal.png',
-      title: 'PayPal',
-      desc: 'PayPal Payment',
+      title: pay_stg.pp,
+      desc: pay_stg.pap,
       active: false,
       setup: false,
       details: { Client_ID: '', Client_Secret: '' },
     },
     {
       img: '/dashboard/bank.png',
-      title: 'Bank Transfer',
-      desc: 'Direct bank transfer',
+      title: pay_stg.bt,
+      desc: pay_stg.dbt,
       active: false,
       setup: false,
       details: { Account_Name: '', Account_Number: '', Routing_Number: '', Bank_Name: '' },
     },
     {
       img: '/dashboard/cash.png',
-      title: 'Cash On Delivery',
-      desc: 'Pay When You Receive',
+      title: pay_stg.cod,
+      desc: pay_stg.pwr,
       active: false,
       setup: false,
       details: { Extra_fee: '', Maximum_Order_Amount: '' },
@@ -67,7 +69,7 @@ const Page = () => {
 
   return (
     <div className="mt-6 bg-white shadow-sm rounded-sm flex flex-col gap-6 p-3 ">
-      <h1 className="my-title  mb-2">Payment Methods</h1>
+      <h1 className="my-title  mb-2">{pay_stg.pm}</h1>
 
       <div className="flex flex-row justify-between gap-1.5 item-start h-auto ">
         {cards.map((cur, index) => (
@@ -133,9 +135,9 @@ const Page = () => {
         </div>
       )}
       <div className='flex flex-col gap-3'>
-        <p className='my-title mt-4'>Tax Setting</p>
+        <p className='my-title mt-4'>{pay_stg.ts}</p>
 
-        <p className='text-first'>text rate</p>
+        <p className='text-first'>{pay_stg.tr}</p>
         <div className='flex flex-row justify-start gap-4 items-center'>
           <input
             type='number'
@@ -143,12 +145,12 @@ const Page = () => {
             className='p-1.5 bg-purple-50 border-2 border-gray-100 rounded-sm w-[450px]'
           />
           <Toggle_btn className='mt-2' isActive={inclusiveprice} onClick={()=>setinclusiveprice(!inclusiveprice)}/>
-          <p className='text-sm '>Tax inclusive Pricing</p>
+          <p className='text-sm '>{pay_stg.tip}</p>
         </div>
 
       </div>
       <div className='flex justify-end'>
-                <Purple_button label='save payment settings'/>
+                <Purple_button label={pay_stg.sps}/>
       </div>
     </div>
   );

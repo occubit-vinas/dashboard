@@ -691,3 +691,242 @@ export const home_mng={
     cp:'Customer Photo',
 
 }
+
+export const store_stg={
+    bi:'Basic Information',
+    sn:'Store Name',
+    d:'Description',
+    sl:'Store Logo',
+    dih:'Drop image here or click to browse',
+    sb:'Store Banner',
+    co:'Contact Information',
+    ed:'Email Address',
+    pn:'Phone Number',
+    w:'Website',
+    eyp:'Enter your phone number',
+    eye:'Enter your email',
+    sa:'Store Address',
+    sta:'Street Address',
+    eta:'enter street address',
+    c:'city',
+    ec:'Enter city',
+    co:'Country',
+    s:'State',
+    gu:'Gujarat',
+    pc:'Postal code',
+    epc:'Enter postal code',
+    sm:'Social Media',
+    f:'facebook',
+    fu:'Facebook URL',
+    tw:'twitter',
+    tu:'Twitter URL',
+    i:'instagram',
+    iu:'Instagram URL',
+    l:'LinkedIn',
+    lu:'LinkedIn URL',
+    ci:'Contact Information',
+    ea:'Email Address'
+}
+
+export const pay_stg={
+    pm:'Payment Methods',
+    s:'Stripe',
+    acc:'Accept credit and debit cards',
+    pp:'PayPal',
+    pap:'PayPal payment',
+    cod:'cash on delivery',
+    pwr:'Pay when you receive',
+    bt:'Bank Transfer',
+    dbt:'Direct Bank Transfer',
+    ts:'Text Settings',
+    tr:'Text Rate',
+    tip:'Tax Inclusive Price',
+    cbt:'Configure Bank Transfer',
+    ccon:'Configure cash on delivery',
+    ef:'Extra fee',
+    moa:'Maximum order amount',
+    cp:'Configure Paypal',
+    ci:'Client ID',
+    cs:'Client Secret',
+    sb:'Sandbox Mode',
+    cst:'Configure Stripe',
+    pk:'Publishable Key',
+    sk:'Secreat key',
+    am:'Add Method',
+    sps:'save payment settings'
+}
+
+export const shi_stg={
+    sz:'Shipping zone',
+    nsz:'No shipping zone configured',
+    sss:'Save shipping setting',
+    m1:'Standard Shipping',
+    m2:'Express shipping',
+    m3:'Overnight Shipping',
+    m4:'Free shipping',
+    m5:'Local Pickup',
+    asz:'Add shipping Zone',
+    zn:'Zone name',
+    sc:'Select Couontry',
+    sr:'Shipping rate',
+    sm:'Shipping method',
+    c:'Cost',
+    ed:'Estimated Days',
+    az:'Add zone',
+    c:'close',
+    ed:'Enter days',
+    ec:'Enter cost',
+    ayfs:'Add your first shipping zone'
+
+    
+}
+
+export const secu_stg={
+    anc:'Authentication & Access',
+    tfa:'Two-Factor Authentication',
+    r2fa:' Require 2FA for admin accounts',
+    sc:'Session Controls',
+    sto:'Session Timeouts(minutes)',
+    mla:'Max Login Attempts',
+    lad:'Lockout Duration (minutes)',
+    pp:'Password Policy',
+    rul:'Require Uppercase Letters',
+    rn:'Require Numbers',
+    rll:'Require Lowercase Letters',
+    rs:'Require Symbols',
+    sf:'Security Features',
+    ssl:'SSL Required',
+    fhc:'Force HTTPS connections',
+    sc:'Secure Cookies',
+    usc:'Use Secure Cookie flag',
+    cp:'CSRF Protection',
+    pcra:"  Prevent cross-site request attacks",
+    iw:'IP Whitelist',
+    aia:'Allowed IP Address',
+    eia:'Enter IP address (e.g. 192.168.1.1)',
+    ai:'ADD IP',
+    siio:'Shipping information is optional but recommended for accurate shipping calculations.',
+    sss:'Save Security Settings',
+    mpl:'Minimum password length',
+
+}
+
+// src/data/dashboard/constants/notification_stg.ts
+export const notification_stg = {
+  // Section Titles
+  emailNotifications: 'Email notification',
+  smsNotifications: 'SMS Notifications',
+  pushNotifications: 'Push Notifications',
+  emailConfig: 'Email Configuration',
+  notificationPreferences: 'Notification Preferences',
+
+  // Email Notifications
+  newOrder: 'New Order',
+  newOrderDesc: 'Get notified of new orders',
+  customerReview: 'Customer Review',
+  customerReviewDesc: 'Get alerts for new product reviews',
+  refundRequest: 'Refund Request',
+  refundRequestDesc: 'Customer refund requests',
+  lowStock: 'Low Stock Alert',
+  lowStockDesc: 'When inventory is running low',
+  paymentReceived: 'Payment Received',
+  paymentReceivedDesc: 'Successful payments',
+  systemUpdates: 'System Updates',
+  systemUpdatesDesc: 'Platform updates and maintenance alerts',
+
+  // SMS Notifications (you had wrong labels before — fixed now)
+  smsNewOrder: 'New Order',
+  smsNewOrderDesc: 'SMS alerts for new orders',
+  smsPayment: 'Payment Received',
+  smsPaymentDesc: 'SMS on successful payments',
+  smsRefund: 'Refund Request',
+  smsRefundDesc: 'SMS for refund requests',
+
+  // Push Notifications
+  pushNewOrder: 'New Order',
+  pushNewOrderDesc: 'Browser push notifications',
+  inventoryAlerts: 'Inventory Alerts',
+  inventoryAlertsDesc: 'Stock level warnings',
+  customerMessage: 'Customer Message',
+  customerMessageDesc: 'New customer inquiries',
+
+  // Email Configuration Labels
+  fromName: 'From Name',
+  fromEmail: 'From Email',
+  replyToEmail: 'Reply-To Email',
+  smtpHost: 'SMTP Host',
+  smtpPort: 'SMTP Port',
+  encryption: 'Encryption',
+  smtpUsername: 'SMTP Username',
+  smtpPassword: 'SMTP Password',
+
+  // Dropdown Options
+  encryptionNone: 'None',
+  encryptionTls: 'TLS',
+  encryptionSsl: 'SSL',
+  freqImmediate: 'Immediate',
+  freqHourly: 'Hourly Digest',
+  freqDaily: 'Daily Digest',
+
+  // Notification Preferences
+  notificationFrequency: 'Notification Frequency',
+  enableQuietHours: 'Enable Quiet Hours',
+  quietHoursDesc: 'Mute notifications during off-hours',
+
+  // Buttons
+  sendTestEmail: 'Send Test Email',
+  saveSettings: 'Save Notification Settings',
+} as const;
+
+
+// src/data/dashboard/constants/seo_stg.ts
+export const seo_stg = {
+  // Section Titles
+  metaTags: 'Meta Tags',
+  structuredData: 'Structured Data (Schema.org)',
+  generatedSchema: 'Generated Schema Preview',
+  seoTools: 'SEO Tools & Resources',
+  testingTools: 'Testing Tools',
+  searchConsole: 'Search Console',
+
+  // Meta Fields
+  metaTitle: 'Meta Title',
+  metaTitlePlaceholder: 'Your Store - Best Product online',
+  metaTitleHint: 'Minimum 50-60 charecter required',
+  metaKeywords: 'Meta keywords',
+  metaKeywordsPlaceholder: 'Add keywords',
+  metaDescription: 'Meta Description',
+  metaDescPlaceholder: 'Discover amazing products...',
+  metaDescHint: 'Recommended: 150–160 characters',
+
+  // SEO Preview
+  seoPreview: 'SEO Preview',
+  defaultTitle: 'Your Store Title',
+  defaultUrl: 'https://yourstore.com',
+  defaultDesc: 'Your store description will appear here',
+
+  // Structured Data
+  orgSchema: 'Organization Schema',
+  websiteSchema: 'Website Schema',
+  orgName: 'Organization Name',
+  orgNamePlaceholder: 'ABC',
+  websiteName: 'Website Name',
+  websiteNamePlaceholder: 'ABC',
+  websiteDesc: 'Website Description',
+  websiteDescPlaceholder: 'Discover amazing products...',
+  websiteUrl: 'Website URL',
+  websiteUrlPlaceholder: 'https://yourstore.com',
+  logoUrl: 'Logo URL',
+  logoUrlPlaceholder: 'https://yourstore.com/logo.png',
+  language: 'Language',
+  languagePlaceholder: 'en-US',
+
+  // SEO Tools Links
+  richResults: 'Google Rich Results Test',
+  schemaValidator: 'Schema.org Validator',
+  googleConsole: 'Google Search Console',
+  bingTools: 'Bing Webmaster Tools',
+
+  // Button
+  saveBtn: 'Save SEO Settings',
+} as const;

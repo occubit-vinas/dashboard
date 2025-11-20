@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Cancel, Purple_button, Toggle_btn } from '../../components/top_buttons';
+import {pay_stg} from '@/data/dashboard/constants';
 
 const Paypalform = ({ onClose, index, card, setCards }) => {
   // 🧠 Local form state
@@ -36,7 +37,7 @@ const Paypalform = ({ onClose, index, card, setCards }) => {
     <div className="bg-white p-2 rounded-sm flex flex-col gap-6 w-full">
       {/* Header */}
       <div className="flex flex-row justify-between items-center">
-        <div className="text-title">Configure PayPal</div>
+        <div className="text-title">{pay_stg.cp}</div>
         <Image
           src="/dashboard/close-circle-black.png"
           className="size-5 cursor-pointer"
@@ -49,7 +50,7 @@ const Paypalform = ({ onClose, index, card, setCards }) => {
 
       {/* Inputs */}
       <div className="flex flex-col gap-2">
-        <label className="text-first text-sm">Client ID</label>
+        <label className="text-first text-sm">{pay_stg.ci}</label>
         <input
           value={formData.Client_ID}
           onChange={(e) => handleChange('Client_ID', e.target.value)}
@@ -59,7 +60,7 @@ const Paypalform = ({ onClose, index, card, setCards }) => {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label className="text-first text-sm">Client Secret</label>
+        <label className="text-first text-sm">{pay_stg.cs}</label>
         <input
           value={formData.Client_Secret}
           onChange={(e) => handleChange('Client_Secret', e.target.value)}
@@ -72,7 +73,7 @@ const Paypalform = ({ onClose, index, card, setCards }) => {
       <div className="flex flex-row justify-between items-center mt-2">
         {/* Left side: Sandbox Toggle */}
         <div className="flex items-center gap-2">
-          <p className="text-first text-sm font-medium">Sandbox Mode</p>
+          <p className="text-first text-sm font-medium">{pay_stg.sb}</p>
           <Toggle_btn
             isActive={formData.Sandbox_mode}
             onClick={() => handleChange('Sandbox_mode', !formData.Sandbox_mode)}
@@ -82,7 +83,7 @@ const Paypalform = ({ onClose, index, card, setCards }) => {
         {/* Right side: Buttons */}
         <div className="flex flex-row gap-2">
           <Cancel onClick={onClose} />
-          <Purple_button label="Add Method" onClick={handleSubmit} />
+          <Purple_button label={pay_stg.am} onClick={handleSubmit} />
         </div>
       </div>
     </div>

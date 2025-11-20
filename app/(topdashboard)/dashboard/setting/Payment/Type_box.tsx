@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Toggle_btn } from '../../components/top_buttons';
+import {pay_stg} from '@/data/dashboard/constants';
 
 const Type_box = ({
   img,

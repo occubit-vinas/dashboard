@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Purple_button } from '../../components/top_buttons'
 import Image from 'next/image';
 import Add_zone from './Add_zone';
+import {shi_stg} from '@/data/dashboard/constants';
 
 const Page = () => {
 
@@ -14,21 +15,21 @@ const Page = () => {
       <div className='w-full flex flex-col gap-4 '>
         
         <div className='flex flex-row justify-between'>
-          <p className='my-title'>Shipping Zone</p>
-          {zones === true && <Purple_button label='Add shipping zone' onClick={() => setisopen(true)} />}
+          <p className='my-title'>{shi_stg.sz}</p>
+          {zones === true && <Purple_button label={shi_stg.asz} onClick={() => setisopen(true)} />}
         </div>
 
         {/* Empty State */}
         {zones.length === 0 &&
           <div className='w-full h-[200px] flex flex-col gap-2 items-center justify-center'>
             <Image src='/dashboard/whitetruck.svg' height={40} width={40} alt='img' className='size-10' />
-            <p className='text-third'>No shipping zone configured</p>
-            <Purple_button label='Add your first shipping zone' onClick={() => setisopen(true)} />
+            <p className='text-third'>{shi_stg.nsz}</p>
+            <Purple_button label={shi_stg.ayfs} onClick={() => setisopen(true)} />
           </div>
         }
 
         <div className='w-full flex flex-row justify-end'>
-          <Purple_button label='Save Shipping Settings' />
+          <Purple_button label={shi_stg.sss} />
         </div>
 
         {isopen &&

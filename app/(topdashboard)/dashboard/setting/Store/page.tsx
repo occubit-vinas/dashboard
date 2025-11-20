@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Purple_button } from '../../components/top_buttons';
-
+import {store_stg} from '@/data/dashboard/constants';
 const Page = () => {
     // ✅ State for all input data
     const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ const Page = () => {
         instagram: '',
         linkedin: '',
     });
-
+    console.log('obj is',store_stg);
     // ✅ For dependent dropdowns
     const [availableStates, setAvailableStates] = useState([]);
 
@@ -63,11 +63,11 @@ const Page = () => {
     return (
         <div className="container mx-auto bg-white rounded-sm p-6 flex flex-col gap-6 mt-6 shadow-sm">
             {/* Section 1 — Basic Info */}
-            <p className="my-title text-lg font-semibold text-gray-800">Basic Information</p>
+            <p className="my-title text-lg font-semibold text-gray-800">{store_stg.bi}</p>
 
             {/* Store Name */}
             <div className="flex flex-col gap-1.5">
-                <p className="text-first font-medium ml-2">Store Name</p>
+                <p className="text-first font-medium ml-2">{store_stg.sn}</p>
                 <input
                     type="text"
                     name="storeName"
@@ -82,7 +82,7 @@ const Page = () => {
             <div className="flex flex-row justify-between gap-5 items-start">
                 {/* Description */}
                 <div className="flex flex-col gap-1.5 w-1/3">
-                    <p className="text-first font-medium ml-2">Description</p>
+                    <p className="text-first font-medium ml-2">{store_stg.d}</p>
                     <textarea
                         name="description"
                         value={formData.description}
@@ -95,7 +95,7 @@ const Page = () => {
 
                 {/* Store Logo */}
                 <div className="flex flex-col gap-1.5 w-1/3">
-                    <p className="text-first font-medium ml-2">Store Logo</p>
+                    <p className="text-first font-medium ml-2">{store_stg.sl}</p>
                     <div className="relative in-field flex flex-col justify-center items-center text-third h-[120px] cursor-pointer ">
                         {formData.logo ? (
                             <Image
@@ -114,7 +114,7 @@ const Page = () => {
                                     height={30}
                                     className="opacity-60 mb-1"
                                 />
-                                <p className="text-xs text-third">Drop image here or click to browse</p>
+                                <p className="text-xs text-third">{store_stg.dih}</p>
                             </>
                         )}
                         <input
@@ -129,7 +129,7 @@ const Page = () => {
 
                 {/* Store Banner */}
                 <div className="flex flex-col gap-1.5 w-1/3">
-                    <p className="text-first font-medium ml-2">Store Banner</p>
+                    <p className="text-first font-medium ml-2">{store_stg.sb}</p>
                     <div className="relative in-field flex flex-col justify-center items-center text-third h-[120px] cursor-pointer  hover:border-purple-400 transition-colors">
                         {formData.banner ? (
                             <Image
@@ -148,7 +148,7 @@ const Page = () => {
                                     height={30}
                                     className="opacity-60 mb-1"
                                 />
-                                <p className="text-xs text-third">Drop image here or click to browse</p>
+                                <p className="text-xs text-third">{store_stg.dih}</p>
                             </>
                         )}
                         <input
@@ -163,10 +163,10 @@ const Page = () => {
             </div>
 
             {/* Section 2 — Contact Info */}
-            <p className="my-title text-lg font-semibold text-gray-800">Contact Information</p>
+            <p className="my-title text-lg font-semibold text-gray-800">{store_stg.ci}</p>
             <div className="flex flex-row justify-between gap-5">
                 <div className="flex flex-col gap-1.5 w-1/3">
-                    <p className="text-first font-medium ml-2">Email Address</p>
+                    <p className="text-first font-medium ml-2">{store_stg.ea}</p>
                     <input
                         type="email"
                         name="email"
@@ -177,7 +177,7 @@ const Page = () => {
                     />
                 </div>
                 <div className="flex flex-col gap-1.5 w-1/3">
-                    <p className="text-first font-medium ml-2">Phone Number</p>
+                    <p className="text-first font-medium ml-2">{store_stg.pn}</p>
                     <input
                         type="tel"
                         name="phone"
@@ -188,7 +188,7 @@ const Page = () => {
                     />
                 </div>
                 <div className="flex flex-col gap-1.5 w-1/3">
-                    <p className="text-first font-medium ml-2">Website</p>
+                    <p className="text-first font-medium ml-2">{store_stg.w}</p>
                     <input
                         type="url"
                         name="website"
@@ -201,35 +201,35 @@ const Page = () => {
             </div>
 
             {/* Section 3 — Store Address */}
-            <p className="my-title text-lg font-semibold text-gray-800">Store Address</p>
+            <p className="my-title text-lg font-semibold text-gray-800">{store_stg.sa}</p>
             <div className="flex flex-col gap-1.5">
-                <p className="text-first font-medium ml-2">Street Address</p>
+                <p className="text-first font-medium ml-2">{store_stg.sta}</p>
                 <input
                     type="text"
                     name="street"
                     value={formData.street}
                     onChange={handleChange}
                     className="in-field text-third"
-                    placeholder="Enter street address"
+                    placeholder={store_stg.eta}
                 />
             </div>
 
             <div className="flex flex-row justify-between gap-5">
                 <div className="flex flex-col gap-1.5 w-1/4">
-                    <p className="text-first font-medium ml-2">City</p>
+                    <p className="text-first font-medium ml-2">{store_stg.c}</p>
                     <input
                         type="text"
                         name="city"
                         value={formData.city}
                         onChange={handleChange}
                         className="in-field text-third"
-                        placeholder="Enter city"
+                        placeholder={store_stg.ec}
                     />
                 </div>
 
                 {/* Country */}
                 <div className="flex flex-col gap-1.5 w-1/4">
-                    <p className="text-first font-medium ml-2">Country</p>
+                    <p className="text-first font-medium ml-2">{store_stg.co}</p>
                     <input
                         name="country"
                         placeholder='india'
@@ -243,7 +243,7 @@ const Page = () => {
 
                 {/* State */}
                 <div className="flex flex-col gap-1.5 w-1/4">
-                    <p className="text-first font-medium ml-2">State</p>
+                    <p className="text-first font-medium ml-2">{store_stg.s}</p>
                     <input
                         type='text'
                         name="state"
@@ -259,66 +259,66 @@ const Page = () => {
 
                 {/* Postal Code */}
                 <div className="flex flex-col gap-1.5 w-1/4">
-                    <p className="text-first font-medium ml-2">Postal Code</p>
+                    <p className="text-first font-medium ml-2">{store_stg.pc}</p>
                     <input
                         type="text"
                         name="postalCode"
                         value={formData.postalCode}
                         onChange={handleChange}
                         className="in-field text-third"
-                        placeholder="Enter postal code"
+                        placeholder={store_stg.epc}
                     />
                 </div>
             </div>
 
             {/* Section 4 — Social Media */}
-            <p className="my-title text-lg font-semibold text-gray-800">Social Media</p>
+            <p className="my-title text-lg font-semibold text-gray-800">{store_stg.sm}</p>
             <div className="flex flex-row justify-between gap-5">
                 <div className="flex flex-col gap-1.5 w-1/2">
-                    <p className="text-first font-medium ml-2">Facebook</p>
+                    <p className="text-first font-medium ml-2">{store_stg.f}</p>
                     <input
                         type="url"
                         name="facebook"
                         value={formData.facebook}
                         onChange={handleChange}
                         className="in-field text-third"
-                        placeholder="Facebook URL"
+                        placeholder={store_stg.fu}
                     />
                 </div>
                 <div className="flex flex-col gap-1.5 w-1/2">
-                    <p className="text-first font-medium ml-2">Twitter</p>
+                    <p className="text-first font-medium ml-2">{store_stg.tw}</p>
                     <input
                         type="url"
                         name="twitter"
                         value={formData.twitter}
                         onChange={handleChange}
                         className="in-field text-third"
-                        placeholder="Twitter URL"
+                        placeholder={store_stg.tu}
                     />
                 </div>
             </div>
 
             <div className="flex flex-row justify-between gap-5">
                 <div className="flex flex-col gap-1.5 w-1/2">
-                    <p className="text-first font-medium ml-2">Instagram</p>
+                    <p className="text-first font-medium ml-2">{store_stg.i}</p>
                     <input
                         type="url"
                         name="instagram"
                         value={formData.instagram}
                         onChange={handleChange}
                         className="in-field text-third"
-                        placeholder="Instagram URL"
+                        placeholder={store_stg.iu}
                     />
                 </div>
                 <div className="flex flex-col gap-1.5 w-1/2">
-                    <p className="text-first font-medium ml-2">LinkedIn</p>
+                    <p className="text-first font-medium ml-2">{store_stg.l}</p>
                     <input
                         type="url"
                         name="linkedin"
                         value={formData.linkedin}
                         onChange={handleChange}
                         className="in-field text-third"
-                        placeholder="LinkedIn URL"
+                        placeholder={store_stg.lu}
                     />
                 </div>
             </div>
