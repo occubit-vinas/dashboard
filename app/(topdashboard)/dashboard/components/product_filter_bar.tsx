@@ -249,7 +249,7 @@
 'use client';
 import React, { useState } from 'react';
 import { IoChevronDown, IoChevronUp } from 'react-icons/io5';
-
+import { btn_label } from '@/data/dashboard/constants';
 export interface FilterConfig {
     type: 'select' | 'dateRange' | 'priceRange';
     name: string;
@@ -412,7 +412,7 @@ export function Product_filter_bar({
                                             onClick={() => applyDateRange(config)}
                                             className="mt-2 bg-[#7E30ED] text-white text-sm py-1 rounded-md hover:bg-[#6926c6]"
                                         >
-                                            Apply
+                                            {btn_label.app}
                                         </button>
                                     </div>
                                 </div>
@@ -454,7 +454,7 @@ export function Product_filter_bar({
                                             onClick={() => applyPriceRange(config)}
                                             className="mt-2 bg-[#7E30ED] text-white text-sm py-1 rounded-md hover:bg-[#6926c6]"
                                         >
-                                            Apply
+                                            {btn_label.app}
                                         </button>
                                     </div>
                                 </div>
@@ -480,7 +480,7 @@ export function Clearfilter({ clearFilters }: { clearFilters: () => void }) {
                 alt="Clear"
                 className="w-4 h-4"
             />
-            <p className="text-sm font-medium">Clear Filters</p>
+            <p className="text-sm font-medium">{btn_label.cf}</p>
         </div>
     );
 }

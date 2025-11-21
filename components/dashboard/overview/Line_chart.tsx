@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
+import { btn_label } from '@/data/dashboard/constants'
 import {
   LineChart,
   Line,
@@ -18,7 +19,7 @@ const Line_chart = ({ data }) => {
 
     {/* Header */}
     <div className="flex justify-between items-center mx-[14px] mt-[5px]">
-      <h2 className="text-main">Sales Trend</h2>
+      <h2 className="text-main">{btn_label.sat}</h2>
       <White_button label="Export" className='-translate-y-4'/>
     </div>
 
@@ -26,11 +27,11 @@ const Line_chart = ({ data }) => {
     <div className="flex gap-8 mx-[14px]">
       <div className="flex items-center gap-2">
         <span className="w-2.5 h-2.5 rounded-full bg-[#3DDC97]"></span>
-        <p className="text-xs text-gray-600">Total Revenue</p>
+        <p className="text-xs text-gray-600">{btn_label.tr}</p>
       </div>
       <div className="flex items-center gap-2">
         <span className="w-2.5 h-2.5 rounded-full bg-purple-600"></span>
-        <p className="text-xs text-gray-600">Total Orders</p>
+        <p className="text-xs text-gray-600">{btn_label.too}</p>
       </div>
     </div>
 

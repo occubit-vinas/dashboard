@@ -378,7 +378,7 @@ export const add_pro_inve={
 }
 
 export const add_pro_seo={
-    st:"SEO Title",
+    stit:"SEO Title",
     est:'Enter SEO Title',
     rc56:'Recommended: 50–60 characters',
     sd:'SEO Description',
@@ -637,11 +637,8 @@ export const home_mng={
     h2:'Trending Categories',
     h3:'Trending Products',
     h4:'Testimonials',
-    pm:"Preview Mode",
     ahs:"Add Hero Slide",
-    ed:'Edit',
     dtr:'Drag To Reorder',
-
     ehs:'Edit Hero Slide',
     sd:'Slide Details',
     app:'Appearnce',
@@ -660,15 +657,12 @@ export const home_mng={
     ci:'Current Image',
     ch:'Change',
     btd:"Back to Details",
-    us:'Update Slide',
     pm:'Preview Mode',
     atc:'Add Trending Category',
     ed:'Edit',
     edt:'Edit Trending Category',
-    up:'Update Category',
-    do:'Display Order',
+    uc:'Update Category',
     ct:'Category',
-
     c1:'Ethnic Wear',
     c2:'Anarkali',
     c3:'Western Wear',
@@ -684,12 +678,12 @@ export const home_mng={
     aap:'Aline Ancer Printed Madhuri Kurtis',
     spo:'Search products,order...',
     ntf:'No testimonial found Add customers testimonials to build Trust.',
-    ct:'Customer Testimonial',
+    cut:'Customer Testimonial',
     at:'Add Testimonial',
     cn:'Customer Name',
     tm:'Testimonial Message',
     cp:'Customer Photo',
-
+    cute:'Create Testimonial'
 }
 
 export const store_stg={
@@ -699,7 +693,6 @@ export const store_stg={
     sl:'Store Logo',
     dih:'Drop image here or click to browse',
     sb:'Store Banner',
-    co:'Contact Information',
     ed:'Email Address',
     pn:'Phone Number',
     w:'Website',
@@ -770,15 +763,13 @@ export const shi_stg={
     sc:'Select Couontry',
     sr:'Shipping rate',
     sm:'Shipping method',
-    c:'Cost',
+    co:'Cost',
     ed:'Estimated Days',
     az:'Add zone',
     c:'close',
-    ed:'Enter days',
+    end:'Enter days',
     ec:'Enter cost',
-    ayfs:'Add your first shipping zone'
-
-    
+    ayfs:'Add your first shipping zone'    
 }
 
 export const secu_stg={
@@ -797,7 +788,7 @@ export const secu_stg={
     sf:'Security Features',
     ssl:'SSL Required',
     fhc:'Force HTTPS connections',
-    sc:'Secure Cookies',
+    sec:'Secure Cookies',
     usc:'Use Secure Cookie flag',
     cp:'CSRF Protection',
     pcra:"  Prevent cross-site request attacks",
@@ -929,4 +920,75 @@ export const seo_stg = {
 
   // Button
   saveBtn: 'Save SEO Settings',
+} as const;
+
+
+
+/*below is general string used in ui */
+export const btn_label = {
+    f:'filter',
+    sf:'Show Filter',
+    hf:'Hide Filter',
+    r:'Refresh',
+    ac:'Add Category',
+    acv:'Add Color Varients',
+    c:'Cancel',
+    d:'Delete',
+    cr:'Create',
+    ap:'Add Product',
+    adc:'Add Coupon',
+    e:'Export',
+    g:'Grid',
+    l:'List',
+    a:'Ascending',
+    de:'Descending',
+    nf:'Newest First',
+    of:'Oldest First',
+    dc:'Date Created',
+    du:'Date Updated',
+    n:'Name',
+    p:'Price',
+    s:'Stock',
+    ra:'Rating',
+    cf:'Clear Filters',
+    app:'Apply',
+    o:'Order',
+    po:'Placed on',
+    cu:'Customer',
+    i:'Item',
+    q:'Qty',
+    pr:'Price',
+    st:'Subtotal',
+    sh:'Shipping',
+    t:'Tax',
+    to:'Total',
+    sa:'Shipping Address',
+    cl:'close',
+    pi:'print invoice',
+    dih:"Drop image here or click to browse",
+    cg:'Customer Growth',
+    ncr:'New customer registration over time',
+    tp:'Top customers',
+    kpi:'key performance indicators breakdown',
+    is:'Inventory_status',
+    oos:"Out of Stock",
+    ls:'Low stock',
+    ins:'In Stock',
+    sta:'Store Analysis',
+    tpat:"Track performance, analyze trends, and make data-driven decisions",
+    sat:'Sales Trend',
+    tr:'Total Revenue',
+    too:'Total Orders',
+    top:'Top Products',
+    em:'Email',
+    rc:'recent Orders',
+    topr:'Total product',
+    ta:'Total amount',
+    da:'Date',
+    pa:"payment",
+    cug:'Customer Demographics',
+    gsd:'Geographic sales distribution by country',
+    rt:'Revenue Trend',
+    raov:'Revenue and order volume',
+
 } as const;

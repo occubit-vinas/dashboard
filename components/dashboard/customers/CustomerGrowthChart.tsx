@@ -10,7 +10,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-
+import { btn_label } from "@/data/dashboard/constants";
 // Example datasets for month and year
 const monthlyData = [
   { name: "Jan", customers: 1.2 },
@@ -47,10 +47,10 @@ const CustomerGrowthChart = () => {
       <div className="flex items-center justify-between mb-4">
         <div>
           <h2 className="text-main">
-            Customer Growth
+            {btn_label.cg}
           </h2>
           <p className="text-sm text-gray-500">
-            New customer registration over time
+            {btn_label.ncr}
           </p>
         </div>
 

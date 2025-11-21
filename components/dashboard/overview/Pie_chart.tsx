@@ -17,7 +17,7 @@ export const Pie_chart = ({ data }) => {
 
   return (
     <div className="relative rounded-2xl h-[458px] w-[388px] p-[20px] shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)] bg-white">
-      
+
       {/* Title */}
       <h2 className="text-main text-start">{title}</h2>
 
@@ -64,9 +64,8 @@ export const Pie_chart = ({ data }) => {
                 />
               )}
               <p
-                className={`text-sm font-medium ${
-                  isPositive ? 'text-green-600' : 'text-red-600'
-                }`}
+                className={`text-sm font-medium ${isPositive ? 'text-green-600' : 'text-red-600'
+                  }`}
               >
                 {percentage}%
               </p>
@@ -146,26 +145,26 @@ export const Round_Pie_chart = ({ data }) => {
 
 
         {/* Pie Chart */}
-       <div className="w-[205px] h-[205px] min-w-[205px] min-h-[205px] shrink-0 relative flex justify-center items-center -translate-y-5 -translate-x-6">
-  <ResponsiveContainer width="100%" height="100%">
-    <PieChart>
-      <Pie
-        data={stats}
-        dataKey="value"
-        nameKey="name"
-        innerRadius={60}
-        outerRadius={95}
-        paddingAngle={2}
-        cornerRadius={11}
-      >
-        {stats.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-        ))}
-      </Pie>
-      <Tooltip />
-    </PieChart>
-  </ResponsiveContainer>
-</div>
+        <div className="w-[205px] h-[205px] min-w-[205px] min-h-[205px] shrink-0 relative flex justify-center items-center -translate-y-5 -translate-x-6">
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={stats}
+                dataKey="value"
+                nameKey="name"
+                innerRadius={60}
+                outerRadius={95}
+                paddingAngle={2}
+                cornerRadius={11}
+              >
+                {stats.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
 
         {/* Order Details Below */}
         <div className="w-[355px] h-[90px] mb-[73px]">

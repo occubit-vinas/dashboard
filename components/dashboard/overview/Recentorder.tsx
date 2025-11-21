@@ -1,18 +1,18 @@
 import React from 'react'
-
+import { btn_label } from '@/data/dashboard/constants'
 const Recentorder = ({ data }) => {
   return (
     <div className="min-w-[872px] bg-white rounded-2xl p-4 flex flex-col h-[302px] shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)]">
       {/* Header */}
-      <p className="text-main mb-2">Recent Orders</p>
+      <p className="text-main mb-2">{btn_label.rc}</p>
 
       {/* Table Header */}
       <div className="grid grid-cols-6  bg-purple-100 inter text-sm py-2 px-2 rounded-xl">
-        <p className="col-span-2 translate-x-2">Email</p>
-        <p className='-translate-x-6'>Total Products</p>
-        <p className='-translate-x-3'>Total Amount</p>
-        <p className='translate-x-4'>Date</p>
-        <p className='translate-x-4'>Payment</p>
+        <p className="col-span-2 translate-x-2">{btn_label.em}</p>
+        <p className='-translate-x-6'>{btn_label.topr}</p>
+        <p className='-translate-x-3'>{btn_label.ta}</p>
+        <p className='translate-x-4'>{btn_label.da}</p>
+        <p className='translate-x-4'>{btn_label.pa}</p>
       </div>
 
       {/* Table Body */}

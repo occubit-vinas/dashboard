@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { btn_label } from "@/data/dashboard/constants";
 const ImageDropzone = ({
   onChange,
 }: {
@@ -30,7 +30,7 @@ const ImageDropzone = ({
           className="max-h-40 object-contain rounded"
         />
       ) : (
-        <p>Drop image here or click to browse</p>
+        <p>{btn_label.dih}</p>
       )}
       <input
         id="file-upload"

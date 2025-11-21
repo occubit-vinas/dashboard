@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { White_button, Purple_button } from '@/app/(topdashboard)/dashboard/components/top_buttons'
 import Top_nav_bar from '@/app/(topdashboard)/dashboard/components/Top_nav_bar'
 import { NAVLINKS } from '@/data/dashboard/constants'
+import { btn_label } from '@/data/dashboard/constants'
 const Topbar = () => {
   const [active, setActive] = useState<number | null>(0)
   const pathname = usePathname() ?? ""; // ensure it's never null
@@ -109,9 +110,9 @@ const Topbar = () => {
         <div className="flex flex-row justify-between items-center ml-[115px] mr-[50px]">
           {/* Left: Title and subtitle */}
           <div className='flex flex-col gap-1.5'>
-            <h1 className="text-title">Store Analysis</h1>
+            <h1 className="text-title">{btn_label.sa}</h1>
             <p className="text-sm text-gray-500">
-              Track performance, analyze trends, and make data-driven decisions
+              {btn_label.tpat}
             </p>
           </div>
 

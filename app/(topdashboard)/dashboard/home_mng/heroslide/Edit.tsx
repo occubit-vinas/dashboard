@@ -1,10 +1,9 @@
 'use client';
-
 import React, { useState, ChangeEvent } from 'react';
 import Image from 'next/image';
 import { Upload } from 'lucide-react'; // Make sure lucide-react is installed
 import { Purple_button, White_button } from '../../components/top_buttons';
-import {home_mng} from '@/data/dashboard/constants';
+import { home_mng } from '@/data/dashboard/constants';
 
 interface FormData {
   title: string;
@@ -75,13 +74,13 @@ const Edit = ({ setopenedit }) => {
 
       {/* Tabs */}
       <div className="flex gap-2 bg-purple-700 rounded-xl p-1 shadow-sm">
-        {[home_mng.sd , home_mng.app].map((tab) => (
+        {[home_mng.sd, home_mng.app].map((tab) => (
           <button
             key={tab}
             onClick={toggleTab}
             className={`flex-1 py-1 rounded-lg text-lg font-bold transition-all duration-200 ${activeTab === tab
-                ? 'bg-white text-black shadow-sm'
-                : 'text-white hover:text-black'
+              ? 'bg-white text-black shadow-sm'
+              : 'text-white hover:text-black'
               }`}
           >
             {tab}

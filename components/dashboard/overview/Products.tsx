@@ -1,11 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
-
+import { btn_label } from '@/data/dashboard/constants'
 const Products = ({ data }) => {
     return (
         <div className=" bg-white rounded-2xl p-4 flex flex-col  h-[302px] min-w-[872px] shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)]">
             {/* Header */}
-            <p className="text-main mb-2">Top Products</p>
+            <p className="text-main mb-2">{btn_label.top}</p>
 
             {/* Product List */}
             <div className="overflow-y-auto max-h-[279px] scroll-container">

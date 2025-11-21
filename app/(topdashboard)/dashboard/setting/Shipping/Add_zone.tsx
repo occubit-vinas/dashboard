@@ -150,7 +150,7 @@ const Add_zone:React.FC<AddZoneProps> = ({ onClose, onAdd }) => {
 
                 {/* Cost Field */}
                 <div className='flex flex-col gap-2 w-full'>
-                    <p className='ml-2'>{shi_stg.c} ($)</p>
+                    <p className='ml-2'>{shi_stg.co} ($)</p>
                     <input
                         type="number"
                         placeholder={shi_stg.ec}
@@ -166,7 +166,7 @@ const Add_zone:React.FC<AddZoneProps> = ({ onClose, onAdd }) => {
                 <p className='ml-2'>{shi_stg.ed}</p>
                 <input
                     type="number"
-                    placeholder={shi_stg.ed}
+                    placeholder={shi_stg.end}
                     className='in-field border p-2 rounded-lg'
                     value={formData.days}
                     onChange={(e) => handleChange("days", e.target.value)}

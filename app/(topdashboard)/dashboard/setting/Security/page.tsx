@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Purple_button, Toggle_btn } from '../../components/top_buttons';
 import {secu_stg} from '@/data/dashboard/constants';
 const Page = () => {
@@ -28,8 +28,15 @@ const Page = () => {
 
     const handleaddip=()=>{
         if(!inputip.trim()) return;
-        setip([...ip,inputip]);
-        setinputip('');
+        
+        setip(prev=>{
+          const newlist = [...prev,inputip];
+          console.log(newlist);
+          setinputip('');
+          return newlist;
+        })
+        
+        
     }
     const handlesessionchange=(e)=>{
         const {name,value}=e.target;
@@ -157,7 +164,7 @@ const Page = () => {
     {/* Secure Cookies */}
     <div className="flex flex-row justify-between items-center flex-1">
       <div className='flex flex-col gap-1.5'>
-        <p className="text-first font-medium">{secu_stg.sc}</p> {/* Note: 'sc' reused, but in your object it's Secure Cookies */}
+        <p className="text-first font-medium">{secu_stg.sec}</p> {/* Note: 'sc' reused, but in your object it's Secure Cookies */}
         <p className="text-third text-sm">{secu_stg.usc}</p>
       </div>
       <Toggle_btn

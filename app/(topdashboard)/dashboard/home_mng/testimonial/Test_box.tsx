@@ -152,7 +152,7 @@ export default function Test_box({ setaddbox }: { setaddbox: (v: boolean) => voi
           {/* Buttons */}
           <div className="flex justify-center gap-3">
             <Cancel onClick={() => setaddbox(false)} />
-            <Purple_button label={home_mng.ct} />
+            <Purple_button label={home_mng.cute} />
           </div>
         </div>
       </div>

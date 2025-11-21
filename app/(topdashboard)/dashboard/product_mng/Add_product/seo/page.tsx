@@ -80,7 +80,7 @@ const Page = () => {
         <div className="flex flex-row gap-6">
           {/* SEO Title */}
           <div className="w-1/2 flex flex-col gap-2">
-            <h1 className="text-first ml-3">{add_pro_seo.st}</h1>
+            <h1 className="text-first ml-3">{add_pro_seo.stit}</h1>
             <textarea
               rows={4}
               placeholder={add_pro_seo.est}

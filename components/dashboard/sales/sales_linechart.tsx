@@ -11,7 +11,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-
+import { btn_label } from "@/data/dashboard/constants";
 const Sales_linechart = () => {
   const [timeframe, setTimeframe] = useState<"day" | "week" | "month" | "year">("month");
 
@@ -58,8 +58,8 @@ const Sales_linechart = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h2 className="text-main">Revenue Trend</h2>
-          <p className="text-sm text-gray-500">Revenue and order volume</p>
+          <h2 className="text-main">{btn_label.rt}</h2>
+          <p className="text-sm text-gray-500">{btn_label.raov}</p>
         </div>
 
         {/* Timeframe Selector */}

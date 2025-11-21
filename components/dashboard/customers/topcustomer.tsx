@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-
+import {btn_label} from '@/data/dashboard/constants';
 interface Customer {
   id: string;
   email: string;
@@ -13,9 +13,9 @@ const TopCustomer = ({ data }: { data: Customer[] }) => {
     <div className="w-[388px] h-[458px] px-[20px] pt-[20px] bg-white rounded-2xl flex flex-col shadow-[0_0_2px_0.5px_rgba(0,0,0,0.25)]">
       {/* Header */}
       <div>
-        <h1 className="text-main">Top Customers</h1>
+        <h1 className="text-main">{btn_label.tp}</h1>
         <p className="text-sm text-gray-600  pb-[20px]">
-          key performance indicators breakdown
+          {btn_label.kpi}
         </p>
       </div>
 

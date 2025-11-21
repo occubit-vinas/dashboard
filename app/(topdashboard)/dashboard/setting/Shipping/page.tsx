@@ -13,7 +13,6 @@ const Page = () => {
   return (
     <div className='bg-white p-4 rounded-xl mt-6'>
       <div className='w-full flex flex-col gap-4 '>
-        
         <div className='flex flex-row justify-between'>
           <p className='my-title'>{shi_stg.sz}</p>
           {zones === true && <Purple_button label={shi_stg.asz} onClick={() => setisopen(true)} />}

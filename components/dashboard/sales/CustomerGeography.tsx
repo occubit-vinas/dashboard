@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
-
+import { btn_label } from "@/data/dashboard/constants";
 // TopoJSON URL
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
@@ -94,8 +94,8 @@ export default function CustomerGeography() {
     <div className="w-full bg-white rounded-lg shadow p-6">
       {/* Header */}
       <div className="mb-4">
-        <h2 className="text-main">Customer Demographics</h2>
-        <p className="text-sm text-gray-500">Geographic sales distribution by country</p>
+        <h2 className="text-main">{btn_label.cug}</h2>
+        <p className="text-sm text-gray-500">{btn_label.gsd}</p>
         <hr className="border-gray-700 border-1 mt-2 w-full" />
       </div>
 

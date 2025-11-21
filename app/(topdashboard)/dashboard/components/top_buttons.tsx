@@ -10,6 +10,7 @@ import { BsArrowDownShort, BsArrowUpShort } from 'react-icons/bs';
 import { CgViewGrid } from "react-icons/cg";
 import { PiListBold } from "react-icons/pi";
 import Image from 'next/image';
+import { btn_label } from '@/data/dashboard/constants';
 export const SearchBar = () => {
   return (
     <div className="border border-[#6C6C80] rounded-md flex flex-row items-center px-3 py-2">
@@ -26,7 +27,7 @@ export const Filter = () => {
   return (
     <div className="border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer">
       <BiFilterAlt />
-      <p className="text-second ml-1">Filter</p>
+      <p className="text-second ml-1">{btn_label.f}</p>
     </div>
   );
 };
@@ -34,7 +35,7 @@ export const Showfilter = ({setshowfilter,showfilter}) => {
   return (
     <div className="border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer" onClick={()=>setshowfilter(!showfilter)}>
       <BiFilterAlt />
-      <p className="text-second ml-1">Show Filter</p>
+      <p className="text-second ml-1">{btn_label.sf}</p>
     </div>
   );
 };
@@ -42,7 +43,7 @@ export const Hidefilter = ({setshowfilter,showfilter}) => {
   return (
     <div className="border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer btn-clr text-white" onClick={()=>setshowfilter(!showfilter)}>
       <BiFilterAlt />
-      <p className="text-white ml-1">Hide Filter</p>
+      <p className="text-white ml-1">{btn_label.hf}</p>
     </div>
   );
 };
@@ -50,19 +51,18 @@ export const Refresh = () => {
   return (
     <div className=" border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer">
       <MdOutlineRefresh /> 
-      <p className="text-second ml-1">Refresh</p>
+      <p className="text-second ml-1">{btn_label.r}</p>
     </div>
   );
 };
-export const Add_cat = ({onClick}) => {
-      
 
+export const Add_cat = ({onClick}) => {
   return (
     <div className="btn-clr border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer" onClick={onClick}>
       {/* <CiSquarePlus className='text-white size-5'/>  */}
              <Image src='/dashboard/add-square.svg' height={15} width={15} alt='image'/> 
 
-      <p className="text-white ml-1">Add Category</p>
+      <p className="text-white ml-1">{btn_label.ac}</p>
     </div>
   );
 };
@@ -71,7 +71,7 @@ export const Add_color_varient = ({onClick}) => {
   return (
     <div className="w-50 btn-clr border border-[#6C6C80] rounded-md flex flex-row justify-center items-center gap-1 px-3 py-2 cursor-pointer" onClick={onClick}>
        <Image src='/dashboard/add-square.svg' height={15} width={15} alt='image'/> 
-      <p className="text-white">Add Color Varients</p>
+      <p className="text-white">{btn_label.acv}</p>
     </div>
   );
 };
@@ -79,7 +79,7 @@ export const Add_color_varient = ({onClick}) => {
 export const Cancel = ({onClick}) => {
   return (
     <div className=" border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer" onClick={onClick}>
-      <p className="text-second ">Cancel</p>
+      <p className="text-second ">{btn_label.c}</p>
     </div>
   );
 };
@@ -112,7 +112,7 @@ export const Delete_button = ({onClick,label,img='/dashboard/trash.png'}) => {
   return (
     <div className=" border border-red-500 rounded-md flex flex-row gap-1.5 justify-center items-center px-3 py-1 cursor-pointer  text-white" onClick={onClick}>
       {img && <Image src={img} alt='img' height={10} width={10} className='size-4'/>}
-      <p className="text-red-500">Delete</p>
+      <p className="text-red-500">{btn_label.d}</p>
     </div>
   );
 };
@@ -120,7 +120,7 @@ export const Create = ({onClick}) => {
   return (
     <div className=" border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer btn-clr text-white" onClick={onClick}>
       
-      <p className="">Create</p>
+      <p className="">{btn_label.c}</p>
     </div>
   );
 };
@@ -131,7 +131,7 @@ export const Add_product = ({onClick}) => {
   return (
     <div className="btn-clr border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer" onClick={onClick}>
       <Image src='/dashboard/add-square.svg' height={15} width={15} alt='img'/> 
-      <p className="text-white ml-1">Add Product</p>
+      <p className="text-white ml-1">{btn_label.ap}</p>
     </div>
   );
 };
@@ -141,7 +141,7 @@ export const Add_Coupon = ({onClick}) => {
   return (
     <div className="btn-clr border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-1 cursor-pointer" onClick={onClick}>
       <Image src='/dashboard/add-square.svg' height={15} width={15} alt='image'/> 
-      <p className="text-white ml-1">Add Coupon</p>
+      <p className="text-white ml-1">{btn_label.ac}</p>
     </div>
   );
 };
@@ -149,7 +149,7 @@ export const Export = () => {
   return (
     <div className=" border border-[#6C6C80] rounded-md flex flex-row justify-center items-center px-3 py-2 cursor-pointer">
       <BiExport />
-      <p className="text-second ml-1">Export</p>
+      <p className="text-second ml-1">{btn_label.e}</p>
     </div>
   );
 };
@@ -172,7 +172,7 @@ export const Grid_button = ({
     onClick={() => view !== 'grid' && setview('grid')}
   >
     <CgViewGrid className={img_clr} />
-    <span className="ml-1">Grid</span>
+    <span className="ml-1">{btn_label.g}</span>
   </div>
 );
 
@@ -188,18 +188,18 @@ export const List_button = ({
     onClick={() => view !== 'list' && setview('list')}
   >
     <PiListBold className={img_clr} />
-    <span className="ml-1">List</span>
+    <span className="ml-1">{btn_label.l}</span>
   </div>
 );
 export const SortDropdown = ({setsortSelected,setsortOpen,sortselected,sortOpen}) => {
   
   const options = [
-    'Date Created',
-    'Date Updated',
-    'Name',
-    'Price',
-    'Stock',
-    'Rating',
+    btn_label.dc,
+    btn_label.du,
+    btn_label.n,
+    btn_label.p,
+    btn_label.s,
+    btn_label.ra,
   ];
 
   const handleSelect = (option: string) => {
@@ -253,12 +253,12 @@ export const SortOrderButton = ({order,setOrder}) => {
       {order === 'asc' ? (
         <>
           <BsArrowUpShort className="text-lg" />
-          Ascending
+          {btn_label.a}
         </>
       ) : (
         <>
           <BsArrowDownShort className="text-lg" />
-          Descending
+          {btn_label.de}
         </>
       )}
     </button>
@@ -281,12 +281,12 @@ export const Old_new_sort = ({order,setOrder}) => {
       {order === 'Newest First' ? (
         <>
           <BsArrowUpShort className="text-lg" />
-          Newest First
+          {btn_label.nf}
         </>
       ) : (
         <>
           <BsArrowDownShort className="text-lg" />
-          Oldest First
+          {btn_label.of}
         </>
       )}
     </button>

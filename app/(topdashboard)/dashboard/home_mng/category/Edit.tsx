@@ -109,7 +109,7 @@ const Edit: React.FC<EditProps> = ({ setopenedit }) => {
         {/* Action Buttons */}
         <div className="flex justify-end gap-3">
           <Cancel onClick={() => setopenedit(false)} />
-          <Purple_button label={home_mng.up} />
+          <Purple_button label={home_mng.uc} />
         </div>
       </div>
     </>
